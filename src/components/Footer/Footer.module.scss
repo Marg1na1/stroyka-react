@@ -1,0 +1,69 @@
+.footer{
+    background-color: var(--gunmetal-color);
+    color: var(--titan-color);
+    &-main{
+        display: flex;
+        padding: 40px 0;
+        justify-content: space-between;
+    }
+    &-nav{
+        display: flex;
+        &-list{
+            display: flex;
+            flex-direction: column;
+            width: 278px;
+            overflow: hidden;
+            &:last-child{
+                width: 180px;
+            }
+          &__item{
+            padding-bottom: 16px;
+            transition: .3s;
+            display: flex;
+            align-items: center;
+            img{
+                transform: translateX(-16px);
+                transition: .3s;
+            }
+            &:hover{
+                transform: translateX(30px);
+                img{
+                    transform: translateX(0px);
+                }
+            }
+          }  
+        }
+    }
+    &-contacts{
+
+    }
+    &-cellar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid var(--granite-gray-color);
+        padding: 16px 0 20px 0;
+    }
+    &-payment{
+        display: flex;
+        align-items: center;
+        img{
+            &:not(:last-child){
+                margin-right: 16px;
+            }
+        }
+    }
+}
+.email{
+    display: flex;
+    padding: 16px 0;
+    img{
+        margin-right: 8px;
+    }
+}
+.adress{
+    display: flex;
+    img{
+        margin-right: 8px;
+    }
+}
