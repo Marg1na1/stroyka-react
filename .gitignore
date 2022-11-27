@@ -3,7 +3,8 @@
 /node_modules
 /.pnp
 .pnp.js
-package-lock.json
+/package-lock.json
+data.json
 
 # testing
 /coverage
@@ -13,9 +14,10 @@ package-lock.json
 
 # misc
 .DS_Store
+*.env.ts
 .env.local
 .env.development.local
-.env.test.local
+.env.test.localn  
 .env.production.local
 
 npm-debug.log*

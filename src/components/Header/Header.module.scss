@@ -26,6 +26,9 @@
         max-height: 22px;
         &__btn{ 
             display: flex;
+            background-color: transparent;
+            padding: 0;
+            border: none;
             svg{
                 path{
                     transition: .3s;
@@ -177,6 +180,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            background-color: transparent;
+            border: none;
         }
         
     }

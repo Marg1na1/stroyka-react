@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import style from './Footer.module.scss';
+import { navItems } from '../../data/footer.data';
 
 const logo = './../assets/images/footer-logo.svg';
 const mail = './../assets/images/mail_icon.svg';
@@ -12,22 +13,6 @@ const mir = './../assets/images/mir_logo.svg';
 const arrow = './../assets/images/white_arrow_icon.svg';
 
 const Footer: FC = () => {
-
-    const navItems = [
-        { text: 'Личный кабинет', path: '/profile', },
-        { text: 'Заказы', path: '/orders', },
-        { text: 'Избранное', path: '/favorites', },
-        { text: 'Корзина', path: '/cart', },
-        { text: 'Каталог', path: '/catalog', },
-        { text: 'Акции', path: '/sales', },
-        { text: 'Бренды', path: '/brands', },
-        { text: 'Контакты', path: '/contacts', },
-        { text: 'Стать продавцом', path: '/', },
-        { text: 'Доставка', path: '/delivery', },
-        { text: 'Возврат', path: '/refund', },
-        { text: 'Документация', path: '/documentation', },
-    ];
-
     return (
         <footer className={style['footer']}>
             <div className='container'>
@@ -50,8 +35,8 @@ const Footer: FC = () => {
                             {
                                 navItems.map((obj, i) => (
                                     i < 4 ?
-                                        <Link to={obj.path} className={style['footer-nav-list__item']}>
-                                            <img src={arrow}/>{obj.text}
+                                        <Link to={obj.path} className={style['footer-nav-list__item']} key={i}>
+                                            <img src={arrow} />{obj.text}
                                         </Link> : ''
                                 ))
                             }
@@ -60,8 +45,8 @@ const Footer: FC = () => {
                             {
                                 navItems.map((obj, i) => (
                                     i > 3 && i < 8 ?
-                                        <Link to={obj.path} className={style['footer-nav-list__item']}>
-                                            <img src={arrow}/>{obj.text}
+                                        <Link to={obj.path} className={style['footer-nav-list__item']} key={i}>
+                                            <img src={arrow} />{obj.text}
                                         </Link> : ''
                                 ))
                             }
@@ -70,8 +55,8 @@ const Footer: FC = () => {
                             {
                                 navItems.map((obj, i) => (
                                     i > 7 ?
-                                        <Link to={obj.path} className={style['footer-nav-list__item']}>
-                                            <img src={arrow}/>{obj.text}
+                                        <Link to={obj.path} className={style['footer-nav-list__item']} key={i}>
+                                            <img src={arrow} />{obj.text}
                                         </Link> : ''
                                 ))
                             }

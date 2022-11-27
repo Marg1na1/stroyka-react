@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
-import {stroykaApi} from './stroykaAPI';
+import { stroykaApi } from './stroyka.api';
 
 export const store = configureStore({
     reducer: {
