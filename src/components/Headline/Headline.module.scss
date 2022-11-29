@@ -1,0 +1,42 @@
+.headline{
+    &-layout{
+        max-width: 1390px;
+        padding: 0 15px;
+        margin: 0 auto;
+        position: relative;
+        min-height: 100px;
+        &__img{
+
+        }
+    }
+    &__content{
+        position: absolute;
+        top: 41px;
+        left: 100px;
+        &--static{
+            position: static;
+        }
+    }
+    &__empty-layout{
+        max-width: 1190px;
+        padding: 0 15px;
+        margin: 0 auto;
+    }
+    &-breadcrumbs{
+        display: flex;
+        color: var(--gunmetal-color);
+        p{
+            margin: 0 5px;
+        }
+    }
+    &-title{
+        margin-top: 20px;
+    }
+    &-descr{
+        margin-top: 20px;
+        color: var(--gunmetal-color);
+        font-size: 20px;
+        line-height: 150%;
+        max-width: 500px;
+    }
+}

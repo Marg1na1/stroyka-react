@@ -1,0 +1,40 @@
+.faq{
+    &-item{
+        &__corner{
+            transform: rotate(90deg);
+            transition: .3s;
+            &--active{
+                transform: rotate(-90deg);
+            }
+        }
+    }
+    &-btn{ 
+        background-color: transparent;
+        border: none;
+        padding: 16px 20px;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 136%;
+        color: var(--black-color);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 768px;
+        text-align: left;
+    }
+
+    &-container{
+        overflow: hidden;
+        padding-left: 20px;
+        max-height: 0px;
+        transition: .3s ease-in-out;
+        &--active{
+            max-height: 200px;
+        }
+    }
+    &-answer{
+        &:not(:last-child){
+            margin-bottom: 20px;
+        }
+    }
+}

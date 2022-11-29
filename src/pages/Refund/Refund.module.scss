@@ -1,0 +1,30 @@
+.refund{
+    &-list{
+    }
+    &-item{
+        display: flex;
+        justify-content: space-between;
+        &:not(:last-child){
+            margin-bottom: 80px;
+        }
+        &__title{
+            font-weight: 600;
+            font-size: 34px;
+            line-height: 130%;
+            color: var(--gunmetal-color);
+            max-width: 318px;
+        }
+        &__text{
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 150%;
+            max-width: 768px;
+            &:not(:last-child){
+                margin-bottom: 25px;
+            }
+        }
+        &__content{
+            
+        }
+    }
+}

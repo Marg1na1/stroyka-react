@@ -10,3 +10,9 @@ export type TCard = {
     discount: string;
     discountAmount?: number;
 }
+
+export type THeadlineBreadcrumbs = {
+    path?: string;
+    title: string;
+    type: 'link' | 'seperator';
+}
