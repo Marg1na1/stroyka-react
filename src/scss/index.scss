@@ -11,4 +11,14 @@
     line-height: 120%;
     color: var(--eerie-black-color);
 }
+[class*="copyrights-pane"] {
+    display: none !important;
+}
+[class*="ground-pane"]{
+    filter: grayscale(1);
+}
+[class*="svg-icon"]{
+    filter: grayscale(1);
+}
+
 

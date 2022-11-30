@@ -1,11 +1,11 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './layout/Layout';
+import Contacts from './pages/Contacts/Contacts';
 import Delivery from './pages/Delivery/Delivery';
 import Documentation from './pages/Documentation/Documentation';
 import Home from './pages/Home/Home';
 import Refund from './pages/Refund/Refund';
-
 
 const App: FC = () => {
     return (
@@ -15,6 +15,7 @@ const App: FC = () => {
                 <Route path='delivery' element={<Delivery />} />
                 <Route path='refund' element={<Refund />} />
                 <Route path='documentation' element={<Documentation />} />
+                <Route path='contacts' element={<Contacts />} />
             </Route>
         </Routes>
     );
