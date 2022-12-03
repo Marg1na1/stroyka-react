@@ -4,6 +4,7 @@ import HeroSlider from '../../components/Slider/Slider';
 import PopularProducts from '../../components/PopularProducts/PopularProducts';
 import style from './Home.module.scss';
 import Hero from '../../components/Hero/Hero';
+import Reviews from '../../components/Reviews/Reviews';
 
 
 const Home: FC = () => {
@@ -13,7 +14,8 @@ const Home: FC = () => {
             <HeroSlider />
             <Discount />
             <PopularProducts />
-            <Hero/>
+            <Reviews />
+            <Hero />
         </section>
     );
 }

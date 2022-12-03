@@ -16,3 +16,10 @@ export type THeadlineBreadcrumbs = {
     title: string;
     type: 'link' | 'seperator';
 }
+
+export type TReviews = {
+    avatar: string;
+    content: string;
+    name: string;
+    createdAt: string;
+}
