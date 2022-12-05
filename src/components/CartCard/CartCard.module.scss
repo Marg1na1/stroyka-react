@@ -31,6 +31,7 @@
             background-color: transparent;
             position: relative;
             transition: .3s;
+            outline: none;
             &:hover{
                 cursor: pointer;
                 background-color: var(--eerie-black-color);
@@ -40,6 +41,14 @@
                 }
                 &::after{
                     background-color: var(--white-color);
+                }
+            }
+            &:active{
+                &::before{
+                    background-color: var(--light-gray-color);
+                }
+                &::after{
+                    background-color: var(--light-gray-color);
                 }
             }
             &--plus{
@@ -114,6 +123,9 @@
             background-color: var(--eerie-black-color);
             color: var(--white-color);
             transition: .3s;
+        }
+        &:active{
+            color: var(--light-gray-color);
         }
     }
 }

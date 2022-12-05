@@ -6,6 +6,7 @@ import Headline from '../../components/Headline/Headline';
 import { headData } from '../../data/cart.data';
 import { useGetCartQuery } from '../../redux/injected/injectedCart';
 import style from './Cart.module.scss';
+import EmptyCart from './EmptyCart';
 
 const Cart: FC = ({ }) => {
 
@@ -13,18 +14,24 @@ const Cart: FC = ({ }) => {
 
     return (
         <section className={style['cart']}>
-            <Headline {...headData} />
-            <div className={clsx(style['cart-container'], 'container')}>
-                <CartSide />
-                <ul>
-                    {
+            {
+                data.length <= 0 ? <EmptyCart /> : <>
+                    <Headline {...headData} />
+                    <div className={clsx(style['cart-container'], 'container')}>
+                        <CartSide data={data} />
+                        <ul>
+                            {
 
-                        !isLoading && data.map((obj: any, i: number) => (
-                            <CartCard {...obj} key={i} />
-                        ))
-                    }
-                </ul>
-            </div>
+                                !isLoading && data.map((obj: any, i: number) => (
+                                    <CartCard {...obj} key={i} />
+                                ))
+                            }
+                        </ul>
+                    </div>
+                </>
+            }
+
+
         </section>
     );
 }

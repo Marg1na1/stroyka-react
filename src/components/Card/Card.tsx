@@ -39,6 +39,7 @@ const Card: FC<testType> = ({ img, title, price, discount, horizontal = false, d
             const currentCount = data.find((obj: TCartCard) => obj.fixId === item.fixId)
             item.count += currentCount!.count + 1
             item.id = currentCount!.id
+            // item.finalPrice = finalPrice * item.count
             await changeCartItem(item)
         } else {
             item.count += 1

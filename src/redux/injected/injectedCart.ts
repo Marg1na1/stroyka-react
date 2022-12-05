@@ -1,4 +1,4 @@
-import {  TCartCard } from './../../@types/globalTypes';
+import { TCartCard } from './../../@types/globalTypes';
 import { stroykaApi } from '../stroyka.api';
 
 const injectedCart = stroykaApi.injectEndpoints({
@@ -8,9 +8,9 @@ const injectedCart = stroykaApi.injectEndpoints({
                 url: 'cart',
             }),
             providesTags: (result) =>
-            result
-                ? [...result.map(({ id }) => ({ type: 'CartItems' as const, id })), 'CartItems']
-                : ['CartItems'],
+                result
+                    ? [...result.map(({ id }) => ({ type: 'Cart' as const, id })), 'Cart']
+                    : ['Cart'],
         }),
         addCartItem: builder.mutation({
             query: ({ id, ...data }) => ({
@@ -18,6 +18,7 @@ const injectedCart = stroykaApi.injectEndpoints({
                 method: 'POST',
                 body: data,
             }),
+            invalidatesTags: ['Cart'],
         }),
         changeCartItem: builder.mutation({
             query: ({ id, ...data }) => ({
@@ -25,12 +26,14 @@ const injectedCart = stroykaApi.injectEndpoints({
                 method: 'PUT',
                 body: data,
             }),
+            invalidatesTags: ['Cart'],
         }),
         deleteCartItem: builder.mutation({
             query: (id) => ({
                 url: `cart/${id}`,
                 method: 'DELETE',
             }),
+            invalidatesTags: ['Cart'],
         }),
     }),
     overrideExisting: false,
