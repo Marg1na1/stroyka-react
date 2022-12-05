@@ -4,7 +4,7 @@ import { url } from './api-key.env';
 
 export const stroykaApi = createApi({
     reducerPath: 'stroykaApi',
-    tagTypes: [],
+    tagTypes: ['CartItems'],
     baseQuery: fetchBaseQuery({ baseUrl: url }),
     refetchOnFocus: true,
     endpoints: () => ({}),

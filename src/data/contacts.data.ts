@@ -3,7 +3,7 @@ const breadcrumbsArr: THeadlineBreadcrumbs[] = [
     { path: '/', title: 'Главная', type: 'link' },
     { title: '→', type: 'seperator' },
     { path: ' ', title: 'Контакты', type: 'link' }
-]
+];
 
 export const headData = {
     breadcrumbs: breadcrumbsArr,
