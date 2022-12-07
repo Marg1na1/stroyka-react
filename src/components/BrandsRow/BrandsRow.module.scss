@@ -1,0 +1,44 @@
+.brands{ 
+    &-row{ 
+        display: grid;
+        grid-template-columns: 180px auto;
+        column-gap: 16px;
+        padding: 28px 0;
+        border-bottom: 1px solid var(--titan-color);
+        &__title{
+            font-weight: 600;
+            font-size: 34px;
+            line-height: 130%;
+            color: var(--gunmetal-color);
+        }
+        &-grid{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            row-gap: 12px;
+            column-gap: 16px;
+        }
+        &-item{
+            overflow-x: hidden;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 150%;
+            color: var(--gunmetal-color);
+            display: flex;
+            align-items: center;
+            transition: .4s;
+            &::before{
+                content: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 24 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 12H19' stroke='%23454950' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M12 5L19 12L12 19' stroke='%23454950' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+                margin-right: 4px;
+                transform: translateX(-20px);
+                transition: .4s;
+            }
+            &:hover{
+                cursor: pointer;
+                &::before{
+                    transform: translateX(0);
+                }
+                transform: translateX(20px);
+            }
+        }
+    }
+}

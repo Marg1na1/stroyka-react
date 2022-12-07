@@ -1,0 +1,29 @@
+.contacts{
+    &-main{
+        margin-top: 80px;
+        margin-bottom: 60px;
+    }
+    &-title{
+        font-weight: 600;
+        font-size: 34px;
+        line-height: 130%;
+        color: var(--gunmetal-color);
+    }
+    &-content{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        &__item{
+            font-family: var(--I-font);
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 150%;
+        }
+    }
+}
+.adress{
+    max-width: 376px;
+    .contacts-content__item{
+        margin-bottom: 30px;
+    }
+}
