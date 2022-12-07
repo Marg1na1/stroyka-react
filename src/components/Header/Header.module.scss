@@ -1,6 +1,7 @@
 .header{
     background-color: var(--white-color); 
     margin-bottom: 40px;
+    
     &-additional{
         display: flex;
         justify-content: space-between;
@@ -62,6 +63,9 @@
     &-main{
         display: flex;
         padding: 16px 0;
+        height: 83px;
+        background-color: var(--white-color);
+        position: static;
         &-btn{
             background-color: var(--yellow-color);
             max-height: 48px;
@@ -165,6 +169,11 @@
                     margin-top: 2px;
                 }
             }
+        }
+        &--sticky{
+            position: fixed;
+            top: 0;
+            z-index: 10000;
         }
     }
     &-form{

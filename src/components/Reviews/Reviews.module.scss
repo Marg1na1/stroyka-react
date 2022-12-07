@@ -11,7 +11,7 @@
         color: var(--gunmetal-color);
     }
     &-slider{
-        // height: 365px;
+        height: 365px;
     }
     &-slide{
         padding: 24px;
@@ -22,5 +22,12 @@
         &:hover{
             cursor: pointer;
         }
+    }
+    &-title{
+        font-weight: 600;
+        font-size: 34px;
+        line-height: 130%;
+        color: var(--gunmetal-color);
+        margin-bottom: 20px;
     }
 }

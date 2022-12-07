@@ -5,8 +5,16 @@ import CartSide from '../../components/CartSide/CartSide';
 import Headline from '../../components/Headline/Headline';
 import { headData } from '../../data/cart.data';
 import { useGetCartQuery } from '../../redux/injected/injectedCart';
+import EmptyPage from '../EmptyPage/EmptyPage';
 import style from './Cart.module.scss';
-import EmptyCart from './EmptyCart';
+
+const emptyCartData = {
+    title: 'Упс!',
+    subtitle: 'Корзина пуста',
+    descr: 'Добавьте хотябы один товар в корзину чтобы сделать заказ',
+    link_txt: 'К покупкам',
+    path: '/catalog'
+}
 
 const Cart: FC = ({ }) => {
 
@@ -15,7 +23,7 @@ const Cart: FC = ({ }) => {
     return (
         <section className={style['cart']}>
             {
-                data.length <= 0 ? <EmptyCart /> : <>
+                data.length <= 0 ? <EmptyPage {...emptyCartData}/> : <>
                     <Headline {...headData} />
                     <div className={clsx(style['cart-container'], 'container')}>
                         <CartSide data={data} />

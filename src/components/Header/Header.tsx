@@ -1,13 +1,43 @@
-import React, { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import style from './Header.module.scss';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import { additionalItems, navItem, breadCrumbs } from '../../data/header.data';
+import { YAN_TOKEN} from '../../redux/api-key.env';
 
 const logo = './../assets/images/logo_icon.svg';
 const search_icon = './../assets/images/search_icon.svg';
 
 const Header: FC = () => {
+
+    const [isSticky, setIsSticky] = useState(false);
+
+    // if ("geolocation" in navigator) {
+    //     navigator.geolocation.getCurrentPosition(position => {
+    //         const latitude = position.coords.latitude
+    //         const longitude = position.coords.longitude
+    //         fetch(`https://geocode-maps.yandex.ru/1.x/?apikey=${YAN_TOKEN}&geocode=${latitude},${longitude}&format=json`)
+    //             .then(response => response.json())
+    //             .then(response => console.log(response.response.GeoObjectCollection.featureMember))
+    //     })
+
+    // }
+    useEffect(() => {
+
+        const header = document.getElementById("header-main");
+        const sticky = header!.offsetTop;
+
+        window.onscroll = () => toggleSticky();
+
+        const toggleSticky = () => {
+            if (window.pageYOffset > sticky) {
+                setIsSticky(true);
+            } else {
+                setIsSticky(false)
+            }
+        }
+    })
+
     return (
         <header className={style['header']}>
             <div className='container'>
@@ -28,7 +58,7 @@ const Header: FC = () => {
                         }
                     </nav>
                 </div>
-                <div className={style['header-main']}>
+                <div id='header-main' className={isSticky ? clsx(style['header-main'], style['header-main--sticky']) : style['header-main']}>
                     <Link to={'/'} className={style['header-logo']}> <img src={logo} /> </Link>
                     <Link to={'catalog'} className={style['header-main-btn']}>
                         <div className={style['header-main-btn__lines']}>

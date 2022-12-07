@@ -13,7 +13,9 @@ const Reviews: FC = () => {
     return (
         <section className={style['reviews']}>
             <div className="container">
-
+                <h2 className={style['reviews-title']}>
+                    Отзывы
+                </h2>
                 <Swiper
                     className={style['reviews-slider']}
                     modules={[Navigation]}
