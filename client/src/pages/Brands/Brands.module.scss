@@ -1,0 +1,27 @@
+.brands{
+    &-nav{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        &__item{
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 136%;
+            color: var(--gunmetal-color);
+            border: 1px solid var(--light-gray-color);
+            transition: .2s ease-in-out;
+            &:hover{
+                background-color: var(--yellow-color);
+                border-color: var(--yellow-color);
+            }
+        }
+    }
+    &-list{
+
+    }
+}

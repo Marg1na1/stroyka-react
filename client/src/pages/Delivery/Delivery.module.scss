@@ -1,0 +1,42 @@
+.delivery{
+    &-tutorial{
+        
+    }
+    &-title{
+        font-weight: 600;
+        font-size: 34px;
+        line-height: 130%;
+        color: var(--gunmetal-color);
+    }
+    &-list{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 16px;
+        margin-top: 40px;
+        &__item{
+            p{
+                max-width: 250px;
+                margin-top: 10px;
+            }
+        }
+    }
+}
+.faq{
+    padding: 0 16px;
+    border: 1px solid var(--light-gray-color);
+    &-container{
+        max-width: 768px;
+        margin: 0 auto;
+    }
+    &-title{
+        font-weight: 600;
+        font-size: 34px;
+        line-height: 130%;
+        color: var(--gunmetal-color);
+        margin-top: 80px;
+        text-align: left;
+    }
+    &-list{
+        margin-top: 20px;
+    }
+}
