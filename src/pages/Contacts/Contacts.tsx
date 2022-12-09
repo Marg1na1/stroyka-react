@@ -6,6 +6,7 @@ import { contactsContent, headData } from '../../data/contacts.data';
 import Headline from '../../components/Headline/Headline';
 
 const Contacts: FC = () => {
+
     return (
         <section className={style['contacts']}>
             <Headline {...headData} />

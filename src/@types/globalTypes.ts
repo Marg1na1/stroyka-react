@@ -22,7 +22,7 @@ export type TCartCard = {
 }
 
 export type THeadlineBreadcrumbs = {
-    path?: string; 
+    path?: string;
     title: string;
     type: 'link' | 'seperator';
 }
@@ -36,4 +36,9 @@ export type TReviews = {
 export type TBrands = {
     title: string;
     list: string[]
+}
+export type TOrdersType = {
+    [key: number]: TCartCard
+    createdAt: string;
+    id: string;
 }

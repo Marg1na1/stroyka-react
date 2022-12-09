@@ -9,7 +9,7 @@ const injectedCart = stroykaApi.injectEndpoints({
             }),
             providesTags: (result) =>
                 result
-                    ? [...result.map(({ id }) => ({ type: 'Cart' as const, id })), 'Cart']
+                    ? [...result.map(({ id }) => ({ type: 'Cart' as const, id })), 'Cart'] 
                     : ['Cart'],
         }),
         addCartItem: builder.mutation({

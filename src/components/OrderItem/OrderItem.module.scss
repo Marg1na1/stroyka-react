@@ -1,0 +1,27 @@
+.order-item{
+    display: flex;
+    &__main{
+       
+    }
+    &__title{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        color: var(--gunmetal-color);
+        margin-bottom: 16px;
+    }
+    &__price{
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 140%;
+        color: var(--eerie-black-color);
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+    &__count{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        color: var(--gunmetal-color);
+    }
+}   

@@ -12,15 +12,15 @@ type TFAQItem = {
     }[];
     id: number;
     selected: number | null;
-    testOpen: (x: number) => void
+    openAccord: (x: number) => void
 }
 
 
-const FAQItem: FC<TFAQItem> = ({ question, answer, id, selected, testOpen }) => {
+const FAQItem: FC<TFAQItem> = ({ question, answer, id, selected, openAccord }) => {
 
     return (
         <li className={style['faq-item']}>
-            <button className={clsx(style['faq-btn'], 'btn-reset')} onClick={() => testOpen(id)}>
+            <button className={clsx(style['faq-btn'], 'btn-reset')} onClick={() => openAccord(id)}>
                 {question} <img className={selected === id ? clsx(style['faq-item__corner'], style['faq-item__corner--active']) : style['faq-item__corner']} src={corner_icon} alt="" />
             </button>
             {

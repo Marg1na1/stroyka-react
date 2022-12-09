@@ -13,6 +13,7 @@ const mir = './../assets/images/mir_logo.svg';
 const arrow = './../assets/images/white_arrow_icon.svg';
 
 const Footer: FC = () => {
+    
     return (
         <footer className={style['footer']}>
             <div className='container'>

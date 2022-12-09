@@ -5,6 +5,7 @@ import { categoryData, headData } from '../../data/catalog.data';
 import style from './Catalog.module.scss';
 
 const Catalog: FC = ({ }) => {
+
     return (
         <section className={style['catalog']}>
             <Headline {...headData} />

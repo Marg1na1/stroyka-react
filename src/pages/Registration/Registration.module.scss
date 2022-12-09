@@ -39,7 +39,9 @@
         &:not(:last-child){
             margin-right: 16px;
         }
-        
+        p{
+            color: red;
+        }
     }
     &-input{
         background-color: transparent;

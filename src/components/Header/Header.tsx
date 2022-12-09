@@ -2,8 +2,8 @@ import { FC, useEffect, useState } from 'react';
 import style from './Header.module.scss';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
-import { additionalItems, navItem, breadCrumbs } from '../../data/header.data';
-import { YAN_TOKEN} from '../../redux/api-key.env';
+import { additionalItems, navItem, breadCrumbs, } from '../../data/header.data';
+import { YAN_TOKEN } from '../../redux/api-key.env';
 
 const logo = './../assets/images/logo_icon.svg';
 const search_icon = './../assets/images/search_icon.svg';

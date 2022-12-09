@@ -9,7 +9,7 @@ const Delivery: FC = () => {
 
     const [selected, setSelected] = useState<number | null>(null);
 
-    const testOpen = (i: number) => {
+    const openAccord = (i: number) => {
         if (selected === i) {
             setSelected(null)
         } else {
@@ -42,7 +42,7 @@ const Delivery: FC = () => {
                         <ul className={clsx(style['faq-list'], 'mb80')}>
                             {
                                 FAQData.map((obj, i) => (
-                                    <FAQItem {...obj} selected={selected} testOpen={testOpen} key={i} />
+                                    <FAQItem {...obj} selected={selected} openAccord={openAccord} key={i} />
                                 ))
                             }
                         </ul>

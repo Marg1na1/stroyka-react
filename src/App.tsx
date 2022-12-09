@@ -9,6 +9,7 @@ import Delivery from './pages/Delivery/Delivery';
 import Documentation from './pages/Documentation/Documentation';
 import EmptyPage from './pages/EmptyPage/EmptyPage';
 import Home from './pages/Home/Home';
+import Orders from './pages/Orders/Orders';
 import Refund from './pages/Refund/Refund';
 import Registration from './pages/Registration/Registration';
 
@@ -33,6 +34,7 @@ const App: FC = () => {
                 <Route path='catalog' element={<Catalog />} />
                 <Route path='cart' element={<Cart />} />
                 <Route path='reg' element={<Registration />} />
+                <Route path='orders' element={<Orders />} />
                 <Route path='*' element={<EmptyPage {...errorPageData} />} />
             </Route>
         </Routes>
