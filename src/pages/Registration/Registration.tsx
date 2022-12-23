@@ -124,6 +124,11 @@ const Registration: FC = ({ }) => {
                                     Пароль
                                     <input type={'password'}
                                         {...register('password', {
+                                            required: "Поле обязательно к заполнению ",
+                                            minLength: {
+                                                value: 9,
+                                                message: 'Пароль должен состоять минимум из 9 символов'
+                                            },
                                             pattern: {
                                                 value: /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/,
                                                 message: 'Пароль должен содержать строчные, прописные латинские буквы, цифры и спецсимволы'
@@ -136,12 +141,16 @@ const Registration: FC = ({ }) => {
                                     Подтверждение пароля
                                     <input type={'password'}
                                         {...register("cpassword", {
+                                            required: "Поле обязательно к заполнению ",
+                                            minLength: {
+                                                value: 9,
+                                                message: 'Пароль должен состоять минимум из 9 символов'
+                                            },
                                             validate: (value) => {
                                                 const { password } = getValues();
                                                 return password === value || "Пароли не совпадают!";
                                             }
                                         })}
-
                                         className={style['registration-input']} />
                                     {errors?.cpassword && <p>{errors?.cpassword?.message}</p>}
                                 </label>

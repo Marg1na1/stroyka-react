@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import style from './Card.module.scss';
 import clsx from 'clsx';
-import { TCard, TCartCard } from '../../@types/globalTypes';
+import { TCartCard } from '../../@types/globalTypes';
 import { useAddCartItemMutation, useChangeCartItemMutation, useGetCartQuery } from '../../redux/injected/injectedCart';
 
 type testType = {
@@ -20,10 +20,12 @@ type testType = {
 
 const Card: FC<testType> = ({ img, title, price, discount, horizontal = false, discountAmount, fixId, provider }) => {
 
+
+
     const currentVievPrice: number = Math.round(((price - price / 100 * discountAmount!)));
     const currentPrice: number = ((price - price / 100 * discountAmount!));
     const truthCheck: boolean = discount === 'true';
-    const finalPrice: number = truthCheck ? currentVievPrice : price
+    const finalPrice: number = truthCheck ? currentVievPrice : price;
 
     const obj = { img, title, finalPrice, fixId, provider, count: 0, id: 0 };
 
@@ -39,7 +41,6 @@ const Card: FC<testType> = ({ img, title, price, discount, horizontal = false, d
             const currentCount = data.find((obj: TCartCard) => obj.fixId === item.fixId)
             item.count += currentCount!.count + 1
             item.id = currentCount!.id
-            // item.finalPrice = finalPrice * item.count
             await changeCartItem(item)
         } else {
             item.count += 1

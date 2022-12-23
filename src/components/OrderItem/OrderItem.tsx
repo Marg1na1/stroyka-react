@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { TCartCard, TOrdersType } from '../../@types/globalTypes';
+import { TCartCard } from '../../@types/globalTypes';
 import style from './OrderItem.module.scss';
 
 const OrderItem: FC<TCartCard> = ({ img, title, finalPrice, count }) => {

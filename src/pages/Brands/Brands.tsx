@@ -1,5 +1,5 @@
-import clsx from 'clsx';
 import { FC } from 'react';
+import clsx from 'clsx';
 import BrandsRow from '../../components/BrandsRow/BrandsRow';
 import Headline from '../../components/Headline/Headline';
 import { brandsList, headData } from '../../data/brands.data';

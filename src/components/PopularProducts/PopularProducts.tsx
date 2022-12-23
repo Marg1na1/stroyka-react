@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import style from './PopularProducts.module.scss';
 import { useGetPopularProductsQuery } from '../../redux/injected/injectedPopularProducts';
 import Card from '../Card/Card';

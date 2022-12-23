@@ -185,13 +185,14 @@
             width: 396px;
         }
         &__btn{
-            height: 48px;
+            height: 47px;
             width: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: transparent;
             border: none;
+            background-color: var(--light-color);
         }
         
     }

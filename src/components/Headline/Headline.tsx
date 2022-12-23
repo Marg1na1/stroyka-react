@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import style from './Headline.module.scss';

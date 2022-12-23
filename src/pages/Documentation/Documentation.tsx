@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import DocItem from '../../components/DocItem/DocItem';
 import Headline from '../../components/Headline/Headline';
 import { headData, listItem } from '../../data/documentation.data';

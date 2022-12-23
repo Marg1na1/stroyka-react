@@ -1,5 +1,5 @@
-import clsx from 'clsx';
 import { FC } from 'react';
+import clsx from 'clsx';
 import CartCard from '../../components/CartCard/CartCard';
 import CartSide from '../../components/CartSide/CartSide';
 import Headline from '../../components/Headline/Headline';
@@ -23,7 +23,7 @@ const Cart: FC = ({ }) => {
     return (
         <section className={style['cart']}>
             {
-                data.length <= 0 ? <EmptyPage {...emptyCartData}/> : <>
+                data.length <= 0 ? <EmptyPage {...emptyCartData} /> : <>
                     <Headline {...headData} />
                     <div className={clsx(style['cart-container'], 'container')}>
                         <CartSide data={data} />

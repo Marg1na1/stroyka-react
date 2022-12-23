@@ -1,5 +1,5 @@
-import clsx from 'clsx';
 import { FC, useState, useEffect } from 'react';
+import clsx from 'clsx';
 import { TCartCard } from '../../@types/globalTypes';
 import { useChangeCartItemMutation, useDeleteCartItemMutation } from '../../redux/injected/injectedCart';
 import style from './CartCard.module.scss';

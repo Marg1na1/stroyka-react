@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import style from './Delivery.module.scss';
 import Headline from '../../components/Headline/Headline';
 import { headData, tutorialArr, FAQData } from '../../data/delivery.data';

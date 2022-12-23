@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC, Fragment } from 'react';
 import clsx from 'clsx';
 import style from './FAQItem.module.scss';
 
@@ -27,10 +27,10 @@ const FAQItem: FC<TFAQItem> = ({ question, answer, id, selected, openAccord }) =
                 <div className={selected === id ? clsx(style['faq-container'], style['faq-container--active']) : style['faq-container']}>
                     {
                         answer.map((obj, i) => (
-                            <React.Fragment key={i}>
+                            <Fragment key={i}>
                                 <p className={style['faq-answer']}>{obj.text}</p>
                                 <p className={style['faq-answer']}>{obj.text1}</p>
-                            </React.Fragment>
+                            </Fragment>
                         ))
                     }
                 </div>
