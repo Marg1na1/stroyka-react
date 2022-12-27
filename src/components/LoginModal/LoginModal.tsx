@@ -1,6 +1,7 @@
-import { FC } from 'react';
+import { FC, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { useControlPopup } from '../../hooks/useControlPopup';
 import style from './LoginModal.module.scss';
 
 type TLoginInputs = {
@@ -9,10 +10,11 @@ type TLoginInputs = {
 }
 
 type LoginModalProps = {
-    setLoginOpen: (x: boolean) => void
+    setLoginOpen: (x: boolean) => void;
+    loginOpen: boolean;
 }
 
-const LoginModal: FC<LoginModalProps> = ({ setLoginOpen }) => {
+const LoginModal: FC<LoginModalProps> = ({ setLoginOpen, loginOpen }) => {
 
     const {
         register,
@@ -25,8 +27,12 @@ const LoginModal: FC<LoginModalProps> = ({ setLoginOpen }) => {
         mode: 'onChange'
     });
 
+    const wrapper = useRef<HTMLDivElement | null>(null);
+
+    useControlPopup(loginOpen, setLoginOpen, wrapper)
+
     return (
-        <div className={style['login-wrapper']}>
+        <div className={style['login-wrapper']} ref={wrapper}>
             <div className={style['login']}>
                 <h1 className={style['login__title']}>Вход</h1>
                 <form className={style['login-form']}>
