@@ -1,9 +1,11 @@
 import { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { categoryData } from './data/catalog.data';
 import Layout from './layout/Layout';
 import Brands from './pages/Brands/Brands';
 import Cart from './pages/Cart/Cart';
 import Catalog from './pages/Catalog/Catalog';
+import Category from './pages/Category/Category';
 import Contacts from './pages/Contacts/Contacts';
 import Delivery from './pages/Delivery/Delivery';
 import Documentation from './pages/Documentation/Documentation';
@@ -35,6 +37,7 @@ const App: FC = () => {
                 <Route path='cart' element={<Cart />} />
                 <Route path='reg' element={<Registration />} />
                 <Route path='orders' element={<Orders />} />
+                <Route path={`/catalog/:category/:type/`} element={<Category categoryData={categoryData} />} />
                 <Route path='*' element={<EmptyPage {...errorPageData} />} />
             </Route>
         </Routes>

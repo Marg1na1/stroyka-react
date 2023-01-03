@@ -50,7 +50,8 @@ const LoginModal: FC<LoginModalProps> = ({ setLoginOpen, loginOpen }) => {
                                     message: 'Попробуйте ввести почту еще раз'
                                 }
                             })}
-                            type="text" className={style['login-input']} />
+                            className={style['login-input']}
+                            name={'email'} />
                         {errors?.email && <p>{errors?.email?.message}</p>}
                     </label>
                     <label className={style['login__item']}>
@@ -67,7 +68,8 @@ const LoginModal: FC<LoginModalProps> = ({ setLoginOpen, loginOpen }) => {
                                     message: 'Пароль должен содержать строчные, прописные латинские буквы, цифры и спецсимволы'
                                 }
                             })}
-                            type="password" className={style['login-input']} />
+                            className={style['login-input']}
+                            type="password" />
                         {errors?.password && <p>{errors?.password?.message}</p>}
                     </label>
                     <button type='submit' className={style['login-submit']}>Войти</button>

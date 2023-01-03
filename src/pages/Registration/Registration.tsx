@@ -53,7 +53,8 @@ const Registration: FC = ({ }) => {
                                                 message: 'В качестве имени можно использовать только кириллицу'
                                             }
                                         })}
-                                        className={style['registration-input']} />
+                                        className={style['registration-input']}
+                                        name={'first_name'} />
                                     {errors?.name && <p>{errors?.name?.message}</p>}
                                 </label>
                                 <label className={style['registration-item']}>
@@ -65,7 +66,8 @@ const Registration: FC = ({ }) => {
                                                 message: 'В качестве фамилии можно использовать только кириллицу'
                                             }
                                         })}
-                                        className={style['registration-input']} />
+                                        className={style['registration-input']}
+                                        name={'surname'} />
                                     {errors?.surname && <p>{errors?.surname?.message}</p>}
                                 </label>
                             </li>
@@ -79,7 +81,8 @@ const Registration: FC = ({ }) => {
                                                 message: 'Проверьте правильность введенной даты'
                                             }
                                         })}
-                                        type="date" className={style['registration-input']} />
+                                        type="date"
+                                        className={style['registration-input']} />
                                     {errors?.birthDay && <p>{errors?.birthDay?.message}</p>}
                                 </label>
                                 <label className={style['registration-item']}>
@@ -115,14 +118,15 @@ const Registration: FC = ({ }) => {
                                                 message: 'Попробуйте ввести почту еще раз'
                                             }
                                         })}
-                                        className={clsx(style['registration-input--long'], style['registration-input'])} />
+                                        className={clsx(style['registration-input--long'], style['registration-input'])}
+                                        name={'email'} />
                                     {errors?.email && <p>{errors?.email?.message}</p>}
                                 </label>
                             </li>
                             <li className={style['registration-list__item']}>
                                 <label className={style['registration-item']}>
                                     Пароль
-                                    <input type={'password'}
+                                    <input
                                         {...register('password', {
                                             required: "Поле обязательно к заполнению ",
                                             minLength: {
@@ -134,12 +138,13 @@ const Registration: FC = ({ }) => {
                                                 message: 'Пароль должен содержать строчные, прописные латинские буквы, цифры и спецсимволы'
                                             }
                                         })}
-                                        className={style['registration-input']} />
+                                        className={style['registration-input']}
+                                        type={'password'} />
                                     {errors?.password && <p>{errors?.password?.message}</p>}
                                 </label>
                                 <label className={style['registration-item']}>
                                     Подтверждение пароля
-                                    <input type={'password'}
+                                    <input
                                         {...register("cpassword", {
                                             required: "Поле обязательно к заполнению ",
                                             minLength: {
@@ -151,7 +156,8 @@ const Registration: FC = ({ }) => {
                                                 return password === value || "Пароли не совпадают!";
                                             }
                                         })}
-                                        className={style['registration-input']} />
+                                        className={style['registration-input']}
+                                        type={'password'} />
                                     {errors?.cpassword && <p>{errors?.cpassword?.message}</p>}
                                 </label>
                             </li>

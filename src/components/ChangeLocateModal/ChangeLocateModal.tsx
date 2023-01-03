@@ -27,10 +27,10 @@ const ChangeLocateModal: FC<TChangeLocate> = ({ setChangeLocate, changeLocate })
     }, []);
 
     const reassingLocate = (str: string) => {
-        dispatch(setLocality(str))
-        sessionStorage.setItem('location', str)
+        dispatch(setLocality(str));
+        sessionStorage.setItem('location', str);
+        setChangeLocate(false);
     }
-    console.log(input.current)
 
     return (
         <div className={style['change-locate__wrapper']} ref={wrapper}>

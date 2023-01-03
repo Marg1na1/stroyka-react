@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
-type TCords = {
+export type TCords = {
     latitude: null | number,
     longitude: null | number,
 }

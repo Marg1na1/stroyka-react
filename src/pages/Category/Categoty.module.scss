@@ -1,0 +1,11 @@
+.category{
+    &-container{
+        display: flex;
+        justify-content: space-between;
+    }
+    &-list{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+}

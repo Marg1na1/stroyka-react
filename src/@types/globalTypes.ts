@@ -6,7 +6,7 @@ export type TCard = {
     provider: string;
     rating: number;
     price: number;
-    type: number;
+    type: string;
     discount: string;
     discountAmount?: number;
 }
@@ -42,3 +42,6 @@ export type TOrdersType = {
     createdAt: string;
     id: string;
 }
+
+//////////////////////////////////////////
+

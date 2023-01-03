@@ -12,7 +12,7 @@ type testType = {
     provider: string;
     rating: number;
     price: number;
-    type: number;
+    type: string;
     discount: string;
     discountAmount?: number;
     horizontal?: boolean;

@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { TCartCard } from '../../@types/globalTypes';
-import { useGetCartQuery } from '../../redux/injected/injectedCart';
 import { useAddOrderMutation } from '../../redux/injected/injectedOrders';
 import style from './CartSide.module.scss';
 
 const info_icon = './../assets/images/info_icon.svg';
 const order_icon = './../assets/images/order_icon.svg';
 const truck_icon = './../assets/images/truck_icon.svg';
+
 type CartSideProps = {
     data: TCartCard[]
 }
@@ -15,11 +15,10 @@ const CartSide: FC<CartSideProps> = ({ data }) => {
 
     const productCount = data.reduce((acc, current) => acc + current.count, 0);
     const totalPrice = data.reduce((acc, current) => acc + (current.finalPrice * current.count), 0);
-
-    const cartItems = useGetCartQuery();
+ 
     const [addOrder] = useAddOrderMutation();
 
-    const clickAddOrder = async (data: any) => {
+    const clickAddOrder = async (data: TCartCard[]) => { 
         await addOrder(data)
     }
 
@@ -45,7 +44,7 @@ const CartSide: FC<CartSideProps> = ({ data }) => {
                         </li>
                     </ul>
                 </div>
-                <button className={style['side-btn']} onClick={() => clickAddOrder(cartItems.data)}>Оформить заказ</button>
+                <button className={style['side-btn']} onClick={() => clickAddOrder(data)}>Оформить заказ</button>
             </div>
             <div className={style['side-info']}>
                 <div className={style['side-info__item']}>

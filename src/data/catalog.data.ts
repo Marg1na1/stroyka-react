@@ -28,35 +28,35 @@ export const categoryData: TCategory[] = [
         list: [
             {
                 title: "Ванны",
-                path: "baths"
+                path: "plumbing/baths"
             },
             {
                 title: "Комплектующие для ванн",
-                path: "accessories-for-baths"
+                path: "plumbing/accessories-for-baths"
             },
             {
                 title: "Душевые",
-                path: "showers"
+                path: "plumbing/showers"
             },
             {
                 title: "Унитазы и биде",
-                path: "toilet"
+                path: "plumbing/toilet"
             },
             {
                 title: "Смесители",
-                path: "mixers"
+                path: "plumbing/mixers"
             },
             {
                 title: "Душевое оборудование",
-                path: "shower-equipment"
+                path: "plumbing/shower-equipment"
             },
             {
                 title: "Раковины",
-                path: "sinks"
+                path: "plumbing/sinks"
             },
             {
                 title: "Пьедесталы для раковин",
-                path: "pedestals-for-sinks"
+                path: "plumbing/pedestals-for-sinks"
             }
         ]
     },
@@ -66,35 +66,35 @@ export const categoryData: TCategory[] = [
         list: [
             {
                 title: "Сухие смеси",
-                path: "dry-mixes"
+                path: "building-materials/dry-mixes"
             },
             {
                 title: "Пиломатериалы",
-                path: "lumber"
+                path: "building-materials/lumber"
             },
             {
                 title: "Гипсокартон",
-                path: "drywall"
+                path: "building-materials/drywall"
             },
             {
                 title: "Профиль для гипсокартона",
-                path: "profile-for-drywall"
+                path: "building-materials/profile-for-drywall"
             },
             {
                 title: "Изоляционные материалы",
-                path: "insulation"
+                path: "building-materials/insulation"
             },
             {
                 title: "Армирующие материалы",
-                path: "reinforcing "
+                path: "building-materials/reinforcing "
             },
             {
                 title: "Кровля",
-                path: "roof"
+                path: "building-materials/roof"
             },
             {
                 title: "Ленты строительные",
-                path: "construction-tapes"
+                path: "building-materials/construction-tapes"
             }
         ]
     },
@@ -104,73 +104,73 @@ export const categoryData: TCategory[] = [
         list: [
             {
                 title: "Линолеум",
-                path: "linoleum"
+                path: "floor-coverings/linoleum"
             },
             {
                 title: "Ламинат",
-                path: "laminate-flooring"
+                path: "floor-coverings/laminate-flooring"
             },
             {
                 title: "Ковролин",
-                path: "carpet"
+                path: "floor-coverings/carpet"
             },
             {
                 title: "Плинтус напольный",
-                path: "floor-skirting-board"
+                path: "floor-coverings/floor-skirting-board"
             },
             {
                 title: "Пороги",
-                path: "thresholds"
+                path: "floor-coverings/thresholds"
             },
             {
                 title: "Подложки",
-                path: "substrates"
+                path: "floor-coverings/substrates"
             },
             {
                 title: "Ковровые дорожки",
-                path: "carpet-tracks"
+                path: "floor-coverings/carpet-tracks"
             },
             {
                 title: "Плитка ПВХ, виниловый ламинат",
-                path: "tile"
+                path: "floor-coverings/tile"
             }
         ]
     },
     {
-        title: "Отделка стени потолка",
+        title: "Отделка стен и потолка",
         image: "https://i.ibb.co/QbKKPsr/catalog4.webp",
         list: [
             {
                 title: "Обои",
-                path: "wallpaper"
+                path: "decoration/wallpaper"
             },
             {
                 title: "Стеновые панели",
-                path: "wall-panels"
+                path: "decoration/wall-panels"
             },
             {
                 title: "Плинтус потолочный",
-                path: "ceiling-skirting-board"
+                path: "decoration/ceiling-skirting-board"
             },
             {
                 title: "Углы к потолочному плинтусу",
-                path: "corners-ceiling-skirting-board"
+                path: "decoration/corners-ceiling-skirting-board"
             },
             {
                 title: "Потолочная плитка",
-                path: "ceiling-tiles"
+                path: "decoration/ceiling-tiles"
             },
             {
                 title: "Профили алюминиевые",
-                path: "aluminum-profiles"
+                path: "decoration/aluminum-profiles"
             },
             {
                 title: "Декоративные молдинги, багеты",
-                path: "decorative-moldings"
+                path: "decoration/decorative-moldings"
             },
             {
                 title: "Пленки самоклеящиеся",
-                path: "self-adhesive-films"
+                path: "decoration/self-adhesive-films"
             }
         ]
     },
@@ -180,35 +180,35 @@ export const categoryData: TCategory[] = [
         list: [
             {
                 title: "Настенная плитка",
-                path: "wall-tiles"
+                path: "ceramic-tile/wall-tiles"
             },
             {
                 title: "Напольная плитка",
-                path: "floor-tiles"
+                path: "ceramic-tile/floor-tiles"
             },
             {
                 title: "Керамогранит",
-                path: "porcelain-stoneware"
+                path: "ceramic-tile/porcelain-stoneware"
             },
             {
                 title: "Декоративная плитка",
-                path: "decorative-tiles"
+                path: "ceramic-tile/decorative-tiles"
             },
             {
                 title: "Системы выравнивания плитки",
-                path: "tile-alignment-systems"
+                path: "ceramic-tile/tile-alignment-systems"
             },
             {
                 title: "Уголки и профили для плитки",
-                path: "tile-profiles"
+                path: "ceramic-tile/tile-profiles"
             },
             {
                 title: "Керамический плинтус",
-                path: "ceramic-skirting-board"
+                path: "ceramic-tile/ceramic-skirting-board"
             },
             {
                 title: "Мозаика",
-                path: "mosaic"
+                path: "ceramic-tile/mosaic"
             }
         ]
     },
@@ -218,35 +218,35 @@ export const categoryData: TCategory[] = [
         list: [
             {
                 title: "Межкомнатные двери",
-                path: "interior-doors"
+                path: "doors-windows/interior-doors"
             },
             {
                 title: "Входные двери",
-                path: "entrance-doors"
+                path: "doors-windows/entrance-doors"
             },
             {
                 title: "Дверные коробки",
-                path: "door-frames"
+                path: "doors-windows/door-frames"
             },
             {
                 title: "Арки",
-                path: "arches"
+                path: "doors-windows/arches"
             },
             {
                 title: "Дверные наличники",
-                path: "door-platbands"
+                path: "doors-windows/door-platbands"
             },
             {
                 title: "Дверные доборы",
-                path: "door-dobs"
+                path: "doors-windows/door-dobs"
             },
             {
                 title: "Раздвижные двери",
-                path: "sliding-doors"
+                path: "doors-windows/sliding-doors"
             },
             {
                 title: "Скобяные изделия",
-                path: "hardware"
+                path: "doors-windows/hardware"
             }
         ]
     },
@@ -256,35 +256,35 @@ export const categoryData: TCategory[] = [
         list: [
             {
                 title: "Краски",
-                path: "paints"
+                path: "paints-varnishes/paints"
             },
             {
                 title: "Эмали",
-                path: "enamels"
+                path: "paints-varnishes/enamels"
             },
             {
                 title: "Грунтовки",
-                path: "primers"
+                path: "paints-varnishes/primers"
             },
             {
                 title: "Монтажные пены",
-                path: "mounting-foams"
+                path: "paints-varnishes/mounting-foams"
             },
             {
                 title: "Герметики",
-                path: "sealants"
+                path: "paints-varnishes/sealants"
             },
             {
                 title: "Клеи",
-                path: "adhesives"
+                path: "paints-varnishes/adhesives"
             },
             {
                 title: "Покрытия для дерева",
-                path: "coatings-for-wood"
+                path: "paints-varnishes/coatings-for-wood"
             },
             {
                 title: "Лаки",
-                path: "lacquer"
+                path: "paints-varnishes/lacquer"
             }
         ]
     },
@@ -294,35 +294,35 @@ export const categoryData: TCategory[] = [
         list: [
             {
                 title: "Радиаторы отопления",
-                path: "radiators-for-heating"
+                path: "climate-heating/radiators-for-heating"
             },
             {
                 title: "Теплый пол",
-                path: "underfloor-heating"
+                path: "climate-heating/underfloor-heating"
             },
             {
                 title: "Электрические камины",
-                path: "electric-fireplaces"
+                path: "climate-heating/electric-fireplaces"
             },
             {
                 title: "Вентиляция",
-                path: "ventilation"
+                path: "climate-heating/ventilation"
             },
             {
                 title: "Тепловое оборудование",
-                path: "thermal-equipment"
+                path: "climate-heating/thermal-equipment"
             },
             {
                 title: "Котлы отопительные",
-                path: "heating-boilers"
+                path: "climate-heating/heating-boilers"
             },
             {
                 title: "Расширительные баки",
-                path: "expansion-tanks"
+                path: "climate-heating/expansion-tanks"
             },
             {
                 title: "Насосы циркуляционные",
-                path: "circulation-pumps"
+                path: "climate-heating/circulation-pumps"
             }
         ]
     },
@@ -332,35 +332,35 @@ export const categoryData: TCategory[] = [
         list: [
             {
                 title: "Электроинструмент",
-                path: "power-tools"
+                path: "tools/power-tools"
             },
             {
                 title: "Расходные материалы",
-                path: "consumables"
+                path: "tools/consumables"
             },
             {
                 title: "Малярный инструмент",
-                path: "painting-tool"
+                path: "tools/painting-tool"
             },
             {
                 title: "Штукатурный инструмент",
-                path: "plastering-tool"
+                path: "tools/plastering-tool"
             },
             {
                 title: "Шлифовальный инструмент",
-                path: "grinding-tool"
+                path: "tools/grinding-tool"
             },
             {
                 title: "Измерительный инструмент",
-                path: "measuring-instrument"
+                path: "tools/measuring-instrument"
             },
             {
                 title: "Шпатели",
-                path: "spatulas"
+                path: "tools/spatulas"
             },
             {
                 title: "Спецодежда и средства защиты",
-                path: "workwear"
+                path: "tools/workwear"
             }
         ]
     },
@@ -370,35 +370,35 @@ export const categoryData: TCategory[] = [
         list: [
             {
                 title: "Саморезы",
-                path: "self-tapping-screws"
+                path: "fasteners-accessories/self-tapping-screws"
             },
             {
                 title: "Дюбель",
-                path: "dowel"
+                path: "fasteners-accessories/dowel"
             },
             {
                 title: "Гвозди",
-                path: "nails"
+                path: "fasteners-accessories/nails"
             },
             {
                 title: "Анкер",
-                path: "anchor"
+                path: "fasteners-accessories/anchor"
             },
             {
                 title: "Болты",
-                path: "bolts"
+                path: "fasteners-accessories/bolts"
             },
             {
                 title: "Гайки",
-                path: "nuts"
+                path: "fasteners-accessories/nuts"
             },
             {
                 title: "Шуруп",
-                path: "screw"
+                path: "fasteners-accessories/screw"
             },
             {
                 title: "Шайбы",
-                path: "washers"
+                path: "fasteners-accessories/washers"
             }
         ]
     },
@@ -408,35 +408,35 @@ export const categoryData: TCategory[] = [
         list: [
             {
                 title: "Лампы",
-                path: "lamps"
+                path: "lighting/lamps"
             },
             {
                 title: "Люстры",
-                path: "chandeliers"
+                path: "lighting/chandeliers"
             },
             {
                 title: "Потолочные светильники",
-                path: "ceiling-lights"
+                path: "lighting/ceiling-lights"
             },
             {
                 title: "Светодиодные светильники",
-                path: "LED-lights"
+                path: "lighting/LED-lights"
             },
             {
                 title: "Подвесные светильники",
-                path: "pendant-lamps"
+                path: "lighting/pendant-lamps"
             },
             {
                 title: "Светодиодные панели",
-                path: "LED-panels"
+                path: "lighting/LED-panels"
             },
             {
                 title: "Бра",
-                path: "sconce"
+                path: "lighting/sconce"
             },
             {
                 title: "Настольные лампы",
-                path: "desk-lamp"
+                path: "lighting/desk-lamp"
             }
         ]
     },
@@ -446,35 +446,35 @@ export const categoryData: TCategory[] = [
         list: [
             {
                 title: "Розетки и выключатели",
-                path: "sockets-and-switches"
+                path: "electrical-goods/sockets-and-switches"
             },
             {
                 title: "Кабели и комплектующие",
-                path: "cables-and-accessories"
+                path: "electrical-goods/cables-and-accessories"
             },
             {
                 title: "Телекоммуникации",
-                path: "telecommunications"
+                path: "electrical-goods/telecommunications"
             },
             {
                 title: "Счетчики электроэнергии",
-                path: "electricity-meters"
+                path: "electrical-goods/electricity-meters"
             },
             {
                 title: "Автоматические выключатели",
-                path: "circuit-breakers"
+                path: "electrical-goods/circuit-breakers"
             },
             {
                 title: "Электрические щитки",
-                path: "electric-shields"
+                path: "electrical-goods/electric-shields"
             },
             {
                 title: "Тройники для розетки",
-                path: "tees-for-sockets"
+                path: "electrical-goods/tees-for-sockets"
             },
             {
                 title: "Удлинители электрические",
-                path: "electric-extension-cords"
+                path: "electrical-goods/electric-extension-cords"
             }
         ]
     }

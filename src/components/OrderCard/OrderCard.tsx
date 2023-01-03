@@ -2,10 +2,16 @@ import { FC, useEffect, useState } from 'react';
 import { TOrdersType } from '../../@types/globalTypes';
 import OrderItem from '../OrderItem/OrderItem';
 import style from './OrderCard.module.scss';
+import { useDeleteOrderMutation } from '../../redux/injected/injectedOrders';
 
 const OrderCard: FC<TOrdersType> = (obj) => {
 
     const [total, setTotal] = useState(0);
+    const [deleteOrder] = useDeleteOrderMutation()
+
+    const cancelOrdr = (id: string) => {
+        deleteOrder(id)
+    }
 
     const orderItemsArr: any[] = [];
 
@@ -44,7 +50,9 @@ const OrderCard: FC<TOrdersType> = (obj) => {
                         </div>
                     </div>
                     <div className={style['order-info__footer']}>
-                        <button className={style['order__btn']}>Отменить заказ</button>
+                        <button
+                            className={style['order__btn']}
+                            onClick={() => cancelOrdr(obj.id)}>Отменить заказ</button>
                         <b className={style['order__total']}>
                             Итого: {total} ₽
                         </b>

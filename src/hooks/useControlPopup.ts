@@ -28,6 +28,6 @@ export const useControlPopup = (state: boolean, setState: (x: boolean) => void, 
 
             return () => window.removeEventListener('click', closeOnClick)
         }
-    }, [state])
+    }, [state]);
 
 }
