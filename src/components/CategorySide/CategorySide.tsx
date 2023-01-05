@@ -1,4 +1,4 @@
-import { FC, useCallback, useRef, useState } from 'react';
+import { FC, useCallback, useState } from 'react';
 import ReactSlider from 'react-slider';
 import Select from 'react-select'
 import { TCard } from '../../@types/globalTypes';

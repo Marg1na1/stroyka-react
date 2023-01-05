@@ -87,6 +87,9 @@
         background-color: var(--gunmetal-color);
         color: var(--white-color);
     }
+    &:active{
+        color: var(--light-gray-color);
+    }
 }
 .cancel{
     height: 48px;
@@ -101,5 +104,8 @@
         cursor: pointer;
         background-color: var(--gunmetal-color);
         color: var(--white-color);
+    }
+    &:active{
+        color: var(--light-gray-color);
     }
 }
