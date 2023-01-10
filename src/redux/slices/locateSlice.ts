@@ -32,6 +32,6 @@ export const locateSlice = createSlice({
     },
 })
 
-export const { setCords, setLocality } = locateSlice.actions
+export const { setCords, setLocality } = locateSlice.actions;
 
-export default locateSlice.reducer
+export default locateSlice.reducer;

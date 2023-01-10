@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import Discount from '../../components/Discount/Discount';
 import HeroSlider from '../../components/Slider/Slider';
 import PopularProducts from '../../components/PopularProducts/PopularProducts';

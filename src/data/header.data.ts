@@ -13,7 +13,7 @@ export const additionalItems = [
 export const navItem = [
     { img: profile_icon, text: "Профиль", path: '/profile' },
     { img: orders_icon, text: "Заказы", path: '/orders' },
-    { img: cart_icon, text: "Корзина", path: '/cart' },
+    { img: cart_icon, text: "Корзина", path: '/cart' }, 
 ];
 
 export const breadCrumbs = [

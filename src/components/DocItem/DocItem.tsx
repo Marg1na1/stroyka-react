@@ -2,7 +2,6 @@ import { FC } from 'react';
 import { TListItem } from '../../data/documentation.data';
 import style from './DocItem.module.scss';
 
-
 const DocItem: FC<TListItem> = ({ title, token }) => {
     return (
         <li className={style['documentation-item']}>

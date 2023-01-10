@@ -2,45 +2,27 @@ import { FC, useEffect, useState } from 'react';
 import style from './Header.module.scss';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
-import { additionalItems, navItem, breadCrumbs, } from '../../data/header.data';
+import { additionalItems, breadCrumbs, } from '../../data/header.data';
 import LoginModal from '../LoginModal/LoginModal';
 import ChangeLocateModal from '../ChangeLocateModal/ChangeLocateModal';
 import { useLocate } from '../../hooks/useLocate';
-
-const logo = './../assets/images/logo_icon.svg';
-const search_icon = './../assets/images/search_icon.svg';
+import HeaderMain from '../HeaderMain/HeaderMain';
 
 const Header: FC = () => {
 
-    const [isSticky, setIsSticky] = useState<boolean>(false);
     const [loginOpen, setLoginOpen] = useState<boolean>(false);
     const [changeLocate, setChangeLocate] = useState<boolean>(false);
 
     useEffect(() => {
-        if (changeLocate === true) {
+        if (changeLocate === true || loginOpen === true) {
             window.scrollTo(0, 0)
             document.body.style.overflow = 'hidden';
-        } else if (changeLocate === false) {
+        } else if (changeLocate === false || loginOpen === false) {
             document.body.style.overflow = 'visible';
         }
-    }, [changeLocate]);
+    }, [changeLocate, loginOpen]);
 
     const locate = useLocate(setChangeLocate);
-
-    useEffect(() => {
-        const header = document.getElementById("header-main");
-        const sticky = header!.offsetTop;
-
-        window.onscroll = () => toggleSticky();
-
-        const toggleSticky = () => {
-            if (window.pageYOffset > sticky) {
-                setIsSticky(true);
-            } else {
-                setIsSticky(false)
-            }
-        }
-    });
 
     return (
         <header className={style['header']}>
@@ -50,9 +32,9 @@ const Header: FC = () => {
                 <div className={style['header-additional']}>
                     <div className={style['header-locate']} onClick={() => setChangeLocate(true)}>
                         <button className={clsx(style['header-locate__btn'], 'btn-reset')} >
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M17.5 8.33333C17.5 14.1667 10 19.1667 10 19.1667C10 19.1667 2.5 14.1667 2.5 8.33333C2.5 6.34421 3.29018 4.43655 4.6967 3.03003C6.10322 1.62351 8.01088 0.833333 10 0.833333C11.9891 0.833333 13.8968 1.62351 15.3033 3.03003C16.7098 4.43655 17.5 6.34421 17.5 8.33333Z" stroke="#5D6066" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M10 10.8333C11.3807 10.8333 12.5 9.71405 12.5 8.33333C12.5 6.95262 11.3807 5.83333 10 5.83333C8.61929 5.83333 7.5 6.95262 7.5 8.33333C7.5 9.71405 8.61929 10.8333 10 10.8333Z" stroke="#5D6066" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                            <svg fill="none" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" width={20} height={20}>
+                                <path d="m17.5 8.3333c0 5.8334-7.5 10.833-7.5 10.833s-7.5-5-7.5-10.833c0-1.9891 0.79018-3.8968 2.1967-5.3033s3.3142-2.1967 5.3033-2.1967c1.9891 0 3.8968 0.79018 5.3033 2.1967s2.1967 3.3142 2.1967 5.3033z" stroke="#5D6066" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
+                                <path d="m10 10.833c1.3807 0 2.5-1.1192 2.5-2.5 0-1.3807-1.1193-2.5-2.5-2.5-1.3807 0-2.5 1.1193-2.5 2.5 0 1.3807 1.1193 2.5 2.5 2.5z" stroke="#5D6066" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
                             </svg>
                             <p className={style['header-locate__city']}>{locate}</p>
                         </button>
@@ -63,31 +45,7 @@ const Header: FC = () => {
                         }
                     </nav>
                 </div>
-                <div id='header-main' className={isSticky ? clsx(style['header-main'], style['header-main--sticky']) : style['header-main']}>
-                    <Link to={'/'} className={style['header-logo']} > <img src={logo} /> </Link>
-                    <Link to={'catalog'} className={style['header-main-btn']}>
-                        <div className={style['header-main-btn__lines']}>
-                            <span></span>
-                        </div>
-                        <p className={style['header-main-btn__text']}>Каталог</p>
-                    </Link>
-                    <form className={style['header-form']}>
-                        <input className={clsx(style['header-form__input'], 'input-reset')} />
-                        <button className={clsx(style['header-form__btn'], 'btn-reset')}>
-                            <img src={search_icon} />
-                        </button>
-                    </form>
-                    <nav className={style['header-main-nav']}>
-                        {
-                            navItem.map((obj, i) => (
-                                <Link to={obj.path} className={style['header-main-nav__item']} key={i}>
-                                    <img src={obj.img} />
-                                    <p>{obj.text}</p>
-                                </Link>
-                            ))
-                        }
-                    </nav>
-                </div>
+                <HeaderMain/>
                 <div className={style['header-breadCrumbs']}>
                     <ul className={style['header-breadCrumbs-list']}>
                         {

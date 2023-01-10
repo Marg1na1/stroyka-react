@@ -1,5 +1,5 @@
-import clsx from 'clsx';
 import { FC } from 'react';
+import clsx from 'clsx';
 import { TCard } from '../../@types/globalTypes';
 import { useSort } from '../../hooks/useSort';
 import Card from '../Card/Card';

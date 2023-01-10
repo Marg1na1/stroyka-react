@@ -18,30 +18,30 @@ const Contacts: FC = () => {
                         <ul className={style['adress']}>
                             {
                                 contactsContent.map((obj, i) => (
-                                    obj.type === 'address' ?
-                                        <li className={style['contacts-content__item']} key={i}>
-                                            <p>{obj.content}</p>
-                                        </li> : null
+                                    obj.type === 'address' &&
+                                    <li className={style['contacts-content__item']} key={i}>
+                                        <p>{obj.content}</p>
+                                    </li>
                                 ))
                             }
                         </ul>
                         <ul className={style['requisites']}>
                             {
                                 contactsContent.map((obj, i) => (
-                                    obj.type === 'requisites' ?
-                                        <li className={style['contacts-content__item']} key={i}>
-                                            <p>{obj.content}</p>
-                                        </li> : null
+                                    obj.type === 'requisites' &&
+                                    <li className={style['contacts-content__item']} key={i}>
+                                        <p>{obj.content}</p>
+                                    </li>
                                 ))
                             }
                         </ul>
                         <ul className={style['contacts']}>
                             {
                                 contactsContent.map((obj, i) => (
-                                    obj.type === 'contacts' ?
-                                        <li className={style['contacts-content__item']} key={i}>
-                                            <p>{obj.content}</p>
-                                        </li> : null
+                                    obj.type === 'contacts' &&
+                                    <li className={style['contacts-content__item']} key={i}>
+                                        <p>{obj.content}</p>
+                                    </li>
                                 ))
                             }
                         </ul>

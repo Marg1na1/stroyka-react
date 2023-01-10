@@ -1,8 +1,7 @@
 import { FC } from 'react';
-import style from './Card.module.scss';
-import clsx from 'clsx';
 import { TCartCard } from '../../@types/globalTypes';
 import { useAddCartItemMutation, useChangeCartItemMutation, useGetCartQuery } from '../../redux/injected/injectedCart';
+import style from './SearchedCard.module.scss';
 
 type testType = {
     id: number;
@@ -18,10 +17,9 @@ type testType = {
     horizontal?: boolean;
 }
 
-const Card: FC<testType> = ({ img, title, price, discount, horizontal = false, discountAmount, fixId, provider }) => {
+const SearchedCard: FC<testType> = ({ img, title, price, discount, horizontal = false, discountAmount, fixId, provider }) => {
 
     const currentVievPrice: number = Math.round(((price - price / 100 * discountAmount!)));
-    // const currentPrice: number = ((price - price / 100 * discountAmount!));
     const truthCheck: boolean = discount === 'true';
     const finalPrice: number = truthCheck ? currentVievPrice : price;
 
@@ -47,27 +45,27 @@ const Card: FC<testType> = ({ img, title, price, discount, horizontal = false, d
     }
 
     return (
-        <li className={style['grid-item']}>
-            <article className={horizontal ? style['grid-item__content--h'] : style['grid-item__content']}>
-                <img className={horizontal ? style['grid-item__image--h'] : style['grid-item__image']} src={img} alt='product' />
-                <div className={style['grid-item__main']}>
-                    <p className={style['grid-item__title']}>{title}</p>
-                    <div className={style['grid-item__price']}>
-                        <p className={style['grid-item__price--current']}>
+        <li className={style['card']}>
+            <article className={style['card-content']}>
+                <img className={style['card__img']} src={img} alt='product' />
+                <div className={style['card-main']}>
+                    <p className={style['card__title']}>{title}</p>
+                    <div className={style['card__price']}>
+                        <p className={style['card__price--current']}>
                             {truthCheck ? currentVievPrice : price} ₽
                         </p>
                         {
-                            truthCheck && <s className={style['grid-item__price--past']}>{price}</s>
+                            truthCheck && <s className={style['card__price--past']}>{price}</s>
                         }
                     </div>
-                    <button className={clsx('btn-reset', style['grid-item__btn'])} onClick={() => addProduct(obj)}>В корзину</button>
+                    <button className={style['card__btn']} onClick={() => addProduct(obj)}>В корзину</button>
                 </div>
                 {
-                    truthCheck && <span className={style['grid-item__discount']}>-{discountAmount}%</span>
+                    truthCheck && <span className={style['card__discount']}>-{discountAmount}%</span>
                 }
             </article>
         </li>
     );
 }
 
-export default Card;
+export default SearchedCard;

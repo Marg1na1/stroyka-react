@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useControlPopup } from '../../hooks/useControlPopup';
 import style from './LoginModal.module.scss';
 
+
 type TLoginInputs = {
     email: string;
     password: string;

@@ -1,5 +1,5 @@
-import clsx from 'clsx';
 import { FC } from 'react';
+import clsx from 'clsx';
 import { useForm } from 'react-hook-form';
 import style from './Registration.module.scss';
 
@@ -14,12 +14,11 @@ type Inputs = {
     exampleRequired: string;
 };
 
-const Registration: FC = ({ }) => {
+const Registration: FC = () => {
 
     const {
         register,
         handleSubmit,
-        watch,
         reset,
         getValues,
         formState: {
@@ -30,7 +29,6 @@ const Registration: FC = ({ }) => {
     });
 
     const onSubmit = (data: any) => {
-        console.log(data);
         reset()
     }
 

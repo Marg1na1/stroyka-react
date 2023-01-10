@@ -4,9 +4,9 @@ import { TReviews } from '../../@types/globalTypes';
 
 const ReviewsSlide: FC<TReviews> = ({ avatar, content, name, createdAt }) => {
     return (
-        <>
+        <article>
             <div className={style['reviews-slide-header']}>
-                <img src={avatar} alt="" />
+                <img src={avatar} alt={"avatar"} />
                 <h3 className={style['reviews-slide__name']}>{name}</h3>
             </div>
             <div className={style['reviews-slide-content']}>
@@ -15,7 +15,7 @@ const ReviewsSlide: FC<TReviews> = ({ avatar, content, name, createdAt }) => {
             <div className={style['reviews-slide-date']}>
                 <p>{createdAt}</p>
             </div>
-        </>
+        </article>
     );
 }
 

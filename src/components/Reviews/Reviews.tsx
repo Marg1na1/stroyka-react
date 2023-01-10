@@ -2,7 +2,6 @@ import { FC } from 'react';
 import style from './Reviews.module.scss';
 import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import clsx from 'clsx';
 import { useGetReviewsQuery } from '../../redux/injected/injectedReviews';
 import ReviewsSlide from '../ReviewsSlide/ReviewsSlide';
 

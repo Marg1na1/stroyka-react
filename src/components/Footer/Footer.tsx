@@ -20,14 +20,14 @@ const Footer: FC = () => {
                 <div className={style['footer-main']}>
                     <div className={style['footer-contacts']}>
                         <Link to={'/'}>
-                            <img src={logo} />
+                            <img src={logo} alt={'logotype'} />
                         </Link>
-                        <a href='mailto:info@strolastore.ru' className={style['email']}>
-                            <img src={mail} />
+                        <a href='mailto:info@stroykastore.ru' className={style['email']}>
+                            <img src={mail} alt={'mail'} />
                             <p>info@strolastore.ru</p>
                         </a>
                         <a href='#' className={style['adress']}>
-                            <img src={geo} />
+                            <img src={geo} alt={'geo'} />
                             <p>Москва, ул. Камушкина 10</p>
                         </a>
                     </div>
@@ -37,7 +37,7 @@ const Footer: FC = () => {
                                 navItems.map((obj, i) => (
                                     i < 4 ?
                                         <Link to={obj.path} className={style['footer-nav-list__item']} key={i}>
-                                            <img src={arrow} />{obj.text}
+                                            <img src={arrow} alt={''} />{obj.text}
                                         </Link> : ''
                                 ))
                             }
@@ -47,7 +47,7 @@ const Footer: FC = () => {
                                 navItems.map((obj, i) => (
                                     i > 3 && i < 8 ?
                                         <Link to={obj.path} className={style['footer-nav-list__item']} key={i}>
-                                            <img src={arrow} />{obj.text}
+                                            <img src={arrow} alt={''} />{obj.text}
                                         </Link> : ''
                                 ))
                             }
@@ -57,21 +57,20 @@ const Footer: FC = () => {
                                 navItems.map((obj, i) => (
                                     i > 7 ?
                                         <Link to={obj.path} className={style['footer-nav-list__item']} key={i}>
-                                            <img src={arrow} />{obj.text}
+                                            <img src={arrow} alt={''} />{obj.text}
                                         </Link> : ''
                                 ))
                             }
                         </ul>
-
                     </nav>
                 </div>
                 <div className={style['footer-cellar']}>
                     <p>© СтройкаСтор</p>
                     <div className={style['footer-payment']}>
-                        <img src={visa} />
-                        <img src={mastercard} />
-                        <img src={maestro} />
-                        <img src={mir} />
+                        <img src={visa} alt={'visa'} />
+                        <img src={mastercard} alt={'mastercard'} />
+                        <img src={maestro} alt={'maestro'} />
+                        <img src={mir} alt={'mir'} />
                     </div>
                     <p>Сделано Margina1</p>
                 </div>

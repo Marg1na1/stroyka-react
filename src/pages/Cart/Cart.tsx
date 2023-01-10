@@ -16,7 +16,7 @@ const emptyCartData = {
     path: '/catalog'
 }
 
-const Cart: FC = ({ }) => {
+const Cart: FC = () => {
 
     const { data = [], isLoading } = useGetCartQuery();
 
@@ -30,7 +30,6 @@ const Cart: FC = ({ }) => {
                             <CartSide data={data} />
                             <ul>
                                 {
-
                                     !isLoading && data.map((obj: any, i: number) => (
                                         <CartCard {...obj} key={i} />
                                     ))
@@ -39,8 +38,6 @@ const Cart: FC = ({ }) => {
                         </div>
                     </>
             }
-
-
         </section>
     );
 }

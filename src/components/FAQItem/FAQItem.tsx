@@ -15,7 +15,6 @@ type TFAQItem = {
     openAccord: (x: number) => void
 }
 
-
 const FAQItem: FC<TFAQItem> = ({ question, answer, id, selected, openAccord }) => {
 
     return (
@@ -35,8 +34,6 @@ const FAQItem: FC<TFAQItem> = ({ question, answer, id, selected, openAccord }) =
                     }
                 </div>
             }
-
-
         </li>
     );
 }

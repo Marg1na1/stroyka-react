@@ -17,7 +17,7 @@ const CartCard: FC<TCartCard> = ({ img, title, finalPrice, count, id }) => {
 
     useEffect(() => {
         setProductCount(count)
-    }, []);
+    }, [count]);
 
     useEffect(() => {
         const close = async (e: KeyboardEvent) => {
@@ -39,22 +39,22 @@ const CartCard: FC<TCartCard> = ({ img, title, finalPrice, count, id }) => {
 
     const clickDelete = async (id: string) => {
         await deleteCartItem(id)
-    };
+    }
 
     return (
         <li className={style['cart-card']}>
-            <img src={img} width={276} height={206} className={style['cart-card-img']} />
+            <img src={img} width={276} height={206} className={style['cart-card-img']} alt={'product'} />
             <div className={style['cart-card-main']}>
                 <p className={style['cart-card__title']}>{title}</p>
                 <b className={style['cart-card__price']}>{finalPrice}₽</b>
                 <form action="" className={style['cart-card-form']}>
                     <button type='button' className={clsx(style['cart-card-form__btn'], style['cart-card-form__btn--plus'])}
-                        onClick={() => setProductCount(productCont + 1)}
+                        onClick={() => setProductCount(prev => prev + 1)}
                     ></button>
                     <input type="string" className={style['cart-card-form__input']} value={productCont}
                         onChange={e => setProductCount(+e.target.value)} />
                     <button type='button' className={clsx(style['cart-card-form__btn'], style['cart-card-form__btn--minus'])}
-                        onClick={() => setProductCount(productCont - 1)}
+                        onClick={() => setProductCount(prev => prev - 1)}
                     ></button>
                 </form>
             </div>

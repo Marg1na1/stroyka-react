@@ -1,9 +1,8 @@
-import { FC, useCallback, useState } from 'react';
+import { FC, useState } from 'react';
 import ReactSlider from 'react-slider';
 import Select from 'react-select'
 import { TCard } from '../../@types/globalTypes';
 import style from './CategorySide.module.scss';
-
 
 type CategorySideProps = {
     data: TCard[]
@@ -11,9 +10,12 @@ type CategorySideProps = {
 
 const CategorySide: FC<CategorySideProps> = ({ data }) => {
 
-
     const minValue = Math.min(...data.map((obj) => obj.price));
     const maxValue = Math.max(...data.map((obj) => obj.price));
+
+    const [provider, setProvider] = useState('');
+    const [rangeValue, setRangeValue] = useState<number[]>([minValue, maxValue]);
+    const [searchValue, setSearchValue] = useState('');
 
     const options = [
         { value: 1, label: 'Аксон' },
@@ -23,23 +25,20 @@ const CategorySide: FC<CategorySideProps> = ({ data }) => {
         { value: 5, label: 'ТОРН' },
     ];
 
-    const [provider, setProvider] = useState('');
-    const [rangeValue, setRangeValue] = useState<number[]>([minValue, maxValue]);
-    const [searchValue, setSearchValue] = useState('');
-
-    const changeProvider = useCallback((newValue: any) => {
+    const changeProvider = (newValue: any) => {
         setProvider(newValue.value)
 
-    }, [])
-    const changeInputValue = useCallback((str: string) => {
-        setSearchValue(str)
-    }, [])
+    }
 
-    const resetFilter = useCallback(() => {
+    const changeInputValue = (str: string) => {
+        setSearchValue(str)
+    }
+
+    const resetFilter = () => {
         setRangeValue([minValue, maxValue]);
         setSearchValue('');
         setProvider('0');
-    }, [minValue, maxValue])
+    }
 
     return (
         <aside className={style['category-side']}>
@@ -68,7 +67,7 @@ const CategorySide: FC<CategorySideProps> = ({ data }) => {
                     thumbClassName="range-slider__thumb"
                     trackClassName="range-slider__track"
                     defaultValue={[minValue, maxValue]}
-                    renderThumb={(props, state) => <div {...props}><div className={style['slider-decorate']}></div></div>}
+                    renderThumb={(props) => <div {...props}><div className={style['slider-decorate']}></div></div>}
                     onChange={(value) => setRangeValue(value)}
                     pearling
                     value={rangeValue}

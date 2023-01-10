@@ -1,7 +1,6 @@
 .header{
     background-color: var(--white-color); 
     margin-bottom: 40px;
-    
     &-additional{
         display: flex;
         justify-content: space-between;
@@ -42,7 +41,6 @@
                         stroke: var(--gunmetal-color);
                     }
                 }
-
                 p{
                     color: var(--gunmetal-color);
                 }
@@ -56,146 +54,6 @@
             margin-left: 8px;
             transition: .3s;
         }
-    }
-    &-logo{
-        margin-right: 114px;
-    }
-    &-main{
-        display: flex;
-        padding: 16px 0;
-        height: 83px;
-        background-color: var(--white-color);
-        position: static;
-        &-btn{
-            background-color: var(--yellow-color);
-            max-height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 21px;
-            margin-right: 16px;
-            transition: .4s;
-            &:hover{
-                background-color: var(--gunmetal-color);
-                .header-main-btn__text{
-                    color: var(--white-color);
-                }
-                .header-main-btn__lines{
-                    span{
-                        border: 1px solid var(--white-color);
-                    }
-                    &::before{
-                        content: '';
-                        border: 1px solid var(--white-color);
-                    }
-                    &::after{
-                        content: '';
-                        border: 1px solid var(--white-color);
-                    }
-                }
-            }
-            &:active{
-                background-color: var(--gunmetal-color);
-                .header-main-btn__text{
-                    color: var(--light-gray-color);
-                }
-                .header-main-btn__lines{
-                    span{
-                        border: 1px solid var(--light-gray-color);
-                    }
-                    &::before{
-                        content: '';
-                        border: 1px solid var(--light-gray-color);
-                    }
-                    &::after{
-                        content: '';
-                        border: 1px solid var(--light-gray-color);
-                    }
-                }
-            }
-            &__lines{
-                position: relative;
-                width: 24px;
-                height: 24px;
-                margin-right: 8px;
-                span{
-                    position: absolute;
-                    width:18px;
-                    border: 1px solid var(--gunmetal-color);
-                    border-radius: 50px;
-                    top: calc(50% - 1px);
-                    left: 4px;
-                    transition: .3s;
-                }
-                &::before{
-                    content: '';
-                    position: absolute;
-                    width: 8px;
-                    border: 1px solid var(--gunmetal-color);
-                    border-radius: 50px;
-                    top: 5px;
-                    left: 4px;
-                    transition: .3s;
-                }
-                &::after{
-                    content: '';
-                    position: absolute;
-                    width: 12px;
-                    border: 1px solid var(--gunmetal-color);
-                    border-radius: 50px;
-                    bottom:5px;
-                    left: 4px;
-                    transition: .3s;
-                }
-            }
-            &__text{
-                font-weight: 500;
-                font-size: 18px;
-                line-height: 136%;
-                color: var(--eerie-black-color);
-                max-height: 24px;
-                transition: .3s;
-            }
-        }
-        &-nav{
-            display: flex;
-            
-            &__item{
-                display: flex;
-                flex-direction: column; 
-                align-items: center;
-                padding: 0 10px;
-                p{
-                    margin-top: 2px;
-                }
-            }
-        }
-        &--sticky{
-            position: fixed;
-            top: 0;
-            z-index: 100;
-            width: 100vw;
-        }
-    }
-    &-form{
-        display: flex;
-        border-bottom: 1px solid var(--light-gray-color);
-        max-height: 48px;
-        margin-right: 18px;
-        &__input{
-            width: 396px;
-        }
-        &__btn{
-            height: 47px;
-            width: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: transparent;
-            border: none;
-            background-color: var(--light-color);
-        }
-        
     }
     &-breadCrumbs{
         padding: 8px 0;

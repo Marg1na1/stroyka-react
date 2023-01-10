@@ -31,16 +31,16 @@ const Slider: FC = () => {
                         </SwiperSlide>
                     ))
                 }
-                <div className='slider-prev slider-btn-prev'>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12H19" stroke="#454950" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M12 5L19 12L12 19" stroke="#454950" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <div className="slider-prev slider-btn-prev" >
+                    <svg width="24" height="24" fill="none" stroke="#454950" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m5 12h14" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+                        <path d="m12 5 7 7-7 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
                     </svg>
                 </div>
-                <div className='slider-next slider-btn-next'>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12H19" stroke="#454950" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M12 5L19 12L12 19" stroke="#454950" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <div className="slider-next slider-btn-next" >
+                    <svg width="24" height="24" fill="none" stroke="#454950" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m5 12h14" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+                        <path d="m12 5 7 7-7 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
                     </svg>
                 </div>
             </Swiper>

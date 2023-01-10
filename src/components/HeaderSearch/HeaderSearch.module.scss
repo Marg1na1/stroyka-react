@@ -1,0 +1,46 @@
+.form{
+    display: flex;
+    border-bottom: 1px solid var(--light-gray-color);
+    max-height: 48px;
+    margin-right: 18px;
+    // position: relative;
+    &__input{
+        width: 396px;
+        border: none;
+        outline: none;
+        background: transparent;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 136%;
+        color: var(--philippine-gray-color);
+    }
+    &__btn{
+        height: 47px;
+        width: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        border: none;
+        background-color: var(--light-color);
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+.searched{
+    &-list{
+        position: absolute;
+        top: 106px;
+        z-index: 100;
+        background-color: var(--light-color);
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding-top: 10px;
+        &--sticky{
+            top: 64px;
+        }
+    }
+}

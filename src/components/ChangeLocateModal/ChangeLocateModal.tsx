@@ -12,10 +12,11 @@ type TChangeLocate = {
 
 const ChangeLocateModal: FC<TChangeLocate> = ({ setChangeLocate, changeLocate }) => {
 
-
     const [searchValue, setSearchValue] = useState('');
+
     const wrapper = useRef<HTMLDivElement | null>(null);
     const input = useRef<HTMLInputElement | null>(null);
+
     const dispatch = useAppDispatch();
 
     useControlPopup(changeLocate, setChangeLocate, wrapper);
@@ -42,9 +43,9 @@ const ChangeLocateModal: FC<TChangeLocate> = ({ setChangeLocate, changeLocate })
                         value={searchValue}
                     />
                     <button className={style['change-locate-form__btn']}>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#5D6066" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="M21 21L16.65 16.65" stroke="#5D6066" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width={24} height={24}>
+                            <path d="m11 19c4.4183 0 8-3.5817 8-8 0-4.4183-3.5817-8-8-8-4.4183 0-8 3.5817-8 8 0 4.4183 3.5817 8 8 8z" stroke="#5D6066" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+                            <path d="m21 21-4.35-4.35" stroke="#5D6066" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
                         </svg>
                     </button>
                 </form>

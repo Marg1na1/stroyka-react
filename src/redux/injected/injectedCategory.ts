@@ -1,4 +1,4 @@
-import { TCartCard, TCard } from './../../@types/globalTypes';
+import { TCard } from './../../@types/globalTypes';
 import { stroykaApi } from '../stroyka.api';
 
 const injectedCategory = stroykaApi.injectEndpoints({

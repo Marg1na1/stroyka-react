@@ -12,8 +12,8 @@ const Documentation: FC = () => {
             <div className="container">
                 <ul className={style['documentation-list']}>
                     {
-                        listItem.map((obj) => (
-                            <DocItem {...obj} />
+                        listItem.map((obj, i) => (
+                            <DocItem {...obj} key={i} />
                         ))
                     }
                 </ul>

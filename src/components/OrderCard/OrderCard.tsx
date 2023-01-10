@@ -7,9 +7,9 @@ import { useDeleteOrderMutation } from '../../redux/injected/injectedOrders';
 const OrderCard: FC<TOrdersType> = (obj) => {
 
     const [total, setTotal] = useState(0);
-    const [deleteOrder] = useDeleteOrderMutation()
+    const [deleteOrder] = useDeleteOrderMutation();
 
-    const cancelOrdr = (id: string) => {
+    const cancelOrder = (id: string) => {
         deleteOrder(id)
     }
 
@@ -52,7 +52,7 @@ const OrderCard: FC<TOrdersType> = (obj) => {
                     <div className={style['order-info__footer']}>
                         <button
                             className={style['order__btn']}
-                            onClick={() => cancelOrdr(obj.id)}>Отменить заказ</button>
+                            onClick={() => cancelOrder(obj.id)}>Отменить заказ</button>
                         <b className={style['order__total']}>
                             Итого: {total} ₽
                         </b>

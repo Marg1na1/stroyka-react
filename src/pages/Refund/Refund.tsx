@@ -1,5 +1,4 @@
-import clsx from 'clsx';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import Headline from '../../components/Headline/Headline';
 import { headData, refundList } from '../../data/refund.data';
 import style from './Refund.module.scss';
