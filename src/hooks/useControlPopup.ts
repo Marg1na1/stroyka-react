@@ -10,7 +10,7 @@ export const useControlPopup = (state: boolean, setState: (x: boolean) => void, 
             }
             window.addEventListener('keydown', close)
 
-            return () => window.removeEventListener('keydown', close)
+            return () => window.removeEventListener('keydown', close) 
         }
     }, [state]);
 
@@ -29,5 +29,4 @@ export const useControlPopup = (state: boolean, setState: (x: boolean) => void, 
             return () => window.removeEventListener('click', closeOnClick)
         }
     }, [state]);
-
 }

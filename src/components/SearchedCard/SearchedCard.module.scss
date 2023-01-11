@@ -1,6 +1,6 @@
 .card{
     width: 400px;
-    height: 100px;
+    max-height: 100px;
     position: relative;
     &:not(:last-child){
         margin-bottom: 5px;
@@ -26,11 +26,20 @@
     }
     &__price{
         display: flex;
+        align-items: flex-end;
         &--current{
-
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 130%;
+            color: var(--eerie-black-color);
+            margin-right: 8px;
         }
         &--past{
-
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 130%;
+            color: var(--philippine-gray-color);
+            padding-bottom: 2px;
         }
     }
     &__btn{

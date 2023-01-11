@@ -58,7 +58,7 @@ const SearchedCard: FC<testType> = ({ img, title, price, discount, horizontal = 
                             truthCheck && <s className={style['card__price--past']}>{price}</s>
                         }
                     </div>
-                    <button className={style['card__btn']} onClick={() => addProduct(obj)}>В корзину</button>
+                    <button className={style['card__btn']} onClick={() => addProduct(obj)} type={'button'}>В корзину</button>
                 </div>
                 {
                     truthCheck && <span className={style['card__discount']}>-{discountAmount}%</span>
