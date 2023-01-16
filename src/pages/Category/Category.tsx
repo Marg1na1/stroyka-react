@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import clsx from 'clsx';
 import { THeadlineBreadcrumbs } from '../../@types/globalTypes';
 import CategorySide from '../../components/CategorySide/CategorySide';
@@ -7,6 +7,7 @@ import { TCategory } from '../../data/catalog.data';
 import { useGetCategoryItemsQuery } from '../../redux/injected/injectedCategory';
 import style from './Categoty.module.scss';
 import CategoryMain from '../../components/CategoryMain/CategoryMain';
+import { useLocation } from 'react-router-dom';
 
 type CategoryProps = {
     categoryData: TCategory[]
@@ -14,7 +15,10 @@ type CategoryProps = {
 
 const Category: FC<CategoryProps> = ({ categoryData }) => {
 
-    const name = window.location.pathname.split('/')[3];
+    const [pagination, setPagination] = useState(1);
+
+    const location = useLocation();
+    const name = location.pathname.split('/')[3];
 
     let res = {
         title: '',
@@ -22,6 +26,17 @@ const Category: FC<CategoryProps> = ({ categoryData }) => {
     }
 
     categoryData.forEach((obj) => obj.list.forEach((obj) => obj.path.split('/')[1] === name ? res = obj : null))
+
+    const obj = {
+        type: res.path.split('/')[1],
+        p: pagination
+    };
+
+    const { data = [], isSuccess } = useGetCategoryItemsQuery(obj);
+
+    // const paginationCount = Math.ceil(data.length / 18)
+
+    // console.log(paginationCount)
 
     const breadcrumbsArr: THeadlineBreadcrumbs[] = [
         { path: '/', title: 'Главная', type: 'link' },
@@ -36,13 +51,11 @@ const Category: FC<CategoryProps> = ({ categoryData }) => {
         title: res.title,
     }
 
-    const { data = [], isSuccess } = useGetCategoryItemsQuery(res.path.split('/')[1]);
-
     return (
         <section className={style['category']}>
             <Headline {...headData} />
             <div className={clsx(style['category-container'], 'container')}>
-                {isSuccess && <CategorySide data={data} />}
+                {isSuccess && <CategorySide data={data} withSearch />}
                 {isSuccess && <CategoryMain data={data} />}
             </div>
         </section>

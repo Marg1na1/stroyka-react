@@ -1,0 +1,14 @@
+.similar-product{
+    margin-top: 80px;
+}
+.title{
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 130%;
+    color: var(--eerie-black-color);
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 20px;
+}

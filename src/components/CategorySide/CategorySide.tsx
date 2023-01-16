@@ -1,14 +1,16 @@
 import { FC, useState } from 'react';
 import ReactSlider from 'react-slider';
 import Select from 'react-select'
-import { TCard } from '../../@types/globalTypes';
+
 import style from './CategorySide.module.scss';
+import { ProductModel } from '../../@types/models';
 
 type CategorySideProps = {
-    data: TCard[]
+    data: ProductModel[]
+    withSearch: boolean
 }
 
-const CategorySide: FC<CategorySideProps> = ({ data }) => {
+const CategorySide: FC<CategorySideProps> = ({ data, withSearch }) => {
 
     const minValue = Math.min(...data.map((obj) => obj.price));
     const maxValue = Math.max(...data.map((obj) => obj.price));
@@ -26,7 +28,7 @@ const CategorySide: FC<CategorySideProps> = ({ data }) => {
     ];
 
     const changeProvider = (newValue: any) => {
-        setProvider(newValue.value)
+        setProvider(newValue.label)
 
     }
 
@@ -75,12 +77,18 @@ const CategorySide: FC<CategorySideProps> = ({ data }) => {
                     max={maxValue}
                     min={minValue}
                 />
-                <h2 className={style['title']}>Поиск</h2>
-                <input
-                    type="text"
-                    className={style['search']}
-                    onChange={(e) => changeInputValue(e.target.value)}
-                    value={searchValue} />
+                {
+                    withSearch === true &&
+                    <>
+                        <h2 className={style['title']}>Поиск</h2>
+                        <input
+                            type="text"
+                            className={style['search']}
+                            onChange={(e) => changeInputValue(e.target.value)}
+                            value={searchValue} />
+                    </>
+                }
+
                 <h2 className={style['title']}>Поставщик</h2>
                 <Select
                     options={options}

@@ -1,10 +1,10 @@
-import { TCard } from './../../@types/globalTypes';
 import { stroykaApi } from '../stroyka.api';
+import { ProductModel } from '../../@types/models';
 
 const injectedPopularProducts = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
-        getPopularProducts: builder.query<TCard[], void>({
-            query: () => ({
+        getPopularProducts: builder.query<ProductModel[], void>({
+            query: (count) => ({
                 url: 'products',
                 params: {
                     sortby: 'rating',

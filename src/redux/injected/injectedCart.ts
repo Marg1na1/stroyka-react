@@ -1,9 +1,9 @@
-import { TCartCard } from './../../@types/globalTypes';
 import { stroykaApi } from '../stroyka.api';
+import { CartProductModel } from '../../@types/models';
 
 const injectedCart = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
-        getCart: builder.query<TCartCard[], void>({
+        getCart: builder.query<CartProductModel[], void>({
             query: () => ({
                 url: 'cart',
             }),

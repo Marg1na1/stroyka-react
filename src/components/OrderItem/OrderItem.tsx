@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { TCartCard } from '../../@types/globalTypes';
+import { CartProductModel } from '../../@types/models';
 import style from './OrderItem.module.scss';
 
-const OrderItem: FC<TCartCard> = ({ img, title, finalPrice, count }) => {
+const OrderItem: FC<CartProductModel> = ({ img, title, finalPrice, count }) => {
     
     return (
         <li className={style['order-item']}>

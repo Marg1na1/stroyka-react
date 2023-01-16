@@ -16,7 +16,6 @@ export const useControlPopup = (state: boolean, setState: (x: boolean) => void, 
 
     useEffect(() => {
         if (state === true) {
-
             const closeOnClick = (e: MouseEvent) => {
                 if (wrapper.current !== null && e.target instanceof HTMLElement) {
                     if (wrapper.current.className === e.target.className) {

@@ -1,11 +1,16 @@
-import { TCard } from './../../@types/globalTypes';
 import { stroykaApi } from '../stroyka.api';
+import { ProductModel } from '../../@types/models';
 
 const injectedCategory = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
-        getCategoryItems: builder.query<TCard[], string>({
-            query: (type) => ({
-                url: `products?type=${type}`,
+        getCategoryItems: builder.query<ProductModel[], { type: string, p: number }>({
+            query: ({ type, p }) => ({
+                url: `products`,
+                params: {
+                    type: type,
+                    p: p,
+                    l: 18,
+                }
             }),
             providesTags: (result) =>
                 result

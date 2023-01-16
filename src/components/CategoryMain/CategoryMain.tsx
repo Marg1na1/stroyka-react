@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import clsx from 'clsx';
-import { TCard } from '../../@types/globalTypes';
 import { useSort } from '../../hooks/useSort';
 import Card from '../Card/Card';
 import style from './CategoryMain.module.scss';
+import { ProductModel } from '../../@types/models';
 
 type CategoryMainProps = {
-    data: TCard[];
+    data: ProductModel[];
 }
 
 const CategoryMain: FC<CategoryMainProps> = ({ data }) => {
@@ -47,6 +47,9 @@ const CategoryMain: FC<CategoryMainProps> = ({ data }) => {
                         <Card {...obj} key={i} />
                     ))
                 }
+            </ul>
+            <ul  className={style['pagination']}>
+                
             </ul>
         </div>
     );

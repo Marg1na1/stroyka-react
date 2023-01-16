@@ -40,7 +40,7 @@
             font-weight: 700;
             font-size: 20px;
             line-height: 140%;
-            color: var(--eerie-black-color);
+            color: var(--eerie-black-color); 
             margin-right: 8px;
         }
         &--past{
@@ -66,6 +66,7 @@
             color: var(--white-color);
         }
         &:active{
+            background-color: var(--gunmetal-color);
             color: var(--light-gray-color);
         }
     }

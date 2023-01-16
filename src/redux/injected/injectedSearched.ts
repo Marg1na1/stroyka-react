@@ -1,5 +1,5 @@
-import { TCard } from './../../@types/globalTypes';
 import { stroykaApi } from '../stroyka.api';
+import { ProductModel } from '../../@types/models';
 
 type TSearchedParams = {
     value: string;
@@ -8,7 +8,7 @@ type TSearchedParams = {
 
 const injectedSearched = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
-        getSearched: builder.query<TCard[], TSearchedParams>({
+        getSearched: builder.query<ProductModel[], TSearchedParams>({
             query: ({ count, value }) => ({
                 url: `products/?search=${value}`,
                 params: {

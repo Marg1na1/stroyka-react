@@ -1,11 +1,11 @@
 import { FC, useState, useEffect } from 'react';
 import clsx from 'clsx';
-import { TCartCard } from '../../@types/globalTypes';
 import { useChangeCartItemMutation, useDeleteCartItemMutation } from '../../redux/injected/injectedCart';
 import style from './CartCard.module.scss';
+import { CartProductModel } from '../../@types/models';
 
 
-const CartCard: FC<TCartCard> = ({ img, title, finalPrice, count, id }) => {
+const CartCard: FC<CartProductModel> = ({ img, title, finalPrice, count, id }) => {
 
     const [productCont, setProductCount] = useState(1);
 

@@ -34,8 +34,8 @@
             outline: none;
             &:hover{
                 cursor: pointer;
-                background-color: var(--eerie-black-color);
-                border-color: var(--eerie-black-color);
+                background-color: var(--gunmetal-color);
+                border-color: var(--gunmetal-color);
                 &::before{
                     background-color: var(--white-color);
                 }
@@ -44,6 +44,8 @@
                 }
             }
             &:active{
+                border-color: var(--gunmetal-color);
+                background-color: var(--gunmetal-color);
                 &::before{
                     background-color: var(--light-gray-color);
                 }
@@ -120,11 +122,12 @@
         border: 1px solid var(--titan-color);
         &:hover{
             cursor: pointer;
-            background-color: var(--eerie-black-color);
+            background-color: var(--gunmetal-color);
             color: var(--white-color);
             transition: .3s;
         }
         &:active{
+            background-color: var(--gunmetal-color);
             color: var(--light-gray-color);
         }
     }

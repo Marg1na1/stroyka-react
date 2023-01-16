@@ -1,13 +1,13 @@
 import { stroykaApi } from '../stroyka.api';
 import { ProductModel } from '../../@types/models';
 
-const injectedDiscount = stroykaApi.injectEndpoints({
+const injecteSimilarProducts= stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
-        getDiscountedProducts: builder.query<ProductModel[], void>({
-            query: () => ({
-                url: 'products',
+        getSimilar: builder.query<ProductModel[], string>({
+            query: (type) => ({
+                url: `products`,
                 params: {
-                    discount: 'true',
+                    type: type,
                     p: 1,
                     l: 4,
                 }
@@ -17,4 +17,4 @@ const injectedDiscount = stroykaApi.injectEndpoints({
     overrideExisting: false,
 })
 
-export const { useGetDiscountedProductsQuery } = injectedDiscount;
+export const { useGetSimilarQuery } = injecteSimilarProducts;

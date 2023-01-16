@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { TCartCard } from '../../@types/globalTypes';
-import { useAddCartItemMutation, useChangeCartItemMutation, useGetCartQuery } from '../../redux/injected/injectedCart';
+import { TransmittedData } from '../../@types/models';
+import { useAddProduct } from '../../hooks/useAddProduct';
 import style from './SearchedCard.module.scss';
 
-type testType = {
-    id: number;
+type TSearchedCard = {
+    id: string;
     fixId: number;
     img: string;
     title: string;
@@ -14,34 +14,27 @@ type testType = {
     type: string;
     discount: string;
     discountAmount?: number;
-    horizontal?: boolean;
 }
 
-const SearchedCard: FC<testType> = ({ img, title, price, discount, horizontal = false, discountAmount, fixId, provider }) => {
+const SearchedCard: FC<TSearchedCard> = ({ img, title, price, discount, discountAmount, fixId, provider }) => {
 
-    const currentVievPrice: number = Math.round(((price - price / 100 * discountAmount!)));
-    const truthCheck: boolean = discount === 'true';
-    const finalPrice: number = truthCheck ? currentVievPrice : price;
+    const currentPrice: number = Math.round(((price - price / 100 * discountAmount!)));
+    const isDiscounted: boolean = discount === 'true';
 
-    const obj = { img, title, finalPrice, fixId, provider, count: 0, id: 0 };
+    const addProduct = useAddProduct();
 
-    const { data = [] } = useGetCartQuery();
+    const obj: TransmittedData = {
+        img,
+        title,
+        finalPrice: isDiscounted ? currentPrice : price,
+        fixId,
+        provider,
+        count: 1,
+        id: 0
+    };
 
-    const [addCartItem] = useAddCartItemMutation();
-
-    const [changeCartItem] = useChangeCartItemMutation();
-
-    const addProduct = async (item: any) => {
-        if (data.find((obj: any) => obj.fixId === item.fixId)) {
-            const currentCount = data.find((obj: TCartCard) => obj.fixId === item.fixId)
-            item.count += currentCount!.count + 1
-            item.id = currentCount!.id
-            await changeCartItem(item)
-        } else {
-            item.count += 1
-            await addCartItem(item)
-        }
-
+    const onClickAddProduct = (obj: TransmittedData) => {
+        addProduct(obj)
     }
 
     return (
@@ -52,16 +45,16 @@ const SearchedCard: FC<testType> = ({ img, title, price, discount, horizontal = 
                     <p className={style['card__title']}>{title}</p>
                     <div className={style['card__price']}>
                         <p className={style['card__price--current']}>
-                            {truthCheck ? currentVievPrice : price} ₽
+                            {isDiscounted ? currentPrice : price} ₽
                         </p>
                         {
-                            truthCheck && <s className={style['card__price--past']}>{price}</s>
+                            isDiscounted && <s className={style['card__price--past']}>{price}</s>
                         }
                     </div>
-                    <button className={style['card__btn']} onClick={() => addProduct(obj)} type={'button'}>В корзину</button>
+                    <button className={style['card__btn']} onClick={() => onClickAddProduct(obj)} type={'button'}>В корзину</button>
                 </div>
                 {
-                    truthCheck && <span className={style['card__discount']}>-{discountAmount}%</span>
+                    isDiscounted && <span className={style['card__discount']}>-{discountAmount}%</span>
                 }
             </article>
         </li>

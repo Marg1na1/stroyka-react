@@ -1,3 +1,51 @@
 .search-result{
     
 }
+.title{
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 130%;
+    color: var(--gunmetal-color);
+    margin-bottom: 40px;
+}
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.side{
+    width: 278px;
+    height: 500px;
+    background-color: var(--gunmetal-color);
+}
+.main{
+
+}
+.filter{
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    &__item{
+
+    }
+    &__btn{
+        border: none;
+        background-color: transparent;
+        outline: none;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        color: var(--philippine-gray-color);
+        &:hover{
+            cursor: pointer;
+        }
+        &--active{
+            color: var(--eerie-black-color);
+        }
+    }
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}

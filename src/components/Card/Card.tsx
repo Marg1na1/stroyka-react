@@ -1,11 +1,12 @@
 import { FC } from 'react';
 import style from './Card.module.scss';
 import clsx from 'clsx';
-import { TCartCard } from '../../@types/globalTypes';
-import { useAddCartItemMutation, useChangeCartItemMutation, useGetCartQuery } from '../../redux/injected/injectedCart';
+import { TransmittedData } from '../../@types/models';
+import { useAddProduct } from '../../hooks/useAddProduct';
+import { Link } from 'react-router-dom';
 
-type testType = {
-    id: number;
+type TCardProps = {
+    id: string;
     fixId: number;
     img: string;
     title: string;
@@ -18,52 +19,45 @@ type testType = {
     horizontal?: boolean;
 }
 
-const Card: FC<testType> = ({ img, title, price, discount, horizontal = false, discountAmount, fixId, provider }) => {
+const Card: FC<TCardProps> = ({ img, title, price, discount, horizontal = false, discountAmount, fixId, provider }) => {
 
-    const currentVievPrice: number = Math.round(((price - price / 100 * discountAmount!)));
-    // const currentPrice: number = ((price - price / 100 * discountAmount!));
-    const truthCheck: boolean = discount === 'true';
-    const finalPrice: number = truthCheck ? currentVievPrice : price;
+    const currentPrice: number = Math.round(price - price / 100 * discountAmount!);
+    const isDiscounted: boolean = discount === 'true';
 
-    const obj = { img, title, finalPrice, fixId, provider, count: 0, id: 0 };
+    const addProduct = useAddProduct();
 
-    const { data = [] } = useGetCartQuery();
+    const obj: TransmittedData = {
+        img,
+        title,
+        finalPrice: isDiscounted ? currentPrice : price,
+        fixId,
+        provider,
+        count: 1,
+        id: 0
+    };
 
-    const [addCartItem] = useAddCartItemMutation();
-
-    const [changeCartItem] = useChangeCartItemMutation();
-
-    const addProduct = async (item: any) => {
-        if (data.find((obj: any) => obj.fixId === item.fixId)) {
-            const currentCount = data.find((obj: TCartCard) => obj.fixId === item.fixId)
-            item.count += currentCount!.count + 1
-            item.id = currentCount!.id
-            await changeCartItem(item)
-        } else {
-            item.count += 1
-            await addCartItem(item)
-        }
-
+    const onClickAddProduct = (obj: TransmittedData) => {
+        addProduct(obj)
     }
 
     return (
         <li className={style['grid-item']}>
             <article className={horizontal ? style['grid-item__content--h'] : style['grid-item__content']}>
-                <img className={horizontal ? style['grid-item__image--h'] : style['grid-item__image']} src={img} alt='product' />
+                <Link to={`/products/${fixId}`}><img className={horizontal ? style['grid-item__image--h'] : style['grid-item__image']} src={img} alt='product' /></Link>
                 <div className={style['grid-item__main']}>
-                    <p className={style['grid-item__title']}>{title}</p>
+                    <Link to={`/products/${fixId}`}><h2 className={style['grid-item__title']}>{title}</h2></Link>
                     <div className={style['grid-item__price']}>
                         <p className={style['grid-item__price--current']}>
-                            {truthCheck ? currentVievPrice : price} ₽
+                            {isDiscounted ? currentPrice : price} ₽
                         </p>
                         {
-                            truthCheck && <s className={style['grid-item__price--past']}>{price}</s>
+                            isDiscounted && <s className={style['grid-item__price--past']}>{price}</s>
                         }
                     </div>
-                    <button className={clsx('btn-reset', style['grid-item__btn'])} onClick={() => addProduct(obj)}>В корзину</button>
+                    <button className={clsx('btn-reset', style['grid-item__btn'])} onClick={() => onClickAddProduct(obj)}>В корзину</button>
                 </div>
                 {
-                    truthCheck && <span className={style['grid-item__discount']}>-{discountAmount}%</span>
+                    isDiscounted && <span className={style['grid-item__discount']}>-{discountAmount}%</span>
                 }
             </article>
         </li>

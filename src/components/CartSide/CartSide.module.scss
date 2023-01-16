@@ -1,6 +1,5 @@
 .side{
     max-width: 278px;
-    // height: 666px;
     &-container{
         padding: 16px;
         width: 278px;
@@ -49,6 +48,7 @@
             cursor: pointer;
         }
         &:active{
+            background-color: var(--gunmetal-color);
             color: var(--light-gray-color);
         }
     }

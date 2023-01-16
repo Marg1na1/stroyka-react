@@ -1,0 +1,177 @@
+.wrapper{
+    display: flex;
+    border: 1px solid var(--titan-color);
+    position: relative;
+    max-height: 430px;
+}
+.img{
+    min-width: 572px;
+}
+.main{
+    padding: 16px;
+    border-left: 1px solid var(--titan-color);
+}
+.title{
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 130%;
+    color: var(--eerie-black-color);
+    max-width: 500px;
+    height: 90px;
+    overflow-y: auto;
+}
+.price{
+    display: flex;
+    align-items: flex-end;
+    margin-top: 25px;
+    &__current{
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 130%;
+        color: var(--eerie-black-color);
+        margin-right: 16px;
+    }
+    &__past{
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 150%;
+        color: var(--philippine-gray-color);
+        padding-bottom: 2px;
+    }
+}
+.form{
+    display: flex;
+    margin-top: 25px;
+}
+.submit{
+    background-color: var(--yellow-color);
+    max-height: 48px;
+    width: 245px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
+    margin-right: 16px;
+    transition: .4s;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 136%;
+    color: var(--eerie-black-color);
+    &:hover{
+        background-color: var(--gunmetal-color);
+        color: var(--white-color);
+        cursor: pointer;
+    }
+    &:active{
+        background-color: var(--gunmetal-color);
+        color: var(--light-gray-color);
+    }
+}
+.amount{
+    display: flex;
+    align-items: center;
+    &__btn{
+        width: 48px;
+        height: 48px;
+        background-color: transparent;
+        border: 1px solid var(--titan-color);
+        position: relative;
+        transition: .3s;
+        &:hover{
+            background-color: var(--gunmetal-color);
+            border-color:  var(--gunmetal-color);
+            cursor: pointer;
+            &::before{
+                background-color: var(--white-color);
+            }
+            &::after{
+                background-color: var(--white-color);
+            }
+        }
+        &:active{
+            background-color: var(--gunmetal-color);
+            border-color:  var(--gunmetal-color);
+            cursor: pointer;
+            &::before{
+                background-color: var(--light-gray-color);
+            }
+            &::after{
+                background-color: var(--light-gray-color);
+            }
+        }
+        &--minus{
+            &::before{
+                content: "";
+                position: absolute;
+                width: 16px;
+                height: 2px;
+                background-color: var(--eerie-black-color);
+                top: calc(50% - 1px);
+                left: calc(50% - 8px);
+                transition: .3s;
+            }
+        }
+        &--plus{
+            &::after{
+                content: "";
+                position: absolute;
+                width: 2px;
+                height: 16px;
+                background-color: var(--eerie-black-color);
+                top: calc(50% - 8px);
+                left: calc(50% - 1px);
+                transition: .3s;
+            }
+            &::before{
+                content: "";
+                position: absolute;
+                width: 16px;
+                height: 2px;
+                background-color: var(--eerie-black-color);
+                top: calc(50% - 1px);
+                left: calc(50% - 8px);
+                transition: .3s;
+            }
+        }
+    }
+    &__input{
+        height: 48px;
+        width: 48px;
+        border: 1px solid var(--titan-color);
+        outline: none;
+        text-align: center;
+    }
+}
+.provider{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--eerie-black-color);
+    margin-top: 35px;
+}
+.info{
+    display: flex;
+    align-items: flex-start;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--eerie-black-color);
+    margin-top: 16px;
+    img{
+        margin-right: 10px;
+    }
+}
+.discount{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 145%;
+    color: var(--eerie-black-color);
+    padding: 4px 8px;
+    border: 1px solid var(--yellow-color);
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background-color: var(--white-color);
+}

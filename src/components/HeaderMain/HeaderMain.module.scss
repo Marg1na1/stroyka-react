@@ -1,6 +1,7 @@
 .header{
     &-logo{
         margin-right: 114px;
+        max-height: 48px;
     }
     &-main{
         &-btn{
@@ -132,8 +133,9 @@
         &__container{
             display: flex;
             justify-content: center;
+            align-items: flex-end;
             padding: 16px 0;
-            height: 83px;
+            height: 80px;
             background-color: var(--white-color);
             position: static;
         }

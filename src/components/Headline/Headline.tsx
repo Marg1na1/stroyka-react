@@ -6,7 +6,7 @@ import { THeadlineBreadcrumbs } from '../../@types/globalTypes';
 
 type HeadlineProps = {
     breadcrumbs: THeadlineBreadcrumbs[];
-    title: string;
+    title?: string;
     descr?: string;
     layout?: string;
 }

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { TCartCard } from '../../@types/globalTypes';
+import { CartProductModel } from '../../@types/models';
 import { useAddOrderMutation } from '../../redux/injected/injectedOrders';
 import style from './CartSide.module.scss';
 
@@ -8,7 +8,7 @@ const order_icon = './../assets/images/order_icon.svg';
 const truck_icon = './../assets/images/truck_icon.svg';
 
 type CartSideProps = {
-    data: TCartCard[]
+    data: CartProductModel[]
 }
 
 const CartSide: FC<CartSideProps> = ({ data }) => {
@@ -18,7 +18,7 @@ const CartSide: FC<CartSideProps> = ({ data }) => {
 
     const [addOrder] = useAddOrderMutation();
 
-    const clickAddOrder = async (data: TCartCard[]) => {
+    const clickAddOrder = async (data: CartProductModel[]) => {
         await addOrder(data)
     }
 

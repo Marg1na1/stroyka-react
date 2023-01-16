@@ -1,9 +1,9 @@
-import { TOrdersType } from '../../@types/globalTypes';
+import { OrderModel } from '../../@types/models';
 import { stroykaApi } from '../stroyka.api';
 
 const injectedOrders = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
-        getOrders: builder.query<TOrdersType[], void>({
+        getOrders: builder.query<OrderModel[], void>({
             query: () => ({
                 url: 'orders',
             }),
