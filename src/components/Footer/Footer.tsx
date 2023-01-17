@@ -35,30 +35,30 @@ const Footer: FC = () => {
                         <ul className={style['footer-nav-list']}>
                             {
                                 navItems.map((obj, i) => (
-                                    i < 4 ?
-                                        <Link to={obj.path} className={style['footer-nav-list__item']} key={i}>
-                                            <img src={arrow} alt={''} />{obj.text}
-                                        </Link> : ''
+                                    i < 4 &&
+                                    <Link to={obj.path} className={style['footer-nav-list__item']} key={i}>
+                                        <img src={arrow} alt={''} />{obj.text}
+                                    </Link>
                                 ))
                             }
                         </ul>
                         <ul className={style['footer-nav-list']}>
                             {
                                 navItems.map((obj, i) => (
-                                    i > 3 && i < 8 ?
-                                        <Link to={obj.path} className={style['footer-nav-list__item']} key={i}>
-                                            <img src={arrow} alt={''} />{obj.text}
-                                        </Link> : ''
+                                    (i > 3 && i < 8) &&
+                                    <Link to={obj.path} className={style['footer-nav-list__item']} key={i}>
+                                        <img src={arrow} alt={''} />{obj.text}
+                                    </Link>
                                 ))
                             }
                         </ul>
                         <ul className={style['footer-nav-list']}>
                             {
                                 navItems.map((obj, i) => (
-                                    i > 7 ?
-                                        <Link to={obj.path} className={style['footer-nav-list__item']} key={i}>
-                                            <img src={arrow} alt={''} />{obj.text}
-                                        </Link> : ''
+                                    i > 7 &&
+                                    <Link to={obj.path} className={style['footer-nav-list__item']} key={i}>
+                                        <img src={arrow} alt={''} />{obj.text}
+                                    </Link>
                                 ))
                             }
                         </ul>

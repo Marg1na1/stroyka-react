@@ -6,8 +6,7 @@ import HeaderSearch from '../HeaderSearch/HeaderSearch';
 
 const logo = './../assets/images/logo_icon.svg';
 
-
-const HeaderMain: FC = ({ }) => {
+const HeaderMain: FC = () => {
 
     const [isSticky, setIsSticky] = useState<boolean>(false);
 
@@ -30,7 +29,7 @@ const HeaderMain: FC = ({ }) => {
         <div id='header-main' className={isSticky ? clsx(style['header-main'], style['header-main--sticky']) : style['header-main']}>
             <div className={style['header-main__container']}>
                 <Link to={'/'} className={style['header-logo']} > <img src={logo} alt={'logo'} /> </Link>
-                <Link to={'catalog'} className={style['header-main-btn']}>
+                <Link to={'/catalog'} className={style['header-main-btn']}>
                     <div className={style['header-main-btn__lines']}>
                         <span></span>
                     </div>
@@ -51,7 +50,6 @@ const HeaderMain: FC = ({ }) => {
                             <path d="m3.27 6.96 8.73 5.05 8.73-5.05" stroke="#5D6066" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
                             <path d="M12 22.08V12" stroke="#5D6066" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
                         </svg>
-
                         <p>Заказы</p>
                     </Link>
                     <Link to={'/cart'} className={style['header-main-nav__item']}>

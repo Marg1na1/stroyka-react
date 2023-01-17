@@ -7,14 +7,16 @@ import { useSort } from '../../hooks/useSort';
 import clsx from 'clsx';
 import CategorySide from '../../components/CategorySide/CategorySide';
 import EmptyPage from '../EmptyPage/EmptyPage';
+import Skeleton from '../../components/Skeletons/Skeleton';
+import SideSkeleton from '../../components/Skeletons/SideSkeleton';
 
 const SearchResult: FC = ({ }) => {
 
-    const location = useLocation(); 
+    const location = useLocation();
 
     const searchQuery = decodeURI(location.search.split('').slice(3, location.search.split('').length + 1).join(''))
 
-    const { data = [], isSuccess } = useGetSearchedQuery({ value: searchQuery, count: 12 });
+    const { data = [], isLoading, isSuccess } = useGetSearchedQuery({ value: searchQuery, count: 12 });
 
     const { sortState, selectSort } = useSort();
 
@@ -26,52 +28,53 @@ const SearchResult: FC = ({ }) => {
         path: '/'
     }
 
+    const renderCards = data.map((obj) => (<Card {...obj} key={obj.fixId} />));
+    const renderSkeleton = [...new Array(9)].map((_, index) => <Skeleton key={index} />);
+
     return (
         <section className={style['search-result']}>
             {
-                data.length > 0 ? <div className="container">
-                    <h1 className={style['title']}>Поиск по запросу «{searchQuery}»</h1>
-                    <div className={style['wrapper']}>
-                        {isSuccess && <CategorySide data={data} withSearch={false} />}
-
-                        <div className={style['main']}>
-                            <ul className={style['filter']}>
-                                <li className={style['filter__item']}>
-                                    <button className={sortState.popular === true
-                                        ? clsx(style['filter__btn--active'], style['filter__btn'])
-                                        : style['filter__btn']}
-                                        onClick={() => selectSort('popular')} >Популярные</button>
-                                </li>
-                                <li className={style['filter__item']}>
-                                    <button className={sortState.cheaper === true
-                                        ? clsx(style['filter__btn--active'], style['filter__btn'])
-                                        : style['filter__btn']}
-                                        onClick={() => selectSort('cheaper')}>Дешевле</button>
-                                </li>
-                                <li className={style['filter__item']}>
-                                    <button className={sortState.expensive === true
-                                        ? clsx(style['filter__btn--active'], style['filter__btn'])
-                                        : style['filter__btn']}
-                                        onClick={() => selectSort('expensive')}>Дороже</button>
-                                </li>
-                                <li className={style['filter__item']}>
-                                    <button className={sortState.alphabet === true
-                                        ? clsx(style['filter__btn--active'], style['filter__btn'])
-                                        : style['filter__btn']}
-                                        onClick={() => selectSort('alphabet')}>По алфавиту</button>
-                                </li>
-                            </ul>
-                            <ul className={style['grid']}>
-                                {
-                                    isSuccess && data.map((obj) => (
-                                        <Card {...obj} key={obj.fixId} />
-                                    ))
-                                }
-                            </ul>
+                (isSuccess && data.length <= 0) ?
+                    <EmptyPage {...emptySearchData} /> :
+                    <div className="container">
+                        <h1 className={style['title']}>Поиск по запросу «{searchQuery}»</h1>
+                        <div className={style['wrapper']}>
+                            {isLoading ? <SideSkeleton /> : <CategorySide data={data} withSearch={false} />}
+                            <div className={style['main']}>
+                                <ul className={style['filter']}>
+                                    <li className={style['filter__item']}>
+                                        <button className={sortState.popular === true
+                                            ? clsx(style['filter__btn--active'], style['filter__btn'])
+                                            : style['filter__btn']}
+                                            onClick={() => selectSort('popular')} >Популярные</button>
+                                    </li>
+                                    <li className={style['filter__item']}>
+                                        <button className={sortState.cheaper === true
+                                            ? clsx(style['filter__btn--active'], style['filter__btn'])
+                                            : style['filter__btn']}
+                                            onClick={() => selectSort('cheaper')}>Дешевле</button>
+                                    </li>
+                                    <li className={style['filter__item']}>
+                                        <button className={sortState.expensive === true
+                                            ? clsx(style['filter__btn--active'], style['filter__btn'])
+                                            : style['filter__btn']}
+                                            onClick={() => selectSort('expensive')}>Дороже</button>
+                                    </li>
+                                    <li className={style['filter__item']}>
+                                        <button className={sortState.alphabet === true
+                                            ? clsx(style['filter__btn--active'], style['filter__btn'])
+                                            : style['filter__btn']}
+                                            onClick={() => selectSort('alphabet')}>По алфавиту</button>
+                                    </li>
+                                </ul>
+                                <ul className={style['grid']}>
+                                    {
+                                        isLoading ? renderSkeleton : renderCards
+                                    }
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div> :
-                    <EmptyPage {...emptySearchData} />
             }
 
         </section>

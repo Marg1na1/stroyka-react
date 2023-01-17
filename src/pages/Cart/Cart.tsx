@@ -18,7 +18,7 @@ const emptyCartData = {
 
 const Cart: FC = () => {
 
-    const { data = [], isLoading } = useGetCartQuery();
+    const { data = [], isSuccess } = useGetCartQuery();
 
     return (
         <section className={style['cart']}>
@@ -29,7 +29,7 @@ const Cart: FC = () => {
                         <CartSide data={data} />
                         <ul>
                             {
-                                !isLoading && data.map((obj) => (
+                                isSuccess && data.map((obj) => (
                                     <CartCard {...obj} key={obj.fixId} />
                                 ))
                             }

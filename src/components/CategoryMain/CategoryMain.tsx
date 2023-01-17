@@ -4,14 +4,19 @@ import { useSort } from '../../hooks/useSort';
 import Card from '../Card/Card';
 import style from './CategoryMain.module.scss';
 import { ProductModel } from '../../@types/models';
+import Skeleton from '../Skeletons/Skeleton';
 
 type CategoryMainProps = {
     data: ProductModel[];
+    status: boolean;
 }
 
-const CategoryMain: FC<CategoryMainProps> = ({ data }) => {
+const CategoryMain: FC<CategoryMainProps> = ({ data, status }) => {
 
     const { sortState, selectSort } = useSort();
+
+    const renderCards = data.map((obj) => (<Card {...obj} key={obj.fixId} />));
+    const renderSkeleton = [...new Array(9)].map((_, index) => <Skeleton key={index} />);
 
     return (
         <div className={style['category-main']}>
@@ -43,13 +48,11 @@ const CategoryMain: FC<CategoryMainProps> = ({ data }) => {
             </ul>
             <ul className={style['category-list']}>
                 {
-                    data.map((obj, i) => (
-                        <Card {...obj} key={i} />
-                    ))
+                    status ? renderCards : renderSkeleton
                 }
             </ul>
-            <ul  className={style['pagination']}>
-                
+            <ul className={style['pagination']}>
+
             </ul>
         </div>
     );

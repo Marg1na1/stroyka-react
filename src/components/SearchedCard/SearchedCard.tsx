@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import { TransmittedData } from '../../@types/models';
 import { useAddProduct } from '../../hooks/useAddProduct';
 import style from './SearchedCard.module.scss';
@@ -40,7 +41,7 @@ const SearchedCard: FC<TSearchedCard> = ({ img, title, price, discount, discount
     return (
         <li className={style['card']}>
             <article className={style['card-content']}>
-                <img className={style['card__img']} src={img} alt='product' />
+                <Link to={`/products/${fixId}`}><img className={style['card__img']} src={img} alt='product' /></Link>
                 <div className={style['card-main']}>
                     <p className={style['card__title']}>{title}</p>
                     <div className={style['card__price']}>

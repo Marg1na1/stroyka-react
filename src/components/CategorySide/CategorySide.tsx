@@ -103,7 +103,7 @@ const CategorySide: FC<CategorySideProps> = ({ data, withSearch }) => {
             </div>
             <div className={style['side-footer']}>
                 <button className={style['submit']}>Применить</button>
-                <button className={style['cancel']} onClick={() => resetFilter()}>Сбросить</button>
+                <button className={style['cancel']} onClick={resetFilter}>Сбросить</button>
             </div>
         </aside>
     );

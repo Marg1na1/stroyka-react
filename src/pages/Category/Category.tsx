@@ -5,9 +5,10 @@ import CategorySide from '../../components/CategorySide/CategorySide';
 import Headline from '../../components/Headline/Headline';
 import { TCategory } from '../../data/catalog.data';
 import { useGetCategoryItemsQuery } from '../../redux/injected/injectedCategory';
-import style from './Categoty.module.scss';
+import style from './Category.module.scss';
 import CategoryMain from '../../components/CategoryMain/CategoryMain';
 import { useLocation } from 'react-router-dom';
+import SideSkeleton from '../../components/Skeletons/SideSkeleton';
 
 type CategoryProps = {
     categoryData: TCategory[]
@@ -32,11 +33,7 @@ const Category: FC<CategoryProps> = ({ categoryData }) => {
         p: pagination
     };
 
-    const { data = [], isSuccess } = useGetCategoryItemsQuery(obj);
-
-    // const paginationCount = Math.ceil(data.length / 18)
-
-    // console.log(paginationCount)
+    const { data = [], isSuccess, isLoading } = useGetCategoryItemsQuery(obj);
 
     const breadcrumbsArr: THeadlineBreadcrumbs[] = [
         { path: '/', title: 'Главная', type: 'link' },
@@ -55,8 +52,8 @@ const Category: FC<CategoryProps> = ({ categoryData }) => {
         <section className={style['category']}>
             <Headline {...headData} />
             <div className={clsx(style['category-container'], 'container')}>
-                {isSuccess && <CategorySide data={data} withSearch />}
-                {isSuccess && <CategoryMain data={data} />}
+                {isLoading ? <SideSkeleton /> : <CategorySide data={data} withSearch />}
+                {isSuccess && <CategoryMain data={data} status={isSuccess} />}
             </div>
         </section>
     );

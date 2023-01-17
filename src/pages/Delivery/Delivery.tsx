@@ -1,4 +1,4 @@
-import { FC, useCallback, useState } from 'react';
+import { FC, useState } from 'react';
 import style from './Delivery.module.scss';
 import Headline from '../../components/Headline/Headline';
 import { headData, tutorialArr, FAQData } from '../../data/delivery.data';
@@ -28,9 +28,7 @@ const Delivery: FC = () => {
                             tutorialArr.map((obj, i) => (
                                 <li className={style['delivery-list__item']} key={i}>
                                     <img src={obj.img} alt={"icon"} />
-                                    <p>
-                                        {obj.content}
-                                    </p>
+                                    <p>{obj.content}</p>
                                 </li>
                             ))
                         }

@@ -14,9 +14,9 @@ const emptyOrdersData = {
     path: '/cart'
 }
 
-const Orders: FC = ( ) => {
+const Orders: FC = () => {
 
-    const { data = [] } = useGetOrdersQuery();
+    const { data = [], isSuccess } = useGetOrdersQuery();
 
     return (
         <section className={style['orders']}>
@@ -27,7 +27,7 @@ const Orders: FC = ( ) => {
                         <div className="container">
                             <ul className={style['orders-list']}>
                                 {
-                                    data.map((obj, i) => (
+                                    isSuccess && data.map((obj, i) => (
                                         <OrderCard {...obj} key={i} />
                                     ))
                                 }

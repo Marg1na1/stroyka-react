@@ -4,10 +4,14 @@ import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useGetReviewsQuery } from '../../redux/injected/injectedReviews';
 import ReviewsSlide from '../ReviewsSlide/ReviewsSlide';
+import ReviewSkeleton from '../Skeletons/ReviewSkeleton';
 
 const Reviews: FC = () => {
 
-    const { data = [] } = useGetReviewsQuery();
+    const { data = [], isLoading } = useGetReviewsQuery();
+
+    const renderSkeleton = [...new Array(8)].map((_, index) => <SwiperSlide key={index}><ReviewSkeleton /></SwiperSlide>);
+    const renderReview = data.map((obj, i) => (<SwiperSlide className={style['reviews-slide']} key={i}><ReviewsSlide {...obj} /></SwiperSlide>));
 
     return (
         <section className={style['reviews']}>
@@ -24,14 +28,8 @@ const Reviews: FC = () => {
                     slidesPerView={3}
                     navigation={{ nextEl: 'review-next', prevEl: 'review-prev' }}>
                     {
-                        data.map((obj, i) => (
-                            <SwiperSlide className={style['reviews-slide']} key={i}>
-                                <ReviewsSlide {...obj} />
-                            </SwiperSlide>
-
-                        ))
+                        isLoading ? renderSkeleton : renderReview
                     }
-
                 </Swiper>
             </div>
         </section>

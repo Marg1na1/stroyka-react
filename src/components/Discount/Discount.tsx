@@ -3,10 +3,14 @@ import clsx from 'clsx';
 import Card from '../Card/Card';
 import style from './Discount.module.scss';
 import { useGetDiscountedProductsQuery } from '../../redux/injected/injectedDiscount';
+import HorizontalSkeleton from '../Skeletons/HorizontalSkeleton';
 
 const Discount: FC = () => {
 
     const { data = [], isLoading } = useGetDiscountedProductsQuery();
+
+    const renderSkeleton = [...new Array(4)].map((_, index) => <HorizontalSkeleton key={index} />);
+    const renderCards = data.map((item) => (<Card {...item} key={item.fixId} horizontal />));
 
     return (
         <section className={clsx(style['discount'], 'mb80')}>
@@ -22,9 +26,7 @@ const Discount: FC = () => {
                 </div>
                 <ul className={style['grid']}>
                     {
-                        !isLoading && data.map((item) => (
-                            <Card {...item} key={item.fixId} horizontal />
-                        ))
+                        isLoading ? renderSkeleton : renderCards
                     }
                 </ul>
             </div>

@@ -14,8 +14,8 @@ const ChangeLocateModal: FC<TChangeLocate> = ({ setChangeLocate, changeLocate })
 
     const [searchValue, setSearchValue] = useState('');
 
-    const wrapper = useRef<HTMLDivElement | null>(null);
-    const input = useRef<HTMLInputElement | null>(null);
+    const wrapper = useRef<HTMLDivElement>(null);
+    const input = useRef<HTMLInputElement>(null);
 
     const dispatch = useAppDispatch();
 
@@ -38,7 +38,10 @@ const ChangeLocateModal: FC<TChangeLocate> = ({ setChangeLocate, changeLocate })
             <div className={style['change-locate']}>
                 <h1 className={style['change-locate-title']}>Выберете ваш город</h1>
                 <form className={style['change-locate-form']}>
-                    <input type="text" className={style['change-locate-input']} ref={input}
+                    <input
+                        type="text"
+                        className={style['change-locate-input']}
+                        ref={input}
                         onChange={(e) => setSearchValue(e.target.value)}
                         value={searchValue}
                     />

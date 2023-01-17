@@ -6,6 +6,7 @@ import style from './HeaderSearch.module.scss';
 import SearchedCard from '../SearchedCard/SearchedCard';
 import { useCloseHandler } from '../../hooks/useCloseHandler';
 import { useNavigate } from "react-router-dom";
+import SearchSkeletonCard from '../Skeletons/SearchSkeletonCard';
 
 const search_icon = './../assets/images/search_icon.svg';
 
@@ -25,7 +26,7 @@ const HeaderSearch: FC<SearchProps> = ({ isSticky }) => {
 
     const debounced = useDebounce(searchValue, 300);
 
-    const { data = [] } = useGetSearchedQuery({ value: debounced, count: 4 }, {
+    const { data = [], isLoading } = useGetSearchedQuery({ value: debounced, count: 4 }, {
         skip: debounced.length < 3
     });
 
@@ -38,6 +39,9 @@ const HeaderSearch: FC<SearchProps> = ({ isSticky }) => {
             setSearchValue('')
         }
     };
+
+    const renderCard = data.map((obj) => (<SearchedCard {...obj} key={obj.fixId} />));
+    const renderSkeleton = [...new Array(4)].map((_, index) => <SearchSkeletonCard key={index} />);
 
     return (
         <form className={style['form']} ref={formRef}>
@@ -55,9 +59,7 @@ const HeaderSearch: FC<SearchProps> = ({ isSticky }) => {
             {
                 dropdown === true && <ul className={isSticky !== true ? style['searched-list'] : clsx(style['searched-list'], style['searched-list--sticky'])}>
                     {
-                        data.map((obj) => (
-                            <SearchedCard {...obj} key={obj.fixId} />
-                        ))
+                        isLoading ? renderSkeleton : renderCard
                     }
                 </ul>
             }

@@ -7,7 +7,7 @@ import { CartProductModel } from '../../@types/models';
 
 const CartCard: FC<CartProductModel> = ({ img, title, finalPrice, count, id }) => {
 
-    const [productCont, setProductCount] = useState(1);
+    const [productCont, setProductCount] = useState(count);
 
     const [changeCartItem] = useChangeCartItemMutation();
 
@@ -29,7 +29,7 @@ const CartCard: FC<CartProductModel> = ({ img, title, finalPrice, count, id }) =
         window.addEventListener('keydown', close)
 
         return () => window.removeEventListener('keydown', close)
-    });
+    }, [productCont, changeCartItem]);
 
     useEffect(() => {
         if (productCont <= 0) {
