@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { CartProductModel } from '../../@types/models';
 import { useAddOrderMutation } from '../../redux/injected/injectedOrders';
 import style from './CartSide.module.scss';
@@ -13,8 +13,14 @@ type CartSideProps = {
 
 const CartSide: FC<CartSideProps> = ({ data }) => {
 
+    const [providers, setProviders] = useState<string[]>([]);
+
     const productCount = data.reduce((acc, current) => acc + current.count, 0);
     const totalPrice = data.reduce((acc, current) => acc + (current.finalPrice * current.count), 0);
+
+    useEffect(() => {
+        setProviders(Array.from(new Set(data.map((obj) => obj.provider))))
+    }, [data]);
 
     const [addOrder] = useAddOrderMutation();
 
@@ -39,8 +45,8 @@ const CartSide: FC<CartSideProps> = ({ data }) => {
                             <p className={style['side-list__value']}>{totalPrice} ₽</p>
                         </li>
                         <li className={style['side-list__item']}>
-                            <p className={style['side-list__title']}>Поставщик</p>
-                            <p className={style['side-list__value']}> </p>
+                            <p className={style['side-list__title']}>Поставщик{providers.length > 1 && 'и'}</p>
+                            <div className={style['side-list__value']}>{providers.map((item, i) => <p key={i}>{item}</p>)}</div>
                         </li>
                     </ul>
                 </div>

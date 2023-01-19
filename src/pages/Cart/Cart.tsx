@@ -23,19 +23,21 @@ const Cart: FC = () => {
     return (
         <section className={style['cart']}>
             {
-                data.length > 0 ? <>
-                    <Headline {...headData} />
-                    <div className={clsx(style['cart-container'], 'container')}>
-                        <CartSide data={data} />
-                        <ul>
-                            {
-                                isSuccess && data.map((obj) => (
-                                    <CartCard {...obj} key={obj.fixId} />
-                                ))
-                            }
-                        </ul>
-                    </div>
-                </> : <EmptyPage {...emptyCartData} />
+                (isSuccess && data.length === 0) ?
+                    <EmptyPage {...emptyCartData} /> :
+                    <>
+                        <Headline {...headData} />
+                        <div className={clsx(style['cart-container'], 'container')}>
+                            <CartSide data={data} />
+                            <ul>
+                                {
+                                    data.map((obj) => (
+                                        <CartCard {...obj} key={obj.fixId} />
+                                    ))
+                                }
+                            </ul>
+                        </div>
+                    </>
             }
         </section>
     );

@@ -30,6 +30,10 @@
                 margin-bottom: 12px;
             }
         }
+        &__value{
+            display: flex;
+            flex-direction: column;
+        }
     }
     &-btn{
         font-weight: 500;

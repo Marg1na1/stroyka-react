@@ -28,7 +28,7 @@ const Header: FC = () => {
         <header className={style['header']}>
             {loginOpen && <LoginModal setLoginOpen={setLoginOpen} loginOpen={loginOpen} />}
             {changeLocate && <ChangeLocateModal setChangeLocate={setChangeLocate} changeLocate={changeLocate} />}
-            <div className='container'>
+            <div className={style['container']}>
                 <div className={style['header-additional']}>
                     <div className={style['header-locate']} onClick={() => setChangeLocate(true)}>
                         <button className={clsx(style['header-locate__btn'], 'btn-reset')} >

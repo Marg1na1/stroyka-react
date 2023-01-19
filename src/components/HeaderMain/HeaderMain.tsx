@@ -35,7 +35,7 @@ const HeaderMain: FC = () => {
                     </div>
                     <p className={style['header-main-btn__text']}>Каталог</p>
                 </Link>
-                <HeaderSearch isSticky={isSticky} />
+                <HeaderSearch />
                 <nav className={style['header-main-nav']}>
                     <Link to={'/profile'} className={style['header-main-nav__item']}>
                         <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width={24} height={24}>

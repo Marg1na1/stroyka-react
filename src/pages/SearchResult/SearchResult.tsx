@@ -9,8 +9,9 @@ import CategorySide from '../../components/CategorySide/CategorySide';
 import EmptyPage from '../EmptyPage/EmptyPage';
 import Skeleton from '../../components/Skeletons/Skeleton';
 import SideSkeleton from '../../components/Skeletons/SideSkeleton';
+import { cutString } from '../../utils/cutString';
 
-const SearchResult: FC = ({ }) => {
+const SearchResult: FC = () => {
 
     const location = useLocation();
 
@@ -23,7 +24,7 @@ const SearchResult: FC = ({ }) => {
     const emptySearchData = {
         title: 'Упс!',
         subtitle: 'Ничего не найденно',
-        descr: `По запросу «${searchQuery}» ничего не найденно попробуйте ввести запрос заново`,
+        descr: `По запросу «${cutString(searchQuery, 50)}» ничего не найденно попробуйте ввести запрос заново`,
         link_txt: 'На главную',
         path: '/'
     }
@@ -37,7 +38,7 @@ const SearchResult: FC = ({ }) => {
                 (isSuccess && data.length <= 0) ?
                     <EmptyPage {...emptySearchData} /> :
                     <div className="container">
-                        <h1 className={style['title']}>Поиск по запросу «{searchQuery}»</h1>
+                        <h1 className={style['title']}>Товары по запросу «{searchQuery}»</h1>
                         <div className={style['wrapper']}>
                             {isLoading ? <SideSkeleton /> : <CategorySide data={data} withSearch={false} />}
                             <div className={style['main']}>
