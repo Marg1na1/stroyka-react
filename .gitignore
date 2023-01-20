@@ -6,6 +6,8 @@
 data.json
 generate-react-cli.json
 templates/
+.eslintrc
+.prettierrc
 
 
 # testing

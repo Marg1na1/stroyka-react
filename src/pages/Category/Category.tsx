@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import clsx from 'clsx';
 import { THeadlineBreadcrumbs } from '../../@types/globalTypes';
 import CategorySide from '../../components/CategorySide/CategorySide';
@@ -16,8 +16,6 @@ type CategoryProps = {
 
 const Category: FC<CategoryProps> = ({ categoryData }) => {
 
-    const [pagination, setPagination] = useState(1);
-
     const location = useLocation();
     const name = location.pathname.split('/')[3];
 
@@ -28,12 +26,7 @@ const Category: FC<CategoryProps> = ({ categoryData }) => {
 
     categoryData.forEach((obj) => obj.list.forEach((obj) => obj.path.split('/')[1] === name ? res = obj : null))
 
-    const obj = {
-        type: res.path.split('/')[1],
-        p: pagination
-    };
-
-    const { data = [], isSuccess, isLoading } = useGetCategoryItemsQuery(obj);
+    const { data = [], isSuccess, isLoading } = useGetCategoryItemsQuery(res.path.split('/')[1]);
 
     const breadcrumbsArr: THeadlineBreadcrumbs[] = [
         { path: '/', title: 'Главная', type: 'link' },

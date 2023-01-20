@@ -40,9 +40,20 @@ const HeaderSearch: FC = () => {
             } else {
                 localStorage.setItem('hist', JSON.stringify(Array.from(new Set([searchValue, ...JSON.parse(history).splice(0, 9)]))))
             }
-
         }
-    };
+    }
+
+    const onClickSearchBtn = () => {
+        navigate(`/catalog/search?q=${debounced}`)
+        setSearchValue('')
+        if (history !== null && JSON.parse(history).length < 10) {
+            localStorage.setItem('hist', JSON.stringify(Array.from(new Set([searchValue, ...JSON.parse(history)]))))
+        } else if (history === null || !Array.isArray(JSON.parse(history))) {
+            localStorage.setItem('hist', JSON.stringify([searchValue]))
+        } else {
+            localStorage.setItem('hist', JSON.stringify(Array.from(new Set([searchValue, ...JSON.parse(history).splice(0, 9)]))))
+        }
+    }
 
     const onClickHistoryItem = (str: string) => {
         setSearchValue(str)
@@ -62,13 +73,21 @@ const HeaderSearch: FC = () => {
                 onBlur={() => setIsFocused(false)}
                 onKeyDown={(e) => redirect(e)}
             />
-            <button className={style['form__btn']}>
+            <button
+                className={style['form__btn']}
+                onClick={onClickSearchBtn}
+                type={'button'}>
                 <img src={search_icon} alt={'search'} />
             </button>
             {
-                dropdown === true && <Dropdown data={data} isLoading={isLoading} isSuccess={isSuccess} setValue={onClickHistoryItem} searchValue={debounced} />
+                dropdown === true && <Dropdown
+                    data={data}
+                    isLoading={isLoading}
+                    isSuccess={isSuccess}
+                    setValue={onClickHistoryItem}
+                    searchValue={debounced} />
             }
-        </form>
+        </form >
     );
 }
 

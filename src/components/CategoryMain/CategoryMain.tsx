@@ -5,6 +5,9 @@ import Card from '../Card/Card';
 import style from './CategoryMain.module.scss';
 import { ProductModel } from '../../@types/models';
 import Skeleton from '../Skeletons/Skeleton';
+import { usePagination } from '../../hooks/usePagination';
+import Pagination from '../Pagination/Pagination';
+
 
 type CategoryMainProps = {
     data: ProductModel[];
@@ -15,7 +18,9 @@ const CategoryMain: FC<CategoryMainProps> = ({ data, status }) => {
 
     const { sortState, selectSort } = useSort();
 
-    const renderCards = data.map((obj) => (<Card {...obj} key={obj.fixId} />));
+    const { pageCount, currentItems, next, prev, setPugPosition } = usePagination({ data })
+
+    const renderCards = currentItems.map((obj) => (<Card {...obj} key={obj.fixId} />));
     const renderSkeleton = [...new Array(9)].map((_, index) => <Skeleton key={index} />);
 
     return (
@@ -51,10 +56,14 @@ const CategoryMain: FC<CategoryMainProps> = ({ data, status }) => {
                     status ? renderCards : renderSkeleton
                 }
             </ul>
-            <ul className={style['pagination']}>
-
-            </ul>
-        </div>
+            {
+                data.length > 17 && <Pagination
+                    pageCount={pageCount}
+                    next={next}
+                    prev={prev}
+                    setPugPosition={setPugPosition} />
+            }
+        </div >
     );
 }
 

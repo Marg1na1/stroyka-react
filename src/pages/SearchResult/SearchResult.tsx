@@ -10,6 +10,8 @@ import EmptyPage from '../EmptyPage/EmptyPage';
 import Skeleton from '../../components/Skeletons/Skeleton';
 import SideSkeleton from '../../components/Skeletons/SideSkeleton';
 import { cutString } from '../../utils/cutString';
+import Pagination from '../../components/Pagination/Pagination';
+import { usePagination } from '../../hooks/usePagination';
 
 const SearchResult: FC = () => {
 
@@ -18,6 +20,8 @@ const SearchResult: FC = () => {
     const searchQuery = decodeURI(location.search.split('').slice(3, location.search.split('').length + 1).join(''))
 
     const { data = [], isLoading, isSuccess } = useGetSearchedQuery({ value: searchQuery, count: 12 });
+
+    const { pageCount, currentItems, next, prev, setPugPosition } = usePagination({ data })
 
     const { sortState, selectSort } = useSort();
 
@@ -29,7 +33,7 @@ const SearchResult: FC = () => {
         path: '/'
     }
 
-    const renderCards = data.map((obj) => (<Card {...obj} key={obj.fixId} />));
+    const renderCards = currentItems.map((obj) => (<Card {...obj} key={obj.fixId} />));
     const renderSkeleton = [...new Array(9)].map((_, index) => <Skeleton key={index} />);
 
     return (
@@ -37,7 +41,7 @@ const SearchResult: FC = () => {
             {
                 (isSuccess && data.length <= 0) ?
                     <EmptyPage {...emptySearchData} /> :
-                    <div className="container">
+                    <div className='container'>
                         <h1 className={style['title']}>Товары по запросу «{searchQuery}»</h1>
                         <div className={style['wrapper']}>
                             {isLoading ? <SideSkeleton /> : <CategorySide data={data} withSearch={false} />}
@@ -73,6 +77,13 @@ const SearchResult: FC = () => {
                                         isLoading ? renderSkeleton : renderCards
                                     }
                                 </ul>
+                                {
+                                    (isSuccess && data.length > 17) && <Pagination
+                                        pageCount={pageCount}
+                                        next={next}
+                                        prev={prev}
+                                        setPugPosition={setPugPosition} />
+                                }
                             </div>
                         </div>
                     </div>

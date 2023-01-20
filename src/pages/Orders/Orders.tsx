@@ -21,16 +21,16 @@ const Orders: FC = () => {
     return (
         <section className={style['orders']}>
             {
-                data.length <= 0 ? <EmptyPage {...emptyOrdersData} /> :
+                isSuccess && data.length <= 0 ?
+                    <EmptyPage {...emptyOrdersData} /> :
                     <>
                         <Headline {...headData} />
-                        <div className="container">
+                        <div className='container'>
                             <ul className={style['orders-list']}>
-                                {
-                                    isSuccess && data.map((obj, i) => (
+                                {isSuccess &&
+                                    data.map((obj, i) => (
                                         <OrderCard {...obj} key={i} />
-                                    ))
-                                }
+                                    ))}
                             </ul>
                         </div>
                     </>
