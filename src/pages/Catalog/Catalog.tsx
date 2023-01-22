@@ -9,7 +9,7 @@ const Catalog: FC = ({ }) => {
     return (
         <section className={style['catalog']}>
             <Headline {...headData} />
-            <div className="container">
+            <div className='container'>
                 <ul className={style['catalog-list']}>
                     {
                         categoryData.map((obj, i) => (

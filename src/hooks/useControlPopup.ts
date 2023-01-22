@@ -1,25 +1,30 @@
+import { useAppDispatch } from './../redux/store';
 import { useEffect } from 'react';
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 
-export const useControlPopup = (state: boolean, setState: (x: boolean) => void, wrapper: React.MutableRefObject<HTMLDivElement | null>) => {
+export const useControlPopup = (state: boolean, setState: ActionCreatorWithPayload<boolean>, wrapper: React.MutableRefObject<HTMLDivElement | null>) => {
+
+    const dispatch = useAppDispatch();
+
     useEffect(() => {
         if (state === true) {
             const close = (e: KeyboardEvent) => {
                 if (e.key === 'Escape') {
-                    setState(!state)
+                    dispatch(setState(false))
                 }
             }
             window.addEventListener('keydown', close)
 
-            return () => window.removeEventListener('keydown', close) 
+            return () => window.removeEventListener('keydown', close)
         }
-    }, [state]);
+    }, [dispatch, setState, state]);
 
     useEffect(() => {
         if (state === true) {
             const closeOnClick = (e: MouseEvent) => {
                 if (wrapper.current !== null && e.target instanceof HTMLElement) {
                     if (wrapper.current.className === e.target.className) {
-                        setState(false)
+                        dispatch(setState(false))
                     }
                 }
             }
@@ -27,5 +32,5 @@ export const useControlPopup = (state: boolean, setState: (x: boolean) => void, 
 
             return () => window.removeEventListener('click', closeOnClick)
         }
-    }, [state]);
+    }, [dispatch, setState, state, wrapper]);
 }

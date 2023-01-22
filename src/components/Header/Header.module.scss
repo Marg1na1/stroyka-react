@@ -5,6 +5,10 @@
         display: flex;
         justify-content: space-between;
         padding: 10px 0;
+        position: relative;
+        &--sticky{
+            padding: 10px 0 90px 0;
+        }
         &__nav{
             display: flex;
         }

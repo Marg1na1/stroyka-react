@@ -7,7 +7,7 @@ import { TCategory } from '../../data/catalog.data';
 import { useGetCategoryItemsQuery } from '../../redux/injected/injectedCategory';
 import style from './Category.module.scss';
 import CategoryMain from '../../components/CategoryMain/CategoryMain';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import SideSkeleton from '../../components/Skeletons/SideSkeleton';
 
 type CategoryProps = {
@@ -16,17 +16,16 @@ type CategoryProps = {
 
 const Category: FC<CategoryProps> = ({ categoryData }) => {
 
-    const location = useLocation();
-    const name = location.pathname.split('/')[3];
+    const { category, type } = useParams();
 
     let res = {
         title: '',
         path: '',
     }
 
-    categoryData.forEach((obj) => obj.list.forEach((obj) => obj.path.split('/')[1] === name ? res = obj : null))
+    categoryData.forEach((obj) => obj.list.forEach((obj) => obj.path.split('/')[1] === type ? res = obj : null))
 
-    const { data = [], isSuccess, isLoading } = useGetCategoryItemsQuery(res.path.split('/')[1]);
+    const { data = [], isSuccess, isLoading } = useGetCategoryItemsQuery(type!);
 
     const breadcrumbsArr: THeadlineBreadcrumbs[] = [
         { path: '/', title: 'Главная', type: 'link' },

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { categoryData } from '../../data/catalog.data';
 import { useGetProductQuery } from '../../redux/injected/injectedProduct';
 import style from './Product.module.scss';
@@ -10,9 +10,9 @@ import { THeadlineBreadcrumbs } from '../../@types/globalTypes';
 
 const Product: FC = ({ }) => {
 
-    const location = useLocation();
+    const { id } = useParams();
 
-    const { data, isSuccess } = useGetProductQuery(location.pathname.split('/')[2].toString());
+    const { data, isSuccess } = useGetProductQuery(id!);
 
     let testObj = {
         path: ' ',
@@ -39,7 +39,7 @@ const Product: FC = ({ }) => {
 
     return (
         <section className={style['product-card']}>
-            <div className="container">
+            <div className='container'>
                 {
                     isSuccess &&
                     <>

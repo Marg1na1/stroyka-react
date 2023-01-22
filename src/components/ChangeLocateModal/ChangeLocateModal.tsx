@@ -1,8 +1,10 @@
 import { FC, useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { cities } from '../../data/cities.data';
 import { useControlPopup } from '../../hooks/useControlPopup';
 import { setLocality } from '../../redux/slices/locateSlice';
-import { useAppDispatch } from '../../redux/store';
+import { setToggleChengeLocate } from '../../redux/slices/popupSlice';
+import { RootState, useAppDispatch } from '../../redux/store';
 import style from './ChangeLocateModal.module.scss';
 
 type TChangeLocate = {
@@ -10,16 +12,18 @@ type TChangeLocate = {
     changeLocate: boolean;
 }
 
-const ChangeLocateModal: FC<TChangeLocate> = ({ setChangeLocate, changeLocate }) => {
+const ChangeLocateModal: FC = () => {
 
     const [searchValue, setSearchValue] = useState('');
+
+    const isOpenLocateModal = useSelector((state: RootState) => state.popupSlice.isOpenChengeLocate);
 
     const wrapper = useRef<HTMLDivElement>(null);
     const input = useRef<HTMLInputElement>(null);
 
     const dispatch = useAppDispatch();
 
-    useControlPopup(changeLocate, setChangeLocate, wrapper);
+    useControlPopup(isOpenLocateModal, setToggleChengeLocate, wrapper);
 
     useEffect(() => {
         if (input.current !== null) {
@@ -30,7 +34,7 @@ const ChangeLocateModal: FC<TChangeLocate> = ({ setChangeLocate, changeLocate })
     const reassingLocate = (str: string) => {
         dispatch(setLocality(str));
         sessionStorage.setItem('location', str);
-        setChangeLocate(false);
+        dispatch(setToggleChengeLocate(false))
     }
 
     return (
@@ -69,7 +73,7 @@ const ChangeLocateModal: FC<TChangeLocate> = ({ setChangeLocate, changeLocate })
                 </ul>
             </div>
             <div className={style['change-locate__container']}>
-                <button onClick={() => setChangeLocate(false)} className={style['change-locate__close']}></button>
+                <button onClick={() => dispatch(setToggleChengeLocate(false))} className={style['change-locate__close']}></button>
             </div>
         </div>
     );
