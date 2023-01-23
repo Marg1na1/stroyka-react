@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
 import { TCategory } from '../../data/catalog.data';
+import { Link } from 'react-router-dom';
 import style from './CatalogItem.module.scss';
 
 const CatalogItem: FC<TCategory> = ({ title, image, list }) => {
@@ -9,7 +9,7 @@ const CatalogItem: FC<TCategory> = ({ title, image, list }) => {
         <ul className={style['catalog-item']}>
             <div className={style['catalog-item-header']}>
                 <h2 className={style['catalog-item__title']}>{title}</h2>
-                <img src={image} alt="catalog item bage" className={style['catalog-item__img']} />
+                <img src={image} alt='catalog item bage' className={style['catalog-item__img']} />
             </div>
             <ul className={style['list']}>
                 {

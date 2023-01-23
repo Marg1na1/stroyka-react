@@ -1,8 +1,8 @@
 import { FC, ReactElement, useEffect, useState } from 'react';
 import OrderItem from '../OrderItem/OrderItem';
-import style from './OrderCard.module.scss';
-import { useDeleteOrderMutation } from '../../redux/injected/injectedOrders';
 import { OrderModel } from '../../@types/models';
+import { useDeleteOrderMutation } from '../../redux/injected/injectedOrders';
+import style from './OrderCard.module.scss';
 
 const OrderCard: FC<OrderModel> = (obj) => {
 
@@ -15,7 +15,7 @@ const OrderCard: FC<OrderModel> = (obj) => {
 
     const orderItemsArr: ReactElement[] = [];
 
-    for (let v in obj) {
+    for (const v in obj) {
         if (typeof obj[v] === 'object') {
             orderItemsArr.push(<OrderItem key={obj[v].id} {...obj[v]} />)
         }
@@ -25,7 +25,7 @@ const OrderCard: FC<OrderModel> = (obj) => {
         setTotal(orderItemsArr.reduce((acc, obj) => acc + obj.props.finalPrice * obj.props.count, 0))
     }, [orderItemsArr]);
 
-    const orderDate = new Date(obj.createdAt).toLocaleString("ru", {
+    const orderDate = new Date(obj.createdAt).toLocaleString('ru', {
         year: 'numeric',
         month: 'long',
         day: 'numeric',

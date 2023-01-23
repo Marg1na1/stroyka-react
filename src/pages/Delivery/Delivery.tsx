@@ -1,9 +1,9 @@
 import { FC, useState } from 'react';
-import style from './Delivery.module.scss';
+import FAQItem from '../../components/FAQItem/FAQItem';
 import Headline from '../../components/Headline/Headline';
 import { headData, tutorialArr, FAQData } from '../../data/delivery.data';
 import clsx from 'clsx';
-import FAQItem from '../../components/FAQItem/FAQItem';
+import style from './Delivery.module.scss';
 
 const Delivery: FC = () => {
 
@@ -20,7 +20,7 @@ const Delivery: FC = () => {
     return (
         <section className={style['delivery']}>
             <Headline {...headData} />
-            <div className="container">
+            <div className='container'>
                 <div className={clsx(style['delivery-tutorial'], 'mb80')}>
                     <h2 className={style['delivery-title']}>Как сделать заказ: 4 простых шага</h2>
                     <ul className={style['delivery-list']}>

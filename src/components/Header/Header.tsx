@@ -1,16 +1,16 @@
 import { FC, useEffect, useState } from 'react';
-import style from './Header.module.scss';
-import clsx from 'clsx';
-import { Link } from 'react-router-dom';
-import { additionalItems, breadCrumbs, } from '../../data/header.data';
 import LoginModal from '../LoginModal/LoginModal';
 import ChangeLocateModal from '../ChangeLocateModal/ChangeLocateModal';
-import { useLocate } from '../../hooks/useLocate';
 import HeaderMain from '../HeaderMain/HeaderMain';
+import Confirm from '../Confirm/Confirm';
+import { useLocate } from '../../hooks/useLocate';
+import { additionalItems, breadCrumbs, } from '../../data/header.data';
+import clsx from 'clsx';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../redux/store';
-import Confirm from '../Confirm/Confirm';
 import { setToggleChengeLocate } from '../../redux/slices/popupSlice';
+import style from './Header.module.scss';
 
 const Header: FC = () => {
 
@@ -33,6 +33,10 @@ const Header: FC = () => {
 
     const locate = useLocate();
 
+    const onClickLocate = () => {
+        dispatch(setToggleChengeLocate(true))
+    }
+
     return (
         <header className={style['header']}>
             {isOpenAuth && <LoginModal />}
@@ -40,7 +44,7 @@ const Header: FC = () => {
             <div className={style['container']}>
                 <div className={headerIsSticky ? clsx(style['header-additional'], style['header-additional--sticky']) : style['header-additional']}>
                     {isOpenConfirm && <Confirm />}
-                    <div className={style['header-locate']} onClick={() => dispatch(setToggleChengeLocate(true))}>
+                    <div className={style['header-locate']} onClick={onClickLocate}>
                         <button className={clsx(style['header-locate__btn'], 'btn-reset')} >
                             <svg fill='none' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg' width={20} height={20}>
                                 <path d='m17.5 8.3333c0 5.8334-7.5 10.833-7.5 10.833s-7.5-5-7.5-10.833c0-1.9891 0.79018-3.8968 2.1967-5.3033s3.3142-2.1967 5.3033-2.1967c1.9891 0 3.8968 0.79018 5.3033 2.1967s2.1967 3.3142 2.1967 5.3033z' stroke='#5D6066' strokeLinecap='round' strokeLinejoin='round' strokeWidth='1.5' />

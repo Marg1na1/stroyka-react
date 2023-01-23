@@ -1,9 +1,8 @@
 import { FC, useState } from 'react';
+import { ProductModel } from '../../@types/models';
 import ReactSlider from 'react-slider';
 import Select from 'react-select'
-
 import style from './CategorySide.module.scss';
-import { ProductModel } from '../../@types/models';
 
 type CategorySideProps = {
     data: ProductModel[]
@@ -29,7 +28,6 @@ const CategorySide: FC<CategorySideProps> = ({ data, withSearch }) => {
 
     const changeProvider = (newValue: any) => {
         setProvider(newValue.label)
-
     }
 
     const changeInputValue = (str: string) => {
@@ -48,7 +46,7 @@ const CategorySide: FC<CategorySideProps> = ({ data, withSearch }) => {
                 <h2 className={style['title']}>Цена</h2>
                 <div className={style['inputs-container']}>
                     <input
-                        type="number"
+                        type='number'
                         value={rangeValue[0]}
                         className={style['range-input']}
                         onChange={(e) => setRangeValue([+e.target.value, rangeValue[1]])}
@@ -56,18 +54,17 @@ const CategorySide: FC<CategorySideProps> = ({ data, withSearch }) => {
                         min={minValue}
                     />
                     <input
-                        type="number"
+                        type='number'
                         value={rangeValue[1]}
                         className={style['range-input']}
                         onChange={(e) => setRangeValue([rangeValue[0], +e.target.value])}
                         max={maxValue}
                         min={rangeValue[0] + 10} />
-
                 </div>
                 <ReactSlider
                     className='range-slider'
-                    thumbClassName="range-slider__thumb"
-                    trackClassName="range-slider__track"
+                    thumbClassName='range-slider__thumb'
+                    trackClassName='range-slider__track'
                     defaultValue={[minValue, maxValue]}
                     renderThumb={(props) => <div {...props}><div className={style['slider-decorate']}></div></div>}
                     onChange={(value) => setRangeValue(value)}
@@ -78,17 +75,16 @@ const CategorySide: FC<CategorySideProps> = ({ data, withSearch }) => {
                     min={minValue}
                 />
                 {
-                    withSearch === true &&
+                    withSearch &&
                     <>
                         <h2 className={style['title']}>Поиск</h2>
                         <input
-                            type="text"
+                            type='text'
                             className={style['search']}
                             onChange={(e) => changeInputValue(e.target.value)}
                             value={searchValue} />
                     </>
                 }
-
                 <h2 className={style['title']}>Поставщик</h2>
                 <Select
                     options={options}
@@ -99,7 +95,6 @@ const CategorySide: FC<CategorySideProps> = ({ data, withSearch }) => {
                     classNamePrefix={'select'}
                     escapeClearsValue
                     value={options[+provider]} />
-
             </div>
             <div className={style['side-footer']}>
                 <button className={style['submit']}>Применить</button>

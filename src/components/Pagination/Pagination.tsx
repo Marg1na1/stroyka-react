@@ -6,7 +6,7 @@ type PaginationProps = {
     prev: () => void;
     next: () => void;
     setPugPosition: (x: number) => void;
-    pageCount: number
+    pageCount: number;
 }
 
 const Pagination: FC<PaginationProps> = ({ prev, next, setPugPosition, pageCount }) => {

@@ -1,17 +1,17 @@
 import { FC } from 'react';
-import style from './SearchResult.module.scss';
-import { useLocation } from 'react-router-dom';
-import { useGetSearchedQuery } from '../../redux/injected/injectedSearched';
 import Card from '../../components/Card/Card';
-import { useSort } from '../../hooks/useSort';
-import clsx from 'clsx';
 import CategorySide from '../../components/CategorySide/CategorySide';
 import EmptyPage from '../EmptyPage/EmptyPage';
 import Skeleton from '../../components/Skeletons/Skeleton';
 import SideSkeleton from '../../components/Skeletons/SideSkeleton';
-import { cutString } from '../../utils/cutString';
 import Pagination from '../../components/Pagination/Pagination';
+import { useSort } from '../../hooks/useSort';
+import { cutString } from '../../utils/cutString';
 import { usePagination } from '../../hooks/usePagination';
+import clsx from 'clsx';
+import { useLocation } from 'react-router-dom';
+import { useGetSearchedQuery } from '../../redux/injected/injectedSearched';
+import style from './SearchResult.module.scss';
 
 const SearchResult: FC = () => {
 
@@ -21,7 +21,7 @@ const SearchResult: FC = () => {
 
     const { data = [], isLoading, isSuccess } = useGetSearchedQuery({ value: searchQuery, count: 12 });
 
-    const { pageCount, currentItems, next, prev, setPugPosition } = usePagination({ data })
+    const { pageCount, currentItems, next, prev, setPugPosition } = usePagination({ data });
 
     const { sortState, selectSort } = useSort();
 
@@ -33,7 +33,7 @@ const SearchResult: FC = () => {
         path: '/'
     }
 
-    const renderCards = currentItems.map((obj) => (<Card {...obj} key={obj.fixId} />));
+    const renderCards = currentItems.map((obj) => <Card {...obj} key={obj.fixId} />);
     const renderSkeleton = [...new Array(9)].map((_, index) => <Skeleton key={index} />);
 
     return (

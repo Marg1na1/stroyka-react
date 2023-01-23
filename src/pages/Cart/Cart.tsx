@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import clsx from 'clsx';
 import CartCard from '../../components/CartCard/CartCard';
 import CartSide from '../../components/CartSide/CartSide';
 import Headline from '../../components/Headline/Headline';
-import { headData } from '../../data/cart.data';
-import { useGetCartQuery } from '../../redux/injected/injectedCart';
 import EmptyPage from '../EmptyPage/EmptyPage';
+import { headData } from '../../data/cart.data';
+import clsx from 'clsx';
+import { useGetCartQuery } from '../../redux/injected/injectedCart';
 import style from './Cart.module.scss';
 
 const emptyCartData = {

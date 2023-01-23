@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import clsx from 'clsx';
 import BrandsRow from '../../components/BrandsRow/BrandsRow';
 import Headline from '../../components/Headline/Headline';
 import { brandsList, headData } from '../../data/brands.data';
+import clsx from 'clsx';
 import style from './Brands.module.scss';
 
 const Brands: FC = () => {
@@ -10,7 +10,7 @@ const Brands: FC = () => {
     return (
         <section className={style['brands']}>
             <Headline {...headData} />
-            <div className="container">
+            <div className='container'>
                 <nav className={clsx(style['brands-nav'], 'mb80')}>
                     {
                         brandsList.map((obj, i) => (

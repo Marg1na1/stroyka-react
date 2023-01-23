@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import Headline from '../../components/Headline/Headline';
 import OrderCard from '../../components/OrderCard/OrderCard';
+import EmptyPage from '../EmptyPage/EmptyPage';
 import { headData } from '../../data/orders.data';
 import { useGetOrdersQuery } from '../../redux/injected/injectedOrders';
-import EmptyPage from '../EmptyPage/EmptyPage';
 import style from './Orders.module.scss';
 
 const emptyOrdersData = {
@@ -21,16 +21,17 @@ const Orders: FC = () => {
     return (
         <section className={style['orders']}>
             {
-                isSuccess && data.length <= 0 ?
+                (isSuccess && data.length <= 0) ?
                     <EmptyPage {...emptyOrdersData} /> :
                     <>
                         <Headline {...headData} />
                         <div className='container'>
                             <ul className={style['orders-list']}>
-                                {isSuccess &&
+                                {
                                     data.map((obj, i) => (
                                         <OrderCard {...obj} key={i} />
-                                    ))}
+                                    ))
+                                }
                             </ul>
                         </div>
                     </>

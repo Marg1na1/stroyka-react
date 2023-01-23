@@ -9,7 +9,7 @@
         }
     }
     &-btn{ 
-        background-color: transparent;
+        background-color: transparent; 
         border: none;
         padding: 16px 20px;
         font-weight: 500;
@@ -21,6 +21,9 @@
         justify-content: space-between;
         width: 768px;
         text-align: left;
+        &:hover{
+            cursor: pointer;
+        }
     }
 
     &-container{

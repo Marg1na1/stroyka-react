@@ -54,15 +54,15 @@ const CartSide: FC<CartSideProps> = ({ data }) => {
             </div>
             <div className={style['side-info']}>
                 <div className={style['side-info__item']}>
-                    <img src={info_icon} alt="icon" width={24} height={24} />
+                    <img src={info_icon} alt='icon' width={24} height={24} />
                     <p className={style['side-info__content']}>Можно сделать заказ от разных поставщиков</p>
                 </div>
                 <div className={style['side-info__item']}>
-                    <img src={order_icon} alt="icon" width={24} height={24} />
+                    <img src={order_icon} alt='icon' width={24} height={24} />
                     <p className={style['side-info__content']}>Доставка осуществляется курьерами поставщика или службой курьеров Достависта. Также товар можно забрать самостоятельно от поставщика</p>
                 </div>
                 <div className={style['side-info__item']}>
-                    <img src={truck_icon} alt="icon" width={24} height={24} />
+                    <img src={truck_icon} alt='icon' width={24} height={24} />
                     <p className={style['side-info__content']}>Точная сумма доставки будет определена после после подтверждения заказа</p>
                 </div>
             </div>

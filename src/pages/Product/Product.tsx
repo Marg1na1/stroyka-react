@@ -1,14 +1,14 @@
 import { FC } from 'react';
-import { useParams } from 'react-router-dom';
-import { categoryData } from '../../data/catalog.data';
-import { useGetProductQuery } from '../../redux/injected/injectedProduct';
-import style from './Product.module.scss';
 import SimilarProduct from '../../components/SimilarProduct/SimilarProduct';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import Headline from '../../components/Headline/Headline';
+import { categoryData } from '../../data/catalog.data';
 import { THeadlineBreadcrumbs } from '../../@types/globalTypes';
+import { useParams } from 'react-router-dom';
+import { useGetProductQuery } from '../../redux/injected/injectedProduct';
+import style from './Product.module.scss';
 
-const Product: FC = ({ }) => {
+const Product: FC = () => {
 
     const { id } = useParams();
 

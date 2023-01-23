@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
 import { TransmittedData } from '../../@types/models';
 import { useAddProduct } from '../../hooks/useAddProduct';
+import { Link } from 'react-router-dom';
 import style from './SearchedCard.module.scss';
 
 type TSearchedCard = {
@@ -19,7 +19,7 @@ type TSearchedCard = {
 
 const SearchedCard: FC<TSearchedCard> = ({ img, title, price, discount, discountAmount, fixId, provider }) => {
 
-    const currentPrice: number = Math.round(((price - price / 100 * discountAmount!)));
+    const currentPrice: number = Math.round(price - price / 100 * discountAmount!);
     const isDiscounted: boolean = discount === 'true';
 
     const addProduct = useAddProduct();

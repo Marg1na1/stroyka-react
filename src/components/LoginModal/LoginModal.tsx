@@ -1,10 +1,10 @@
 import { FC, useRef } from 'react';
+import { useControlPopup } from '../../hooks/useControlPopup';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { useControlPopup } from '../../hooks/useControlPopup';
 import { setToggleOpenAuth } from '../../redux/slices/popupSlice';
-import { RootState, useAppDispatch } from '../../redux/store';
+import { RootState } from '../../redux/store';
 import style from './LoginModal.module.scss';
 
 type TLoginInputs = {
@@ -26,11 +26,10 @@ const LoginModal: FC = () => {
     });
 
     const isOpenAuth = useSelector((state: RootState) => state.popupSlice.isOpenAuth);
-    const dispath = useAppDispatch();
 
-    const wrapper = useRef<HTMLDivElement | null>(null);
+    const wrapper = useRef<HTMLDivElement>(null);
 
-    useControlPopup(isOpenAuth, setToggleOpenAuth, wrapper)
+    const { closeModal } = useControlPopup(isOpenAuth, setToggleOpenAuth, wrapper)
 
     return (
         <div className={style['login-wrapper']} ref={wrapper}>
@@ -40,8 +39,8 @@ const LoginModal: FC = () => {
                     <label className={style['login__item']}>
                         E-mail
                         <input
-                            {...register("email", {
-                                required: "Поле обязательно к заполнению ",
+                            {...register('email', {
+                                required: 'Поле обязательно к заполнению ',
                                 minLength: {
                                     value: 9,
                                     message: 'Минимум 9 символов'
@@ -59,7 +58,7 @@ const LoginModal: FC = () => {
                         Пароль
                         <input
                             {...register('password', {
-                                required: "Поле обязательно к заполнению ",
+                                required: 'Поле обязательно к заполнению',
                                 minLength: {
                                     value: 9,
                                     message: 'Пароль должен состоять минимум из 9 символов'
@@ -70,7 +69,7 @@ const LoginModal: FC = () => {
                                 }
                             })}
                             className={style['login-input']}
-                            type="password" />
+                            type='password' />
                         {errors?.password && <p>{errors?.password?.message}</p>}
                     </label>
                     <button type='submit' className={style['login-submit']}>Войти</button>
@@ -78,7 +77,7 @@ const LoginModal: FC = () => {
                 </form>
             </div>
             <div className={style['login-close__container']}>
-                <button className={style['login-close']} onClick={() => dispath(setToggleOpenAuth(false))}></button>
+                <button className={style['login-close']} onClick={closeModal}></button>
             </div>
         </div>
     );

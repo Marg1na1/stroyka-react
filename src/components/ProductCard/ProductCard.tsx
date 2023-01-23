@@ -1,14 +1,14 @@
 import { FC } from 'react';
-import clsx from 'clsx';
 import { ProductModel, TransmittedData } from '../../@types/models';
-import style from './ProductCard.module.scss';
 import { useInputHandler } from '../../hooks/useInputHandler';
 import { useAddProduct } from '../../hooks/useAddProduct';
+import clsx from 'clsx';
+import style from './ProductCard.module.scss';
 
 const truck_icon = './../assets/images/truck_icon.svg';
 
 type ProductCardProps = {
-    data: ProductModel
+    data: ProductModel;
 }
 
 const ProductCard: FC<ProductCardProps> = ({ data }) => {
@@ -48,15 +48,15 @@ const ProductCard: FC<ProductCardProps> = ({ data }) => {
                     </div>
                     <form className={style['form']}>
                         <button className={style['submit']}
-                        type={'button'}
-                        onClick={() => onClickAddProduct(obj)}>В корзину</button>
+                            type={'button'}
+                            onClick={() => onClickAddProduct(obj)}>В корзину</button>
                         <div className={style['amount']}>
                             <button
                                 type={'button'}
                                 className={clsx(style['amount__btn'], style['amount__btn--minus'])}
                                 onClick={onClickMinus}></button>
                             <input
-                                type="number"
+                                type='number'
                                 className={style['amount__input']}
                                 value={productAmount}
                                 onChange={(e) => inputHandler(e)}
@@ -72,7 +72,7 @@ const ProductCard: FC<ProductCardProps> = ({ data }) => {
                         Поставщик:  {data.provider}
                     </div>
                     <div className={style['info']}>
-                        <img src={truck_icon} alt="truck" /> <p>Доставка осуществляется курьерами поставщика или службой курьеров Достависта. Также товар можно забрать самостоятельно от&nbsp;поставщика</p>
+                        <img src={truck_icon} alt='truck' /> <p>Доставка осуществляется курьерами поставщика или службой курьеров Достависта. Также товар можно забрать самостоятельно от&nbsp;поставщика</p>
                     </div>
                 </div>
                 {isDiscounted && <span className={style['discount']}>-{data.discountAmount}%</span>}

@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import style from './Card.module.scss';
-import clsx from 'clsx';
 import { TransmittedData } from '../../@types/models';
 import { useAddProduct } from '../../hooks/useAddProduct';
+import clsx from 'clsx';
 import { Link } from 'react-router-dom';
+import style from './Card.module.scss';
 
 type TCardProps = {
     id: string;
@@ -43,9 +43,13 @@ const Card: FC<TCardProps> = ({ img, title, price, discount, horizontal = false,
     return (
         <li className={style['grid-item']}>
             <article className={horizontal ? style['grid-item__content--h'] : style['grid-item__content']}>
-                <Link to={`/products/${fixId}`}><img className={horizontal ? style['grid-item__image--h'] : style['grid-item__image']} src={img} alt='product' /></Link>
+                <Link to={`/products/${fixId}`}>
+                    <img className={horizontal ? style['grid-item__image--h'] : style['grid-item__image']} src={img} alt='product' />
+                </Link>
                 <div className={style['grid-item__main']}>
-                    <Link to={`/products/${fixId}`}><h2 className={style['grid-item__title']}>{title}</h2></Link>
+                    <Link to={`/products/${fixId}`}>
+                        <h2 className={style['grid-item__title']}>{title}</h2>
+                    </Link>
                     <div className={style['grid-item__price']}>
                         <p className={style['grid-item__price--current']}>
                             {isDiscounted ? currentPrice : price} ₽

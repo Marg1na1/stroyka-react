@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
 
 interface PopupState {
     isOpenChengeLocate: boolean;
@@ -25,6 +25,6 @@ export const popupSlice = createSlice({
 })
 
 
-export const { setToggleChengeLocate, setToggleOpenAuth } = popupSlice.actions
+export const { setToggleChengeLocate, setToggleOpenAuth } = popupSlice.actions;
 
-export default popupSlice.reducer
+export default popupSlice.reducer;

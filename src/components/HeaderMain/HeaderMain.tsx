@@ -1,8 +1,8 @@
 import { FC, useEffect, useRef } from 'react';
+import HeaderSearch from '../HeaderSearch/HeaderSearch';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import style from './HeaderMain.module.scss';
-import HeaderSearch from '../HeaderSearch/HeaderSearch';
 
 const logo = './../assets/images/logo_icon.svg';
 
@@ -34,7 +34,9 @@ const HeaderMain: FC<HeaderMainProps> = ({ setHeaderIsSticky, headerIsSticky }) 
     return (
         <div ref={header} className={headerIsSticky ? clsx(style['header-main'], style['header-main--sticky']) : style['header-main']}>
             <div className={style['header-main__container']}>
-                <Link to={'/'} className={style['header-logo']} > <img src={logo} alt={'logo'} /> </Link>
+                <Link to={'/'} className={style['header-logo']} >
+                    <img src={logo} alt={'logo'} />
+                </Link>
                 <Link to={'/catalog'} className={style['header-main-btn']}>
                     <div className={style['header-main-btn__lines']}>
                         <span></span>

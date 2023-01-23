@@ -2,7 +2,11 @@ import { useAppDispatch } from './../redux/store';
 import { useEffect } from 'react';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 
-export const useControlPopup = (state: boolean, setState: ActionCreatorWithPayload<boolean>, wrapper: React.MutableRefObject<HTMLDivElement | null>) => {
+export const useControlPopup = (
+    state: boolean,
+    setState: ActionCreatorWithPayload<boolean>,
+    wrapper: React.MutableRefObject<HTMLDivElement | null>
+) => {
 
     const dispatch = useAppDispatch();
 
@@ -33,4 +37,10 @@ export const useControlPopup = (state: boolean, setState: ActionCreatorWithPaylo
             return () => window.removeEventListener('click', closeOnClick)
         }
     }, [dispatch, setState, state, wrapper]);
+
+    const closeModal = () => {
+        dispatch(setState(false))
+    }
+
+    return { closeModal }
 }

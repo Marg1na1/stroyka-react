@@ -1,22 +1,22 @@
 import { FC } from 'react';
-import clsx from 'clsx';
-import { THeadlineBreadcrumbs } from '../../@types/globalTypes';
 import CategorySide from '../../components/CategorySide/CategorySide';
 import Headline from '../../components/Headline/Headline';
+import CategoryMain from '../../components/CategoryMain/CategoryMain';
+import SideSkeleton from '../../components/Skeletons/SideSkeleton';
+import { THeadlineBreadcrumbs } from '../../@types/globalTypes';
 import { TCategory } from '../../data/catalog.data';
+import clsx from 'clsx';
+import { useParams } from 'react-router-dom';
 import { useGetCategoryItemsQuery } from '../../redux/injected/injectedCategory';
 import style from './Category.module.scss';
-import CategoryMain from '../../components/CategoryMain/CategoryMain';
-import { useParams } from 'react-router-dom';
-import SideSkeleton from '../../components/Skeletons/SideSkeleton';
 
 type CategoryProps = {
-    categoryData: TCategory[]
+    categoryData: TCategory[];
 }
 
 const Category: FC<CategoryProps> = ({ categoryData }) => {
 
-    const { category, type } = useParams();
+    const { _, type } = useParams();
 
     let res = {
         title: '',

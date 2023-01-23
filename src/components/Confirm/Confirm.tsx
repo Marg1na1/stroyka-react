@@ -9,7 +9,6 @@ import style from './Confirm.module.scss';
 const Confirm: FC = () => {
 
     const confirmBody = useSelector((state: RootState) => state.confirmSlice.body);
-    
     const dispatch = useAppDispatch();
 
     const onClickAccept = () => {

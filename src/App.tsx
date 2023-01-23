@@ -1,6 +1,4 @@
 import { FC } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { categoryData } from './data/catalog.data';
 import Layout from './layout/Layout';
 import Brands from './pages/Brands/Brands';
 import Cart from './pages/Cart/Cart';
@@ -16,6 +14,8 @@ import Product from './pages/Product/Product';
 import Refund from './pages/Refund/Refund';
 import Registration from './pages/Registration/Registration';
 import SearchResult from './pages/SearchResult/SearchResult';
+import { categoryData } from './data/catalog.data';
+import { Route, Routes } from 'react-router-dom';
 
 const errorPageData = {
     title: '404',

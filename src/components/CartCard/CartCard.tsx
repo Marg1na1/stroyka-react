@@ -1,8 +1,9 @@
 import { FC, useState, useEffect } from 'react';
+import { CartProductModel } from '../../@types/models';
+import { useDebounce } from '../../hooks/useDebounce';
 import clsx from 'clsx';
 import { useChangeCartItemMutation, useDeleteCartItemMutation } from '../../redux/injected/injectedCart';
 import style from './CartCard.module.scss';
-import { CartProductModel } from '../../@types/models';
 
 
 const CartCard: FC<CartProductModel> = ({ img, title, finalPrice, count, id }) => {
@@ -15,27 +16,21 @@ const CartCard: FC<CartProductModel> = ({ img, title, finalPrice, count, id }) =
 
     const item = { id: id, count: productCont };
 
+    const debounced = useDebounce(productCont.toString(), 300);
+
+    useEffect(() => {
+        changeCartItem(item)
+    }, [changeCartItem, debounced])
+
     useEffect(() => {
         setProductCount(count)
     }, [count]);
 
     useEffect(() => {
-        const close = async (e: KeyboardEvent) => {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                await changeCartItem(item)
-            }
-        }
-        window.addEventListener('keydown', close)
-
-        return () => window.removeEventListener('keydown', close)
-    }, [productCont, changeCartItem]);
-
-    useEffect(() => {
         if (productCont <= 0) {
             deleteCartItem(id)
         }
-    }, [productCont])
+    }, [deleteCartItem, id, productCont])
 
     const clickDelete = async (id: string) => {
         await deleteCartItem(id)
@@ -47,11 +42,11 @@ const CartCard: FC<CartProductModel> = ({ img, title, finalPrice, count, id }) =
             <div className={style['cart-card-main']}>
                 <p className={style['cart-card__title']}>{title}</p>
                 <b className={style['cart-card__price']}>{finalPrice}₽</b>
-                <form action="" className={style['cart-card-form']}>
+                <form className={style['cart-card-form']}>
                     <button type='button' className={clsx(style['cart-card-form__btn'], style['cart-card-form__btn--plus'])}
                         onClick={() => setProductCount(prev => prev + 1)}
                     ></button>
-                    <input type="string" className={style['cart-card-form__input']} value={productCont}
+                    <input type='string' className={style['cart-card-form__input']} value={productCont}
                         onChange={e => setProductCount(+e.target.value)} />
                     <button type='button' className={clsx(style['cart-card-form__btn'], style['cart-card-form__btn--minus'])}
                         onClick={() => setProductCount(prev => prev - 1)}

@@ -1,6 +1,6 @@
+import { useCallback, useEffect } from 'react';
 import { RootState, useAppDispatch } from './../redux/store';
 import { useSelector } from 'react-redux';
-import { useCallback, useEffect } from 'react';
 import { setCords, setLocality } from './../redux/slices/locateSlice';
 import { setBodyConfirm, setToggleConfirm } from '../redux/slices/confirmSlice';
 

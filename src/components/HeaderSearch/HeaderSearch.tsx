@@ -1,14 +1,16 @@
 import { FC, useRef, useState, KeyboardEvent } from 'react';
+import Dropdown from '../Dropdown/Dropdown';
 import { useDebounce } from '../../hooks/useDebounce';
-import { useGetSearchedQuery } from '../../redux/injected/injectedSearched';
-import style from './HeaderSearch.module.scss';
 import { useCloseHandler } from '../../hooks/useCloseHandler';
 import { useNavigate } from "react-router-dom";
-import Dropdown from '../Dropdown/Dropdown';
+import { useGetSearchedQuery } from '../../redux/injected/injectedSearched';
+import style from './HeaderSearch.module.scss';
 
 const search_icon = './../assets/images/search_icon.svg';
 
 const HeaderSearch: FC = () => {
+
+    const formRef = useRef<HTMLFormElement>(null);
 
     const navigate = useNavigate();
 
@@ -16,15 +18,13 @@ const HeaderSearch: FC = () => {
     const [dropdown, setDropdown] = useState<boolean>(false);
     const [isFocused, setIsFocused] = useState<boolean>(false);
 
-    const formRef = useRef<HTMLFormElement>(null);
-
     const debounced = useDebounce(searchValue, 300);
 
     const { data = [], isLoading, isSuccess } = useGetSearchedQuery({ value: debounced, count: 4 }, {
         skip: debounced.length < 3
     });
 
-    const history = localStorage.getItem('hist');
+    const history = localStorage.getItem('hist'); 
 
     useCloseHandler(debounced, setDropdown, formRef);
 
@@ -76,8 +76,8 @@ const HeaderSearch: FC = () => {
             <button
                 className={style['form__btn']}
                 onClick={onClickSearchBtn}
-                type={'button'}>
-                <img src={search_icon} alt={'search'} />
+                type='button'>
+                <img src={search_icon} alt='search' />
             </button>
             {
                 dropdown === true && <Dropdown

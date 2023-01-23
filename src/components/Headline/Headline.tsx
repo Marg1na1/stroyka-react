@@ -1,8 +1,8 @@
 import { FC } from 'react';
+import { THeadlineBreadcrumbs } from '../../@types/globalTypes';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import style from './Headline.module.scss';
-import { THeadlineBreadcrumbs } from '../../@types/globalTypes';
 
 type HeadlineProps = {
     breadcrumbs: THeadlineBreadcrumbs[];

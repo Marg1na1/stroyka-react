@@ -19,8 +19,8 @@ const FAQItem: FC<TFAQItem> = ({ question, answer, id, selected, openAccord }) =
 
     return (
         <li className={style['faq-item']}>
-            <button className={clsx(style['faq-btn'], 'btn-reset')} onClick={() => openAccord(id)}>
-                {question} <img className={selected === id ? clsx(style['faq-item__corner'], style['faq-item__corner--active']) : style['faq-item__corner']} src={corner_icon} alt="indicator" />
+            <button className={style['faq-btn']} onClick={() => openAccord(id)}>
+                {question} <img className={selected === id ? clsx(style['faq-item__corner'], style['faq-item__corner--active']) : style['faq-item__corner']} src={corner_icon} alt='indicator' />
             </button>
             {
                 <div className={selected === id ? clsx(style['faq-container'], style['faq-container--active']) : style['faq-container']}>

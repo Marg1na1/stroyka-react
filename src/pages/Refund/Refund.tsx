@@ -8,7 +8,7 @@ const Refund: FC = () => {
     return (
         <section className={style['refund']}>
             <Headline {...headData} />
-            <div className="container">
+            <div className='container'>
                 <ul className={style['refund-list']}>
                     {
                         refundList.map((obj, i) => (

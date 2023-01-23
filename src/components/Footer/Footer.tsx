@@ -1,7 +1,7 @@
 import { FC } from 'react';
+import { navItems } from '../../data/footer.data';
 import { Link } from 'react-router-dom';
 import style from './Footer.module.scss';
-import { navItems } from '../../data/footer.data';
 
 const logo = './../assets/images/footer-logo.svg';
 const mail = './../assets/images/mail_icon.svg';

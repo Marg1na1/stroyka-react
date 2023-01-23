@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import SearchedCard from '../SearchedCard/SearchedCard';
 import SearchSkeletonCard from '../Skeletons/SearchSkeletonCard';
-import style from './Dropdown.module.scss';
 import { ProductModel } from '../../@types/models';
 import { cutString } from '../../utils/cutString';
+import style from './Dropdown.module.scss';
 
 type DropdownProps = {
     data: ProductModel[];
@@ -25,12 +25,16 @@ const Dropdown: FC<DropdownProps> = ({ data, isLoading, isSuccess, setValue, sea
             <div className={style['history']}>
                 <h2 className={style['history-title']}>История поиска</h2>
                 <ul className={style['history-list']}>
-                    {(history !== null && Array.isArray(JSON.parse(history))) &&
-                        JSON.parse(history).map((str: string, i: number) => <li
-                            className={style['history__item']}
-                            key={i}
-                            onClick={() => setValue(str)}>
-                            {cutString(str, 12).charAt(0).toUpperCase() + cutString(str, 12).slice(1)}</li>)}
+                    {
+                        (history !== null && Array.isArray(JSON.parse(history))) &&
+                        JSON.parse(history)
+                            .map((str: string, i: number) => <li
+                                className={style['history__item']}
+                                key={i}
+                                onClick={() => setValue(str)}>
+                                {cutString(str, 12).charAt(0).toUpperCase() + cutString(str, 12).slice(1)}</li>
+                            )
+                    }
                 </ul>
             </div>
             {

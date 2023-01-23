@@ -9,7 +9,7 @@ const Documentation: FC = () => {
     return (
         <section className={style['documentation']}>
             <Headline {...headData} />
-            <div className="container">
+            <div className='container'>
                 <ul className={style['documentation-list']}>
                     {
                         listItem.map((obj, i) => (

@@ -16,5 +16,5 @@ export const useCloseHandler = (depen: string, setFn: (x: boolean) => void, ref:
 
         return () => window.removeEventListener('click', closeOnClick)
 
-    }, [depen]);
+    }, [depen, ref, setFn]);
 }

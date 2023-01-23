@@ -44,7 +44,7 @@ const Registration: FC = () => {
                                 <label className={style['registration-item']}>
                                     Имя
                                     <input
-                                        {...register("name", {
+                                        {...register('name', {
                                             required: 'Поле обязательно к заполнению',
                                             pattern: {
                                                 value: /^[А-ЯЁ]+$/i,
@@ -58,7 +58,7 @@ const Registration: FC = () => {
                                 <label className={style['registration-item']}>
                                     Фамилия
                                     <input
-                                        {...register("surname", {
+                                        {...register('surname', {
                                             pattern: {
                                                 value: /^[А-ЯЁ]+$/i,
                                                 message: 'В качестве фамилии можно использовать только кириллицу'
@@ -73,21 +73,21 @@ const Registration: FC = () => {
                                 <label className={style['registration-item']}>
                                     Дата рождения
                                     <input
-                                        {...register("birthDay", {
+                                        {...register('birthDay', {
                                             pattern: {
                                                 value: /(19|20)\d\d-((0[1-9]|1[012])-(0[1-9]|[12]\d)|(0[13-9]|1[012])-30|(0[13578]|1[02])-31)/,
                                                 message: 'Проверьте правильность введенной даты'
                                             }
                                         })}
-                                        type="date"
+                                        type='date'
                                         className={style['registration-input']} />
                                     {errors?.birthDay && <p>{errors?.birthDay?.message}</p>}
                                 </label>
                                 <label className={style['registration-item']}>
                                     Телефон
                                     <input
-                                        {...register("tel", {
-                                            required: "Поле обязательно к заполнению ",
+                                        {...register('tel', {
+                                            required: 'Поле обязательно к заполнению',
                                             minLength: {
                                                 value: 11,
                                                 message: 'Минимум 11 символов'
@@ -97,7 +97,7 @@ const Registration: FC = () => {
                                                 message: 'Проверьте номер телефона и повторите попытку'
                                             }
                                         })}
-                                        type="number" className={style['registration-input']} />
+                                        type='number' className={style['registration-input']} />
                                     {errors?.tel && <p>{errors?.tel?.message}</p>}
                                 </label>
                             </li>
@@ -105,8 +105,8 @@ const Registration: FC = () => {
                                 <label className={style['registration-item']}>
                                     E-mail
                                     <input
-                                        {...register("email", {
-                                            required: "Поле обязательно к заполнению ",
+                                        {...register('email', {
+                                            required: 'Поле обязательно к заполнению',
                                             minLength: {
                                                 value: 9,
                                                 message: 'Минимум 9 символов'
@@ -117,7 +117,7 @@ const Registration: FC = () => {
                                             }
                                         })}
                                         className={clsx(style['registration-input--long'], style['registration-input'])}
-                                        name={'email'} />
+                                        name='email' />
                                     {errors?.email && <p>{errors?.email?.message}</p>}
                                 </label>
                             </li>
@@ -126,7 +126,7 @@ const Registration: FC = () => {
                                     Пароль
                                     <input
                                         {...register('password', {
-                                            required: "Поле обязательно к заполнению ",
+                                            required: 'Поле обязательно к заполнению',
                                             minLength: {
                                                 value: 9,
                                                 message: 'Пароль должен состоять минимум из 9 символов'
@@ -137,25 +137,25 @@ const Registration: FC = () => {
                                             }
                                         })}
                                         className={style['registration-input']}
-                                        type={'password'} />
+                                        type='password' />
                                     {errors?.password && <p>{errors?.password?.message}</p>}
                                 </label>
                                 <label className={style['registration-item']}>
                                     Подтверждение пароля
                                     <input
-                                        {...register("cpassword", {
-                                            required: "Поле обязательно к заполнению ",
+                                        {...register('cpassword', {
+                                            required: 'Поле обязательно к заполнению',
                                             minLength: {
                                                 value: 9,
                                                 message: 'Пароль должен состоять минимум из 9 символов'
                                             },
                                             validate: (value) => {
                                                 const { password } = getValues();
-                                                return password === value || "Пароли не совпадают!";
+                                                return password === value || 'Пароли не совпадают!';
                                             }
                                         })}
                                         className={style['registration-input']}
-                                        type={'password'} />
+                                        type='password' />
                                     {errors?.cpassword && <p>{errors?.cpassword?.message}</p>}
                                 </label>
                             </li>

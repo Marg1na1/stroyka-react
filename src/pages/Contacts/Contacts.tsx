@@ -1,16 +1,16 @@
 import { FC } from 'react';
-import style from './Contacts.module.scss';
+import Headline from '../../components/Headline/Headline';
 import YMap from '../../components/YMap/YMap';
 import Hero from '../../components/Hero/Hero';
 import { contactsContent, headData } from '../../data/contacts.data';
-import Headline from '../../components/Headline/Headline';
+import style from './Contacts.module.scss';
 
 const Contacts: FC = () => {
 
     return (
         <section className={style['contacts']}>
             <Headline {...headData} />
-            <div className="container">
+            <div className='container'>
                 <YMap />
                 <div className={style['contacts-main']}>
                     <h2 className={style['contacts-title']}>ООО «СтройкаСтор»</h2>

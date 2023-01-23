@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { useGetSimilarQuery } from '../../redux/injected/injectedSimilarProducts';
 import Card from '../Card/Card';
 import Skeleton from '../Skeletons/Skeleton';
+import { useGetSimilarQuery } from '../../redux/injected/injectedSimilarProducts';
 import style from './SimilarProduct.module.scss';
 
 type SimilarProductProps = {
@@ -12,7 +12,7 @@ const SimilarProduct: FC<SimilarProductProps> = ({ type }) => {
 
     const { data = [], isSuccess } = useGetSimilarQuery(type);
 
-    const renderCards = data.map((obj) => (<Card {...obj} key={obj.fixId} />));
+    const renderCards = data.map((obj) => <Card {...obj} key={obj.fixId} />);
     const renderSkeleton = [...new Array(4)].map((_, index) => <Skeleton key={index} />);
 
     return (
