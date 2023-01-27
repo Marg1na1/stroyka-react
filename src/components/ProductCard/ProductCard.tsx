@@ -1,11 +1,10 @@
 import { FC } from 'react';
+import TruckIcon from '../../Icons/TruckIcon';
 import { ProductModel, TransmittedData } from '../../@types/models';
 import { useInputHandler } from '../../hooks/useInputHandler';
 import { useAddProduct } from '../../hooks/useAddProduct';
 import clsx from 'clsx';
 import style from './ProductCard.module.scss';
-
-const truck_icon = './../assets/images/truck_icon.svg';
 
 type ProductCardProps = {
     data: ProductModel;
@@ -72,7 +71,7 @@ const ProductCard: FC<ProductCardProps> = ({ data }) => {
                         Поставщик:  {data.provider}
                     </div>
                     <div className={style['info']}>
-                        <img src={truck_icon} alt='truck' /> <p>Доставка осуществляется курьерами поставщика или службой курьеров Достависта. Также товар можно забрать самостоятельно от&nbsp;поставщика</p>
+                        <TruckIcon /> <p>Доставка осуществляется курьерами поставщика или службой курьеров Достависта. Также товар можно забрать самостоятельно от&nbsp;поставщика</p>
                     </div>
                 </div>
                 {isDiscounted && <span className={style['discount']}>-{data.discountAmount}%</span>}

@@ -1,42 +1,69 @@
-.slider{
-    max-width: 1360px;
+.slider {
+    max-width: 1380px;
     height: 420px;
     margin: 0 auto;
-    &-slide{
+    padding: 0 5px;
+
+    &-slide {
         height: 420px;
         position: relative;
-        &:hover{
+        overflow: hidden;
+
+        &:hover {
             cursor: pointer;
         }
     }
-    &-content{
+
+    &-content {
         height: 100%;
         padding: 40px 0 0 100px;
-        &--first{
-            background-image: url('../../../public/assets/images/layouts/slide1-layout.webp');
-            background-repeat: no-repeat;
-        }
-        &--second{
-            background-image: url('../../../public/assets/images/layouts/slide2-layout.webp');
-            background-repeat: no-repeat;
+        position: relative;
+
+        @media (max-width: 650px) {
+            padding: 40px 0 0 0;
         }
     }
-    &__title{
+
+    &__title {
         font-weight: 700;
         font-size: 48px;
         line-height: 120%;
         color: var(--gunmetal-color);
         max-width: 600px;
         margin-bottom: 20px;
+
+        @media (max-width: 650px) {
+            text-align: center;
+            min-width: 100%;
+        }
+
+        @media (max-width: 500px) {
+            font-size: 38px;
+        }
+
+        @media (max-width: 500px) {
+            font-size: 30px;
+        }
     }
-    &__descr{
+
+    &__descr {
         font-weight: 400;
         font-size: 20px;
         line-height: 140%;
         max-width: 500px;
         color: var(--gunmetal-color);
+
+        @media (max-width: 650px) {
+            text-align: center;
+            min-width: 100%;
+        }
+
+        @media (max-width: 500px) {
+            font-size: 16px;
+        }
     }
-    &__btn{
+
+    &__btn {
         position: absolute;
         bottom: 40px;
         left: 100px;
@@ -47,13 +74,32 @@
         font-size: 18px;
         line-height: 136%;
         transition: .3s;
-        &:hover{
+        max-width: 148px;
+
+        &:hover {
             background-color: var(--gunmetal-color);
             color: var(--white-color);
         }
-        &:active{
+
+        &:active {
             background-color: var(--gunmetal-color);
             color: var(--light-gray-color);
         }
+
+        @media (max-width: 650px) {
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+    }
+
+    &__bkg {
+        position: absolute;
+        top: 0;
+        z-index: -100;
+        object-fit: cover;
+        left: 0;
+        height: 100%;
+        max-width: 100%;
     }
 }

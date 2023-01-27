@@ -1,10 +1,14 @@
 import { FC } from 'react';
+import BoldArrowIcon from '../../Icons/BoldArrowIcon';
 import { sliderData } from '../../data/slider.data';
 import clsx from 'clsx';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 import 'swiper/css';
 import style from './Slider.module.scss';
+
+
+const layout1 = 'public/assets/images/layouts/slide1-layout.webp';
 
 const Slider: FC = () => {
     return (
@@ -25,6 +29,7 @@ const Slider: FC = () => {
                                 <div className={clsx(style['slider-content'], style[obj.titleClass])}>
                                     <h1 className={style['slider__title']}>{obj.title}</h1>
                                     <p className={style['slider__descr']}>{obj.descr}</p>
+                                    <img src={obj.img} alt='layout' className={style['slider__bkg']}/>
                                 </div>
                                 <button className={clsx(style['slider__btn'], 'btn-reset')}>Подробнее</button>
                             </div>
@@ -32,16 +37,10 @@ const Slider: FC = () => {
                     ))
                 }
                 <div className='slider-prev slider-btn-prev' >
-                    <svg width='24' height='24' fill='none' stroke='#454950' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-                        <path d='m5 12h14' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' />
-                        <path d='m12 5 7 7-7 7' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' />
-                    </svg>
+                    <BoldArrowIcon />
                 </div>
                 <div className='slider-next slider-btn-next' >
-                    <svg width='24' height='24' fill='none' stroke='#454950' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-                        <path d='m5 12h14' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' />
-                        <path d='m12 5 7 7-7 7' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' />
-                    </svg>
+                    <BoldArrowIcon />
                 </div>
             </Swiper>
         </section>

@@ -23,7 +23,7 @@ export interface CartProductModel {
 }
 
 export interface OrderModel {
-    [key: number]: CartProductModel
+    [key: number]: CartProductModel;
     createdAt: string;
     id: string;
 }
@@ -36,6 +36,13 @@ export interface TransmittedData {
     provider: string;
     count: number;
     id: number;
+}
+
+export interface ReviewModel {
+    avatar: string;
+    content: string;
+    name: string;
+    createdAt: string;
 }
 
 

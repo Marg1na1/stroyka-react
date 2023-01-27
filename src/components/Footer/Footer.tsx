@@ -1,33 +1,41 @@
 import { FC } from 'react';
+import FooterLogotype from '../../Icons/FooterLogotye';
+import MailIcon from '../../Icons/MailIcon';
+import Locate from '../../Icons/Locate';
+import SlimArrowIcon from '../../Icons/SlimArrowIcon';
 import { navItems } from '../../data/footer.data';
 import { Link } from 'react-router-dom';
 import style from './Footer.module.scss';
 
-const logo = './../assets/images/footer-logo.svg';
-const mail = './../assets/images/mail_icon.svg';
-const geo = './../assets/images/footer_geo_icon.svg';
 const visa = './../assets/images/visa_logo.svg';
 const mastercard = './../assets/images/mastercard_logo.svg';
 const maestro = './../assets/images/maestro_logo.svg';
 const mir = './../assets/images/mir_logo.svg';
-const arrow = './../assets/images/white_arrow_icon.svg';
 
 const Footer: FC = () => {
 
+    const parametrs = {
+        size: {
+            width: 24,
+            height: 24
+        },
+        color: '#E8E9EA'
+    }
+
     return (
-        <footer className={style['footer']}>
+        <footer className={style['footer']} >
             <div className='container'>
                 <div className={style['footer-main']}>
                     <div className={style['footer-contacts']}>
                         <Link to={'/'}>
-                            <img src={logo} alt={'logotype'} />
+                            <FooterLogotype />
                         </Link>
                         <a href='mailto:info@stroykastore.ru' className={style['email']}>
-                            <img src={mail} alt={'mail'} />
+                            <MailIcon />
                             <p>info@strolastore.ru</p>
                         </a>
                         <a href='#' className={style['adress']}>
-                            <img src={geo} alt={'geo'} />
+                            <Locate {...parametrs} />
                             <p>Москва, ул. Камушкина 10</p>
                         </a>
                     </div>
@@ -37,7 +45,7 @@ const Footer: FC = () => {
                                 navItems.map((obj, i) => (
                                     i < 4 &&
                                     <Link to={obj.path} className={style['footer-nav-list__item']} key={i}>
-                                        <img src={arrow} alt={''} />{obj.text}
+                                        <SlimArrowIcon />{obj.text}
                                     </Link>
                                 ))
                             }
@@ -47,7 +55,7 @@ const Footer: FC = () => {
                                 navItems.map((obj, i) => (
                                     (i > 3 && i < 8) &&
                                     <Link to={obj.path} className={style['footer-nav-list__item']} key={i}>
-                                        <img src={arrow} alt={''} />{obj.text}
+                                        <SlimArrowIcon />{obj.text}
                                     </Link>
                                 ))
                             }
@@ -57,7 +65,7 @@ const Footer: FC = () => {
                                 navItems.map((obj, i) => (
                                     i > 7 &&
                                     <Link to={obj.path} className={style['footer-nav-list__item']} key={i}>
-                                        <img src={arrow} alt={''} />{obj.text}
+                                        <SlimArrowIcon />{obj.text}
                                     </Link>
                                 ))
                             }
@@ -75,7 +83,7 @@ const Footer: FC = () => {
                     <p>Сделано Margina1</p>
                 </div>
             </div>
-        </footer>
+        </footer >
     );
 }
 

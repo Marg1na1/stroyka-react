@@ -2,7 +2,7 @@ export interface Point {
     pos: string;
 }
 
-export interface GeocoderResponseMetaData {
+export interface GeocoderResponseMetaData { 
     Point: Point;
     request: string;
     results: string;

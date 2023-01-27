@@ -1,11 +1,10 @@
 import { FC, useEffect, useState } from 'react';
 import { CartProductModel } from '../../@types/models';
+import BoxIcon from '../../Icons/BoxIcon';
+import InfoIcon from '../../Icons/InfoIcon';
+import TruckIcon from '../../Icons/TruckIcon';
 import { useAddOrderMutation } from '../../redux/injected/injectedOrders';
 import style from './CartSide.module.scss';
-
-const info_icon = './../assets/images/info_icon.svg';
-const order_icon = './../assets/images/order_icon.svg';
-const truck_icon = './../assets/images/truck_icon.svg';
 
 type CartSideProps = {
     data: CartProductModel[]
@@ -20,7 +19,7 @@ const CartSide: FC<CartSideProps> = ({ data }) => {
 
     useEffect(() => {
         setProviders(Array.from(new Set(data.map((obj) => obj.provider))))
-    }, [data]);
+    }, [data])
 
     const [addOrder] = useAddOrderMutation();
 
@@ -54,15 +53,15 @@ const CartSide: FC<CartSideProps> = ({ data }) => {
             </div>
             <div className={style['side-info']}>
                 <div className={style['side-info__item']}>
-                    <img src={info_icon} alt='icon' width={24} height={24} />
+                    <InfoIcon />
                     <p className={style['side-info__content']}>Можно сделать заказ от разных поставщиков</p>
                 </div>
                 <div className={style['side-info__item']}>
-                    <img src={order_icon} alt='icon' width={24} height={24} />
+                    <BoxIcon />
                     <p className={style['side-info__content']}>Доставка осуществляется курьерами поставщика или службой курьеров Достависта. Также товар можно забрать самостоятельно от поставщика</p>
                 </div>
                 <div className={style['side-info__item']}>
-                    <img src={truck_icon} alt='icon' width={24} height={24} />
+                    <TruckIcon />
                     <p className={style['side-info__content']}>Точная сумма доставки будет определена после после подтверждения заказа</p>
                 </div>
             </div>

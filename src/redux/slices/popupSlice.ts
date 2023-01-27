@@ -4,11 +4,13 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 interface PopupState {
     isOpenChengeLocate: boolean;
     isOpenAuth: boolean;
+    isOpenBurger: boolean;
 }
 
 const initialState: PopupState = {
     isOpenChengeLocate: false,
     isOpenAuth: false,
+    isOpenBurger: false
 }
 
 export const popupSlice = createSlice({
@@ -21,10 +23,13 @@ export const popupSlice = createSlice({
         setToggleOpenAuth: (state, action: PayloadAction<boolean>) => {
             state.isOpenAuth = action.payload
         },
+        setToggleOpenBurger: (state, action: PayloadAction<boolean>) => {
+            state.isOpenBurger = action.payload
+        },
     },
 })
 
 
-export const { setToggleChengeLocate, setToggleOpenAuth } = popupSlice.actions;
+export const { setToggleChengeLocate, setToggleOpenAuth, setToggleOpenBurger } = popupSlice.actions;
 
 export default popupSlice.reducer;

@@ -8,6 +8,10 @@
     z-index: 10;
     max-width: 300px;
 
+    @media (max-width: 500px) {
+        left: 0;
+    }
+
     &-message {
         font-weight: 500;
         font-size: 15px;

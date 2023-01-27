@@ -18,26 +18,36 @@ const emptyCartData = {
 
 const Cart: FC = () => {
 
-    const { data = [], isSuccess } = useGetCartQuery();
+    const { data = [], isSuccess, isLoading } = useGetCartQuery();
+
+    const renderCartItems = data.map((obj) => <CartCard {...obj} key={obj.fixId} />)
+
+    if (isSuccess && data.length === 0) {
+        return <EmptyPage {...emptyCartData} />
+    } else if (isLoading) {
+        return (
+            <>
+                <Headline {...headData} />
+                <div className={clsx(style['cart-container'], 'container')}>
+                    <CartSide data={data} />
+                    <p>Загрузка...</p>
+                </div>
+            </>
+        )
+    }
 
     return (
         <section className={style['cart']}>
             {
-                (isSuccess && data.length === 0) ?
-                    <EmptyPage {...emptyCartData} /> :
-                    <>
-                        <Headline {...headData} />
-                        <div className={clsx(style['cart-container'], 'container')}>
-                            <CartSide data={data} />
-                            <ul>
-                                {
-                                    data.map((obj) => (
-                                        <CartCard {...obj} key={obj.fixId} />
-                                    ))
-                                }
-                            </ul>
-                        </div>
-                    </>
+                <>
+                    <Headline {...headData} />
+                    <div className={clsx(style['cart-container'], 'container')}>
+                        <CartSide data={data} />
+                        <ul>
+                            {renderCartItems}
+                        </ul>
+                    </div>
+                </>
             }
         </section>
     );

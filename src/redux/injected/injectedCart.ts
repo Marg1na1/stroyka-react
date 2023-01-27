@@ -42,6 +42,7 @@ const injectedCart = stroykaApi.injectEndpoints({
 export const {
     useAddCartItemMutation,
     useGetCartQuery,
+    useLazyGetCartQuery,
     useChangeCartItemMutation,
     useDeleteCartItemMutation
 } = injectedCart;

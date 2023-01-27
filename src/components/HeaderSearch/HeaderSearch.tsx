@@ -1,12 +1,11 @@
 import { FC, useRef, useState, KeyboardEvent } from 'react';
 import Dropdown from '../Dropdown/Dropdown';
+import SearchIcon from '../../Icons/SearchIcon';
 import { useDebounce } from '../../hooks/useDebounce';
 import { useCloseHandler } from '../../hooks/useCloseHandler';
 import { useNavigate } from "react-router-dom";
 import { useGetSearchedQuery } from '../../redux/injected/injectedSearched';
 import style from './HeaderSearch.module.scss';
-
-const search_icon = './../assets/images/search_icon.svg';
 
 const HeaderSearch: FC = () => {
 
@@ -24,7 +23,7 @@ const HeaderSearch: FC = () => {
         skip: debounced.length < 3
     });
 
-    const history = localStorage.getItem('hist'); 
+    const history = localStorage.getItem('hist');
 
     useCloseHandler(debounced, setDropdown, formRef);
 
@@ -77,7 +76,7 @@ const HeaderSearch: FC = () => {
                 className={style['form__btn']}
                 onClick={onClickSearchBtn}
                 type='button'>
-                <img src={search_icon} alt='search' />
+                <SearchIcon />
             </button>
             {
                 dropdown === true && <Dropdown

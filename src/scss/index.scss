@@ -1,40 +1,48 @@
 @import "vars";
 @import "setting";
 
-.mb80{
+.mb80 {
     margin-bottom: 80px;
 }
 
-.main-title{
+.main-title {
     font-weight: 700;
     font-size: 48px;
     line-height: 120%;
     color: var(--eerie-black-color);
 }
+
 [class*="copyrights-pane"] {
     display: none !important;
 }
-[class*="ground-pane"]{
+
+[class*="ground-pane"] {
     filter: grayscale(1);
 }
-[class*="svg-icon"]{
+
+[class*="svg-icon"] {
     filter: grayscale(1);
 }
-.slider-prev{
+
+.slider-prev {
     bottom: 40px;
     right: 164px;
 }
-.slider-next{
+
+.slider-next {
     bottom: 40px;
     right: 100px;
 }
-.review-prev{
+
+.review-prev {
     top: 0;
 }
-.review-next{
-    top:0;
+
+.review-next {
+    top: 0;
 }
-.slider-btn-prev{
+
+.slider-btn-prev {
     position: absolute;
     width: 52px;
     height: 52px;
@@ -44,32 +52,43 @@
     justify-content: center;
     align-items: center;
     transition: .3s;
-    svg{
+
+    svg {
         transform: rotate(180deg);
-        path{
+
+        path {
             transition: .3s;
         }
     }
-    
-    &:hover{
+
+    &:hover {
         cursor: pointer;
         background-color: var(--gunmetal-color);
-        svg{
-            path{
+
+        svg {
+            path {
                 stroke: var(--white-color);
             }
         }
     }
-    &:active{
+
+    &:active {
         background-color: var(--gunmetal-color);
-        svg{
-            path{
+
+        svg {
+            path {
                 stroke: var(--light-gray-color);
             }
         }
     }
+
+    @media (max-width: 750px) {
+        display: none;
+    }
+
 }
-.slider-btn-next{
+
+.slider-btn-next {
     position: absolute;
     width: 52px;
     height: 52px;
@@ -79,34 +98,45 @@
     justify-content: center;
     align-items: center;
     transition: .3s;
-    svg{
-        path{
+
+    svg {
+        path {
             transition: .3s;
         }
-        
+
     }
-    &:hover{
+
+    &:hover {
         cursor: pointer;
         background-color: var(--gunmetal-color);
-        svg{
-            path{
+
+        svg {
+            path {
                 stroke: var(--white-color);
             }
         }
     }
-    &:active{
+
+    &:active {
         background-color: var(--gunmetal-color);
-        svg{
-            path{
+
+        svg {
+            path {
                 stroke: var(--light-gray-color);
             }
         }
     }
+
+    @media (max-width: 750px) {
+        display: none;
+    }
 }
-.range-slider{
+
+.range-slider {
     height: 20px;
     margin-bottom: 30px;
-    &__thumb{
+
+    &__thumb {
         width: 20px;
         height: 20px;
         background-color: var(--white-color);
@@ -114,66 +144,76 @@
         border: 1px solid var(--gunmetal-color);
         text-align: center;
     }
-    &__track{
+
+    &__track {
         height: 8px;
         background-color: var(--titan-color);
         top: calc(50% - 4px);
-        &-1{
+
+        &-1 {
             background-color: var(--philippine-gray-color);
         }
     }
 }
-.select{
-    &:hover{
+
+.select {
+    &:hover {
         cursor: pointer;
     }
-    &__control{
+
+    &__control {
         height: 48px;
         outline: none !important;
         border: none !important;
         border-bottom: 1px solid var(--light-gray-color) !important;
-        background-color: transparent !important; 
+        background-color: transparent !important;
         box-shadow: none !important;
         border-radius: 0px !important;
-        &--is-focused{
+
+        &--is-focused {
             border: none !important;
             border-bottom: 1px solid var(--light-gray-color) !important;
         }
     }
+
     &__single-value {
         font-weight: 500 !important;
         font-size: 18px !important;
         line-height: 136% !important;
         color: var(--philippine-gray-color) !important;
     }
-    &__indicator-separator{
+
+    &__indicator-separator {
         display: none !important;
     }
-    &__menu{
+
+    &__menu {
         border-radius: 0px !important;
         font-weight: 500 !important;
         font-size: 18px !important;
         line-height: 136% !important;
         color: var(--eerie-black-color) !important;
     }
-    &__option{
-        &:hover{
+
+    &__option {
+        &:hover {
             background-color: rgba(252, 236, 65, 0.4) !important;
             cursor: pointer !important;
         }
-        &--is-focused{
+
+        &--is-focused {
             background-color: transparent !important;
         }
-        &--is-selected{
+
+        &--is-selected {
             background-color: var(--yellow-color) !important;
             color: var(--eerie-black-color) !important;
         }
     }
-    &__indicator{
-        &:hover{
-            cursor:pointer !important;
+
+    &__indicator {
+        &:hover {
+            cursor: pointer !important;
         }
     }
 }
-
-

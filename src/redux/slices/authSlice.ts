@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
 
 export interface AuthState {
     isAuth: boolean
@@ -20,6 +20,6 @@ export const isAuthSlice = createSlice({
 })
 
 
-export const { setIsAuth } = isAuthSlice.actions
+export const { setIsAuth } = isAuthSlice.actions;
 
-export default isAuthSlice.reducer
+export default isAuthSlice.reducer;

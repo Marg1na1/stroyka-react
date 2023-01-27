@@ -1,5 +1,5 @@
-import { TransmittedData } from "../@types/models"
-import { useGetCartQuery, useAddCartItemMutation, useChangeCartItemMutation } from "../redux/injected/injectedCart";
+import { TransmittedData } from '../@types/models';
+import { useGetCartQuery, useAddCartItemMutation, useChangeCartItemMutation } from '../redux/injected/injectedCart';
 
 export const useAddProduct = () => {
 

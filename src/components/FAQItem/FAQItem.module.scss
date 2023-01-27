@@ -1,15 +1,18 @@
-.faq{
-    &-item{
-        &__corner{
+.faq {
+    &-item {
+        &__corner {
             transform: rotate(90deg);
             transition: .3s;
-            &--active{
+            height: 24px;
+
+            &--active {
                 transform: rotate(-90deg);
             }
         }
     }
-    &-btn{ 
-        background-color: transparent; 
+
+    &-btn {
+        background-color: transparent;
         border: none;
         padding: 16px 20px;
         font-weight: 500;
@@ -21,22 +24,25 @@
         justify-content: space-between;
         width: 768px;
         text-align: left;
-        &:hover{
+
+        &:hover {
             cursor: pointer;
         }
     }
 
-    &-container{
+    &-container {
         overflow: hidden;
         padding-left: 20px;
         max-height: 0px;
         transition: .3s ease-in-out;
-        &--active{
+
+        &--active {
             max-height: 200px;
         }
     }
-    &-answer{
-        &:not(:last-child){
+
+    &-answer {
+        &:not(:last-child) {
             margin-bottom: 20px;
         }
     }

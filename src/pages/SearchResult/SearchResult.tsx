@@ -88,7 +88,6 @@ const SearchResult: FC = () => {
                         </div>
                     </div>
             }
-
         </section>
     );
 }

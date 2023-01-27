@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { TReviews } from '../../@types/globalTypes';
+import { ReviewModel } from '../../@types/models';
 import style from './ReviewsSlide.module.scss';
 
-const ReviewsSlide: FC<TReviews> = ({ avatar, content, name, createdAt }) => {
+const ReviewsSlide: FC<ReviewModel> = ({ avatar, content, name, createdAt }) => {
     return (
         <article>
             <div className={style['reviews-slide-header']}>

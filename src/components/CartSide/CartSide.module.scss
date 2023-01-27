@@ -1,41 +1,48 @@
-.side{
+.side {
     max-width: 278px;
-    &-container{
+
+    &-container {
         padding: 16px;
         width: 278px;
         border-bottom: 1px solid var(--titan-color);
     }
-    &-main{
+
+    &-main {
         border: 1px solid var(--titan-color);
         display: flex;
         flex-direction: column;
         align-items: center;
         margin-bottom: 16px;
     }
-    &-title{
+
+    &-title {
         font-weight: 700;
         font-size: 18px;
         line-height: 136%;
         color: var(--eerie-black-color);
         margin-bottom: 12px;
     }
-    &-list{
-        &__item{
+
+    &-list {
+        &__item {
             display: flex;
             justify-content: space-between;
             font-weight: 500;
             font-size: 16px;
             line-height: 150%;
-            &:not(:last-child){
+
+            &:not(:last-child) {
                 margin-bottom: 12px;
             }
         }
-        &__value{
+
+        &__value {
             display: flex;
             flex-direction: column;
         }
     }
-    &-btn{
+
+    &-btn {
         font-weight: 500;
         font-size: 18px;
         line-height: 136%;
@@ -46,26 +53,35 @@
         max-width: 243px;
         margin: 16px 0;
         outline: none;
-        &:hover{
+
+        &:hover {
             background-color: var(--gunmetal-color);
             color: var(--white-color);
             cursor: pointer;
         }
-        &:active{
+
+        &:active {
             background-color: var(--gunmetal-color);
             color: var(--light-gray-color);
         }
     }
-    &-info{
-        &__item{
+
+    &-info {
+        &__item {
             display: flex;
             align-items: flex-start;
-            &:not(:last-child){
+
+            &:not(:last-child) {
                 margin-bottom: 16px;
-                
+
+            }
+
+            svg {
+                min-width: 24px;
             }
         }
-        &__content{
+
+        &__content {
             font-weight: 500;
             font-size: 15px;
             line-height: 145%;

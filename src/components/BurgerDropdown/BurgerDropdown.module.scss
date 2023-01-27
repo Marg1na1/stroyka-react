@@ -1,0 +1,179 @@
+.dropdown {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--white-color);
+    position: absolute;
+    top: 46px;
+    z-index: 10000;
+
+    &-list {
+        padding: 16px 0;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: center;
+
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+
+    &-btn {
+        background-color: var(--yellow-color);
+        max-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 21px;
+        transition: .4s;
+
+        &:hover {
+            background-color: var(--gunmetal-color);
+
+            .dropdown-btn__text {
+                color: var(--white-color);
+            }
+
+            .dropdown-btn__lines {
+                span {
+                    border: 1px solid var(--white-color);
+                }
+
+                &::before {
+                    content: '';
+                    border: 1px solid var(--white-color);
+                }
+
+                &::after {
+                    content: '';
+                    border: 1px solid var(--white-color);
+                }
+            }
+        }
+
+        &:active {
+            background-color: var(--gunmetal-color);
+
+            .dropdown-btn__text {
+                color: var(--light-gray-color);
+            }
+
+            .dropdown-btn__lines {
+                span {
+                    border: 1px solid var(--light-gray-color);
+                }
+
+                &::before {
+                    content: '';
+                    border: 1px solid var(--light-gray-color);
+                }
+
+                &::after {
+                    content: '';
+                    border: 1px solid var(--light-gray-color);
+                }
+            }
+        }
+
+        &__lines {
+            position: relative;
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+
+            span {
+                position: absolute;
+                width: 18px;
+                border: 1px solid var(--gunmetal-color);
+                border-radius: 50px;
+                top: calc(50% - 1px);
+                left: 4px;
+                transition: .3s;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 8px;
+                border: 1px solid var(--gunmetal-color);
+                border-radius: 50px;
+                top: 5px;
+                left: 4px;
+                transition: .3s;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 12px;
+                border: 1px solid var(--gunmetal-color);
+                border-radius: 50px;
+                bottom: 5px;
+                left: 4px;
+                transition: .3s;
+            }
+        }
+
+        &__text {
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 136%;
+            color: var(--eerie-black-color);
+            max-height: 24px;
+            transition: .3s;
+        }
+    }
+}
+
+.nav {
+    display: flex;
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 82px;
+
+        p {
+            color: var(--granite-gray-color);
+            transition: .3s;
+        }
+
+        svg {
+            path {
+                transition: .3s;
+            }
+        }
+
+        &:hover {
+            p {
+                color: var(--eerie-black-color);
+            }
+
+            svg {
+                path {
+                    stroke: var(--eerie-black-color);
+                }
+            }
+        }
+    }
+}
+
+.scraps {
+    display: flex;
+    flex-direction: column;
+
+
+    &__item {
+        text-align: center;
+        font-size: 20px;
+        transition: .3s;
+        color: var(--granite-gray-color);
+
+        &:hover {
+            color: var(--eerie-black-color);
+        }
+    }
+}

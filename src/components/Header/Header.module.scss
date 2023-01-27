@@ -1,56 +1,78 @@
-.header{
-    background-color: var(--white-color); 
+.header {
+    background-color: var(--white-color);
     margin-bottom: 40px;
-    &-additional{
+
+    &-additional {
         display: flex;
         justify-content: space-between;
         padding: 10px 0;
         position: relative;
-        &--sticky{
+
+        @media (max-width: 900px) {
+            align-items: center;
+        }
+
+
+        &--sticky {
             padding: 10px 0 90px 0;
         }
-        &__nav{
+
+        &__nav {
             display: flex;
+
+            @media (max-width: 900px) {
+                display: none;
+            }
         }
-        &__item{
+
+        &__item {
             font-weight: 500;
             font-size: 15px;
             line-height: 145%;
             color: var(--granite-gray-color);
             transition: .3s;
-            &:not(:last-child){
+
+            &:not(:last-child) {
                 margin-right: 24px;
             }
-            &:hover{
+
+            &:hover {
                 color: var(--gunmetal-color);
             }
         }
     }
-    &-locate{
-        display: flex;align-items: center;
+
+    &-locate {
+        display: flex;
+        align-items: center;
         max-height: 22px;
-        &__btn{ 
+
+        &__btn {
             display: flex;
             background-color: transparent;
             padding: 0;
             border: none;
-            svg{
-                path{
+
+            svg {
+                path {
                     transition: .3s;
-                }   
+                }
             }
-            &:hover{
-                svg{
-                    path{
+
+            &:hover {
+                svg {
+                    path {
                         stroke: var(--gunmetal-color);
                     }
                 }
-                p{
+
+                p {
                     color: var(--gunmetal-color);
                 }
             }
         }
-        p{
+
+        p {
             font-weight: 500;
             font-size: 15px;
             line-height: 145%;
@@ -59,19 +81,26 @@
             transition: .3s;
         }
     }
-    &-breadCrumbs{
+
+    &-breadCrumbs {
         padding: 8px 0;
         border-top: 1px solid var(--titan-color);
         border-bottom: 1px solid var(--titan-color);
-        &-list{
+
+        @media (max-width: 1100px) {
+            display: none;
+        }
+
+        &-list {
             display: flex;
             justify-content: space-between;
         }
     }
 }
-.container{
+
+.container {
     max-width: var(--container-width);
-    // overflow-x: hidden; 
     margin: 0 auto;
     padding: 0 var(--container-offset);
 }
+

@@ -35,7 +35,7 @@ const Dropdown: FC<DropdownProps> = ({ data, isLoading, isSuccess, setValue, sea
                                 {cutString(str, 12).charAt(0).toUpperCase() + cutString(str, 12).slice(1)}</li>
                             )
                     }
-                </ul>
+                </ul> 
             </div>
             {
                 (isSuccess && data.length === 0) ?
@@ -43,9 +43,7 @@ const Dropdown: FC<DropdownProps> = ({ data, isLoading, isSuccess, setValue, sea
                         <h3 className={style['notfound__title']}>По запросу «{cutString(searchValue, 36)}» ничего не найденно попробуйте ввести запрос заново</h3>
                     </div>
                     : <ul className={style['searched-list']}>
-                        {
-                            isLoading ? renderSkeleton : renderCard
-                        }
+                        {isLoading ? renderSkeleton : renderCard}
                     </ul>
             }
         </div>

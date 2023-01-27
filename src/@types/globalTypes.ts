@@ -4,16 +4,10 @@ export type THeadlineBreadcrumbs = {
     type: 'link' | 'seperator';
 }
 
-export type TReviews = {
-    avatar: string;
-    content: string;
-    name: string;
-    createdAt: string;
-}
-
 export type TBrands = {
     title: string;
-    list: string[]
+    list: string[];
+    
 }
 
 

@@ -6,13 +6,6 @@ import Hero from '../../components/Hero/Hero';
 import Reviews from '../../components/Reviews/Reviews';
 import style from './Home.module.scss';
 
-
-// const Discount = lazy(() => import('../../components/Discount/Discount'));
-// const PopularProducts = lazy(() => import('../../components/PopularProducts/PopularProducts'));
-// const Reviews = lazy(() => import('../../components/Reviews/Reviews'));
-// const Hero = lazy(() => import('../../components/Hero/Hero'));
-
-
 const Home: FC = () => {
 
     return (
@@ -21,7 +14,7 @@ const Home: FC = () => {
             <Discount />
             <PopularProducts />
             <Reviews />
-            <Hero />
+            {/* <Hero /> */}
         </section>
     );
 }

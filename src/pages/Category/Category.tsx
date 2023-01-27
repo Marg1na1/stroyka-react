@@ -45,7 +45,7 @@ const Category: FC<CategoryProps> = ({ categoryData }) => {
             <Headline {...headData} />
             <div className={clsx(style['category-container'], 'container')}>
                 {isLoading ? <SideSkeleton /> : <CategorySide data={data} withSearch />}
-                {isSuccess && <CategoryMain data={data} status={isSuccess} />}
+                <CategoryMain data={data} status={isSuccess} />
             </div>
         </section>
     );

@@ -24,7 +24,7 @@ const CartCard: FC<CartProductModel> = ({ img, title, finalPrice, count, id }) =
 
     useEffect(() => {
         setProductCount(count)
-    }, [count]);
+    }, [count])
 
     useEffect(() => {
         if (productCont <= 0) {

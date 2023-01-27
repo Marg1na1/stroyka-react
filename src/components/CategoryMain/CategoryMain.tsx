@@ -19,7 +19,7 @@ const CategoryMain: FC<CategoryMainProps> = ({ data, status }) => {
 
     const { pageCount, currentItems, next, prev, setPugPosition } = usePagination({ data });
 
-    const renderCards = currentItems.map((obj) => (<Card {...obj} key={obj.fixId} />));
+    const renderCards = currentItems.map((obj) => <Card {...obj} key={obj.fixId} />);
     const renderSkeleton = [...new Array(9)].map((_, index) => <Skeleton key={index} />);
 
     return (
@@ -51,9 +51,7 @@ const CategoryMain: FC<CategoryMainProps> = ({ data, status }) => {
                 </li>
             </ul>
             <ul className={style['category-list']}>
-                {
-                    status ? renderCards : renderSkeleton
-                }
+                {status ? renderCards : renderSkeleton}
             </ul>
             {
                 data.length > 17 && <Pagination

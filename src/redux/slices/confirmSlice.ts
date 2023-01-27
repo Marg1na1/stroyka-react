@@ -33,6 +33,6 @@ export const confirmSlice = createSlice({
 })
 
 
-export const { setToggleConfirm, setBodyConfirm } = confirmSlice.actions
+export const { setToggleConfirm, setBodyConfirm } = confirmSlice.actions;
 
-export default confirmSlice.reducer
+export default confirmSlice.reducer;

@@ -16,25 +16,36 @@ const emptyOrdersData = {
 
 const Orders: FC = () => {
 
-    const { data = [], isSuccess } = useGetOrdersQuery();
+    const { data = [], isSuccess, isLoading } = useGetOrdersQuery();
+
+    const renderOrders = data.map((obj, i) => <OrderCard {...obj} key={i} />)
+
+    if (isSuccess && data.length <= 0) {
+        return <EmptyPage {...emptyOrdersData} />
+    } else if (isLoading) {
+        return (
+            <section className={style['orders']}>
+                <>
+                    <Headline {...headData} />
+                    <div className='container'>
+                        <p>Загрузка...</p>
+                    </div>
+                </>
+            </section>
+        )
+    }
 
     return (
         <section className={style['orders']}>
             {
-                (isSuccess && data.length <= 0) ?
-                    <EmptyPage {...emptyOrdersData} /> :
-                    <>
-                        <Headline {...headData} />
-                        <div className='container'>
-                            <ul className={style['orders-list']}>
-                                {
-                                    data.map((obj, i) => (
-                                        <OrderCard {...obj} key={i} />
-                                    ))
-                                }
-                            </ul>
-                        </div>
-                    </>
+                <>
+                    <Headline {...headData} />
+                    <div className='container'>
+                        <ul className={style['orders-list']}>
+                            {renderOrders}
+                        </ul>
+                    </div>
+                </>
             }
         </section>
     );

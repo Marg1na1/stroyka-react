@@ -44,7 +44,7 @@ const Card: FC<TCardProps> = ({ img, title, price, discount, horizontal = false,
         <li className={style['grid-item']}>
             <article className={horizontal ? style['grid-item__content--h'] : style['grid-item__content']}>
                 <Link to={`/products/${fixId}`}>
-                    <img className={horizontal ? style['grid-item__image--h'] : style['grid-item__image']} src={img} alt='product' />
+                    <img loading='lazy' className={horizontal ? style['grid-item__image--h'] : style['grid-item__image']} src={img} alt='product' />
                 </Link>
                 <div className={style['grid-item__main']}>
                     <Link to={`/products/${fixId}`}>

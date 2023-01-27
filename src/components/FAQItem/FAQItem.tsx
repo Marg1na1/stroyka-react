@@ -1,8 +1,7 @@
 import { FC, Fragment } from 'react';
+import MarkIcon from '../../Icons/MarkIcon';
 import clsx from 'clsx';
 import style from './FAQItem.module.scss';
-
-const corner_icon = './../assets/images/corner_icon.svg';
 
 type TFAQItem = {
     question: string;
@@ -20,7 +19,11 @@ const FAQItem: FC<TFAQItem> = ({ question, answer, id, selected, openAccord }) =
     return (
         <li className={style['faq-item']}>
             <button className={style['faq-btn']} onClick={() => openAccord(id)}>
-                {question} <img className={selected === id ? clsx(style['faq-item__corner'], style['faq-item__corner--active']) : style['faq-item__corner']} src={corner_icon} alt='indicator' />
+                {question}
+                <div className={selected === id ? clsx(style['faq-item__corner'], style['faq-item__corner--active']) : style['faq-item__corner']}>
+                    <MarkIcon />
+                </div>
+
             </button>
             {
                 <div className={selected === id ? clsx(style['faq-container'], style['faq-container--active']) : style['faq-container']}>
