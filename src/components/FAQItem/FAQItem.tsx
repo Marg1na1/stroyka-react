@@ -23,7 +23,6 @@ const FAQItem: FC<TFAQItem> = ({ question, answer, id, selected, openAccord }) =
                 <div className={selected === id ? clsx(style['faq-item__corner'], style['faq-item__corner--active']) : style['faq-item__corner']}>
                     <MarkIcon />
                 </div>
-
             </button>
             {
                 <div className={selected === id ? clsx(style['faq-container'], style['faq-container--active']) : style['faq-container']}>

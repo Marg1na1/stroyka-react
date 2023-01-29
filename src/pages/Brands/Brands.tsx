@@ -14,7 +14,7 @@ const Brands: FC = () => {
                 <nav className={clsx(style['brands-nav'], 'mb80')}>
                     {
                         brandsList.map((obj, i) => (
-                            <a href='#' className={style['brands-nav__item']} key={i}>
+                            <a href={'#' + obj.title} className={style['brands-nav__item']} key={i}>
                                 {obj.title}
                             </a>
                         ))

@@ -3,9 +3,9 @@ import { TBrands } from '../../@types/globalTypes';
 import style from './BrandsRow.module.scss';
 
 const BrandsRow: FC<TBrands> = ({ title, list }) => {
-    
+
     return (
-        <li className={style['brands-row']}>
+        <li className={style['brands-row']} id={title}>
             <h2 className={style['brands-row__title']}>
                 {title}
             </h2>

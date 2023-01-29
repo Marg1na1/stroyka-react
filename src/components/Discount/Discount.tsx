@@ -1,18 +1,26 @@
-import { FC } from 'react';
+import { FC, useState, useEffect } from 'react';
 import Card from '../Card/Card';
 import HorizontalSkeleton from '../Skeletons/HorizontalSkeleton';
+import Skeleton from '../Skeletons/Skeleton';
 import MarkIcon from '../../Icons/MarkIcon';
 import clsx from 'clsx';
 import { useGetDiscountedProductsQuery } from '../../redux/injected/injectedDiscount';
 import style from './Discount.module.scss';
 
 
+
 const Discount: FC = () => {
 
     const { data = [], isLoading } = useGetDiscountedProductsQuery();
 
-    const renderSkeleton = [...new Array(4)].map((_, index) => <HorizontalSkeleton key={index} />);
-    const renderCards = data.map((item) => (<Card {...item} key={item.fixId} horizontal />));
+    const [horizontal, setHorizontal] = useState(false);
+
+    useEffect(() => {
+        setHorizontal(window.innerWidth > 1100)
+    }, [])
+
+    const renderSkeleton = [...new Array(4)].map((_, index) => horizontal ? <HorizontalSkeleton key={index} /> : <Skeleton key={index} />);
+    const renderCards = data.map((item) => <Card {...item} key={item.fixId} horizontal={horizontal} />);
 
     return (
         <section className={clsx(style['discount'], 'mb80')}>

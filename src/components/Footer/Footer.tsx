@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import FooterLogotype from '../../Icons/FooterLogotye';
 import MailIcon from '../../Icons/MailIcon';
 import Locate from '../../Icons/Locate';
@@ -6,6 +6,8 @@ import SlimArrowIcon from '../../Icons/SlimArrowIcon';
 import { navItems } from '../../data/footer.data';
 import { Link } from 'react-router-dom';
 import style from './Footer.module.scss';
+import clsx from 'clsx';
+import MarkIcon from '../../Icons/MarkIcon';
 
 const visa = './../assets/images/visa_logo.svg';
 const mastercard = './../assets/images/mastercard_logo.svg';
@@ -14,12 +16,18 @@ const mir = './../assets/images/mir_logo.svg';
 
 const Footer: FC = () => {
 
+    const [toggleDropdown, setToggleDropdown] = useState(false);
+
     const parametrs = {
         size: {
             width: 24,
             height: 24
         },
         color: '#E8E9EA'
+    }
+
+    const onClickDropdownBtn = () => {
+        setToggleDropdown(!toggleDropdown)
     }
 
     return (
@@ -34,7 +42,7 @@ const Footer: FC = () => {
                             <MailIcon />
                             <p>info@strolastore.ru</p>
                         </a>
-                        <a href='#' className={style['adress']}>
+                        <a href='https://yandex.ru/maps/213/moscow/house/derbenevskaya_naberezhnaya_7s8/Z04YcAJjQEcAQFtvfXtzc3hjYg==/?ll=37.653927%2C55.722406&z=17.09' target='_blank' className={style['adress']}>
                             <Locate {...parametrs} />
                             <p>Москва, ул. Камушкина 10</p>
                         </a>
@@ -71,6 +79,22 @@ const Footer: FC = () => {
                             }
                         </ul>
                     </nav>
+                    <div className={style['dropdown-container']}>
+                        <button
+                            className={style['dropdown__btn']}
+                            onClick={onClickDropdownBtn}>
+                            Навигация
+                        </button>
+                        <ul className={toggleDropdown ? clsx(style['dropdown-list'], style['dropdown-list--active']) : style['dropdown-list']}>
+                            {
+                                navItems.map((obj, i) => (
+                                    <Link to={obj.path} className={style['dropdown__item']} key={i}>
+                                        <SlimArrowIcon />{obj.text}
+                                    </Link>
+                                ))
+                            }
+                        </ul>
+                    </div>
                 </div>
                 <div className={style['footer-cellar']}>
                     <p>© СтройкаСтор</p>

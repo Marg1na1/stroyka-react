@@ -27,6 +27,7 @@
         line-height: 136%;
         color: var(--philippine-gray-color);
 
+
         @media (max-width: 300px) {
             max-width: 150px;
         }
@@ -40,7 +41,7 @@
         justify-content: center;
         background-color: transparent;
         border: none;
-        background-color: var(--light-color);
+
 
         &:hover {
             cursor: pointer;

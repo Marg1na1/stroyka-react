@@ -14,7 +14,7 @@ const Home: FC = () => {
             <Discount />
             <PopularProducts />
             <Reviews />
-            {/* <Hero /> */}
+            <Hero />
         </section>
     );
 }

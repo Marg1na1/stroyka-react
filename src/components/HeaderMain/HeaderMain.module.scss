@@ -7,7 +7,7 @@
         }
 
         @media (max-width: 500px) {
-            margin-right: 0; 
+            margin-right: 0;
         }
     }
 
@@ -171,6 +171,10 @@
             left: 0;
             right: 0;
             background-color: var(--white-color);
+
+            .header-main__container {
+                padding: 16px 15px;
+            }
 
         }
 

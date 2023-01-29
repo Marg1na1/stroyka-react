@@ -42,7 +42,7 @@
             height: 47px;
             border: none;
             outline: none;
-            background-color: var(--light-color);
+            background-color: transparent;
 
             &:hover {
                 cursor: pointer;
@@ -52,7 +52,7 @@
 
     &-input {
         height: 47px;
-        background-color: var(--light-color);
+
         border: none;
         outline: none;
         color: var(--philippine-gray-color);

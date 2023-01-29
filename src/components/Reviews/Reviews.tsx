@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useGetReviewsQuery } from '../../redux/injected/injectedReviews';
@@ -8,9 +8,19 @@ import style from './Reviews.module.scss';
 
 const Reviews: FC = () => {
 
+    const [slideCount, setSlideCount] = useState(3);
+
+    useEffect(() => {
+        if (window.innerWidth <= 400) {
+            setSlideCount(1)
+        } else if (window.innerWidth <= 750) {
+            setSlideCount(2)
+        }
+    }, [])
+
     const { data = [], isLoading } = useGetReviewsQuery();
 
-    const renderSkeleton = [...new Array(8)].map((_, index) => <SwiperSlide key={index}><ReviewSkeleton /></SwiperSlide>);
+    const renderSkeleton = [...new Array(slideCount * 2)].map((_, index) => <SwiperSlide key={index}><ReviewSkeleton /></SwiperSlide>);
     const renderReview = data.map((obj, i) => <SwiperSlide className={style['reviews-slide']} key={i}><ReviewsSlide {...obj} /></SwiperSlide>);
 
     return (
@@ -21,12 +31,10 @@ const Reviews: FC = () => {
                 </h2>
                 <Swiper
                     className={style['reviews-slider']}
-                    modules={[Navigation]}
                     spaceBetween={20}
                     loop={true}
                     rewind={true}
-                    slidesPerView={3}
-                    navigation={{ nextEl: 'review-next', prevEl: 'review-prev' }}>
+                    slidesPerView={slideCount}>
                     {
                         isLoading ? renderSkeleton : renderReview
                     }

@@ -1,31 +1,47 @@
-.grid-item{
-    &__content{
+.grid-item {
+    &__content {
         border: 1px solid var(--titan-color);
         max-width: 278px;
         max-height: 419px;
         position: relative;
-        &--h{
+
+        &--h {
             max-width: 572px;
             max-height: 208px;
             display: flex;
             border: 1px solid var(--titan-color);
             position: relative;
         }
+
+        @media (max-width: 300px) {
+            max-width: none;
+            max-height: none;
+        }
     }
-    &__image{
+
+    &__image {
         max-width: 276px;
         max-height: 207px;
         border-bottom: 1px solid var(--titan-color);
-        &--h{
+
+        &--h {
             max-width: 276px;
             max-height: 207px;
             border-right: 1px solid var(--titan-color);
         }
+
+        @media (max-width: 300px) {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
-    &__main{
+
+    &__main {
         padding: 16px;
     }
-    &__title{
+
+    &__title {
         font-weight: 500;
         font-size: 16px;
         line-height: 150%;
@@ -33,18 +49,21 @@
         height: 72px;
         overflow: auto;
     }
-    &__price{
+
+    &__price {
         margin-bottom: 25px;
         display: flex;
         align-items: flex-end;
-        &--current{
+
+        &--current {
             font-weight: 700;
             font-size: 20px;
             line-height: 140%;
-            color: var(--eerie-black-color); 
+            color: var(--eerie-black-color);
             margin-right: 8px;
         }
-        &--past{
+
+        &--past {
             font-weight: 500;
             font-size: 16px;
             line-height: 150%;
@@ -52,7 +71,8 @@
             padding-bottom: 2px;
         }
     }
-    &__btn{
+
+    &__btn {
         width: 100%;
         max-height: 48px;
         font-weight: 500;
@@ -63,16 +83,23 @@
         padding: 12px 0;
         transition: .4s;
         border: none;
-        &:hover{
+
+        &:hover {
             background-color: var(--gunmetal-color);
             color: var(--white-color);
         }
-        &:active{
+
+        &:active {
             background-color: var(--gunmetal-color);
             color: var(--light-gray-color);
         }
+
+        @media (max-width: 300px) {
+            margin-bottom: 48px;
+        }
     }
-    &__discount{
+
+    &__discount {
         font-weight: 500;
         font-size: 15px;
         line-height: 145%;
@@ -83,5 +110,5 @@
         top: 16px;
         left: 16px;
         background-color: var(--white-color);
-    }   
+    }
 }
