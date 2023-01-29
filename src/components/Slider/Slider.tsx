@@ -7,9 +7,6 @@ import { Navigation } from 'swiper';
 import 'swiper/css';
 import style from './Slider.module.scss';
 
-
-const layout1 = 'public/assets/images/layouts/slide1-layout.webp';
-
 const Slider: FC = () => {
     return (
         <section className={clsx(style['slider'], 'mb80')}>

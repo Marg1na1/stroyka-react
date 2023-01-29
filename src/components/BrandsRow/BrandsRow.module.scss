@@ -1,23 +1,58 @@
-.brands{ 
-    &-row{ 
+.brands {
+    &-row {
         display: grid;
         grid-template-columns: 180px auto;
         column-gap: 16px;
         padding: 28px 0;
         border-bottom: 1px solid var(--titan-color);
-        &__title{
+
+        @media (max-width: 500px) {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__title {
             font-weight: 600;
             font-size: 34px;
             line-height: 130%;
             color: var(--gunmetal-color);
+
+            @media (max-width: 300px) {
+                display: none;
+            }
         }
-        &-grid{
+
+        &-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             row-gap: 12px;
             column-gap: 16px;
+
+            @media (max-width: 750px) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            @media (max-width: 650px) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media (max-width: 500px) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            @media (max-width: 300px) {
+                overflow: hidden;
+                padding-left: 20px;
+                max-height: 0px;
+                transition: .3s ease-in-out;
+            }
+
+            &--active {
+                max-height: 100%;
+            }
         }
-        &-item{
+
+        &-item {
             overflow-x: hidden;
             font-weight: 500;
             font-size: 16px;
@@ -26,19 +61,57 @@
             display: flex;
             align-items: center;
             transition: .4s;
-            &::before{
+
+            &::before {
                 content: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 24 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 12H19' stroke='%23454950' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M12 5L19 12L12 19' stroke='%23454950' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
                 margin-right: 4px;
                 transform: translateX(-20px);
                 transition: .4s;
             }
-            &:hover{
+
+            &:hover {
                 cursor: pointer;
-                &::before{
+
+                &::before {
                     transform: translateX(0);
                 }
+
                 transform: translateX(20px);
             }
         }
+
+        &__btn {
+            display: none;
+            font-weight: 600;
+            font-size: 34px;
+            line-height: 130%;
+            color: var(--gunmetal-color);
+            border: none;
+            outline: none;
+            background-color: transparent;
+            align-items: center;
+            svg{
+                transition: .3s;
+            }
+            &--active{
+                svg{
+                    transform: rotate(90deg);
+                }
+            }
+
+            @media (max-width: 300px) {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+
+        @media (max-width: 900px) {
+            grid-template-columns: 50px auto;
+        }
+
+        // @media (max-width: 300px) {
+        //     display: flex;
+        //     justify-content: space-between;
+        // }
     }
 }
