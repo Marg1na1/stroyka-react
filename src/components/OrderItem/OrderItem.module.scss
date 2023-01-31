@@ -1,16 +1,19 @@
-.order-item{
+.order-item {
     display: flex;
-    &__main{
-       
-    }
-    &__title{
+
+    &__main {}
+
+    &__title {
         font-weight: 500;
         font-size: 16px;
         line-height: 150%;
         color: var(--gunmetal-color);
         margin-bottom: 16px;
+        height: 66px;
+        overflow: auto;
     }
-    &__price{
+
+    &__price {
         font-weight: 700;
         font-size: 20px;
         line-height: 140%;
@@ -18,10 +21,15 @@
         display: inline-block;
         margin-bottom: 10px;
     }
-    &__count{
+
+    &__count {
         font-weight: 500;
         font-size: 16px;
         line-height: 150%;
         color: var(--gunmetal-color);
     }
-}   
+
+    @media (max-width: 400px) {
+        flex-direction: column;
+    }
+}

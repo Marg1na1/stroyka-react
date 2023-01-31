@@ -14,7 +14,7 @@ const Contacts: FC = () => {
                 <YMap />
                 <div className={style['contacts-main']}>
                     <h2 className={style['contacts-title']}>ООО «СтройкаСтор»</h2>
-                    <div className={style['contacts-content']}>
+                    <div className={style['contacts-content']}> 
                         <ul className={style['adress']}>
                             {
                                 contactsContent.map((obj, i) => (

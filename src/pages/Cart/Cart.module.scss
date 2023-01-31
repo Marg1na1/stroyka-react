@@ -1,6 +1,14 @@
-.cart{
-   &-container{
-    display: flex;
-    justify-content: space-between;
-   } 
+.cart {
+    &-container {
+        display: flex;
+        justify-content: flex-start;
+
+        @media (max-width: 500px) {
+            flex-direction: column;
+        }
+
+        @media (max-width: 300px) {
+            align-items: center;
+        }
+    }
 }

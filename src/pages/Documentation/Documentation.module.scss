@@ -1,7 +1,9 @@
-.documentation{
-    &-list{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        column-gap: 16px;
+.documentation {
+    &-list {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
     }
 }

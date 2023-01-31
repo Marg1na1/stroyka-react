@@ -1,5 +1,5 @@
 .empty {
-    height: 38vh;
+    min-height: 38vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,7 +13,8 @@
     }
 
     &-content {
-        margin: 36px;
+        padding: 36px;
+        height: 100%;
     }
 
     &__title {
@@ -44,7 +45,7 @@
         padding: 12px 25px;
         background-color: var(--yellow-color);
         transition: 0.3s;
-        display: inline-block;
+
 
         &:hover {
             background-color: var(--gunmetal-color);
@@ -52,6 +53,7 @@
         }
 
         &:active {
+            background-color: var(--gunmetal-color);
             color: var(--light-gray-color);
         }
     }

@@ -12,7 +12,7 @@ const CartCard: FC<CartProductModel> = ({ img, title, finalPrice, count, id }) =
 
     const [changeCartItem] = useChangeCartItemMutation();
 
-    const [deleteCartItem] = useDeleteCartItemMutation();
+    const [deleteCartItem] = useDeleteCartItemMutation(); 
 
     const item = { id: id, count: productCont };
 

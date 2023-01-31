@@ -22,11 +22,16 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 768px;
+        width: 100%;
         text-align: left;
 
         &:hover {
             cursor: pointer;
+        }
+
+        @media (max-width: 300px) {
+            font-size: 16px;
+            padding: 8px 10px;
         }
     }
 
@@ -38,6 +43,7 @@
 
         &--active {
             max-height: 200px;
+            overflow: auto;
         }
     }
 

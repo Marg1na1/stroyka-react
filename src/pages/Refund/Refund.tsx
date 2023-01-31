@@ -13,7 +13,7 @@ const Refund: FC = () => {
                     {
                         refundList.map((obj, i) => (
                             <li className={style['refund-item']} key={i}>
-                                <h2 className={style['refund-item__title']}>{obj.title}</h2>
+                                <h2 className={style['refund-item__title']}>{obj.title}</h2> 
                                 <div className={style['refund-item__content']}>
                                     {
                                         obj.content.map((text, i) => (

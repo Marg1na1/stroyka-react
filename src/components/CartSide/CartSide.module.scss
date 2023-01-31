@@ -1,9 +1,10 @@
 .side {
     max-width: 278px;
+    margin-right: 16px;
 
     &-container {
         padding: 16px;
-        width: 278px;
+        width: 100%;
         border-bottom: 1px solid var(--titan-color);
     }
 
@@ -34,6 +35,14 @@
             &:not(:last-child) {
                 margin-bottom: 12px;
             }
+
+            @media (max-width: 650px) {
+                flex-direction: column;
+            }
+
+            @media (max-width: 500px) {
+                flex-direction: row;
+            }
         }
 
         &__value {
@@ -46,13 +55,16 @@
         font-weight: 500;
         font-size: 18px;
         line-height: 136%;
-        padding: 12px 51px;
+        height: 48px;
+        width: 100%;
         background-color: var(--yellow-color);
         border: none;
         transition: .3s;
         max-width: 243px;
         margin: 16px 0;
+        padding: 0 16px;
         outline: none;
+        display: inline-block;
 
         &:hover {
             background-color: var(--gunmetal-color);
@@ -86,7 +98,14 @@
             font-size: 15px;
             line-height: 145%;
             margin-left: 10px;
-            // color: var(--space-color);
         }
+
+        @media (max-width: 500px) {
+            display: none;
+        }
+    }
+
+    @media (max-width: 300px) {
+        width: 100%;
     }
 }

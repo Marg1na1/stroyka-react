@@ -17,7 +17,7 @@ const DocItem: FC<TListItem> = ({ title, token }) => {
                 <p className={style['documentation-item__size']}>DOCX · 10 МБ</p>
                 <a href={`https://drive.google.com/uc?export=download&id=${token}`} download className={style['documentation-item__download']}>Скачать</a>
             </div>
-        </li>
+        </li> 
     );
 }
 

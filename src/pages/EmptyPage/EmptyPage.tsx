@@ -12,7 +12,7 @@ type EmptyPageProps = {
 
 const EmptyPage: FC<EmptyPageProps> = ({ title, subtitle, descr, link_txt, path }) => {
     return (
-        <section className={style['empty']}>
+        <section className={style['empty']}> 
             <div className='container'>
                 <div className={style['empty-wrapper']}>
                     <div className={style['empty-content']}>

@@ -54,7 +54,7 @@ const OrderCard: FC<OrderModel> = (obj) => {
                             className={style['order__btn']}
                             onClick={() => cancelOrder(obj.id)}>Отменить заказ</button>
                         <b className={style['order__total']}>
-                            Итого: {total} ₽
+                            Итого:&nbsp;{total}&nbsp;₽
                         </b>
                     </div>
                 </div>
