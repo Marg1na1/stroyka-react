@@ -41,7 +41,14 @@ const SearchedCard: FC<TSearchedCard> = ({ img, title, price, discount, discount
     return (
         <li className={style['card']}>
             <article className={style['card-content']}>
-                <Link to={`/products/${fixId}`}><img className={style['card__img']} src={img} alt='product' /></Link>
+                <Link to={`/products/${fixId}`}>
+                    <img
+                        className={style['card__img']}
+                        src={img}
+                        alt='product' 
+                        width={121}
+                        height={90} />
+                </Link>
                 <div className={style['card-main']}>
                     <p className={style['card__title']}>{title}</p>
                     <div className={style['card__price']}>

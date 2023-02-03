@@ -1,7 +1,7 @@
 .dropdown {
     position: absolute;
     top: 48px;
-    z-index: 10000;
+    z-index: var(--header-z-index);
     right: 0;
     display: flex;
     background-color: var(--light-color);

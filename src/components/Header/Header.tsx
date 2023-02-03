@@ -1,11 +1,9 @@
-import { FC, useEffect, useState } from 'react';
-import LoginModal from '../LoginModal/LoginModal';
-import ChangeLocateModal from '../ChangeLocateModal/ChangeLocateModal';
+import { FC, useState } from 'react';
 import HeaderMain from '../HeaderMain/HeaderMain';
 import Confirm from '../Confirm/Confirm';
 import Locate from '../../Icons/Locate';
-import BurgerDropdown from '../BurgerDropdown/BurgerDropdown';
 import Burger from '../Burger/Burger';
+import Modals from '../Modals/Modals';
 import { useLocate } from '../../hooks/useLocate';
 import { additionalItems, breadCrumbs, } from '../../data/header.data';
 import clsx from 'clsx';
@@ -25,25 +23,13 @@ const parametrs = {
 
 const Header: FC = () => {
 
+    const dispatch = useAppDispatch();
+
+    const locate = useLocate();
+
     const [headerIsSticky, setHeaderIsSticky] = useState(false);
 
     const isOpenConfirm = useSelector((state: RootState) => state.confirmSlice.isOpen);
-    const isOpenLocateModal = useSelector((state: RootState) => state.popupSlice.isOpenChengeLocate);
-    const isOpenAuth = useSelector((state: RootState) => state.popupSlice.isOpenAuth);
-    const isOpenBurger = useSelector((state: RootState) => state.popupSlice.isOpenBurger);
-
-    const dispatch = useAppDispatch();
-
-    useEffect(() => {
-        if (isOpenLocateModal === true || isOpenAuth === true || isOpenBurger === true) {
-            window.scrollTo(0, 0)
-            document.body.style.overflow = 'hidden';
-        } else if (isOpenLocateModal === false && isOpenAuth === false && isOpenBurger === false) {
-            document.body.style.overflow = 'visible';
-        }
-    }, [isOpenLocateModal, isOpenAuth, isOpenBurger]);
-
-    const locate = useLocate();
 
     const onClickLocate = () => {
         dispatch(setToggleChengeLocate(true))
@@ -51,9 +37,7 @@ const Header: FC = () => {
 
     return (
         <header className={style['header']}>
-            {isOpenAuth && <LoginModal />}
-            {isOpenLocateModal && <ChangeLocateModal />}
-            {isOpenBurger && <BurgerDropdown />}
+            <Modals />
             <div className={style['container']}>
                 <div className={headerIsSticky ? clsx(style['header-additional'], style['header-additional--sticky']) : style['header-additional']}>
                     {isOpenConfirm && <Confirm />}
@@ -65,7 +49,7 @@ const Header: FC = () => {
                     </div>
                     <nav className={style['header-additional__nav']}>
                         {
-                            additionalItems.map((obj, i) => (<Link to={obj.path} className={style['header-additional__item']} key={i}>{obj.content}</Link>))
+                            additionalItems.map((obj, i) => <Link to={obj.path} className={style['header-additional__item']} key={i}>{obj.content}</Link>)
                         }
                     </nav>
                     <Burger />

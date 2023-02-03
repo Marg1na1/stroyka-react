@@ -5,7 +5,7 @@
     left: 38px;
     top: 42px;
     border: 1px solid var(--light-gray-color);
-    z-index: 10;
+    z-index: var(--secondary-z-index);
     max-width: 300px;
 
     @media (max-width: 500px) {

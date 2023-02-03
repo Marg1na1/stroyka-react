@@ -3,8 +3,14 @@ import OrderItem from '../OrderItem/OrderItem';
 import { OrderModel } from '../../@types/models';
 import { useDeleteOrderMutation } from '../../redux/injected/injectedOrders';
 import style from './OrderCard.module.scss';
+import OrderSkeleton from '../Skeletons/OrderSkeleton';
 
-const OrderCard: FC<OrderModel> = (obj) => {
+type OrderCardprops = {
+    obj: OrderModel;
+    isLoading: boolean;
+}
+
+const OrderCard: FC<OrderCardprops> = ({ obj, isLoading }) => {
 
     const [total, setTotal] = useState(0);
     const [deleteOrder] = useDeleteOrderMutation();
@@ -12,6 +18,9 @@ const OrderCard: FC<OrderModel> = (obj) => {
     const cancelOrder = (id: string) => {
         deleteOrder(id)
     }
+
+    const renderSkeleton = [...new Array(2)].map((_, index) => <OrderSkeleton key={index} />);
+
 
     const orderItemsArr: ReactElement[] = [];
 
@@ -35,7 +44,7 @@ const OrderCard: FC<OrderModel> = (obj) => {
         <li className={style['order-card']}>
             <ul className={style['order-list']}>
                 {
-                    orderItemsArr
+                    isLoading ? renderSkeleton : orderItemsArr
                 }
             </ul>
             <div className={style['order-info']}>

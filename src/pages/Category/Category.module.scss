@@ -1,9 +1,10 @@
-.category{
-    &-container{
+.category {
+    &-container {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
     }
-    &-list{
+
+    &-list {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 16px;

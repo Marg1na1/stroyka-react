@@ -166,7 +166,7 @@
         &--sticky {
             position: fixed;
             top: 0;
-            z-index: 100;
+            z-index: var(--header-z-index);
             width: 100vw;
             left: 0;
             right: 0;

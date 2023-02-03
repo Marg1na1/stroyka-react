@@ -1,21 +1,28 @@
 :root {
-  // base
-  --content-width: 1160px;
-  --container-offset: 15px;
-  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+    // base
+    --content-width: 1160px;
+    --container-offset: 15px;
+    --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
 
-  // colors
-  --white-color: #fff;
-  --light-color: #f6f6f6;
-  --granite-gray-color: #5D6066;
-  --yellow-color: #FCEC41;
-  --eerie-black-color: #171B24;
-  --gunmetal-color: #2F323A;
-  --light-gray-color: #D1D1D3;
-  --titan-color: #E8E9EA;
-  --philippine-gray-color: #8B8D92;
- 
-  //font
-  --I-font: 'Inter';
-  --M-font: 'Manrope';
+    // colors
+    --white-color: #fff;
+    --light-color: #f6f6f6;
+    --granite-gray-color: #5D6066;
+    --yellow-color: #FCEC41;
+    --eerie-black-color: #171B24;
+    --gunmetal-color: #2F323A;
+    --light-gray-color: #D1D1D3;
+    --titan-color: #E8E9EA;
+    --philippine-gray-color: #8B8D92;
+
+    // z-index
+    --main-z-index: 1000;
+    --secondary-z-index: 999;
+    --minor-z-index: 998;
+    --header-z-index: 500;
+    --btns-z-index: 100;
+
+    // font
+    --I-font: 'Inter';
+    --M-font: 'Manrope';
 }

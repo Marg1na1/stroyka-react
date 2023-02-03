@@ -55,7 +55,7 @@
     width: 52px;
     height: 52px;
     background-color: var(--white-color);
-    z-index: 100;
+    z-index: var(--btns-z-index);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -101,7 +101,7 @@
     width: 52px;
     height: 52px;
     background-color: var(--white-color);
-    z-index: 100;
+    z-index: var(--btns-z-index);
     display: flex;
     justify-content: center;
     align-items: center;

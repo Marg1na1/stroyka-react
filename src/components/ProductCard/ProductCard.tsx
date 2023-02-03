@@ -36,7 +36,12 @@ const ProductCard: FC<ProductCardProps> = ({ data }) => {
     return (
         <div className={style['product-card']}>
             <article className={style['wrapper']}>
-                <img className={style['img']} src={data.img} alt={"product"} width={572} />
+                <img
+                    className={style['img']}
+                    src={data.img}
+                    alt={"product"}
+                    width={572}
+                    height={428} />
                 <div className={style['main']}>
                     <h1 className={style['title']}>{data.title}</h1>
                     <div className={style['price']}>

@@ -9,7 +9,7 @@ import { RootState, useAppDispatch } from '../../redux/store';
 import style from './ChangeLocateModal.module.scss';
 
 
-const ChangeLocateModal: FC = () => {
+const ChangeLocateModal: FC = () => { 
 
     const [searchValue, setSearchValue] = useState('');
 

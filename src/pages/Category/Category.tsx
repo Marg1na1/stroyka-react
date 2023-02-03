@@ -23,7 +23,7 @@ const Category: FC<CategoryProps> = ({ categoryData }) => {
         path: '',
     }
 
-    categoryData.forEach((obj) => obj.list.forEach((obj) => obj.path.split('/')[1] === type ? res = obj : null))
+    categoryData.forEach((obj) => obj.list.forEach(obj => obj.path.split('/')[1] === type ? res = obj : null))
 
     const { data = [], isSuccess, isLoading } = useGetCategoryItemsQuery(type!);
 

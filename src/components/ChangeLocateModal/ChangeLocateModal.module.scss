@@ -9,9 +9,9 @@
         height: 100%;
         left: 0;
         position: absolute;
-        top: 0;
+        top: 0; 
         width: 100%;
-        z-index: 101;
+        z-index: var(--main-z-index);
         display: flex;
         justify-content: center;
         align-items: center;

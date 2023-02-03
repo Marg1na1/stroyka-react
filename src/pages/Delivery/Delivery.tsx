@@ -27,7 +27,7 @@ const Delivery: FC = () => {
                         {
                             tutorialArr.map((obj, i) => (
                                 <li className={style['delivery-list__item']} key={i}>
-                                    <img src={obj.img} alt={"icon"} />
+                                    <img src={obj.img} alt="icon" width={80} height={80} />
                                     <p>{obj.content}</p>
                                 </li>
                             ))

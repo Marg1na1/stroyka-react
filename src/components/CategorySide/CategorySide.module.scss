@@ -1,17 +1,22 @@
-.category-side{
+.category-side {
     width: 278px;
     max-height: 500px;
     border: 1px solid var(--titan-color);
     display: inline-block;
+    margin-right: 16px;
+
 }
-.slider-decorate{
+
+.slider-decorate {
     width: 20px;
     height: 20px;
     position: relative;
-    &:hover{
+
+    &:hover {
         cursor: pointer;
     }
-    &::after{
+
+    &::after {
         content: '';
         width: 1px;
         height: 8px;
@@ -20,7 +25,8 @@
         left: calc(50% - 4px);
         top: calc(50% - 4px);
     }
-    &::before{
+
+    &::before {
         content: '';
         width: 1px;
         height: 8px;
@@ -30,14 +36,16 @@
         top: calc(50% - 4px);
     }
 }
-.title{
+
+.title {
     font-weight: 700;
     font-size: 18px;
     line-height: 136%;
     color: var(--eerie-black-color);
     margin-bottom: 12px;
 }
-.range-input{
+
+.range-input {
     max-width: 117px;
     height: 48px;
     border: none;
@@ -45,12 +53,14 @@
     outline: none;
     width: 100%;
 }
-.inputs-container{
+
+.inputs-container {
     display: flex;
     justify-content: space-between;
     margin-bottom: 12px;
 }
-.search{
+
+.search {
     border: none;
     outline: none;
     border-bottom: 1px solid var(--light-gray-color);
@@ -61,18 +71,21 @@
     line-height: 136%;
     color: var(--philippine-gray-color);
 }
-.side{ 
-    &-footer{
+
+.side {
+    &-footer {
         display: flex;
         flex-direction: column;
         padding: 16px;
         border-top: 1px solid var(--titan-color);
     }
-    &-main{
+
+    &-main {
         padding: 16px;
     }
 }
-.submit{
+
+.submit {
     border: none;
     background-color: var(--yellow-color);
     font-weight: 500;
@@ -82,30 +95,35 @@
     height: 48px;
     margin-bottom: 16px;
     transition: .4s;
-    &:hover{
+
+    &:hover {
         cursor: pointer;
         background-color: var(--gunmetal-color);
         color: var(--white-color);
     }
-    &:active{
+
+    &:active {
         color: var(--light-gray-color);
     }
 }
-.cancel{
+
+.cancel {
     height: 48px;
     font-weight: 500;
     font-size: 18px;
     line-height: 136%;
     color: var(--eerie-black-color);
     background-color: transparent;
-    border: 1px solid var(--light-gray-color);
+    border: 1px solid var(--titan-color);
     transition: .4s;
-    &:hover{
+
+    &:hover {
         cursor: pointer;
         background-color: var(--gunmetal-color);
         color: var(--white-color);
     }
-    &:active{
+
+    &:active {
         color: var(--light-gray-color);
     }
 }

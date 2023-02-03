@@ -14,7 +14,7 @@ const Catalog: FC = () => {
                     {
                         categoryData.map((obj, i) => (
                             <CatalogItem {...obj} key={i} />
-                        ))
+                        )) 
                     }
                 </ul>
             </div>

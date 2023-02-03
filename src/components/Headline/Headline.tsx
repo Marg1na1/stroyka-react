@@ -27,7 +27,12 @@ const Headline: FC<HeadlineProps> = ({ breadcrumbs, title, descr, layout }) => {
                     <h1 className={clsx(style['headline-title'], 'main-title')}>{title}</h1>
                     <p className={style['headline-descr']}>{descr}</p>
                 </div>
-                {layout && <img className={style['headline-layout__img']} src={layout} alt={'layout'} />}
+                {layout && <img
+                    className={style['headline-layout__img']}
+                    src={layout}
+                    alt='layout'
+                    width={1360}
+                    height={232} />}
             </div>
         </section>
     );

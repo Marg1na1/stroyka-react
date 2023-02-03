@@ -1,49 +1,84 @@
-.registration{
+.registration {
     display: flex;
     flex-direction: column;
     align-items: center;
-    &__title{
+
+    &__title {
         font-weight: 700;
         font-size: 48px;
         line-height: 120%;
         color: var(--eerie-black-colo);
         margin-bottom: 40px;
         text-align: left;
+
+        @media (max-width: 900px) {
+            font-size: 40px;
+        }
+
+        @media (max-width: 650px) {
+            font-size: 30px;
+        }
     }
-    &-wrapper{
-       
+
+    &-wrapper {
+        padding: 0 16px;
     }
-    &-content{
+
+    &-content {
         padding: 36px;
         border: 1px solid var(--titan-color);
         max-width: 768px;
-        &__title{
+
+        &__title {
             margin-bottom: 25px;
+
+            @media (max-width: 400px) {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            padding: 16px;
         }
     }
-    &-list{ 
-        &__item{
-            display: flex;
+
+    &-list {
+        &__item {
+            display: inline-flex;
             justify-content: space-between;
             margin-bottom: 25px;
+            width: 100%;
+
+            @media (max-width: 650px) {
+                flex-direction: column;
+                margin-bottom: 0;
+            }
         }
     }
-    &-item{
+
+    &-item {
         display: flex;
         flex-direction: column;
         font-weight: 500;
         font-size: 16px;
         line-height: 150%;
         color: var(--gunmetal-color);
-        width: 340px;
-        &:not(:last-child){
+        width: 100%;
+
+        &:not(:last-child) {
             margin-right: 16px;
         }
-        p{
+
+        p {
             color: red;
         }
+
+        @media (max-width: 650px) {
+            margin-bottom: 25px;
+        }
     }
-    &-input{
+
+    &-input {
         background-color: transparent;
         border: none;
         outline: none;
@@ -54,12 +89,14 @@
         line-height: 136%;
         color: var(--philippine-gray-color);
         margin-top: 8px;
-        &--long{
-            width: 694px;
-        }
+        width: 100%;
+        min-width: none;
     }
-    &-btn{
-        padding: 12px 24px;
+
+    &-btn {
+        height: 48px;
+        width: 232px;
+        margin: 0 auto;
         border: none;
         background-color: var(--yellow-color);
         font-weight: 500;
@@ -67,12 +104,14 @@
         line-height: 136%;
         color: var(--eerie-black-color);
         transition: .3s;
-        &:hover{
+
+        &:hover {
             cursor: pointer;
             background-color: var(--eerie-black-color);
             color: var(--white-color);
         }
-        &:active{
+
+        &:active {
             color: var(--light-gray-color);
         }
     }

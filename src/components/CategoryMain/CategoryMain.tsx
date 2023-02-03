@@ -17,7 +17,7 @@ const CategoryMain: FC<CategoryMainProps> = ({ data, status }) => {
 
     const { sortState, selectSort } = useSort();
 
-    const { pageCount, currentItems, next, prev, setPugPosition } = usePagination({ data });
+    const { pageCount, currentItems, next, prev, setPugPosition } = usePagination({ data }); 
 
     const renderCards = currentItems.map((obj) => <Card {...obj} key={obj.fixId} />);
     const renderSkeleton = [...new Array(9)].map((_, index) => <Skeleton key={index} />);

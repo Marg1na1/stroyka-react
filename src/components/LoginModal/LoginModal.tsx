@@ -73,7 +73,10 @@ const LoginModal: FC = () => {
                         {errors?.password && <p>{errors?.password?.message}</p>}
                     </label>
                     <button type='submit' className={style['login-submit']}>Войти</button>
-                    <Link to={'/reg'} className={style['login-link']}>Создать учетную запись</Link>
+                    <Link
+                        to={'/reg'}
+                        className={style['login-link']}
+                        onClick={closeModal}>Создать учетную запись</Link>
                 </form>
             </div>
             <div className={style['login-close__container']}>

@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import clsx from 'clsx';
 import { useForm } from 'react-hook-form';
 import style from './Registration.module.scss';
 
@@ -9,9 +8,8 @@ type Inputs = {
     tel: number;
     email: string;
     birthDay: string;
-    password: string | number;
-    cpassword: string | number;
-    exampleRequired: string;
+    password: string;
+    cpassword: string;
 };
 
 const Registration: FC = () => {
@@ -24,18 +22,17 @@ const Registration: FC = () => {
         formState: {
             errors
         }
-    } = useForm<Inputs>({
-        mode: 'onChange'
-    });
+    } = useForm<Inputs>({ mode: 'onChange' });
 
-    const onSubmit = (data: any) => {
+    const onSubmit = (data: Inputs) => {
+        console.log(data)
         reset()
     }
 
     return (
         <section className={style['registration']}>
             <div className={style['registration-wrapper']}>
-                <h1 className={style['registration__title']}>Регистриция</h1>
+                <h1 className={style['registration__title']}>Регистрация</h1>
                 <div className={style['registration-content']}>
                     <h2 className={style['registration-content__title']}>Личная информация</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -52,7 +49,7 @@ const Registration: FC = () => {
                                             }
                                         })}
                                         className={style['registration-input']}
-                                        name={'first_name'} />
+                                    />
                                     {errors?.name && <p>{errors?.name?.message}</p>}
                                 </label>
                                 <label className={style['registration-item']}>
@@ -65,7 +62,7 @@ const Registration: FC = () => {
                                             }
                                         })}
                                         className={style['registration-input']}
-                                        name={'surname'} />
+                                        name='surname' />
                                     {errors?.surname && <p>{errors?.surname?.message}</p>}
                                 </label>
                             </li>
@@ -97,7 +94,8 @@ const Registration: FC = () => {
                                                 message: 'Проверьте номер телефона и повторите попытку'
                                             }
                                         })}
-                                        type='number' className={style['registration-input']} />
+                                        type='number'
+                                        className={style['registration-input']} />
                                     {errors?.tel && <p>{errors?.tel?.message}</p>}
                                 </label>
                             </li>
@@ -116,7 +114,7 @@ const Registration: FC = () => {
                                                 message: 'Попробуйте ввести почту еще раз'
                                             }
                                         })}
-                                        className={clsx(style['registration-input--long'], style['registration-input'])}
+                                        className={style['registration-input']}
                                         name='email' />
                                     {errors?.email && <p>{errors?.email?.message}</p>}
                                 </label>
@@ -160,7 +158,9 @@ const Registration: FC = () => {
                                 </label>
                             </li>
                         </ul>
-                        <button type='submit' className={style['registration-btn']}>Зарегестрироваться</button>
+                        <button
+                            type='submit'
+                            className={style['registration-btn']}>Зарегестрироваться</button>
                     </form>
                 </div>
             </div>
