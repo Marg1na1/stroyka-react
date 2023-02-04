@@ -24,7 +24,7 @@ const Reviews: FC = () => {
     const renderReview = data.map((obj, i) => <SwiperSlide className={style['reviews-slide']} key={i}><ReviewsSlide {...obj} /></SwiperSlide>);
 
     return (
-        <section className={style['reviews']}>
+        <section className='mb80'>
             <div className='container'>
                 <h2 className={style['reviews-title']}>
                     Отзывы

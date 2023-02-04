@@ -5,6 +5,8 @@ import LoginModal from '../LoginModal/LoginModal';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import style from './Modals.module.scss';
+import Popup from '../Popup/Popup';
+import { setToggleChengeLocate, setToggleOpenAuth } from '../../redux/slices/popupSlice';
 
 const Modals: FC = () => {
 
@@ -22,9 +24,14 @@ const Modals: FC = () => {
     }, [isOpenLocateModal, isOpenAuth, isOpenBurger]);
 
     return (
+
         <div className={style['modals']}>
-            {isOpenAuth && <LoginModal />}
-            {isOpenLocateModal && <ChangeLocateModal />}
+            <Popup close={setToggleChengeLocate} isOpen={isOpenLocateModal}>
+                <ChangeLocateModal />
+            </Popup>
+            <Popup close={setToggleOpenAuth} isOpen={isOpenAuth}>
+                <LoginModal />
+            </Popup>
             {isOpenBurger && <BurgerDropdown />}
         </div>
     );

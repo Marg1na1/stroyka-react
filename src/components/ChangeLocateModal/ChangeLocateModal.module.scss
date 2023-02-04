@@ -1,22 +1,8 @@
 .change-locate {
-    width: 572px;
+    max-width: 572px;
     padding: 36px;
     background-color: var(--white-color);
     margin: 0 10px;
-
-    &__wrapper {
-        background: rgba(23, 27, 36, 0.6);
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 0; 
-        width: 100%;
-        z-index: var(--main-z-index);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-    }
 
     &-title {
         font-weight: 600;
@@ -115,49 +101,6 @@
                 }
             }
 
-        }
-    }
-
-    &__container {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-    }
-
-    &__close {
-        width: 52px;
-        height: 52px;
-        background-color: transparent;
-        position: relative;
-        border: none;
-        outline: none;
-
-        &:hover {
-            cursor: pointer;
-        }
-
-        &::before {
-            content: '';
-            width: 26px;
-            height: 2px;
-            border-radius: 50px;
-            background-color: var(--white-color);
-            position: absolute;
-            top: calc(50% - 1px);
-            left: calc(50% - 13px);
-            transform: rotate(45deg);
-        }
-
-        &::after {
-            content: '';
-            width: 26px;
-            height: 2px;
-            border-radius: 50px;
-            background-color: var(--white-color);
-            position: absolute;
-            top: calc(50% - 1px);
-            left: calc(50% - 13px);
-            transform: rotate(-45deg);
         }
     }
 }

@@ -1,0 +1,62 @@
+.popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.content {
+    z-index: 1;
+}
+
+.close-btn {
+    width: 52px;
+    height: 52px;
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    border: none;
+    outline: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &::before {
+        content: '';
+        width: 26px;
+        height: 2px;
+        border-radius: 50px;
+        background-color: var(--white-color);
+        position: absolute;
+        top: calc(50% - 1px);
+        left: calc(50% - 13px);
+        transform: rotate(45deg);
+    }
+
+    &::after {
+        content: '';
+        width: 26px;
+        height: 2px;
+        border-radius: 50px;
+        background-color: var(--white-color);
+        position: absolute;
+        top: calc(50% - 1px);
+        left: calc(50% - 13px);
+        transform: rotate(-45deg);
+    }
+}

@@ -18,7 +18,7 @@ const SimilarProduct: FC<SimilarProductProps> = ({ type }) => {
     return (
         <div className={style['similar-product']}>
             <h1 className={style['title']}>Похожие товары</h1>
-            <ul className={style['grid']}> 
+            <ul className={style['grid']}>
                 {
                     isSuccess ? renderCards : renderSkeleton
                 }

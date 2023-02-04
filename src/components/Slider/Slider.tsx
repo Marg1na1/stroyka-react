@@ -9,7 +9,7 @@ import style from './Slider.module.scss';
 
 const Slider: FC = () => {
     return (
-        <section className={clsx(style['slider'], 'mb80')}>
+        <section className={style['slider']}>
             <Swiper
                 className={style['slider']}
                 modules={[Navigation]}
@@ -26,7 +26,7 @@ const Slider: FC = () => {
                                 <div className={clsx(style['slider-content'], style[obj.titleClass])}>
                                     <h1 className={style['slider__title']}>{obj.title}</h1>
                                     <p className={style['slider__descr']}>{obj.descr}</p>
-                                    <img src={obj.img} alt='layout' className={style['slider__bkg']}/>
+                                    <img src={obj.img} alt='layout' className={style['slider__bkg']} />
                                 </div>
                                 <button className={clsx(style['slider__btn'], 'btn-reset')}>Подробнее</button>
                             </div>

@@ -18,7 +18,7 @@ const PopularProducts: FC = () => {
     const loadedSnip = data.map((obj) => (<Card {...obj} key={obj.fixId} />));
 
     return (
-        <section className={style['popular-products']}>
+        <section className='mb80'>
             <div className='container'>
                 <div className={style['popular-products-headline']}>
                     <h2 className={style['popular-products__title']}>Популярные товары</h2>

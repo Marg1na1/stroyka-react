@@ -7,8 +7,6 @@ import clsx from 'clsx';
 import { useGetDiscountedProductsQuery } from '../../redux/injected/injectedDiscount';
 import style from './Discount.module.scss';
 
-
-
 const Discount: FC = () => {
 
     const { data = [], isLoading } = useGetDiscountedProductsQuery();
@@ -16,7 +14,7 @@ const Discount: FC = () => {
     const [horizontal, setHorizontal] = useState(false);
 
     useEffect(() => {
-        setHorizontal(window.innerWidth > 1100)
+        setHorizontal(window.innerWidth > 1100) 
     }, [])
 
     const renderSkeleton = [...new Array(4)].map((_, index) => horizontal ? <HorizontalSkeleton key={index} /> : <Skeleton key={index} />);
