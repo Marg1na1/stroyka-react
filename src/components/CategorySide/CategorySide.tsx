@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { ProductModel } from '../../@types/models';
 import ReactSlider from 'react-slider';
 import Select from 'react-select'
@@ -11,11 +11,18 @@ type CategorySideProps = {
 
 const CategorySide: FC<CategorySideProps> = ({ data, withSearch }) => {
 
-    const minValue = Math.min(...data.map((obj) => obj.price));
-    const maxValue = Math.max(...data.map((obj) => obj.price));
+    const [rangePrice, setRangePrice] = useState({ min: 0, max: 1 });
+
+    useEffect(() => {
+        setRangePrice({
+            min: Math.min(...data.map((obj) => obj.price)),
+            max: Math.max(...data.map((obj) => obj.price))
+        })
+        setRangeValue([rangePrice.min, rangePrice.max])
+    }, [data, rangePrice.max, rangePrice.min])
 
     const [provider, setProvider] = useState('');
-    const [rangeValue, setRangeValue] = useState<number[]>([minValue, maxValue]);
+    const [rangeValue, setRangeValue] = useState<number[]>([0, 1]);
     const [searchValue, setSearchValue] = useState('');
 
     const options = [
@@ -35,7 +42,7 @@ const CategorySide: FC<CategorySideProps> = ({ data, withSearch }) => {
     }
 
     const resetFilter = () => {
-        setRangeValue([minValue, maxValue]);
+        setRangeValue([rangePrice.min, rangePrice.max]);
         setSearchValue('');
         setProvider('0');
     }
@@ -51,28 +58,28 @@ const CategorySide: FC<CategorySideProps> = ({ data, withSearch }) => {
                         className={style['range-input']}
                         onChange={(e) => setRangeValue([+e.target.value, rangeValue[1]])}
                         max={rangeValue[1] - 10}
-                        min={minValue}
+                        min={rangePrice.min}
                     />
                     <input
                         type='number'
                         value={rangeValue[1]}
                         className={style['range-input']}
                         onChange={(e) => setRangeValue([rangeValue[0], +e.target.value])}
-                        max={maxValue}
+                        max={rangePrice.max}
                         min={rangeValue[0] + 10} />
                 </div>
                 <ReactSlider
                     className='range-slider'
                     thumbClassName='range-slider__thumb'
                     trackClassName='range-slider__track'
-                    defaultValue={[minValue, maxValue]}
+                    defaultValue={[rangePrice.min, rangePrice.max]}
                     renderThumb={(props) => <div {...props}><div className={style['slider-decorate']}></div></div>}
                     onChange={(value) => setRangeValue(value)}
                     pearling
                     value={rangeValue}
                     minDistance={0}
-                    max={maxValue}
-                    min={minValue}
+                    max={rangePrice.max}
+                    min={rangePrice.min}
                 />
                 {
                     withSearch &&

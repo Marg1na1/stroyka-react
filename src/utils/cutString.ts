@@ -4,4 +4,4 @@ export const cutString = (str: string, lengtn: number): string => {
     } else {
         return [...str.split('').splice(0, lengtn), '...'].join('')
     }
-}
+} 

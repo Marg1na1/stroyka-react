@@ -7,7 +7,6 @@ import { navItems } from '../../data/footer.data';
 import { Link } from 'react-router-dom';
 import style from './Footer.module.scss';
 import clsx from 'clsx';
-import MarkIcon from '../../Icons/MarkIcon';
 
 const visa = './../assets/images/visa_logo.svg';
 const mastercard = './../assets/images/mastercard_logo.svg';

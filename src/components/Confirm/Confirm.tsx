@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import clsx from 'clsx';
 import { useSelector } from 'react-redux';
 import { setToggleConfirm } from '../../redux/slices/confirmSlice';
@@ -6,7 +6,7 @@ import { setToggleChengeLocate } from '../../redux/slices/popupSlice';
 import { RootState, useAppDispatch } from '../../redux/store';
 import style from './Confirm.module.scss';
 
-const Confirm: FC = () => {
+const Confirm: FC = memo(() => {
 
     const confirmBody = useSelector((state: RootState) => state.confirmSlice.body);
     const dispatch = useAppDispatch();
@@ -51,6 +51,6 @@ const Confirm: FC = () => {
             </div>
         </div>
     );
-}
+})
 
 export default Confirm;

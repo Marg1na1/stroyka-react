@@ -1,12 +1,11 @@
-import { FC, useEffect, useState } from 'react';
-import { Navigation } from 'swiper';
+import { FC, memo, useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useGetReviewsQuery } from '../../redux/injected/injectedReviews';
 import ReviewsSlide from '../ReviewsSlide/ReviewsSlide';
 import ReviewSkeleton from '../Skeletons/ReviewSkeleton';
 import style from './Reviews.module.scss';
 
-const Reviews: FC = () => {
+const Reviews: FC = memo(() => {
 
     const [slideCount, setSlideCount] = useState(3);
 
@@ -42,6 +41,6 @@ const Reviews: FC = () => {
             </div>
         </section>
     );
-}
+})
 
 export default Reviews;

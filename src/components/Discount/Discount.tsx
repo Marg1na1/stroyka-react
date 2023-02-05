@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useState, useEffect, memo } from 'react';
 import Card from '../Card/Card';
 import HorizontalSkeleton from '../Skeletons/HorizontalSkeleton';
 import Skeleton from '../Skeletons/Skeleton';
@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import { useGetDiscountedProductsQuery } from '../../redux/injected/injectedDiscount';
 import style from './Discount.module.scss';
 
-const Discount: FC = () => {
+const Discount: FC = memo(() => {
 
     const { data = [], isLoading } = useGetDiscountedProductsQuery();
 
@@ -38,6 +38,6 @@ const Discount: FC = () => {
             </div>
         </section>
     );
-}
+})
 
 export default Discount;

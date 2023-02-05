@@ -12,7 +12,7 @@ import style from './Cart.module.scss';
 
 const emptyCartData = {
     title: 'Упс!',
-    subtitle: 'Корзина пуста',
+    subtitle: 'Корзина пуста', 
     descr: 'Добавьте хотябы один товар в корзину чтобы сделать заказ',
     link_txt: 'К покупкам',
     path: '/catalog'

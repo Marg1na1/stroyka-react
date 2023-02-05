@@ -16,7 +16,7 @@ type CategoryProps = {
 
 const Category: FC<CategoryProps> = ({ categoryData }) => {
 
-    const { _, type } = useParams();
+    const { type = '' } = useParams();
 
     let res = {
         title: '',
@@ -25,7 +25,7 @@ const Category: FC<CategoryProps> = ({ categoryData }) => {
 
     categoryData.forEach((obj) => obj.list.forEach(obj => obj.path.split('/')[1] === type ? res = obj : null))
 
-    const { data = [], isSuccess, isLoading } = useGetCategoryItemsQuery(type!);
+    const { data = [], isSuccess, isLoading } = useGetCategoryItemsQuery(type);
 
     const breadcrumbsArr: THeadlineBreadcrumbs[] = [
         { path: '/', title: 'Главная', type: 'link' },

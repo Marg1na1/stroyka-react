@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import BoldArrowIcon from '../../Icons/BoldArrowIcon';
 import { sliderData } from '../../data/slider.data';
 import clsx from 'clsx';
@@ -7,7 +7,7 @@ import { Navigation } from 'swiper';
 import 'swiper/css';
 import style from './Slider.module.scss';
 
-const Slider: FC = () => {
+const Slider: FC = memo(() => {
     return (
         <section className={style['slider']}>
             <Swiper
@@ -42,6 +42,6 @@ const Slider: FC = () => {
             </Swiper>
         </section>
     );
-}
+})
 
 export default Slider;

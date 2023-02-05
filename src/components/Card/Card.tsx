@@ -1,6 +1,7 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { TransmittedData } from '../../@types/models';
 import { useAddProduct } from '../../hooks/useAddProduct';
+import { getCurrentPrice } from '../../utils/getCurrentPrice';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import style from './Card.module.scss';
@@ -19,9 +20,19 @@ type TCardProps = {
     horizontal?: boolean;
 }
 
-const Card: FC<TCardProps> = ({ img, title, price, discount, horizontal = false, discountAmount, fixId, provider }) => {
+const Card: FC<TCardProps> = memo((
+    {
+        img,
+        title,
+        price,
+        discount,
+        horizontal = false,
+        discountAmount,
+        fixId,
+        provider
+    }) => {
 
-    const currentPrice: number = Math.round(price - price / 100 * discountAmount!);
+    const currentPrice: number = getCurrentPrice(price, discountAmount);
     const isDiscounted: boolean = discount === 'true';
 
     const addProduct = useAddProduct();
@@ -73,6 +84,6 @@ const Card: FC<TCardProps> = ({ img, title, price, discount, horizontal = false,
             </article>
         </li>
     );
-}
+})
 
 export default Card;

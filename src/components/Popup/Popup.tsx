@@ -24,7 +24,6 @@ const Popup: FC<TPopup> = ({ children, close, isOpen }) => {
                 <div
                     className={style['overlay']}
                     role='button'
-                    tabIndex={0}
                     onClick={closeModal}>
                     <button onClick={closeModal} className={style['close-btn']}></button>
                 </div>

@@ -3,6 +3,7 @@ import TruckIcon from '../../Icons/TruckIcon';
 import { ProductModel, TransmittedData } from '../../@types/models';
 import { useInputHandler } from '../../hooks/useInputHandler';
 import { useAddProduct } from '../../hooks/useAddProduct';
+import { getCurrentPrice } from '../../utils/getCurrentPrice';
 import clsx from 'clsx';
 import style from './ProductCard.module.scss';
 
@@ -12,10 +13,10 @@ type ProductCardProps = {
 
 const ProductCard: FC<ProductCardProps> = ({ data }) => {
 
-    const currentPrice = Math.round(data.price - data.price / 100 * data.discountAmount!);
+    const currentPrice = getCurrentPrice(data.price, data.discountAmount);
     const isDiscounted = data.discount === 'true';
 
-    const { inputHandler, onClickMinus, onClickPlus, productAmount } = useInputHandler({ min: 1, max: 999 });
+    const { inputHandler, onClickMinus, onClickPlus, productAmount } = useInputHandler({ min: 1, max: 999, defaultCount: 1 });
 
     const addProduct = useAddProduct();
 
@@ -63,13 +64,11 @@ const ProductCard: FC<ProductCardProps> = ({ data }) => {
                                 type='number'
                                 className={style['amount__input']}
                                 value={productAmount}
-                                onChange={(e) => inputHandler(e)}
-                            />
+                                onChange={(e) => inputHandler(e)} />
                             <button
                                 type={'button'}
                                 className={clsx(style['amount__btn'], style['amount__btn--plus'])}
-                                onClick={onClickPlus}
-                            ></button>
+                                onClick={onClickPlus}></button>
                         </div>
                     </form>
                     <div className={style['provider']}>

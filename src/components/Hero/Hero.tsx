@@ -1,7 +1,7 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import style from './Hero.module.scss';
 
-const Hero: FC = () => {
+const Hero: FC = memo(() => {
     return (
         <section className={style['hero']}>
             <div className={style['hero-container']}>
@@ -11,10 +11,10 @@ const Hero: FC = () => {
                     <p className={style['hero-text']}>Быстрая доставка строительных товаров по&nbsp;низким ценам сделает ваши покупки более приятными. Ремонт может стоить дешево, если делать его с&nbsp;нами. Для вас всегда в&nbsp;наличии более 30&nbsp;000 товаров для строительства по&nbsp;низким ценам каждый день.
                         СтройкаСтор&nbsp;&mdash; это широкий ассортимент товаров для дома и&nbsp;ремонта недорого; Возможность заказать строительные и&nbsp;отделочные материалы для дома и&nbsp;дачи.</p>
                 </div>
-                <img className={style['hero__layout']} src={'./../assets/images/layouts/hero-layout.webp'} />
+                <img className={style['hero__layout']} src={'./../assets/images/layouts/hero-layout.webp'} alt='layout' />
             </div>
         </section>
     );
-}
+})
 
 export default Hero;

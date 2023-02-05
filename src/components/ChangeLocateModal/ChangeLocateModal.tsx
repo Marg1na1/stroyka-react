@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, useState } from 'react';
 import SearchIcon from '../../Icons/SearchIcon';
 import { cities } from '../../data/cities.data';
 import { setLocality } from '../../redux/slices/locateSlice';
@@ -11,16 +11,7 @@ const ChangeLocateModal: FC = () => {
 
     const [searchValue, setSearchValue] = useState('');
 
-    const input = useRef<HTMLInputElement>(null);
-
     const dispatch = useAppDispatch();
-
-    useEffect(() => {
-        if (input.current !== null) {
-            input.current.focus()
-        }
-    });
-    
 
     const reassingLocate = (str: string) => {
         dispatch(setLocality(str));
@@ -35,7 +26,6 @@ const ChangeLocateModal: FC = () => {
                 <input
                     type='text'
                     className={style['change-locate-input']}
-                    ref={input}
                     onChange={(e) => setSearchValue(e.target.value)}
                     value={searchValue}
                 />

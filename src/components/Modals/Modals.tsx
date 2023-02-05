@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC, memo, useEffect } from 'react';
 import BurgerDropdown from '../BurgerDropdown/BurgerDropdown';
 import ChangeLocateModal from '../ChangeLocateModal/ChangeLocateModal';
 import LoginModal from '../LoginModal/LoginModal';
@@ -8,7 +8,7 @@ import style from './Modals.module.scss';
 import Popup from '../Popup/Popup';
 import { setToggleChengeLocate, setToggleOpenAuth } from '../../redux/slices/popupSlice';
 
-const Modals: FC = () => {
+const Modals: FC = memo(() => {
 
     const isOpenLocateModal = useSelector((state: RootState) => state.popupSlice.isOpenChengeLocate);
     const isOpenAuth = useSelector((state: RootState) => state.popupSlice.isOpenAuth);
@@ -35,6 +35,6 @@ const Modals: FC = () => {
             {isOpenBurger && <BurgerDropdown />}
         </div>
     );
-}
+})
 
 export default Modals;

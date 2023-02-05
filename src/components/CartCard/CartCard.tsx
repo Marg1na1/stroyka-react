@@ -1,36 +1,34 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useEffect } from 'react';
+import { useInputHandler } from '../../hooks/useInputHandler';
 import { CartProductModel } from '../../@types/models';
 import { useDebounce } from '../../hooks/useDebounce';
 import clsx from 'clsx';
 import { useChangeCartItemMutation, useDeleteCartItemMutation } from '../../redux/injected/injectedCart';
 import style from './CartCard.module.scss';
 
-
 const CartCard: FC<CartProductModel> = ({ img, title, finalPrice, count, id }) => {
 
-    const [productCont, setProductCount] = useState(count);
+    const { inputHandler, onClickMinus, onClickPlus, productAmount } = useInputHandler({ min: 0, max: 999, defaultCount: count });
 
     const [changeCartItem] = useChangeCartItemMutation();
 
-    const [deleteCartItem] = useDeleteCartItemMutation(); 
+    const [deleteCartItem] = useDeleteCartItemMutation();
 
-    const item = { id: id, count: productCont };
+    const item = { id: id, count: productAmount };
 
-    const debounced = useDebounce(productCont.toString(), 300);
+    const debounced = useDebounce(productAmount.toString(), 300);
 
     useEffect(() => {
-        changeCartItem(item)
+        if (productAmount !== 0) {
+            changeCartItem(item)
+        }
     }, [changeCartItem, debounced])
 
     useEffect(() => {
-        setProductCount(count)
-    }, [count])
-
-    useEffect(() => {
-        if (productCont <= 0) {
+        if (productAmount <= 0) {
             deleteCartItem(id)
         }
-    }, [deleteCartItem, id, productCont])
+    }, [productAmount])
 
     const clickDelete = async (id: string) => {
         await deleteCartItem(id)
@@ -38,18 +36,18 @@ const CartCard: FC<CartProductModel> = ({ img, title, finalPrice, count, id }) =
 
     return (
         <li className={style['cart-card']}>
-            <img src={img} width={276} height={206} className={style['cart-card-img']} alt={'product'} />
+            <img src={img} width={276} height={206} className={style['cart-card-img']} alt='product' />
             <div className={style['cart-card-main']}>
                 <p className={style['cart-card__title']}>{title}</p>
                 <b className={style['cart-card__price']}>{finalPrice}₽</b>
                 <form className={style['cart-card-form']}>
                     <button type='button' className={clsx(style['cart-card-form__btn'], style['cart-card-form__btn--plus'])}
-                        onClick={() => setProductCount(prev => prev + 1)}
+                        onClick={onClickPlus}
                     ></button>
-                    <input type='string' className={style['cart-card-form__input']} value={productCont}
-                        onChange={e => setProductCount(+e.target.value)} />
+                    <input type='number' className={style['cart-card-form__input']} value={productAmount}
+                        onChange={e => inputHandler(e)} />
                     <button type='button' className={clsx(style['cart-card-form__btn'], style['cart-card-form__btn--minus'])}
-                        onClick={() => setProductCount(prev => prev - 1)}
+                        onClick={onClickMinus}
                     ></button>
                 </form>
             </div>

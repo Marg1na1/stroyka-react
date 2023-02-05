@@ -3,11 +3,12 @@ import { ChangeEvent, useState } from 'react';
 type InputHandlerProps = {
     min: number;
     max: number;
+    defaultCount: number;
 }
 
-export const useInputHandler = ({ min, max }: InputHandlerProps) => {
+export const useInputHandler = ({ min, max, defaultCount }: InputHandlerProps) => {
 
-    const [productAmount, setProductAmount] = useState(1);
+    const [productAmount, setProductAmount] = useState(defaultCount);
 
     const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
         if (+e.target.value <= min) {

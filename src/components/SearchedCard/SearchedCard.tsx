@@ -1,6 +1,7 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { TransmittedData } from '../../@types/models';
 import { useAddProduct } from '../../hooks/useAddProduct';
+import { getCurrentPrice } from '../../utils/getCurrentPrice';
 import { Link } from 'react-router-dom';
 import style from './SearchedCard.module.scss';
 
@@ -17,9 +18,18 @@ type TSearchedCard = {
     discountAmount?: number;
 }
 
-const SearchedCard: FC<TSearchedCard> = ({ img, title, price, discount, discountAmount, fixId, provider }) => {
+const SearchedCard: FC<TSearchedCard> = memo((
+    {
+        img,
+        title,
+        price,
+        discount,
+        discountAmount,
+        fixId,
+        provider
+    }) => {
 
-    const currentPrice: number = Math.round(price - price / 100 * discountAmount!);
+    const currentPrice: number = getCurrentPrice(price, discountAmount);
     const isDiscounted: boolean = discount === 'true';
 
     const addProduct = useAddProduct();
@@ -45,7 +55,7 @@ const SearchedCard: FC<TSearchedCard> = ({ img, title, price, discount, discount
                     <img
                         className={style['card__img']}
                         src={img}
-                        alt='product' 
+                        alt='product'
                         width={121}
                         height={90} />
                 </Link>
@@ -67,6 +77,6 @@ const SearchedCard: FC<TSearchedCard> = ({ img, title, price, discount, discount
             </article>
         </li>
     );
-}
+})
 
 export default SearchedCard;

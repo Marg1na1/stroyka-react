@@ -1,10 +1,10 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, memo, useEffect, useState } from 'react';
 import Card from '../Card/Card';
 import Skeleton from '../Skeletons/Skeleton';
 import { useGetPopularProductsQuery } from '../../redux/injected/injectedPopularProducts';
 import style from './PopularProducts.module.scss';
 
-const PopularProducts: FC = () => {
+const PopularProducts: FC = memo(() => {
 
     const [isTablet, setIsTablet] = useState(false);
 
@@ -31,6 +31,6 @@ const PopularProducts: FC = () => {
             </div>
         </section>
     );
-}
+})
 
 export default PopularProducts;
