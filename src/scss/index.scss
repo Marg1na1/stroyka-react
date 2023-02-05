@@ -201,6 +201,14 @@
         font-size: 18px !important;
         line-height: 136% !important;
         color: var(--eerie-black-color) !important;
+        padding: 0 !important;
+
+        @media (max-width: 900px) {
+            overflow: auto !important;
+            max-height: 80px !important;
+        }
+
+
     }
 
     &__option {
@@ -216,6 +224,10 @@
         &--is-selected {
             background-color: var(--yellow-color) !important;
             color: var(--eerie-black-color) !important;
+        }
+
+        @media (max-width: 900px) {
+            max-height: 40px !important;
         }
     }
 

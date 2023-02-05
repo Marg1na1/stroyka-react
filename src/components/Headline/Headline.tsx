@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { THeadlineBreadcrumbs } from '../../@types/globalTypes';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
@@ -11,7 +11,7 @@ type HeadlineProps = {
     layout?: string;
 }
 
-const Headline: FC<HeadlineProps> = ({ breadcrumbs, title, descr, layout }) => {
+const Headline: FC<HeadlineProps> = memo(({ breadcrumbs, title, descr, layout }) => {
 
     return (
         <section className={clsx(style['headline'], layout === undefined ? '' : 'mb80')}>
@@ -36,6 +36,6 @@ const Headline: FC<HeadlineProps> = ({ breadcrumbs, title, descr, layout }) => {
             </div>
         </section>
     );
-}
+})
 
 export default Headline;

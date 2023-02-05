@@ -9,6 +9,7 @@ import clsx from 'clsx';
 import { useParams } from 'react-router-dom';
 import { useGetCategoryItemsQuery } from '../../redux/injected/injectedCategory';
 import style from './Category.module.scss';
+import MobileSideWrapper from '../../components/MobileSideWrapper/MobileSideWrapper';
 
 type CategoryProps = {
     categoryData: TCategory[];
@@ -44,7 +45,7 @@ const Category: FC<CategoryProps> = ({ categoryData }) => {
         <section className={style['category']}>
             <Headline {...headData} />
             <div className={clsx(style['category-container'], 'container')}>
-                {isLoading ? <SideSkeleton /> : <CategorySide data={data} withSearch />}
+                {isLoading ? <SideSkeleton /> : <MobileSideWrapper><CategorySide data={data} withSearch /></MobileSideWrapper>}
                 <CategoryMain data={data} status={isSuccess} />
             </div>
         </section>

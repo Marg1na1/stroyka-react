@@ -1,10 +1,9 @@
 import { useState } from 'react';
 
-
 export const useSort = () => {
 
     const [sortState, setSortState] = useState({
-        popular: false,
+        popular: true,
         cheaper: false,
         expensive: false,
         alphabet: false,
@@ -43,6 +42,6 @@ export const useSort = () => {
             })
         }
     }
-    
+
     return { sortState, selectSort }
 }

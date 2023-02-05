@@ -4,7 +4,7 @@
     z-index: var(--header-z-index);
     right: 0;
     display: flex;
-    background-color: var(--light-color);
+    background-color: var(--white-color);
     padding-top: 10px;
     max-width: 600px;
 }
@@ -65,5 +65,9 @@
 
     &__title {
         text-align: center;
+    }
+
+    @media (max-width: 650px) {
+        display: none;
     }
 }

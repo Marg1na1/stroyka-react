@@ -5,6 +5,11 @@
     display: inline-block;
     margin-right: 16px;
 
+    @media (max-width: 900px) {
+        border: none;
+        width: 100%;
+    }
+
 }
 
 .slider-decorate {
@@ -78,6 +83,10 @@
         flex-direction: column;
         padding: 16px;
         border-top: 1px solid var(--titan-color);
+
+        @media (max-width: 900px) {
+            border: none;
+        }
     }
 
     &-main {

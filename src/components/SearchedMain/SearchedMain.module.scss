@@ -1,14 +1,9 @@
-.searched-main{
-    
-}
-.filter{
+.filter {
     display: flex;
     gap: 16px;
     margin-bottom: 16px;
-    &__item{
 
-    }
-    &__btn{
+    &__btn {
         border: none;
         background-color: transparent;
         outline: none;
@@ -16,15 +11,18 @@
         font-size: 16px;
         line-height: 150%;
         color: var(--philippine-gray-color);
-        &:hover{
+
+        &:hover {
             cursor: pointer;
         }
-        &--active{
+
+        &--active {
             color: var(--eerie-black-color);
         }
     }
 }
-.grid{
+
+.grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;

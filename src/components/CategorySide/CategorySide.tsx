@@ -1,7 +1,7 @@
 import { FC, useState, useEffect } from 'react';
 import { ProductModel } from '../../@types/models';
 import ReactSlider from 'react-slider';
-import Select from 'react-select'
+import Select, { SingleValue } from 'react-select'
 import style from './CategorySide.module.scss';
 
 type CategorySideProps = {
@@ -9,9 +9,20 @@ type CategorySideProps = {
     withSearch: boolean
 }
 
+const options = [
+    { value: 1, label: 'Аксон' },
+    { value: 2, label: 'Луга' },
+    { value: 3, label: 'ОКСО' },
+    { value: 4, label: 'Зенит' },
+    { value: 5, label: 'ТОРН' },
+];
+
 const CategorySide: FC<CategorySideProps> = ({ data, withSearch }) => {
 
     const [rangePrice, setRangePrice] = useState({ min: 0, max: 1 });
+    const [provider, setProvider] = useState('');
+    const [rangeValue, setRangeValue] = useState<number[]>([0, 1]);
+    const [searchValue, setSearchValue] = useState('');
 
     useEffect(() => {
         setRangePrice({
@@ -21,20 +32,10 @@ const CategorySide: FC<CategorySideProps> = ({ data, withSearch }) => {
         setRangeValue([rangePrice.min, rangePrice.max])
     }, [data, rangePrice.max, rangePrice.min])
 
-    const [provider, setProvider] = useState('');
-    const [rangeValue, setRangeValue] = useState<number[]>([0, 1]);
-    const [searchValue, setSearchValue] = useState('');
-
-    const options = [
-        { value: 1, label: 'Аксон' },
-        { value: 2, label: 'Луга' },
-        { value: 3, label: 'ОКСО' },
-        { value: 4, label: 'Зенит' },
-        { value: 5, label: 'ТОРН' },
-    ];
-
-    const changeProvider = (newValue: any) => {
-        setProvider(newValue.label)
+    const changeProvider = (newValue: SingleValue<{ value: number; label: string; }>) => {
+        if (newValue !== null) {
+            setProvider(newValue.label)
+        }
     }
 
     const changeInputValue = (str: string) => {
@@ -48,7 +49,8 @@ const CategorySide: FC<CategorySideProps> = ({ data, withSearch }) => {
     }
 
     return (
-        <aside className={style['category-side']}>
+
+        <aside  className={style['category-side']} >
             <div className={style['side-main']}>
                 <h2 className={style['title']}>Цена</h2>
                 <div className={style['inputs-container']}>

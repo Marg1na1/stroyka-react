@@ -2,11 +2,9 @@
     &-container {
         display: flex;
         justify-content: flex-start;
-    }
 
-    &-list {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
+        @media (max-width: 900px) {
+            flex-direction: column;
+        }
     }
-}
+} 

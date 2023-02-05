@@ -1,23 +1,17 @@
-.search-result{
-    
-}
-.title{
+.title {
     font-weight: 600;
     font-size: 34px;
     line-height: 130%;
     color: var(--gunmetal-color);
     margin-bottom: 40px;
-} 
-.wrapper{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
 }
-.side{
-    width: 278px;
-    height: 500px;
-    background-color: var(--gunmetal-color);
-}
-.main{
 
+.wrapper {
+    display: flex;
+    // justify-content: space-between;
+    align-items: flex-start;
+
+    @media (max-width: 900px) {
+        flex-direction: column;
+    }
 }
