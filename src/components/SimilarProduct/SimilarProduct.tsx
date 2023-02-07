@@ -4,11 +4,7 @@ import Skeleton from '../Skeletons/Skeleton';
 import { useGetSimilarQuery } from '../../redux/injected/injectedSimilarProducts';
 import style from './SimilarProduct.module.scss';
 
-type SimilarProductProps = {
-    type: string
-}
-
-const SimilarProduct: FC<SimilarProductProps> = ({ type }) => {
+const SimilarProduct: FC<{ type: string }> = ({ type }) => {
 
     const { data = [], isSuccess } = useGetSimilarQuery(type);
 

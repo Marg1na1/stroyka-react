@@ -36,7 +36,7 @@ const CartCard: FC<CartProductModel> = ({ img, title, finalPrice, count, id }) =
 
     return (
         <li className={style['cart-card']}>
-            <img src={img} width={276} height={206} className={style['cart-card-img']} alt='product' />
+            <img src={img} width={276} height={206} className={style['cart-card-img']} alt={title} />
             <div className={style['cart-card-main']}>
                 <p className={style['cart-card__title']}>{title}</p>
                 <b className={style['cart-card__price']}>{finalPrice}₽</b>

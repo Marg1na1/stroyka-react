@@ -2,9 +2,12 @@ import { FC } from 'react';
 import CatalogItem from '../../components/CatalogItem/CatalogItem';
 import Headline from '../../components/Headline/Headline';
 import { categoryData, headData } from '../../data/catalog.data';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import style from './Catalog.module.scss';
 
 const Catalog: FC = () => {
+
+    useScrollToTop();
 
     return (
         <section className={style['catalog']}>
@@ -14,7 +17,7 @@ const Catalog: FC = () => {
                     {
                         categoryData.map((obj, i) => (
                             <CatalogItem {...obj} key={i} />
-                        )) 
+                        ))
                     }
                 </ul>
             </div>

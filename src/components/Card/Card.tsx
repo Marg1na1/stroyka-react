@@ -59,7 +59,7 @@ const Card: FC<TCardProps> = memo((
                         loading='lazy'
                         className={horizontal ? style['grid-item__image--h'] : style['grid-item__image']}
                         src={img}
-                        alt='product'
+                        alt={title}
                         width={276}
                         height={207}
                     />

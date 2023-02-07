@@ -2,11 +2,11 @@ import { FC, memo, useEffect } from 'react';
 import BurgerDropdown from '../BurgerDropdown/BurgerDropdown';
 import ChangeLocateModal from '../ChangeLocateModal/ChangeLocateModal';
 import LoginModal from '../LoginModal/LoginModal';
+import Popup from '../Popup/Popup';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
-import style from './Modals.module.scss';
-import Popup from '../Popup/Popup';
 import { setToggleChengeLocate, setToggleOpenAuth } from '../../redux/slices/popupSlice';
+import style from './Modals.module.scss';
 
 const Modals: FC = memo(() => {
 
@@ -24,7 +24,6 @@ const Modals: FC = memo(() => {
     }, [isOpenLocateModal, isOpenAuth, isOpenBurger]);
 
     return (
-
         <div className={style['modals']}>
             <Popup close={setToggleChengeLocate} isOpen={isOpenLocateModal}>
                 <ChangeLocateModal />

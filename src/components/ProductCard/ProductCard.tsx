@@ -7,11 +7,7 @@ import { getCurrentPrice } from '../../utils/getCurrentPrice';
 import clsx from 'clsx';
 import style from './ProductCard.module.scss';
 
-type ProductCardProps = {
-    data: ProductModel;
-}
-
-const ProductCard: FC<ProductCardProps> = ({ data }) => {
+const ProductCard: FC<{ data: ProductModel }> = ({ data }) => {
 
     const currentPrice = getCurrentPrice(data.price, data.discountAmount);
     const isDiscounted = data.discount === 'true';
@@ -40,7 +36,7 @@ const ProductCard: FC<ProductCardProps> = ({ data }) => {
                 <img
                     className={style['img']}
                     src={data.img}
-                    alt={"product"}
+                    alt={data.title}
                     width={572}
                     height={428} />
                 <div className={style['main']}>
@@ -53,11 +49,11 @@ const ProductCard: FC<ProductCardProps> = ({ data }) => {
                     </div>
                     <form className={style['form']}>
                         <button className={style['submit']}
-                            type={'button'}
+                            type='button'
                             onClick={() => onClickAddProduct(obj)}>В корзину</button>
                         <div className={style['amount']}>
                             <button
-                                type={'button'}
+                                type='button'
                                 className={clsx(style['amount__btn'], style['amount__btn--minus'])}
                                 onClick={onClickMinus}></button>
                             <input
@@ -66,7 +62,7 @@ const ProductCard: FC<ProductCardProps> = ({ data }) => {
                                 value={productAmount}
                                 onChange={(e) => inputHandler(e)} />
                             <button
-                                type={'button'}
+                                type='button'
                                 className={clsx(style['amount__btn'], style['amount__btn--plus'])}
                                 onClick={onClickPlus}></button>
                         </div>

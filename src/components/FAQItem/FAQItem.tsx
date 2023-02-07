@@ -27,7 +27,7 @@ const FAQItem: FC<TFAQItem> = ({ question, answer, id, selected, openAccord }) =
             {
                 <div className={selected === id ? clsx(style['faq-container'], style['faq-container--active']) : style['faq-container']}>
                     {
-                        answer.map((obj, i) => (
+                        answer.map((obj, i) => ( 
                             <Fragment key={i}>
                                 <p className={style['faq-answer']}>{obj.text}</p>
                                 <p className={style['faq-answer']}>{obj.text1}</p>

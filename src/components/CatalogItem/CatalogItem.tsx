@@ -16,7 +16,7 @@ const CatalogItem: FC<TCategory> = ({ title, image, list }) => {
         <li className={style['catalog-item']}>
             <div className={style['catalog-item-header']}>
                 <h2 className={style['catalog-item__title']}>{title}</h2>
-                <img src={image} alt='catalog item bage' className={style['catalog-item__img']} width={180} height={180} />
+                <img src={image} alt={title} className={style['catalog-item__img']} width={180} height={180} />
             </div>
             <button className={style['dropdown-btn']} onClick={toogleDropdown}>
                 Категории

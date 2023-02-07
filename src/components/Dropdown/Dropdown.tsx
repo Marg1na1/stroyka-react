@@ -2,7 +2,6 @@ import { FC } from 'react';
 import SearchedCard from '../SearchedCard/SearchedCard';
 import SearchSkeletonCard from '../Skeletons/SearchSkeletonCard';
 import { ProductModel } from '../../@types/models';
-import { cutString } from '../../utils/cutString';
 import style from './Dropdown.module.scss';
 
 type DropdownProps = {
@@ -32,15 +31,15 @@ const Dropdown: FC<DropdownProps> = ({ data, isLoading, isSuccess, setValue, sea
                                 className={style['history__item']}
                                 key={i}
                                 onClick={() => setValue(str)}>
-                                {cutString(str, 12).charAt(0).toUpperCase() + cutString(str, 12).slice(1)}</li>
+                                {str.charAt(0).toUpperCase() + str.slice(1)}</li>
                             )
                     }
-                </ul> 
+                </ul>
             </div>
             {
                 (isSuccess && data.length === 0) ?
                     <div className={style['notfound']}>
-                        <h3 className={style['notfound__title']}>По запросу «{cutString(searchValue, 36)}» ничего не найденно попробуйте ввести запрос заново</h3>
+                        <h3 className={style['notfound__title']}>По запросу <div className={style['notfound-history']}>«<p className={style['notfound-history__item']}>{searchValue}</p>»</div> ничего не найденно попробуйте ввести запрос заново</h3>
                     </div>
                     : <ul className={style['searched-list']}>
                         {isLoading ? renderSkeleton : renderCard}

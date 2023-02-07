@@ -1,16 +1,16 @@
 import { FC, ReactElement, useEffect, useState } from 'react';
 import OrderItem from '../OrderItem/OrderItem';
+import OrderSkeleton from '../Skeletons/OrderSkeleton';
 import { OrderModel } from '../../@types/models';
 import { useDeleteOrderMutation } from '../../redux/injected/injectedOrders';
 import style from './OrderCard.module.scss';
-import OrderSkeleton from '../Skeletons/OrderSkeleton';
 
-type OrderCardprops = {
+type TOrderCard = {
     obj: OrderModel;
     isLoading: boolean;
 }
 
-const OrderCard: FC<OrderCardprops> = ({ obj, isLoading }) => {
+const OrderCard: FC<TOrderCard> = ({ obj, isLoading }) => {
 
     const [total, setTotal] = useState(0);
     const [deleteOrder] = useDeleteOrderMutation();
@@ -20,7 +20,6 @@ const OrderCard: FC<OrderCardprops> = ({ obj, isLoading }) => {
     }
 
     const renderSkeleton = [...new Array(2)].map((_, index) => <OrderSkeleton key={index} />);
-
 
     const orderItemsArr: ReactElement[] = [];
 
@@ -32,7 +31,7 @@ const OrderCard: FC<OrderCardprops> = ({ obj, isLoading }) => {
 
     useEffect(() => {
         setTotal(orderItemsArr.reduce((acc, obj) => acc + obj.props.finalPrice * obj.props.count, 0))
-    }, [orderItemsArr]);
+    }, []);
 
     const orderDate = new Date(obj.createdAt).toLocaleString('ru', {
         year: 'numeric',

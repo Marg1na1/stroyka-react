@@ -55,7 +55,7 @@ const SearchedCard: FC<TSearchedCard> = memo((
                     <img
                         className={style['card__img']}
                         src={img}
-                        alt='product'
+                        alt={title}
                         width={121}
                         height={90} />
                 </Link>

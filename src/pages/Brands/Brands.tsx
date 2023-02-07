@@ -2,10 +2,13 @@ import { FC } from 'react';
 import BrandsRow from '../../components/BrandsRow/BrandsRow';
 import Headline from '../../components/Headline/Headline';
 import { brandsList, headData } from '../../data/brands.data';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import clsx from 'clsx';
 import style from './Brands.module.scss';
 
 const Brands: FC = () => {
+
+    useScrollToTop();
 
     return (
         <section className={style['brands']}>

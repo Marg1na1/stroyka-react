@@ -4,14 +4,31 @@
     line-height: 130%;
     color: var(--gunmetal-color);
     margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+
+    &-query {
+        display: flex;
+
+        &__item {
+            max-width: 230px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
 }
 
 .wrapper {
     display: flex;
-    // justify-content: space-between;
-    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 16px;
 
     @media (max-width: 900px) {
         flex-direction: column;
     }
+}
+
+.main {
+    width: 100%;
 }

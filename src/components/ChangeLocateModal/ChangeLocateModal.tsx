@@ -6,7 +6,6 @@ import { setToggleChengeLocate } from '../../redux/slices/popupSlice';
 import { useAppDispatch } from '../../redux/store';
 import style from './ChangeLocateModal.module.scss';
 
-
 const ChangeLocateModal: FC = () => {
 
     const [searchValue, setSearchValue] = useState('');
@@ -14,8 +13,8 @@ const ChangeLocateModal: FC = () => {
     const dispatch = useAppDispatch();
 
     const reassingLocate = (str: string) => {
-        dispatch(setLocality(str));
-        sessionStorage.setItem('location', str);
+        dispatch(setLocality(str))
+        sessionStorage.setItem('location', str)
         dispatch(setToggleChengeLocate(false))
     }
 

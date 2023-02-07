@@ -10,3 +10,11 @@ export const headData = {
     title: "Корзина",
     layout: './../assets/images/layouts/busket-layout.webp',
 }
+
+export const emptyCartData = {
+    title: 'Упс!',
+    subtitle: 'Корзина пуста',
+    descr: 'Добавьте хотябы один товар в корзину чтобы сделать заказ',
+    link_txt: 'К покупкам',
+    path: '/catalog'
+}

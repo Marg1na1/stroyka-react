@@ -6,7 +6,7 @@ const ReviewsSlide: FC<ReviewModel> = ({ avatar, content, name, createdAt }) => 
     return (
         <article className={style['reviews-slide__container']}>
             <div className={style['reviews-slide-header']}>
-                <img src={avatar} alt={'avatar'} />
+                <img src={avatar} alt={name} />
                 <h3 className={style['reviews-slide__name']}>{name}</h3>
             </div>
             <div className={style['reviews-slide-content']}>

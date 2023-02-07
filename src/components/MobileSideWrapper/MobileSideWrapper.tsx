@@ -3,11 +3,7 @@ import MarkIcon from '../../Icons/MarkIcon';
 import clsx from 'clsx';
 import style from './MobileSideWrapper.module.scss';
 
-type TMobileSideWrapper = {
-    children: ReactNode;
-}
-
-const MobileSideWrapper: FC<TMobileSideWrapper> = ({ children }) => {
+const MobileSideWrapper: FC<{children: ReactNode}> = ({ children }) => {
 
     const [dropdown, setDropdown] = useState(false);
 

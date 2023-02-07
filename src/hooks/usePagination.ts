@@ -1,11 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ProductModel } from './../@types/models';
 
-type usePaginationProps = {
-    data: ProductModel[];
-}
-
-export const usePagination = ({ data }: usePaginationProps) => {
+export const usePagination = (data: ProductModel[]) => {
 
     const [pageCount, setPageCount] = useState(0);
     const [currentItems, setCurrentItems] = useState<ProductModel[]>([]);

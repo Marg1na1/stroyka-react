@@ -2,10 +2,13 @@ import { FC, useState } from 'react';
 import FAQItem from '../../components/FAQItem/FAQItem';
 import Headline from '../../components/Headline/Headline';
 import { headData, tutorialArr, FAQData } from '../../data/delivery.data';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import clsx from 'clsx';
 import style from './Delivery.module.scss';
 
 const Delivery: FC = () => {
+
+    useScrollToTop();
 
     const [selected, setSelected] = useState<number | null>(null);
 
@@ -49,7 +52,6 @@ const Delivery: FC = () => {
             </div>
         </section>
     );
-
 }
 
 export default Delivery;

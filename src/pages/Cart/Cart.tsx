@@ -4,21 +4,15 @@ import CartSide from '../../components/CartSide/CartSide';
 import Headline from '../../components/Headline/Headline';
 import EmptyPage from '../EmptyPage/EmptyPage';
 import Cartskeleton from '../../components/Skeletons/Cartskeleton';
-import { headData } from '../../data/cart.data';
+import { headData, emptyCartData } from '../../data/cart.data';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import clsx from 'clsx';
 import { useGetCartQuery } from '../../redux/injected/injectedCart';
 import style from './Cart.module.scss';
 
-
-const emptyCartData = {
-    title: 'Упс!',
-    subtitle: 'Корзина пуста', 
-    descr: 'Добавьте хотябы один товар в корзину чтобы сделать заказ',
-    link_txt: 'К покупкам',
-    path: '/catalog'
-}
-
 const Cart: FC = () => {
+
+    useScrollToTop();
 
     const { data = [], isSuccess, isLoading, isError } = useGetCartQuery();
 
@@ -47,15 +41,13 @@ const Cart: FC = () => {
 
     return (
         <section className={style['cart']}>
-            <>
-                <Headline {...headData} />
-                <div className={clsx(style['cart-container'], 'container')}>
-                    <CartSide data={data} />
-                    <ul>
-                        {renderCartItems}
-                    </ul>
-                </div>
-            </>
+            <Headline {...headData} />
+            <div className={clsx(style['cart-container'], 'container')}>
+                <CartSide data={data} />
+                <ul>
+                    {renderCartItems}
+                </ul>
+            </div>
         </section>
     );
 }

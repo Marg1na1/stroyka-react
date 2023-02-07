@@ -43,7 +43,18 @@
 
         &--active {
             max-height: 200px;
-            overflow: auto;
+        }
+
+        @media (max-width: 650px) {
+            &--active {
+                max-height: 300px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            &--active {
+                max-height: 400px;
+            }
         }
     }
 

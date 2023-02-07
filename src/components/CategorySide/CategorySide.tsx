@@ -45,7 +45,7 @@ const CategorySide: FC<CategorySideProps> = ({ data, withSearch }) => {
     const resetFilter = () => {
         setRangeValue([rangePrice.min, rangePrice.max]);
         setSearchValue('');
-        setProvider('0');
+        setProvider('0'); 
     }
 
     return (

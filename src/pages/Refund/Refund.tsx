@@ -1,9 +1,12 @@
 import { FC } from 'react';
 import Headline from '../../components/Headline/Headline';
 import { headData, refundList } from '../../data/refund.data';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import style from './Refund.module.scss';
 
 const Refund: FC = () => {
+
+    useScrollToTop();
 
     return (
         <section className={style['refund']}>
@@ -13,7 +16,7 @@ const Refund: FC = () => {
                     {
                         refundList.map((obj, i) => (
                             <li className={style['refund-item']} key={i}>
-                                <h2 className={style['refund-item__title']}>{obj.title}</h2> 
+                                <h2 className={style['refund-item__title']}>{obj.title}</h2>
                                 <div className={style['refund-item__content']}>
                                     {
                                         obj.content.map((text, i) => (

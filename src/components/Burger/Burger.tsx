@@ -12,7 +12,7 @@ const Burger: FC = memo(() => {
 
     const isOpenBurger = useSelector((state: RootState) => state.popupSlice.isOpenBurger);
 
-    const controlBurger = useControlPopup(isOpenBurger, setToggleOpenBurger);
+    useControlPopup(isOpenBurger, setToggleOpenBurger);
 
     const onClickBurger = () => {
         dispatch(setToggleOpenBurger(!isOpenBurger))

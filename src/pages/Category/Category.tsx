@@ -5,17 +5,16 @@ import CategoryMain from '../../components/CategoryMain/CategoryMain';
 import SideSkeleton from '../../components/Skeletons/SideSkeleton';
 import { THeadlineBreadcrumbs } from '../../@types/globalTypes';
 import { TCategory } from '../../data/catalog.data';
+import MobileSideWrapper from '../../components/MobileSideWrapper/MobileSideWrapper';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import clsx from 'clsx';
 import { useParams } from 'react-router-dom';
 import { useGetCategoryItemsQuery } from '../../redux/injected/injectedCategory';
 import style from './Category.module.scss';
-import MobileSideWrapper from '../../components/MobileSideWrapper/MobileSideWrapper';
 
-type CategoryProps = {
-    categoryData: TCategory[];
-}
+const Category: FC<{ categoryData: TCategory[] }> = ({ categoryData }) => {
 
-const Category: FC<CategoryProps> = ({ categoryData }) => {
+    useScrollToTop();
 
     const { type = '' } = useParams();
 

@@ -6,11 +6,7 @@ import TruckIcon from '../../Icons/TruckIcon';
 import { useAddOrderMutation } from '../../redux/injected/injectedOrders';
 import style from './CartSide.module.scss';
 
-type CartSideProps = {
-    data: CartProductModel[]
-}
-
-const CartSide: FC<CartSideProps> = ({ data }) => {
+const CartSide: FC<{ data: CartProductModel[] }> = ({ data }) => {
 
     const [providers, setProviders] = useState<string[]>([]);
 

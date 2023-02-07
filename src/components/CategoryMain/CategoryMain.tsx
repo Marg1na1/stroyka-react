@@ -5,7 +5,6 @@ import Skeleton from '../Skeletons/Skeleton';
 import { useSort } from '../../hooks/useSort';
 import { ProductModel } from '../../@types/models';
 import { usePagination } from '../../hooks/usePagination';
-import clsx from 'clsx';
 import style from './CategoryMain.module.scss';
 import Sort from '../Sort/Sort';
 
@@ -16,9 +15,9 @@ type CategoryMainProps = {
 
 const CategoryMain: FC<CategoryMainProps> = ({ data, status }) => {
 
-    // const { sortState, selectSort } = useSort();
+    // const { sortState} = useSort();
 
-    const { pageCount, currentItems, next, prev, setPugPosition } = usePagination({ data });
+    const { pageCount, currentItems, next, prev, setPugPosition } = usePagination(data);
 
     const renderCards = currentItems.map((obj) => <Card {...obj} key={obj.fixId} />);
     const renderSkeleton = [...new Array(9)].map((_, index) => <Skeleton key={index} />);
@@ -35,9 +34,9 @@ const CategoryMain: FC<CategoryMainProps> = ({ data, status }) => {
                     next={next}
                     prev={prev}
                     setPugPosition={setPugPosition} />
-            } 
+            }
         </div>
     );
 }
 
-export default CategoryMain;
+export default CategoryMain; 

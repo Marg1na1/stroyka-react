@@ -5,13 +5,16 @@ import SideSkeleton from '../../components/Skeletons/SideSkeleton';
 import Pagination from '../../components/Pagination/Pagination';
 import { cutString } from '../../utils/cutString';
 import { usePagination } from '../../hooks/usePagination';
+import SearchedMain from '../../components/SearchedMain/SearchedMain';
+import MobileSideWrapper from '../../components/MobileSideWrapper/MobileSideWrapper';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import { useLocation } from 'react-router-dom';
 import { useGetSearchedQuery } from '../../redux/injected/injectedSearched';
 import style from './SearchResult.module.scss';
-import SearchedMain from '../../components/SearchedMain/SearchedMain';
-import MobileSideWrapper from '../../components/MobileSideWrapper/MobileSideWrapper';
 
 const SearchResult: FC = () => {
+
+    useScrollToTop();
 
     const location = useLocation();
 
@@ -19,7 +22,7 @@ const SearchResult: FC = () => {
 
     const { data = [], isLoading, isSuccess, isError } = useGetSearchedQuery({ value: searchQuery, count: 12 });
 
-    const { pageCount, currentItems, next, prev, setPugPosition } = usePagination({ data });
+    const { pageCount, currentItems, next, prev, setPugPosition } = usePagination(data);
 
     const emptySearchData = {
         title: 'Упс!',
@@ -46,7 +49,7 @@ const SearchResult: FC = () => {
     return (
         <section className={style['search-result']}>
             <div className='container'>
-                <h1 className={style['title']}>Товары по запросу «{searchQuery}»</h1>
+                <h1 className={style['title']}>Товары по запросу&nbsp; <div className={style['title-query']}>«<p className={style['title-query__item']}>{searchQuery}</p>»</div></h1>
                 <div className={style['wrapper']}>
                     <MobileSideWrapper><CategorySide data={data} withSearch={false} /></MobileSideWrapper>
                     <SearchedMain items={currentItems} isLoading={isLoading} />

@@ -18,7 +18,6 @@ const Slider: FC = memo(() => {
                 rewind={true}
                 slidesPerView={1}
                 navigation={{ nextEl: '.slider-next', prevEl: '.slider-prev' }}>
-
                 {
                     sliderData.map((obj, i) => (
                         <SwiperSlide key={i}>

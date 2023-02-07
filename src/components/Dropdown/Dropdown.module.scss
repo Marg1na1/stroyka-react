@@ -26,8 +26,6 @@
     width: 200px;
     margin-right: 16px;
 
-
-
     &-title {
         font-weight: 700;
         font-size: 20px;
@@ -46,6 +44,10 @@
         font-size: 16px;
         line-height: 150%;
         color: var(--gunmetal-color);
+        width: 164px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         &:hover {
             cursor: pointer;
@@ -63,8 +65,21 @@
     align-items: center;
     justify-content: center;
 
-    &__title {
+    &__title { 
         text-align: center;
+    }
+
+    &-history {
+
+        display: flex;
+        justify-content: center;
+
+        &__item {
+            max-width: 164px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
 
     @media (max-width: 650px) {

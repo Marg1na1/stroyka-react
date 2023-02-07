@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import { useForm } from 'react-hook-form';
 import style from './Registration.module.scss';
 
@@ -13,6 +14,8 @@ type Inputs = {
 };
 
 const Registration: FC = () => {
+
+    useScrollToTop();
 
     const {
         register,
