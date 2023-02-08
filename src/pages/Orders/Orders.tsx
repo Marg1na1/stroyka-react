@@ -30,7 +30,7 @@ const Orders: FC = () => {
             </section>
         )
     }
-    else if (isSuccess && data.length <= 0) {
+    else if (isSuccess && !data.length) {
         return <EmptyPage {...emptyOrdersData} />
 
     }

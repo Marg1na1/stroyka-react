@@ -17,11 +17,15 @@ const BrandsRow: FC<TBrands> = ({ title, list }) => {
             <h2 className={style['brands-row__title']}>
                 {title}
             </h2>
-            <button className={toggleDropdown ? clsx(style['brands-row__btn'], style['brands-row__btn--active']) : style['brands-row__btn']} onClick={onClickRow}>
+            <button className={clsx(style['brands-row__btn'], {
+                [style['brands-row__btn--active']]: toggleDropdown
+            })} onClick={onClickRow}>
                 {title}
                 <MarkIcon />
             </button>
-            <ul className={toggleDropdown ? clsx(style['brands-row-grid'], style['brands-row-grid--active']) : style['brands-row-grid']} >
+            <ul className={clsx(style['brands-row-grid'], {
+                [style['brands-row-grid--active']]: toggleDropdown
+            })}>
                 {
                     list.map((item, i) => (
                         <li key={i} className={style['brands-row-item']}>{item}</li>

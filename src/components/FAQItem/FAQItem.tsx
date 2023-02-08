@@ -20,14 +20,18 @@ const FAQItem: FC<TFAQItem> = ({ question, answer, id, selected, openAccord }) =
         <li className={style['faq-item']}>
             <button className={style['faq-btn']} onClick={() => openAccord(id)}>
                 {question}
-                <div className={selected === id ? clsx(style['faq-item__corner'], style['faq-item__corner--active']) : style['faq-item__corner']}>
+                <div className={clsx(style['faq-item__corner'], {
+                    [style['faq-item__corner--active']]: selected === id
+                })}>
                     <MarkIcon />
                 </div>
             </button>
             {
-                <div className={selected === id ? clsx(style['faq-container'], style['faq-container--active']) : style['faq-container']}>
+                <div className={clsx(style['faq-container'], {
+                    [style['faq-container--active']]: selected === id
+                })}>
                     {
-                        answer.map((obj, i) => ( 
+                        answer.map((obj, i) => (
                             <Fragment key={i}>
                                 <p className={style['faq-answer']}>{obj.text}</p>
                                 <p className={style['faq-answer']}>{obj.text1}</p>

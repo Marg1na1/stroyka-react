@@ -37,7 +37,7 @@ const Dropdown: FC<DropdownProps> = ({ data, isLoading, isSuccess, setValue, sea
                 </ul>
             </div>
             {
-                (isSuccess && data.length === 0) ?
+                (isSuccess && !data.length) ?
                     <div className={style['notfound']}>
                         <h3 className={style['notfound__title']}>По запросу <div className={style['notfound-history']}>«<p className={style['notfound-history__item']}>{searchValue}</p>»</div> ничего не найденно попробуйте ввести запрос заново</h3>
                     </div>

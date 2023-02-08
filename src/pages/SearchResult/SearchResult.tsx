@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import CategorySide from '../../components/CategorySide/CategorySide';
+import SideFilter from '../../components/SideFilter/SideFilter';
 import EmptyPage from '../EmptyPage/EmptyPage';
 import SideSkeleton from '../../components/Skeletons/SideSkeleton';
 import Pagination from '../../components/Pagination/Pagination';
@@ -42,7 +42,7 @@ const SearchResult: FC = () => {
                 <SearchedMain items={currentItems} isLoading={isLoading} />
             </div>
         </div>
-    } else if (isSuccess && data.length <= 0) {
+    } else if (isSuccess && !data.length) {
         return <EmptyPage {...emptySearchData} />
     }
 
@@ -51,7 +51,7 @@ const SearchResult: FC = () => {
             <div className='container'>
                 <h1 className={style['title']}>Товары по запросу&nbsp; <div className={style['title-query']}>«<p className={style['title-query__item']}>{searchQuery}</p>»</div></h1>
                 <div className={style['wrapper']}>
-                    <MobileSideWrapper><CategorySide data={data} withSearch={false} /></MobileSideWrapper>
+                    <MobileSideWrapper><SideFilter data={data} withSearch={false} /></MobileSideWrapper>
                     <SearchedMain items={currentItems} isLoading={isLoading} />
                     {
                         (isSuccess && data.length > 17) && <Pagination

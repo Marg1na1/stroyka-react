@@ -19,7 +19,9 @@ const Burger: FC = memo(() => {
     }
 
     return (
-        <button className={isOpenBurger ? clsx(style['burger'], style['burger--active']) : style['burger']} onClick={onClickBurger}>
+        <button className={clsx(style['burger'], {
+            [style['burger--active']]: isOpenBurger
+        })} onClick={onClickBurger}>
             <span></span>
         </button>
     );

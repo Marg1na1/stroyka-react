@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import CategorySide from '../../components/CategorySide/CategorySide';
+import SideFilter from '../../components/SideFilter/SideFilter';
 import Headline from '../../components/Headline/Headline';
 import CategoryMain from '../../components/CategoryMain/CategoryMain';
 import SideSkeleton from '../../components/Skeletons/SideSkeleton';
@@ -44,7 +44,7 @@ const Category: FC<{ categoryData: TCategory[] }> = ({ categoryData }) => {
         <section className={style['category']}>
             <Headline {...headData} />
             <div className={clsx(style['category-container'], 'container')}>
-                {isLoading ? <SideSkeleton /> : <MobileSideWrapper><CategorySide data={data} withSearch /></MobileSideWrapper>}
+                {isLoading ? <SideSkeleton /> : <MobileSideWrapper><SideFilter data={data} withSearch /></MobileSideWrapper>}
                 <CategoryMain data={data} status={isSuccess} />
             </div>
         </section>

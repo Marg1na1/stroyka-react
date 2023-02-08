@@ -39,7 +39,9 @@ const Header: FC = () => {
         <header className={style['header']}>
             <Modals />
             <div className={style['container']}>
-                <div className={headerIsSticky ? clsx(style['header-additional'], style['header-additional--sticky']) : style['header-additional']}>
+                <div className={clsx(style['header-additional'], {
+                    [style['header-additional--sticky']]: headerIsSticky
+                })}>
                     {isOpenConfirm && <Confirm />}
                     <div className={style['header-locate']} onClick={onClickLocate}>
                         <button className={clsx(style['header-locate__btn'], 'btn-reset')} >

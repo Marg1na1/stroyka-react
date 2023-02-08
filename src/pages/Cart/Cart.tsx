@@ -35,7 +35,7 @@ const Cart: FC = () => {
             </>
         )
     }
-    else if (isSuccess && data.length === 0) {
+    else if (isSuccess && !data.length) {
         return <EmptyPage {...emptyCartData} />
     }
 

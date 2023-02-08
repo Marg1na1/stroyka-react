@@ -21,7 +21,9 @@ const CatalogItem: FC<TCategory> = ({ title, image, list }) => {
             <button className={style['dropdown-btn']} onClick={toogleDropdown}>
                 Категории
             </button>
-            <ul className={dropdown ? clsx(style['dropdown'], style['dropdown--visible']) : style['dropdown']}>
+            <ul className={clsx(style['dropdown'], {
+                [style['dropdown--visible']]: dropdown
+            })}>
                 {
                     list.map((obj, i) => (
                         <li className={style['dropdown__item']} key={i}>

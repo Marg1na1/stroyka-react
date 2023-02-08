@@ -2,9 +2,9 @@ import { FC, useState, useEffect } from 'react';
 import { ProductModel } from '../../@types/models';
 import ReactSlider from 'react-slider';
 import Select, { SingleValue } from 'react-select'
-import style from './CategorySide.module.scss';
+import style from './SideFilter.module.scss';
 
-type CategorySideProps = {
+type SideFilterProps = {
     data: ProductModel[]
     withSearch: boolean
 }
@@ -17,7 +17,7 @@ const options = [
     { value: 5, label: 'ТОРН' },
 ];
 
-const CategorySide: FC<CategorySideProps> = ({ data, withSearch }) => {
+const SideFilter: FC<SideFilterProps> = ({ data, withSearch }) => {
 
     const [rangePrice, setRangePrice] = useState({ min: 0, max: 1 });
     const [provider, setProvider] = useState('');
@@ -45,12 +45,12 @@ const CategorySide: FC<CategorySideProps> = ({ data, withSearch }) => {
     const resetFilter = () => {
         setRangeValue([rangePrice.min, rangePrice.max]);
         setSearchValue('');
-        setProvider('0'); 
+        setProvider('0');
     }
 
     return (
 
-        <aside  className={style['category-side']} >
+        <aside className={style['category-side']} >
             <div className={style['side-main']}>
                 <h2 className={style['title']}>Цена</h2>
                 <div className={style['inputs-container']}>
@@ -113,4 +113,4 @@ const CategorySide: FC<CategorySideProps> = ({ data, withSearch }) => {
     );
 }
 
-export default CategorySide;
+export default SideFilter;

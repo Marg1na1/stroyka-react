@@ -84,7 +84,9 @@ const Footer: FC = () => {
                             onClick={onClickDropdownBtn}>
                             Навигация
                         </button>
-                        <ul className={toggleDropdown ? clsx(style['dropdown-list'], style['dropdown-list--active']) : style['dropdown-list']}>
+                        <ul className={clsx(style['dropdown-list'], {
+                            [style['dropdown-list--active']]: toggleDropdown
+                        })}>
                             {
                                 navItems.map((obj, i) => (
                                     <Link to={obj.path} className={style['dropdown__item']} key={i}>

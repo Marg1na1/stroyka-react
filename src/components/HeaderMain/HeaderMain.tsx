@@ -35,7 +35,9 @@ const HeaderMain: FC<HeaderMainProps> = ({ setHeaderIsSticky, headerIsSticky }) 
     }, [header, setHeaderIsSticky]);
 
     return (
-        <div ref={header} className={headerIsSticky ? clsx(style['header-main'], style['header-main--sticky']) : style['header-main']}>
+        <div ref={header} className={clsx(style['header-main'], {
+            [style['header-main--sticky']]: headerIsSticky
+        })}>
             <div className={style['header-main__container']}>
                 <Link to={'/'} className={style['header-logo']} >
                     <Logotype />

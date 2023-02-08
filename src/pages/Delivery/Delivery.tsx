@@ -30,14 +30,14 @@ const Delivery: FC = () => {
                         {
                             tutorialArr.map((obj, i) => (
                                 <li className={style['delivery-list__item']} key={i}>
-                                    <img src={obj.img} alt="icon" width={80} height={80} />
+                                    <img src={obj.img} alt='icon' width={80} height={80} />
                                     <p>{obj.content}</p>
                                 </li>
                             ))
                         }
                     </ul>
                 </div>
-                <div className={clsx(style['faq'],)}>
+                <div className={style['faq']}>
                     <div className={style['faq-container']}>
                         <h2 className={style['faq-title']}>Часто задаваемые вопросы</h2>
                         <ul className={clsx(style['faq-list'], 'mb80')}>
