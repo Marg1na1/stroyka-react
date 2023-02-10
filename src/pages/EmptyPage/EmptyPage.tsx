@@ -4,7 +4,7 @@ import { useScrollToTop } from '../../hooks/useScrollToTop';
 import style from './EmptyPage.module.scss';
 
 type EmptyPageProps = {
-    title: string;
+    title: string | number;
     subtitle: string;
     descr: string;
     link_txt: string;

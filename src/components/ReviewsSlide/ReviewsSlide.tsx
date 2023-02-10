@@ -3,6 +3,13 @@ import { ReviewModel } from '../../@types/models';
 import style from './ReviewsSlide.module.scss';
 
 const ReviewsSlide: FC<ReviewModel> = ({ avatar, content, name, createdAt }) => {
+
+    const reviewDate = new Date(createdAt).toLocaleString('ru', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    });
+
     return (
         <article className={style['reviews-slide__container']}>
             <div className={style['reviews-slide-header']}>
@@ -13,7 +20,7 @@ const ReviewsSlide: FC<ReviewModel> = ({ avatar, content, name, createdAt }) => 
                 <p>{content}</p>
             </div>
             <div className={style['reviews-slide-date']}>
-                <p>{createdAt}</p>
+                <p>{reviewDate}</p>
             </div>
         </article>
     );

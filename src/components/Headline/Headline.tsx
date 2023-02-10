@@ -14,9 +14,7 @@ type HeadlineProps = {
 const Headline: FC<HeadlineProps> = memo(({ breadcrumbs, title, descr, layout }) => {
 
     return (
-        <section className={clsx(style['headline'], {
-            'mb80': !layout
-        })}>
+        <section className={clsx(style['headline'], 'mb80')}>
             <div className={layout === undefined ? style['headline__empty-layout'] : style['headline-layout']}>
                 <div className={layout === undefined ? style['headline__content--static'] : style['headline__content']}>
                     <div className={style['headline-breadcrumbs']}>

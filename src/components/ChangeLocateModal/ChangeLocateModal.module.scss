@@ -103,4 +103,9 @@
 
         }
     }
+
+    &__empty {
+        text-align: center;
+        grid-column: span 3;
+    }
 }

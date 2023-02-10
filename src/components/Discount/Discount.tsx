@@ -3,22 +3,31 @@ import Card from '../Card/Card';
 import HorizontalSkeleton from '../Skeletons/HorizontalSkeleton';
 import Skeleton from '../Skeletons/Skeleton';
 import MarkIcon from '../../Icons/MarkIcon';
+import ErrorSection from '../ErrorSection/ErrorSection';
+import { useErrorHandler } from '../../hooks/useErrorHandler';
 import clsx from 'clsx';
 import { useGetDiscountedProductsQuery } from '../../redux/injected/injectedDiscount';
 import style from './Discount.module.scss';
 
 const Discount: FC = memo(() => {
 
-    const { data = [], isLoading } = useGetDiscountedProductsQuery();
+    const { data = [], isLoading, isFetching, isError, error } = useGetDiscountedProductsQuery();
+
+    const errorData = useErrorHandler({ error, isError })
 
     const [horizontal, setHorizontal] = useState(false);
 
     useEffect(() => {
-        setHorizontal(window.innerWidth > 1100) 
+        setHorizontal(window.innerWidth > 1100)
     }, [])
 
     const renderSkeleton = [...new Array(4)].map((_, index) => horizontal ? <HorizontalSkeleton key={index} /> : <Skeleton key={index} />);
     const renderCards = data.map((item) => <Card {...item} key={item.fixId} horizontal={horizontal} />);
+
+    const errorObj = {
+        errorCode: errorData.status,
+        errorMessage: 'Произошла ошибка при получении акционных товаров попробуйте обновить страницу или зайдите позже'
+    }
 
     return (
         <section className={clsx(style['discount'], 'mb80')}>
@@ -30,11 +39,11 @@ const Discount: FC = memo(() => {
                         <MarkIcon />
                     </button>
                 </div>
-                <ul className={style['grid']}>
-                    {
-                        isLoading ? renderSkeleton : renderCards
-                    }
-                </ul>
+                {
+                    isError ? <ErrorSection {...errorObj} /> : <ul className={style['grid']}>
+                        {(isLoading || isFetching) ? renderSkeleton : renderCards}
+                    </ul>
+                }
             </div>
         </section>
     );

@@ -30,7 +30,7 @@ const Sort: FC = () => {
             >{sortState.find((obj) => obj.value === true)?.label} <MarkIcon /></button>
             <ul className={clsx(style['sort'], {
                 [style['sort--active']]: dropdown
-            })}>
+            })}> 
                 <li className={style['sort__item']}>
                     <button className={clsx(style['sort__btn'], {
                         [style['sort__btn--active']]: selected[0]

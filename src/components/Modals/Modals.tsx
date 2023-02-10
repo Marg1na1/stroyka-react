@@ -30,7 +30,7 @@ const Modals: FC = memo(() => {
             </Popup>
             <Popup close={setToggleOpenAuth} isOpen={isOpenAuth}>
                 <LoginModal />
-            </Popup>
+            </Popup> 
             {isOpenBurger && <BurgerDropdown />}
         </div>
     );

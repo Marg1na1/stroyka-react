@@ -18,6 +18,8 @@ const ChangeLocateModal: FC = () => {
         dispatch(setToggleChengeLocate(false))
     }
 
+    const filteredValue = cities.filter((str) => str.toLowerCase().includes(searchValue.toLowerCase()))
+
     return (
         <div className={style['change-locate']} role='menubar'>
             <h1 className={style['change-locate-title']}>Выберете ваш город</h1>
@@ -34,9 +36,10 @@ const ChangeLocateModal: FC = () => {
             </form>
             <ul className={style['change-locate-list']}>
                 {
-                    cities
-                        .filter((str) => str.toLowerCase().includes(searchValue.toLowerCase()))
-                        .map((str, i) => (
+
+                    !filteredValue.length ?
+                        <h2 className={style['change-locate__empty']}>Не удалось найти город. Возможно в вашем городе не работает доставка из StroykaStore</h2> :
+                        filteredValue.map((str, i) => (
                             <li
                                 className={style['change-locate-list__item']}
                                 key={i}

@@ -6,18 +6,22 @@ export const useSort = () => {
         {
             value: true,
             label: 'Популярные',
+            title: 'popular'
         },
         {
             value: false,
             label: 'Дешевле',
+            title: 'cheaper'
         },
         {
             value: false,
             label: 'Дороже',
+            title: 'expensive'
         },
         {
             value: false,
             label: 'По алфавиту',
+            title: 'alphabetically'
         },
     ]);
 
@@ -30,10 +34,10 @@ export const useSort = () => {
             } else {
                 obj.value = false
                 return obj
+
             }
         })
         setSortState(newArr)
     }
-
     return { sortState, onClickSortItem }
 }
