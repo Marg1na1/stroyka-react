@@ -5,17 +5,21 @@ import { useSort } from '../../hooks/useSort';
 import Card from '../Card/Card';
 import Skeleton from '../Skeletons/Skeleton';
 import style from './SearchedMain.module.scss';
+import { usePagination } from '../../hooks/usePagination';
+import Pagination from '../Pagination/Pagination';
 
 type TSearchedMain = {
-    items: ProductModel[];
+    data: ProductModel[];
     isLoading: boolean;
 }
 
-const SearchedMain: FC<TSearchedMain> = ({ items, isLoading }) => {
+const SearchedMain: FC<TSearchedMain> = ({ data, isLoading }) => {
 
     // const { sortState } = useSort();
 
-    const renderCards = items.map((obj) => <Card {...obj} key={obj.fixId} />);
+    const { pageCount, currentItems, next, prev, setPugPosition } = usePagination(data);
+
+    const renderCards = currentItems.map((obj) => <Card {...obj} key={obj.fixId} />);
     const renderSkeleton = [...new Array(9)].map((_, index) => <Skeleton key={index} />);
 
     return (
@@ -26,6 +30,13 @@ const SearchedMain: FC<TSearchedMain> = ({ items, isLoading }) => {
                     isLoading ? renderSkeleton : renderCards
                 }
             </ul>
+            {
+                (!isLoading && data.length > 17) && <Pagination
+                    pageCount={pageCount}
+                    next={next}
+                    prev={prev}
+                    setPugPosition={setPugPosition} />
+            }
         </div>
     );
 }

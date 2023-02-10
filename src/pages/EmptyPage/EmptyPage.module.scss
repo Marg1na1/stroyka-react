@@ -1,5 +1,6 @@
 .empty {
     min-height: 38vh;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,11 +11,16 @@
         color: var(--eerie-black-color);
         border: 1px solid var(--titan-color);
         text-align: center;
+        max-height: 100%;
     }
 
     &-content {
         padding: 36px;
         height: 100%;
+
+        @media (max-width: 400px) {
+            padding: 16px;
+        }
     }
 
     &__title {
@@ -22,6 +28,11 @@
         font-size: 48px;
         line-height: 120%;
         margin-bottom: 8px;
+
+        @media (max-width: 500px) {
+            font-size: 30px;
+            word-wrap: wrap;
+        }
     }
 
     &__subtitle {
@@ -29,6 +40,10 @@
         font-size: 34px;
         line-height: 130%;
         margin-bottom: 8px;
+
+        @media (max-width: 500px) {
+            font-size: 26px;
+        }
     }
 
     &__descr {
@@ -42,10 +57,15 @@
         font-weight: 500;
         font-size: 18px;
         line-height: 136%;
-        padding: 12px 25px;
+        padding: 0 25px;
+        height: 48px;
+        max-width: 152px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
         background-color: var(--yellow-color);
         transition: 0.3s;
-
 
         &:hover {
             background-color: var(--gunmetal-color);

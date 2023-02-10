@@ -17,7 +17,7 @@ const HeaderSearch: FC = () => {
 
     const debounced = useDebounce(searchValue, 300);
 
-    const { data = [], isLoading, isSuccess } = useGetSearchedQuery({ value: debounced, count: 4 }, {
+    const { data = [], isLoading, isSuccess, isError } = useGetSearchedQuery({ value: debounced, count: 4 }, {
         skip: debounced.length < 3
     });
 
@@ -54,6 +54,7 @@ const HeaderSearch: FC = () => {
                     data={data}
                     isLoading={isLoading}
                     isSuccess={isSuccess}
+                    isError={isError}
                     setValue={onClickHistoryItem}
                     searchValue={debounced} />
             }

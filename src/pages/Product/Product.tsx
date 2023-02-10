@@ -8,6 +8,8 @@ import { useScrollToTop } from '../../hooks/useScrollToTop';
 import { useParams } from 'react-router-dom';
 import { useGetProductQuery } from '../../redux/injected/injectedProduct';
 import style from './Product.module.scss';
+import EmptyPage from '../EmptyPage/EmptyPage';
+import { useErrorHandler } from '../../hooks/useErrorHandler';
 
 const Product: FC = () => {
 
@@ -15,7 +17,17 @@ const Product: FC = () => {
 
     const { id } = useParams();
 
-    const { data, isSuccess } = useGetProductQuery(id!);
+    const { data, isSuccess, isLoading, isError, error } = useGetProductQuery(id!);
+
+    const errorData = useErrorHandler({ error, isError });
+
+    const errorObj = {
+        title: errorData.status,
+        subtitle: 'Произошла ошибка',
+        descr: `Произошла ошибка при получении товара попробуйте обновить страницу или зайдите позже`,
+        link_txt: 'Главная',
+        path: '/',
+    }
 
     let testObj = {
         path: ' ',
@@ -40,20 +52,32 @@ const Product: FC = () => {
         breadcrumbs: breadcrumbsArr,
     }
 
-    return (
-        <section className={style['product-card']}>
-            <div className='container'>
-                {
-                    isSuccess &&
-                    <>
-                        <Headline {...headData} />
-                        <ProductCard data={data} />
-                        <SimilarProduct type={data.type} />
-                    </>
-                }
-            </div>
-        </section>
-    );
+    if (isError) {
+        return <EmptyPage {...errorObj} />
+    } else if (isSuccess) {
+        return (
+            <section className={style['product-card']}>
+                <div className='container'>
+                    {
+                        isSuccess &&
+                        <>
+                            <Headline {...headData} />
+                            <ProductCard data={data} />
+                            <SimilarProduct type={data.type} />
+                        </>
+                    }
+                </div>
+            </section>
+        );
+    } else {
+        return (
+            <section className={style['product-card']}>
+                <div className='container'>
+                    {/* <Headline {...headData} /> */}
+                </div>
+            </section>
+        );
+    }
 }
 
 export default Product;

@@ -12,8 +12,8 @@ const injectedCategory = stroykaApi.injectEndpoints({
             }),
             providesTags: (result) =>
                 result
-                    ? [...result.map(({ id }) => ({ type: 'Categoty' as const, id })), 'Categoty']
-                    : ['Categoty'],
+                    ? [...result.map(({ id }) => ({ type: 'Category' as const, id })), 'Category']
+                    : ['Category'],
         }),
 
     }),

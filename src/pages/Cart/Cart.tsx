@@ -14,7 +14,7 @@ import style from './Cart.module.scss';
 
 const Cart: FC = () => {
  
-    useScrollToTop();
+    useScrollToTop(); 
 
     const { data = [], isSuccess, isLoading, isError, error } = useGetCartQuery();
 

@@ -8,11 +8,12 @@ type DropdownProps = {
     data: ProductModel[];
     isLoading: boolean;
     isSuccess: boolean;
+    isError: boolean;
     setValue: (x: string) => void;
     searchValue: string;
 }
 
-const Dropdown: FC<DropdownProps> = ({ data, isLoading, isSuccess, setValue, searchValue }) => {
+const Dropdown: FC<DropdownProps> = ({ data, isLoading, isSuccess, isError, setValue, searchValue }) => {
 
     const renderCard = data.map((obj) => (<SearchedCard {...obj} key={obj.fixId} />));
     const renderSkeleton = [...new Array(4)].map((_, index) => <SearchSkeletonCard key={index} />);
@@ -37,13 +38,16 @@ const Dropdown: FC<DropdownProps> = ({ data, isLoading, isSuccess, setValue, sea
                 </ul>
             </div>
             {
-                (isSuccess && !data.length) ?
+                isError ? <div className={style['notfound']}>
+                    <h3 className={style['notfound__title']}>Не удалось получить данные с сервера</h3>
+                </div> : (isSuccess && !data.length) ?
                     <div className={style['notfound']}>
                         <h3 className={style['notfound__title']}>По запросу <div className={style['notfound-history']}>«<p className={style['notfound-history__item']}>{searchValue}</p>»</div> ничего не найденно попробуйте ввести запрос заново</h3>
                     </div>
                     : <ul className={style['searched-list']}>
                         {isLoading ? renderSkeleton : renderCard}
                     </ul>
+
             }
         </div>
     );

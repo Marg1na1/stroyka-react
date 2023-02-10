@@ -5,12 +5,12 @@ const url = `https:/${process.env.REACT_APP_API_TOKEN}.mockapi.io/`;
 
 export const stroykaApi = createApi({
     reducerPath: 'stroykaApi',
-    tagTypes: ['Cart', 'Orders', 'Categoty'],
+    tagTypes: ['Cart', 'Orders', 'Category'],
     baseQuery: retry(fetchBaseQuery({ baseUrl: url }), { maxRetries: 1 }),
     refetchOnFocus: true,
     refetchOnReconnect: true,
     endpoints: () => ({}),
-    
+
 })
 
 export const { } = stroykaApi;

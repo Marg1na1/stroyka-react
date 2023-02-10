@@ -10,10 +10,10 @@ import Sort from '../Sort/Sort';
 
 type CategoryMainProps = {
     data: ProductModel[];
-    status: boolean;
+    isLoading: boolean;
 }
 
-const CategoryMain: FC<CategoryMainProps> = ({ data, status }) => {
+const CategoryMain: FC<CategoryMainProps> = ({ data, isLoading }) => {
 
     // const { sortState} = useSort();
 
@@ -26,10 +26,10 @@ const CategoryMain: FC<CategoryMainProps> = ({ data, status }) => {
         <div className={style['category-main']}>
             <Sort />
             <ul className={style['category-list']}>
-                {status ? renderCards : renderSkeleton}
+                {isLoading ? renderSkeleton : renderCards}
             </ul>
             {
-                data.length > 17 && <Pagination
+                (!isLoading && data.length) > 17 && <Pagination
                     pageCount={pageCount}
                     next={next}
                     prev={prev}
