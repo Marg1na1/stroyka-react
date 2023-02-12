@@ -27,3 +27,12 @@ templates/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# backend
+test.http
+.env
+venv
+app_old
+data and endpoints
+.idea
+__pycache__
