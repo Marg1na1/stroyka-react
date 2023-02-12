@@ -1,10 +1,12 @@
 from flask import Flask
 from mongoengine import connect
+from flask_cors import CORS
 
 from app.config import MONGODB_URL
 
 app = Flask(__name__)
 app.config.from_object('app.config.DevelopmentConfig')
+CORS(app)
 
 connect(host=MONGODB_URL)
 
