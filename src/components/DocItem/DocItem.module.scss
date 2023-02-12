@@ -76,7 +76,7 @@
             width: 100%;
             text-align: center;
             margin-top: 16px;
-            transition: .3s;
+            transition: var(--default-trans);
 
             &:hover {
                 background-color: var(--gunmetal-color);

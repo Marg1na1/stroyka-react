@@ -65,7 +65,7 @@
         justify-content: center;
         margin: 0 auto;
         background-color: var(--yellow-color);
-        transition: 0.3s;
+        transition: var(--default-trans);
 
         &:hover {
             background-color: var(--gunmetal-color);

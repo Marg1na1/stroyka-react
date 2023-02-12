@@ -2,7 +2,7 @@
     &-item {
         &__corner {
             transform: rotate(90deg);
-            transition: .3s;
+            transition: var(--default-trans);
             height: 24px;
 
             &--active {
@@ -39,7 +39,7 @@
         overflow: hidden;
         padding-left: 20px;
         max-height: 0px;
-        transition: .3s ease-in-out;
+        transition: var(--default-trans) ease-in-out;
 
         &--active {
             max-height: 200px;

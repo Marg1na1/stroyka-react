@@ -2,6 +2,7 @@ import { FC, ReactElement, useEffect, useState } from 'react';
 import OrderItem from '../OrderItem/OrderItem';
 import OrderSkeleton from '../Skeletons/OrderSkeleton';
 import { OrderModel } from '../../@types/models';
+import { useErrorHandler } from '../../hooks/useErrorHandler';
 import { useDeleteOrderMutation } from '../../redux/injected/injectedOrders';
 import style from './OrderCard.module.scss';
 
@@ -13,7 +14,17 @@ type TOrderCard = {
 const OrderCard: FC<TOrderCard> = ({ obj, isLoading }) => {
 
     const [total, setTotal] = useState(0);
-    const [deleteOrder] = useDeleteOrderMutation();
+
+    const [deleteOrder, deleteStatuses] = useDeleteOrderMutation();
+
+    const deleteErrorHandlerData = {
+        error: deleteStatuses.error,
+        isError: deleteStatuses.isError,
+        isClient: true,
+        errorMessage: 'Произошла ошибка при попытке отмены заказа',
+    }
+
+    useErrorHandler({ ...deleteErrorHandlerData })
 
     const cancelOrder = (id: string) => {
         deleteOrder(id)
@@ -42,9 +53,7 @@ const OrderCard: FC<TOrderCard> = ({ obj, isLoading }) => {
     return (
         <li className={style['order-card']}>
             <ul className={style['order-list']}>
-                {
-                    isLoading ? renderSkeleton : orderItemsArr
-                }
+                {isLoading ? renderSkeleton : orderItemsArr}
             </ul>
             <div className={style['order-info']}>
                 <div className={style['order-info__wrapper']}>

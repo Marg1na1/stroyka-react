@@ -3,12 +3,9 @@
     gap: 16px;
     margin-bottom: 16px;
 
-    &__item {}
-
     &__btn {
         border: none;
         background-color: transparent;
-        outline: none;
         font-weight: 500;
         font-size: 16px;
         line-height: 150%;
@@ -58,7 +55,7 @@
 
         svg {
             margin-top: 2px;
-            transition: .3s;
+            transition: var(--default-trans);
             transform: rotate(90deg);
             margin-left: 16px;
         }

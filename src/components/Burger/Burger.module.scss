@@ -2,7 +2,6 @@
     width: 26px;
     height: 26px;
     border: none;
-    outline: none;
     position: relative;
     background-color: transparent;
     display: none;
@@ -15,7 +14,7 @@
         top: calc(50% - 1px);
         left: calc(50% - 11px);
         background-color: var(--eerie-black-color);
-        transition: .3s;
+        transition: var(--default-trans);
     }
 
     &::before {
@@ -26,7 +25,7 @@
         top: 4px;
         left: calc(50% - 11px);
         background-color: var(--eerie-black-color);
-        transition: .3s;
+        transition: var(--default-trans);
     }
 
     &::after {
@@ -37,7 +36,7 @@
         bottom: 4px;
         left: calc(50% - 11px);
         background-color: var(--eerie-black-color);
-        transition: .3s;
+        transition: var(--default-trans);
     }
 
     @media (max-width: 900px) {

@@ -10,7 +10,7 @@ import { useAppDispatch } from '../../redux/store';
 import style from './BurgerDropdown.module.scss';
 
 const BurgerDropdown: FC = () => {
-
+    
     const dispatch = useAppDispatch();
 
     const closeBurger = () => {

@@ -59,11 +59,10 @@
         width: 100%;
         background-color: var(--yellow-color);
         border: none;
-        transition: .3s;
+        transition: var(--default-trans);
         max-width: 243px;
         margin: 16px 0;
         padding: 0 16px;
-        outline: none;
         display: inline-block;
 
         &:hover {

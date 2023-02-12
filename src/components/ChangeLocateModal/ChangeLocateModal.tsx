@@ -37,8 +37,7 @@ const ChangeLocateModal: FC = () => {
             <ul className={style['change-locate-list']}>
                 {
 
-                    !filteredValue.length ?
-                        <h2 className={style['change-locate__empty']}>Не удалось найти город. Возможно в вашем городе не работает доставка из StroykaStore</h2> :
+                    filteredValue.length ?
                         filteredValue.map((str, i) => (
                             <li
                                 className={style['change-locate-list__item']}
@@ -47,7 +46,9 @@ const ChangeLocateModal: FC = () => {
                                 role='menuitem'>
                                 <p>{str}</p>
                             </li>
-                        ))
+                        )) :
+                        <h2 className={style['change-locate__empty']}>Не удалось найти город. Возможно в вашем городе не работает доставка из StroykaStore</h2>
+
                 }
             </ul>
         </div>

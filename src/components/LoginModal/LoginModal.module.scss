@@ -44,11 +44,9 @@
     }
 
     &-input {
-        // width: 304px;
         width: 100%;
         height: 48px;
         border: none;
-        outline: none;
         border-bottom: 1px solid var(--titan-color);
     }
 
@@ -60,9 +58,8 @@
         font-size: 18px;
         line-height: 136%;
         color: var(--eerie-black-color);
-        transition: .3s;
+        transition: var(--default-trans);
         border: none;
-        outline: none;
         margin-bottom: 12px;
         text-align: center;
 
@@ -87,7 +84,7 @@
         line-height: 136%;
         color: var(--eerie-black-color);
         text-align: center;
-        transition: .3s;
+        transition: var(--default-trans);
 
         &:hover {
             background-color: var(--gunmetal-color);
@@ -108,7 +105,6 @@
         background-color: transparent;
         position: relative;
         border: none;
-        outline: none;
 
         &__container {
             position: absolute;

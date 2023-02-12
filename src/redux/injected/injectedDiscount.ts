@@ -13,6 +13,10 @@ const injectedDiscount = stroykaApi.injectEndpoints({
                     l: 4,
                 }
             }),
+            providesTags: (result) =>
+                result
+                    ? [...result.map(({ id }) => ({ type: 'Discount' as const, id })), 'Discount']
+                    : ['Discount'],
         }),
     }),
     overrideExisting: false,

@@ -34,7 +34,7 @@
     display: flex;
     align-items: center;
     margin: 0 auto;
-    transition: .3s;
+    transition: var(--default-trans);
 
     &:hover {
         cursor: pointer;

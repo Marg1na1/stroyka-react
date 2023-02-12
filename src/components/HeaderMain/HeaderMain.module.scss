@@ -86,7 +86,7 @@
                     border-radius: 50px;
                     top: calc(50% - 1px);
                     left: 4px;
-                    transition: .3s;
+                    transition: var(--default-trans)s;
                 }
 
                 &::before {
@@ -97,7 +97,7 @@
                     border-radius: 50px;
                     top: 5px;
                     left: 4px;
-                    transition: .3s;
+                    transition: var(--default-trans)s;
                 }
 
                 &::after {
@@ -108,7 +108,7 @@
                     border-radius: 50px;
                     bottom: 5px;
                     left: 4px;
-                    transition: .3s;
+                    transition: var(--default-trans)s;
                 }
             }
 
@@ -118,7 +118,7 @@
                 line-height: 136%;
                 color: var(--eerie-black-color);
                 max-height: 24px;
-                transition: .3s;
+                transition: var(--default-trans)s;
             }
 
         }
@@ -135,13 +135,13 @@
 
                 p {
                     margin-top: 2px;
-                    transition: .3s;
+                    transition: var(--default-trans)s;
                     color: var(--granite-gray-color);
                 }
 
                 svg {
                     path {
-                        transition: .3s;
+                        transition: var(--default-trans)s;
                     }
                 }
 

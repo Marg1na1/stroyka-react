@@ -12,6 +12,10 @@ const injecteSimilarProducts = stroykaApi.injectEndpoints({
                     l: 4,
                 }
             }),
+            providesTags: (result) =>
+                result
+                    ? [...result.map(({ id }) => ({ type: 'SimilarProducts' as const, id })), 'SimilarProducts']
+                    : ['SimilarProducts'],
         }),
     }),
     overrideExisting: false,

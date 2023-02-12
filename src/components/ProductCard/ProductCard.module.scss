@@ -101,8 +101,7 @@
     justify-content: center;
     padding: 12px 0;
     margin-right: 16px;
-    transition: .4s;
-    outline: none;
+    transition: var(--default-trans);
     border: none;
     font-weight: 500;
     font-size: 18px;
@@ -136,7 +135,7 @@
         background-color: transparent;
         border: 1px solid var(--titan-color);
         position: relative;
-        transition: .3s;
+        transition: var(--default-trans);
 
         &:hover {
             background-color: var(--gunmetal-color);
@@ -175,7 +174,7 @@
                 background-color: var(--eerie-black-color);
                 top: calc(50% - 1px);
                 left: calc(50% - 8px);
-                transition: .3s;
+                transition: var(--default-trans);
             }
         }
 
@@ -188,7 +187,7 @@
                 background-color: var(--eerie-black-color);
                 top: calc(50% - 8px);
                 left: calc(50% - 1px);
-                transition: .3s;
+                transition: var(--default-trans);
             }
 
             &::before {
@@ -199,7 +198,7 @@
                 background-color: var(--eerie-black-color);
                 top: calc(50% - 1px);
                 left: calc(50% - 8px);
-                transition: .3s;
+                transition: var(--default-trans);
             }
         }
     }
@@ -208,7 +207,6 @@
         height: 48px;
         width: 48px;
         border: 1px solid var(--titan-color);
-        outline: none;
         text-align: center;
     }
 }

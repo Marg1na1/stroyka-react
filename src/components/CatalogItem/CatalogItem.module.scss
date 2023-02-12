@@ -58,7 +58,7 @@
         color: var(--gunmetal-color);
         display: flex;
         position: relative;
-        transition: .3s;
+        transition: var(--default-trans);
 
         &::before {
             content: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 24 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 12H19' stroke='%23454950' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M12 5L19 12L12 19' stroke='%23454950' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -77,7 +77,7 @@
 .dropdown {
     overflow: hidden;
     max-height: 0;
-    transition: .3s;
+    transition: var(--default-trans);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -129,7 +129,7 @@
         color: var(--gunmetal-color);
         display: flex;
         position: relative;
-        transition: .3s;
+        transition: var(--default-trans);
 
 
         &::before {

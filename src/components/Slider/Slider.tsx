@@ -27,7 +27,7 @@ const Slider: FC = memo(() => {
                                     <p className={style['slider__descr']}>{obj.descr}</p>
                                     <img src={obj.img} alt='layout' className={style['slider__bkg']} />
                                 </div>
-                                <button className={clsx(style['slider__btn'], 'btn-reset')}>Подробнее</button>
+                                <button className={style['slider__btn']}>Подробнее</button>
                             </div>
                         </SwiperSlide>
                     ))

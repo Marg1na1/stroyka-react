@@ -30,7 +30,7 @@
             font-size: 15px;
             line-height: 145%;
             color: var(--granite-gray-color);
-            transition: .3s;
+            transition: var(--default-trans);
 
             &:not(:last-child) {
                 margin-right: 24px;
@@ -55,7 +55,7 @@
 
             svg {
                 path {
-                    transition: .3s;
+                    transition: var(--default-trans);
                 }
             }
 
@@ -78,7 +78,7 @@
             line-height: 145%;
             color: var(--granite-gray-color);
             margin-left: 8px;
-            transition: .3s;
+            transition: var(--default-trans);
         }
     }
 

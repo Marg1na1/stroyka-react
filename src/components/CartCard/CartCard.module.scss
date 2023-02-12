@@ -62,8 +62,7 @@
             border: 1px solid var(--titan-color);
             background-color: transparent;
             position: relative;
-            transition: .3s;
-            outline: none;
+            transition: var(--default-trans);
 
             &:hover {
                 cursor: pointer;
@@ -103,7 +102,7 @@
                     border-radius: 50px;
                     top: 50%;
                     left: calc(50% - 8px);
-                    transition: .3s;
+                    transition: var(--default-trans);
                 }
 
                 &::before {
@@ -116,7 +115,7 @@
                     border-radius: 50px;
                     top: calc(50% - 7px);
                     left: calc(50% - 1px);
-                    transition: .3s;
+                    transition: var(--default-trans);
                 }
             }
 
@@ -131,7 +130,7 @@
                     border-radius: 50px;
                     top: 50%;
                     left: calc(50% - 8px);
-                    transition: .3s;
+                    transition: var(--default-trans);
                 }
             }
         }
@@ -140,7 +139,6 @@
             height: 48px;
             border: 1px solid var(--titan-color);
             max-width: 166px;
-            outline: none;
             text-align: center;
 
             @media (max-width: 1900px) {
@@ -200,7 +198,7 @@
             cursor: pointer;
             background-color: var(--gunmetal-color);
             color: var(--white-color);
-            transition: .3s;
+            transition: var(--default-trans);
         }
 
         &:active {

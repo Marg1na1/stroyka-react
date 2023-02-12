@@ -59,13 +59,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: .3s;
+    transition: var(--default-trans);
 
     svg {
         transform: rotate(180deg);
 
         path {
-            transition: .3s;
+            transition: var(--default-trans);
         }
     }
 
@@ -105,11 +105,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: .3s;
+    transition: var(--default-trans);
 
     svg {
         path {
-            transition: .3s;
+            transition: var(--default-trans);
         }
 
     }

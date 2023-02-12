@@ -13,7 +13,7 @@ const ErrorSection: FC<ErrorSectionProps> = ({ errorCode, errorMessage }) => {
     }
     return (
         <div className={style['error']}>
-            <h2 className={style['error-code']}>{!errorCode ? 'Ошибка' : errorCode}</h2>
+            <h2 className={style['error-code']}>{errorCode ? errorCode : 'Ошибка'}</h2>
             <p className={style['error-descr']}>{errorMessage}</p>
             <button className={style['btn']} type='button' onClick={refreshPage}>Обновить</button>
         </div>

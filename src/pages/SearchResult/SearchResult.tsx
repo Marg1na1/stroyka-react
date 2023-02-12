@@ -53,7 +53,7 @@ const SearchResult: FC = () => {
         </section>)
     } else if (isError) {
         return <EmptyPage {...errorObj} />
-    } else if (isSuccess && data.length > 17) {
+    } else if (isSuccess && !data.length) {
         return <EmptyPage {...emptySearchData} />
     } else {
         return (

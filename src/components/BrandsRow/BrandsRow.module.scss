@@ -44,7 +44,7 @@
                 overflow: hidden;
                 padding-left: 20px;
                 max-height: 0px;
-                transition: .3s ease-in-out;
+                transition: var(--default-trans) ease-in-out;
             }
 
             &--active {
@@ -66,7 +66,7 @@
                 content: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 24 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 12H19' stroke='%23454950' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M12 5L19 12L12 19' stroke='%23454950' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
                 margin-right: 4px;
                 transform: translateX(-20px);
-                transition: .4s;
+                transition: var(--default-trans);
             }
 
             &:hover {
@@ -87,12 +87,11 @@
             line-height: 130%;
             color: var(--gunmetal-color);
             border: none;
-            outline: none;
             background-color: transparent;
             align-items: center;
 
             svg {
-                transition: .3s;
+                transition: var(--default-trans);
             }
 
             &--active {

@@ -34,7 +34,7 @@ const Discount: FC = memo(() => {
             <div className='container'>
                 <div className={style['discount-headline']}>
                     <h2 className={style['discount-title']}>Акции</h2>
-                    <button className={clsx(style['discount-btn'], 'btn-reset')}>
+                    <button className={style['discount-btn']}>
                         Все акции
                         <MarkIcon />
                     </button>
@@ -45,7 +45,7 @@ const Discount: FC = memo(() => {
                     </ul>
                 }
             </div>
-        </section>
+        </section >
     );
 })
 

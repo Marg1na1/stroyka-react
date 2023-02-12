@@ -7,6 +7,10 @@ const injectedReviews = stroykaApi.injectEndpoints({
             query: () => ({
                 url: 'reviews',
             }),
+            providesTags: (result) =>
+                result
+                    ? [...result.map(({ name }) => ({ type: 'Reviews' as const, name })), 'Reviews']
+                    : ['Reviews'],
         }),
     }),
     overrideExisting: false,

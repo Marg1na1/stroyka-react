@@ -18,6 +18,10 @@ const injectedSearched = stroykaApi.injectEndpoints({
                     l: count,
                 }
             }),
+            providesTags: (result) =>
+                result
+                    ? [...result.map(({ id }) => ({ type: 'Searched' as const, id })), 'Searched']
+                    : ['Searched'],
         }),
     }),
     overrideExisting: false,

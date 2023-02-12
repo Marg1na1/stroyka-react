@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { CartProductModel } from '../../@types/models';
+import { useErrorHandler } from '../../hooks/useErrorHandler';
 import BoxIcon from '../../Icons/BoxIcon';
 import InfoIcon from '../../Icons/InfoIcon';
 import TruckIcon from '../../Icons/TruckIcon';
@@ -17,7 +18,16 @@ const CartSide: FC<{ data: CartProductModel[] }> = ({ data }) => {
         setProviders(Array.from(new Set(data.map((obj) => obj.provider))))
     }, [data])
 
-    const [addOrder] = useAddOrderMutation();
+    const [addOrder, addOrderStatuses] = useAddOrderMutation();
+
+    const addOrderErrorHandlerData = {
+        error: addOrderStatuses.error,
+        isError: addOrderStatuses.isError,
+        isClient: true,
+        errorMessage: 'Произошла ошибка при попытке оформления заказа',
+    }
+
+    useErrorHandler({ ...addOrderErrorHandlerData })
 
     const clickAddOrder = async (data: CartProductModel[]) => {
         await addOrder(data)

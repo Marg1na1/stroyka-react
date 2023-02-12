@@ -44,7 +44,7 @@ const Header: FC = () => {
                 })}>
                     {isOpenConfirm && <Confirm />}
                     <div className={style['header-locate']} onClick={onClickLocate}>
-                        <button className={clsx(style['header-locate__btn'], 'btn-reset')} >
+                        <button className={style['header-locate__btn']} >
                             <Locate {...parametrs} />
                             <p className={style['header-locate__city']}>{locate}</p>
                         </button>

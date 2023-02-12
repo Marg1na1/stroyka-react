@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: var(--main-z-index);
 }
 
 .overlay {
@@ -30,7 +31,6 @@
     position: absolute;
     right: 0;
     border: none;
-    outline: none;
 
     &:hover {
         cursor: pointer;

@@ -7,7 +7,6 @@
         width: 52px;
         height: 52px;
         border: 1px solid var(--titan-color);
-        outline: none;
         background-color: transparent;
         font-weight: 500;
         font-size: 18px;
@@ -17,11 +16,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: .3s;
+        transition: var(--default-trans);
 
         svg {
             path {
-                transition: .3s;
+                transition: var(--default-trans);
             }
         }
 

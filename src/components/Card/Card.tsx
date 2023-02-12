@@ -76,7 +76,7 @@ const Card: FC<TCardProps> = memo((
                             isDiscounted && <s className={style['grid-item__price--past']}>{price}</s>
                         }
                     </div>
-                    <button className={clsx('btn-reset', style['grid-item__btn'])} onClick={() => onClickAddProduct(obj)}>В корзину</button>
+                    <button className={style['grid-item__btn']} onClick={() => onClickAddProduct(obj)}>В корзину</button>
                 </div>
                 {
                     isDiscounted && <span className={style['grid-item__discount']}>-{discountAmount}%</span>

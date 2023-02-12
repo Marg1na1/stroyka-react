@@ -111,7 +111,7 @@
         width: 170px;
         text-align: center;
         border: 1px solid var(--light-gray-color);
-        transition: .3s;
+        transition: var(--default-trans);
         margin-right: 16px;
 
         &:hover {

@@ -7,6 +7,7 @@ const injectedProducts = stroykaApi.injectEndpoints({
             query: (id) => ({
                 url: `products/${id}`,
             }),
+            providesTags: ['Product'],
         }),
     }),
     overrideExisting: false,

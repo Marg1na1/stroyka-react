@@ -13,6 +13,10 @@ const injectedPopularProducts = stroykaApi.injectEndpoints({
                     l: count,
                 }
             }),
+            providesTags: (result) =>
+                result
+                    ? [...result.map(({ id }) => ({ type: 'PopularProducts' as const, id })), 'PopularProducts']
+                    : ['PopularProducts'],
         }),
     }),
     overrideExisting: false,

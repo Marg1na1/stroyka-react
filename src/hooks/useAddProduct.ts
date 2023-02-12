@@ -1,13 +1,32 @@
 import { TransmittedData } from '../@types/models';
 import { useGetCartQuery, useAddCartItemMutation, useChangeCartItemMutation } from '../redux/injected/injectedCart';
+import { useErrorHandler } from './useErrorHandler';
 
 export const useAddProduct = () => {
 
     const { data = [] } = useGetCartQuery();
 
-    const [addCartItem] = useAddCartItemMutation();
+    const [addCartItem, addStatues] = useAddCartItemMutation();
 
-    const [changeCartItem] = useChangeCartItemMutation();
+    const addErrorHandlerData = {
+        error: addStatues.error,
+        isError: addStatues.isError,
+        isClient: true,
+        errorMessage: 'Произошла ошибка при попытке добавления товара в корзину',
+    }
+
+    useErrorHandler({ ...addErrorHandlerData })
+
+    const [changeCartItem, changeStatuses] = useChangeCartItemMutation();
+
+    const changeErrorHandlerData = {
+        error: changeStatuses.error,
+        isError: changeStatuses.isError,
+        isClient: true,
+        errorMessage: 'Произошла ошибка при попытке увеличения колличества товара',
+    }
+
+    useErrorHandler({ ...changeErrorHandlerData })
 
     const addProduct = async (item: TransmittedData) => {
 

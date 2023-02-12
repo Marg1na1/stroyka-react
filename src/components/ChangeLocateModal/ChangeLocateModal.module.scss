@@ -27,7 +27,6 @@
             width: 48px;
             height: 47px;
             border: none;
-            outline: none;
             background-color: transparent;
 
             &:hover {
@@ -38,9 +37,7 @@
 
     &-input {
         height: 47px;
-
         border: none;
-        outline: none;
         color: var(--philippine-gray-color);
         font-weight: 500;
         font-size: 18px;

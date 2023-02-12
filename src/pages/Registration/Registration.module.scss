@@ -81,7 +81,6 @@
     &-input {
         background-color: transparent;
         border: none;
-        outline: none;
         border-bottom: 1px solid var(--light-gray-color);
         height: 48px;
         font-weight: 500;
@@ -103,7 +102,7 @@
         font-size: 18px;
         line-height: 136%;
         color: var(--eerie-black-color);
-        transition: .3s;
+        transition: var(--default-trans);
 
         &:hover {
             cursor: pointer;

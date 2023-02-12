@@ -16,7 +16,7 @@ const Popup: FC<TPopup> = ({ children, close, isOpen }) => {
 
     if (!isOpen) {
         return null
-    }
+    } 
 
     return (
         <Portal>

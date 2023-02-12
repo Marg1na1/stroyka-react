@@ -53,13 +53,13 @@
 
             &__item {
                 padding-bottom: 16px;
-                transition: .3s;
+                transition: var(--default-trans);
                 display: flex;
                 align-items: center;
 
                 svg {
                     transform: translateX(-16px);
-                    transition: .3s;
+                    transition: var(--default-trans);
                 }
 
                 &:hover {
@@ -132,16 +132,13 @@
     }
 
     &__btn {
-        outline: none;
         background-color: transparent;
         border: 1px solid var(--titan-color);
-        // width: 100%;
-        // max-height: 48px;
         font-weight: 500;
         font-size: 18px;
         line-height: 136%;
         color: var(--white-color);
-        transition: .3s;
+        transition: var(--default-trans);
         height: 48px;
         margin: 0 auto;
         padding: 0 16px;
@@ -150,7 +147,7 @@
     &-list {
         overflow: hidden;
         max-height: 0px;
-        transition: .3s ease-in-out;
+        transition: var(--default-trans) ease-in-out;
         display: flex;
         flex-direction: column;
         margin: 8px 0 0 16px;
@@ -163,13 +160,13 @@
 
     &__item {
 
-        transition: .3s;
+        transition: var(--default-trans);
         display: flex;
         align-items: center;
 
         svg {
             transform: translateX(-16px);
-            transition: .3s;
+            transition: var(--default-trans);
         }
 
         &:hover {

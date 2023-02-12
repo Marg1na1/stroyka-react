@@ -5,6 +5,7 @@ import isAuthSlice from './slices/authSlice';
 import locateSlice from './slices/locateSlice';
 import confirmSlice from './slices/confirmSlice';
 import popupSlice from './slices/popupSlice';
+import errorSlice from './slices/errorSlice';
 import { useDispatch } from 'react-redux';
 
 export const store = configureStore({
@@ -13,7 +14,8 @@ export const store = configureStore({
         isAuth: isAuthSlice,
         locate: locateSlice,
         confirmSlice,
-        popupSlice
+        popupSlice,
+        errorSlice
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(stroykaApi.middleware),
 });

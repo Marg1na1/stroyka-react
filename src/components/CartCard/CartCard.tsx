@@ -2,6 +2,7 @@ import { FC, useEffect } from 'react';
 import { useInputHandler } from '../../hooks/useInputHandler';
 import { CartProductModel } from '../../@types/models';
 import { useDebounce } from '../../hooks/useDebounce';
+import { useErrorHandler } from '../../hooks/useErrorHandler';
 import clsx from 'clsx';
 import { useChangeCartItemMutation, useDeleteCartItemMutation } from '../../redux/injected/injectedCart';
 import style from './CartCard.module.scss';
@@ -10,25 +11,43 @@ const CartCard: FC<CartProductModel> = ({ img, title, finalPrice, count, id }) =
 
     const { inputHandler, onClickMinus, onClickPlus, productAmount } = useInputHandler({ min: 0, max: 999, defaultCount: count });
 
-    const [changeCartItem] = useChangeCartItemMutation();
+    const [changeCartItem, changeStatuses] = useChangeCartItemMutation();
 
-    const [deleteCartItem] = useDeleteCartItemMutation();
+    const changeErrorData = {
+        error: changeStatuses.error,
+        isError: changeStatuses.isError,
+        isClient: true,
+        errorMessage: 'Произошла ошибка при попытке изменения колличества товара в корзине',
+    }
+
+    useErrorHandler({ ...changeErrorData })
+
+    const [deleteCartItem, deleteStatuses] = useDeleteCartItemMutation();
+
+    const deleteErrorData = {
+        error: deleteStatuses.error,
+        isError: deleteStatuses.isError,
+        isClient: true,
+        errorMessage: 'Произошла ошибка при попытке удаления товара из корзины',
+    }
+
+    useErrorHandler({ ...deleteErrorData })
 
     const item = { id: id, count: productAmount };
 
     const debounced = useDebounce(productAmount.toString(), 300);
 
     useEffect(() => {
-        if (productAmount !== 0) {
+        if (productAmount && productAmount !== +debounced) {
             changeCartItem(item)
         }
-    }, [changeCartItem, debounced])
+    }, [debounced, productAmount])
 
     useEffect(() => {
         if (productAmount <= 0) {
             deleteCartItem(id)
         }
-    }, [productAmount])
+    }, [debounced, productAmount])
 
     const clickDelete = async (id: string) => {
         await deleteCartItem(id)
