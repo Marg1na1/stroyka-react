@@ -6,6 +6,8 @@ from app.config import MONGODB_URL
 
 app = Flask(__name__)
 app.config.from_object('app.config.DevelopmentConfig')
+app.url_map.strict_slashes = False
+
 CORS(app)
 
 connect(host=MONGODB_URL)
