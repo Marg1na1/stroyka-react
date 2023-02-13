@@ -14,4 +14,5 @@ class Product(Document):
     type = StringField(default='unknown', null=False)
     discount = BooleanField(default=False, null=False)
 
-    meta = {'indexes': ['title', 'price', 'rating', {'fields': ['$title']}]}
+    meta = {'indexes': ['title', 'price', 'rating', {'fields': ['$title']}],
+            'strict': False}

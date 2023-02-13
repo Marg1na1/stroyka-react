@@ -40,7 +40,7 @@ def login():
 def sign_up():
     form = dict(request.json)
 
-    req_fields = ('name', 'last_name', 'email', 'password')
+    req_fields = ('name', 'lastName', 'email', 'password')
 
     if not all(form.get(field) for field in req_fields):
         return {'message': 'not all required fields are filled in'}, 401
@@ -51,7 +51,7 @@ def sign_up():
         return {'message': 'user already exists'}, 409
 
     form['password'] = generate_password_hash(form['password'])
-    user = User(**{field: form[field] for field in req_fields})
+    user = User(**{(field if field != 'lastName' else 'last_name'): form[field] for field in req_fields})
     user.save()
 
     return {'message': 'registered successfully'}
