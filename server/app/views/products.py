@@ -26,7 +26,7 @@ def get_products():
 
 
 @products_blueprint.get('/<id_>')
-def get_product_by_id(user, id_):
+def get_product_by_id(id_):
     product = get_doc_by_id(Product, id_)
 
     if not product:
