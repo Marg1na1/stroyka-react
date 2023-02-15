@@ -7,7 +7,7 @@ from app.utils import to_dict, get_doc_by_id
 products_blueprint = Blueprint('products', __name__)
 
 SECONDS_IN_DAY = 24 * 60 * 60
-SORTING_OPTIONS = {'popular': 'rating', 'cheaper': '+price', 'expensive': '-price', 'alphabetically': 'title'}
+SORTING_OPTIONS = {'popular': '-rating', 'cheaper': '+price', 'expensive': '-price', 'alphabetically': 'title'}
 
 
 @products_blueprint.get('/')
