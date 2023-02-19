@@ -8,9 +8,17 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from app import app
 from app.models.user import User
 
+from app.utils import token_required
+
 auth_blueprint = Blueprint('auth', __name__)
 
 SECONDS_IN_DAY = 24 * 60 * 60
+
+
+@auth_blueprint.get('/me')
+@token_required
+def check_token(user):
+    return {'message': 'ok'}
 
 
 @auth_blueprint.post('/login')

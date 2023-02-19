@@ -24,7 +24,7 @@ def token_required(f):
             return {'message': 'invalid token'}, 401
 
         if data.get('expires_at', 0) < datetime.utcnow().timestamp():
-            return {'message': 'token expired, sign up again'}
+            return {'message': 'token expired, log in again'}
 
         current_user = User.objects(pk=data.get('user_id')).first()
 

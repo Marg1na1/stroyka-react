@@ -1,16 +1,20 @@
 from mongoengine import *
-from datetime import datetime
+
+from app.models.product import Product
+from app.models.user import User
 
 
 class Cart(Document):
-    ALIASES = {
-        'created_at': 'createdAt',
-        'final_price': 'finalPrice'
-    }
+    count = IntField(required=True, default=0, null=False, min_value=0)
+    product = ReferenceField(Product, required=True)
+    user = ReferenceField(User, required=True)
 
-    created_at = DateTimeField(default=datetime.utcnow, null=False)
-    img = StringField(null=True)
-    title = StringField(required=True, null=False)
-    final_price = IntField(null=True)
-    provider = StringField(null=True)
-    count = IntField(null=True)
+    meta = {
+        'index_background': True,
+        'indexes': [
+            {
+                'fields': ('user', 'product'),
+                'unique': True
+            }
+        ]
+    }

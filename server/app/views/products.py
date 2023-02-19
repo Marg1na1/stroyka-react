@@ -22,7 +22,7 @@ def get_products():
         query = query.seach_text(search_query)
     query = query.order_by(SORTING_OPTIONS[sort_by]).limit(int(count))
 
-    return [to_dict(product) for product in query]
+    return [to_dict(product, Product.ALIASES) for product in query]
 
 
 @products_blueprint.get('/<id_>')
@@ -32,4 +32,4 @@ def get_product_by_id(id_):
     if not product:
         return {'message': 'product with specified ID doesn\'t exist'}, 400
 
-    return to_dict(product)
+    return to_dict(product, Product.ALIASES)
