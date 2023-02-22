@@ -12,14 +12,6 @@ from app.utils import token_required
 cart_blueprint = Blueprint('cart', __name__)
 
 
-# @cart_blueprint.get('/')
-# @token_required
-# def get_carts(user):
-#     carts = Cart.objects.all()
-#
-#     return [to_dict(cart, aliases=Cart.ALIASES) for cart in carts]
-
-
 @cart_blueprint.get('/')
 @token_required
 def get_cart(user: User):
@@ -28,7 +20,6 @@ def get_cart(user: User):
     for cart in carts:
         cart_dict = to_dict(cart)
         cart_dict['product'] = to_dict(cart.product, Product.ALIASES)
-        cart_dict['user'] = str(cart.user.id)
         to_return.append(cart_dict)
 
     return to_return
@@ -54,7 +45,6 @@ def post_cart(user: User):
 
     cart_dict = to_dict(cart)
     cart_dict['product'] = to_dict(cart.product, Product.ALIASES)
-    cart_dict['user'] = str(cart.user.id)
     return cart_dict
 
 
@@ -80,7 +70,6 @@ def put_cart(user: User, product_id: str):
 
     cart_dict = to_dict(cart)
     cart_dict['product'] = to_dict(cart.product, Product.ALIASES)
-    cart_dict['user'] = str(cart.user.id)
     return cart_dict
 
 

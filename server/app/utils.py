@@ -1,13 +1,14 @@
 from datetime import datetime
 from functools import wraps
+from json import JSONEncoder
 from typing import Type, Any
 
 import jwt
-from flask import request
-from mongoengine import Document, ValidationError
-
 from app import app
 from app.models.user import User
+from bson import ObjectId
+from flask import request
+from mongoengine import Document, ValidationError
 
 
 def token_required(f):
@@ -46,7 +47,6 @@ def to_dict(obj: Document, aliases: dict = None, *, exclude: list = None, revers
         if field in dict_:
             del dict_[field]
 
-    dict_['id'] = str(dict_['_id'])
     del dict_['_id']
 
     dict_ = organize_by_aliases(dict_, aliases or {}, reversed_=reversed_)
@@ -78,34 +78,8 @@ def get_doc_by_id(doc_type: Type[Document], id_: Any):
         return
 
 
-# from typing import Optional
-#
-# import psycopg2
-# from psycopg2.errors import InvalidCatalogNae
-# from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT, connection
-#
-# from
-#
-#
-# def create_db():
-#     connection_: connection = psycopg2.connect(user='postgres', password='password')
-#     connection_.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
-#
-#     with connection_.cursor() as cursor_:
-#         cursor_.execute('CREATE DATABASE stroyka')
-#
-#
-# def drop_db():
-#     connection_: connection = psycopg2.connect(user='postgres', password='password')
-#     connection_.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
-#
-#     with connection_.cursor() as cursor_:
-#         cursor_.execute('DROP DATABASE stroyka')
-#
-#
-# def reset_db():
-#     try:
-#         drop_db()
-#     except InvalidCatalogName:
-#         create_db()
-#
+class Serializer(JSONEncoder):
+    def default(self, o: Any) -> Any:
+        if isinstance(o, (ObjectId, datetime)):
+            return str(o)
+        return super().default(o)

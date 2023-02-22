@@ -1,3 +1,5 @@
+import re
+
 from flask import Blueprint
 from flask import request
 
@@ -19,7 +21,7 @@ def get_products():
 
     query = Product.objects
     if search_query:
-        query = query.seach_text(search_query)
+        query = query(title=re.compile(rf'.*{search_query}.*', re.IGNORECASE))
     query = query.order_by(SORTING_OPTIONS[sort_by]).limit(int(count))
 
     return [to_dict(product, Product.ALIASES) for product in query]
