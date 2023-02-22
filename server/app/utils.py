@@ -47,6 +47,7 @@ def to_dict(obj: Document, aliases: dict = None, *, exclude: list = None, revers
         if field in dict_:
             del dict_[field]
 
+    dict_['id'] = dict_['_id']
     del dict_['_id']
 
     dict_ = organize_by_aliases(dict_, aliases or {}, reversed_=reversed_)
