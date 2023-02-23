@@ -17,5 +17,6 @@ class Product(Document):
     discount = BooleanField(default=False, null=False)
     discount_amount = IntField(null=False, min_value=0)
 
-    meta = {'indexes': ['title', 'price', 'rating', {'fields': ['$title']}],
+    meta = {'indexes': ['title', 'price', 'rating', {'fields': ['$title']},
+                        'type', 'provider', 'discount'],
             'strict': False}

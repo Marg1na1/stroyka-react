@@ -16,12 +16,26 @@ SORTING_OPTIONS = {'popular': '-rating', 'cheaper': '+price', 'expensive': '-pri
 def get_products():
     sort_by = request.args.get('sortBy', 'popular')
     search_query = request.args.get('q')
-    count = request.args.get('count', 15)
-    range = request.args.get('range')
+    count = request.args.get('count', 0)
+    range_ = request.args.get('range')
+    discount = request.args.get('discount')
+    type_ = request.args.get('type')
+    provider = request.args.get('provider')
 
     query = Product.objects
     if search_query:
         query = query(title=re.compile(rf'.*{search_query}.*', re.IGNORECASE))
+    if range_:
+        min_, max_ = range_.split(',')
+        query = query(price__lte=max_, price__gte=min_)
+    if discount:
+        # discount = True if discount == 'true' else False
+        query = query(discount=discount)
+    if type_:
+        query = query(type=type_)
+    if provider:
+        query = query(provider=provider)
+
     query = query.order_by(SORTING_OPTIONS[sort_by]).limit(int(count))
 
     return [to_dict(product, Product.ALIASES) for product in query]
