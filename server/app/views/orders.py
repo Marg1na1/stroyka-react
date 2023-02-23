@@ -49,6 +49,17 @@ def post_order(user):
         return {'message': 'invalid order data', 'error': str(e)}, 400
 
 
+@orders_blueprint.delete('/<id_>')
+@token_required
+def delete_cart(user, id_):
+    order = get_doc_by_id(Order, id_)
+    if not order:
+        return {'message': 'order with specified ID doesn\'t exist'}, 400
+
+    order.delete()
+    return {'message': 'order was deleted successfully'}
+
+
 # @orders_blueprint.get('/<id_>')
 # @token_required
 # def get_order_by_id(user, id_):
@@ -84,12 +95,3 @@ def post_order(user):
 #     return to_dict(order, Order.ALIASES) | {'key': to_dict(order.key)}
 #
 #
-# @orders_blueprint.delete('/<id_>')
-# @token_required
-# def delete_cart(user, id_):
-#     order = get_doc_by_id(Order, id_)
-#     if not order:
-#         return {'message': 'order with specified ID doesn\'t exist'}, 400
-#
-#     order.delete()
-#     return {'message': 'order was deleted successfully'}
