@@ -28,9 +28,8 @@ def get_products():
     if range_:
         min_, max_ = range_.split(',')
         query = query(price__lte=max_, price__gte=min_)
-    if discount:
-        # discount = True if discount == 'true' else False
-        query = query(discount=discount)
+    if discount in ('true', 'false'):
+        query = query(discount=True if discount == 'true' else False)
     if type_:
         query = query(type=type_)
     if provider:
