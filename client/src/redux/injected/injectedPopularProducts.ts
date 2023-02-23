@@ -5,12 +5,12 @@ const injectedPopularProducts = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
         getPopularProducts: builder.query<ProductModel[], number>({
             query: (count) => ({
-                url: 'products',
+                url: 'products/',
                 params: {
-                    sortby: 'rating',
-                    order: 'desc',
-                    p: 1,
-                    l: count,
+                    count: count,
+                    sortBy: 'popular',
+                    // order: 'desc',
+                    // p: 1,
                 }
             }),
             providesTags: (result) =>

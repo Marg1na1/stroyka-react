@@ -15,7 +15,7 @@ type DropdownProps = {
 
 const Dropdown: FC<DropdownProps> = ({ data, isLoading, isSuccess, isError, setValue, searchValue }) => {
 
-    const renderCard = data.map((obj) => (<SearchedCard {...obj} key={obj.fixId} />));
+    const renderCard = data.map((obj) => (<SearchedCard {...obj} key={obj.id} />));
     const renderSkeleton = [...new Array(4)].map((_, index) => <SearchSkeletonCard key={index} />);
 
     const history = localStorage.getItem('hist');

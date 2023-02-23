@@ -1,5 +1,4 @@
 import { FC, memo } from 'react';
-import { TransmittedData } from '../../@types/models';
 import { useAddProduct } from '../../hooks/useAddProduct';
 import { getCurrentPrice } from '../../utils/getCurrentPrice';
 import { Link } from 'react-router-dom';
@@ -7,7 +6,6 @@ import style from './SearchedCard.module.scss';
 
 type TSearchedCard = {
     id: string;
-    fixId: number;
     img: string;
     title: string;
     provider: string;
@@ -25,33 +23,21 @@ const SearchedCard: FC<TSearchedCard> = memo((
         price,
         discount,
         discountAmount,
-        fixId,
-        provider
+        id
     }) => {
 
     const currentPrice: number = getCurrentPrice(price, discountAmount);
-    const isDiscounted: boolean = discount === 'true';
 
     const addProduct = useAddProduct();
 
-    const obj: TransmittedData = {
-        img,
-        title,
-        finalPrice: isDiscounted ? currentPrice : price,
-        fixId,
-        provider,
-        count: 1,
-        id: 0
-    };
-
-    const onClickAddProduct = (obj: TransmittedData) => {
-        addProduct(obj)
+    const onClickAddProduct = (id: string, count: number) => {
+        addProduct(id, count)
     }
 
     return (
         <li className={style['card']}>
             <article className={style['card-content']}>
-                <Link to={`/products/${fixId}`}>
+                <Link to={`/products/${id}`}>
                     <img
                         className={style['card__img']}
                         src={img}
@@ -63,17 +49,13 @@ const SearchedCard: FC<TSearchedCard> = memo((
                     <p className={style['card__title']}>{title}</p>
                     <div className={style['card__price']}>
                         <p className={style['card__price--current']}>
-                            {isDiscounted ? currentPrice : price} ₽
+                            {discount ? currentPrice : price} ₽
                         </p>
-                        {
-                            isDiscounted && <s className={style['card__price--past']}>{price}</s>
-                        }
+                        {discount && <s className={style['card__price--past']}>{price}</s>}
                     </div>
-                    <button className={style['card__btn']} onClick={() => onClickAddProduct(obj)} type={'button'}>В корзину</button>
+                    <button className={style['card__btn']} onClick={() => onClickAddProduct(id, 1)} type={'button'}>В корзину</button>
                 </div>
-                {
-                    isDiscounted && <span className={style['card__discount']}>-{discountAmount}%</span>
-                }
+                {discount && <span className={style['card__discount']}>-{discountAmount}%</span>}
             </article>
         </li>
     );

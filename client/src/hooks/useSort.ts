@@ -1,43 +1,17 @@
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { SortTypeModel } from '../@types/models';
+import { setSortType } from '../redux/slices/sortSlice';
+import { RootState, useAppDispatch } from '../redux/store';
 
 export const useSort = () => {
 
-    const [sortState, setSortState] = useState([
-        {
-            value: true,
-            label: 'Популярные',
-            title: 'popular'
-        },
-        {
-            value: false,
-            label: 'Дешевле',
-            title: 'cheaper'
-        },
-        {
-            value: false,
-            label: 'Дороже',
-            title: 'expensive'
-        },
-        {
-            value: false,
-            label: 'По алфавиту',
-            title: 'alphabetically'
-        },
-    ]);
+    const dispatch = useAppDispatch();
 
-    const onClickSortItem = (str: string) => {
+    const sortState = useSelector((state: RootState) => state.sortSlice);
 
-        const newArr = sortState.map((obj) => {
-            if (obj.label === str) {
-                obj.value = true
-                return obj
-            } else {
-                obj.value = false
-                return obj
-
-            }
-        })
-        setSortState(newArr)
+    const onClickSortItem = (obj: SortTypeModel) => {
+        dispatch(setSortType(obj))
     }
+
     return { sortState, onClickSortItem }
 }

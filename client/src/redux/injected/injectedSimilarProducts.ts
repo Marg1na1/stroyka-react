@@ -5,11 +5,9 @@ const injecteSimilarProducts = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
         getSimilar: builder.query<ProductModel[], string>({
             query: (type) => ({
-                url: `products`,
+                url: `products/`,
                 params: {
-                    type: type,
-                    p: 1,
-                    l: 4,
+                    count: 4
                 }
             }),
             providesTags: (result) =>

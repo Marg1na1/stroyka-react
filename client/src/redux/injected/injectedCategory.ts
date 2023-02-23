@@ -1,13 +1,19 @@
 import { stroykaApi } from '../stroyka.api';
 import { ProductModel } from '../../@types/models';
 
+type QueryParmsType = {
+    type: string;
+    sortParams: string;
+}
+
 const injectedCategory = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
-        getCategoryItems: builder.query<ProductModel[], string>({
-            query: (type) => ({
-                url: `products`,
+        getCategoryItems: builder.query<ProductModel[], QueryParmsType>({
+            query: (params) => ({
+                url: `products/`,
                 params: {
-                    type: type,
+                    type: params.type,
+                    sortBy: params.sortParams
                 }
             }),
             providesTags: (result) =>

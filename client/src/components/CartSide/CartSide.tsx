@@ -5,17 +5,18 @@ import BoxIcon from '../../Icons/BoxIcon';
 import InfoIcon from '../../Icons/InfoIcon';
 import TruckIcon from '../../Icons/TruckIcon';
 import { useAddOrderMutation } from '../../redux/injected/injectedOrders';
+import { getCurrentPrice } from '../../utils/getCurrentPrice';
 import style from './CartSide.module.scss';
 
 const CartSide: FC<{ data: CartProductModel[] }> = ({ data }) => {
 
     const [providers, setProviders] = useState<string[]>([]);
 
-    const productCount = data.reduce((acc, current) => acc + current.count, 0);
-    const totalPrice = data.reduce((acc, current) => acc + (current.finalPrice * current.count), 0);
+    const productCount = data.reduce((acc, current) => acc + +current.count, 0);
+    const totalPrice = data.reduce((acc, current) => acc + (getCurrentPrice(current.product.price, current.product.discountAmount) * +current.count), 0);
 
     useEffect(() => {
-        setProviders(Array.from(new Set(data.map((obj) => obj.provider))))
+        setProviders(Array.from(new Set(data.map((obj) => obj.product.provider))))
     }, [data])
 
     const [addOrder, addOrderStatuses] = useAddOrderMutation();
@@ -29,8 +30,17 @@ const CartSide: FC<{ data: CartProductModel[] }> = ({ data }) => {
 
     useErrorHandler({ ...addOrderErrorHandlerData })
 
-    const clickAddOrder = async (data: CartProductModel[]) => {
-        await addOrder(data)
+    const orderObj = {
+        items: data.map((obj) => {
+            return {
+                product: obj.product.id,
+                count: obj.count
+            }
+        })
+    }
+
+    const clickAddOrder = async () => {
+        await addOrder(orderObj)
     }
 
     return (
@@ -55,7 +65,8 @@ const CartSide: FC<{ data: CartProductModel[] }> = ({ data }) => {
                         </li>
                     </ul>
                 </div>
-                <button className={style['side-btn']} onClick={() => clickAddOrder(data)}>Оформить заказ</button>
+                <button className={style['side-btn']
+                } onClick={clickAddOrder}>Оформить заказ</button>
             </div>
             <div className={style['side-info']}>
                 <div className={style['side-info__item']}>

@@ -13,8 +13,8 @@ import { useGetCartQuery } from '../../redux/injected/injectedCart';
 import style from './Cart.module.scss';
 
 const Cart: FC = () => {
- 
-    useScrollToTop(); 
+
+    useScrollToTop();
 
     const { data = [], isSuccess, isLoading, isError, error } = useGetCartQuery();
 
@@ -28,7 +28,7 @@ const Cart: FC = () => {
         path: '/',
     }
 
-    const renderCartItems = data.map((obj) => <CartCard {...obj} key={obj.fixId} />);
+    const renderCartItems = data.map((obj) => <CartCard {...obj} key={obj.id} />);
     const renderSkeleton = [...new Array(3)].map((_, index) => <Cartskeleton key={index} />);
 
     if (isLoading) {

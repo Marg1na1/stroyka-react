@@ -1,14 +1,11 @@
 import { FC, memo } from 'react';
-import { TransmittedData } from '../../@types/models';
 import { useAddProduct } from '../../hooks/useAddProduct';
 import { getCurrentPrice } from '../../utils/getCurrentPrice';
-import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import style from './Card.module.scss';
 
 type TCardProps = {
     id: string;
-    fixId: number;
     img: string;
     title: string;
     provider: string;
@@ -28,33 +25,21 @@ const Card: FC<TCardProps> = memo((
         discount,
         horizontal = false,
         discountAmount,
-        fixId,
-        provider
+        id
     }) => {
 
     const currentPrice: number = getCurrentPrice(price, discountAmount);
-    const isDiscounted: boolean = discount === 'true';
 
     const addProduct = useAddProduct();
 
-    const obj: TransmittedData = {
-        img,
-        title,
-        finalPrice: isDiscounted ? currentPrice : price,
-        fixId,
-        provider,
-        count: 1,
-        id: 0
-    };
-
-    const onClickAddProduct = (obj: TransmittedData) => {
-        addProduct(obj)
+    const onClickAddProduct = (id: string, count: number) => {
+        addProduct(id, count)
     }
 
     return (
         <li className={style['grid-item']}>
             <article className={horizontal ? style['grid-item__content--h'] : style['grid-item__content']}>
-                <Link to={`/products/${fixId}`}>
+                <Link to={`/products/${id}`}>
                     <img
                         loading='lazy'
                         className={horizontal ? style['grid-item__image--h'] : style['grid-item__image']}
@@ -65,22 +50,18 @@ const Card: FC<TCardProps> = memo((
                     />
                 </Link>
                 <div className={style['grid-item__main']}>
-                    <Link to={`/products/${fixId}`}>
+                    <Link to={`/products/${id}`}>
                         <h2 className={style['grid-item__title']}>{title}</h2>
                     </Link>
                     <div className={style['grid-item__price']}>
                         <p className={style['grid-item__price--current']}>
-                            {isDiscounted ? currentPrice : price} ₽
+                            {discount ? currentPrice : price} ₽
                         </p>
-                        {
-                            isDiscounted && <s className={style['grid-item__price--past']}>{price}</s>
-                        }
+                        {discount && <s className={style['grid-item__price--past']}>{price}</s>}
                     </div>
-                    <button className={style['grid-item__btn']} onClick={() => onClickAddProduct(obj)}>В корзину</button>
+                    <button className={style['grid-item__btn']} onClick={() => onClickAddProduct(id, 1)}>В корзину</button>
                 </div>
-                {
-                    isDiscounted && <span className={style['grid-item__discount']}>-{discountAmount}%</span>
-                }
+                {discount && <span className={style['grid-item__discount']}>-{discountAmount}%</span>}
             </article>
         </li>
     );

@@ -6,6 +6,7 @@ import locateSlice from './slices/locateSlice';
 import confirmSlice from './slices/confirmSlice';
 import popupSlice from './slices/popupSlice';
 import errorSlice from './slices/errorSlice';
+import sortSlice from './slices/sortSlice';
 import { useDispatch } from 'react-redux';
 
 export const store = configureStore({
@@ -15,7 +16,8 @@ export const store = configureStore({
         locate: locateSlice,
         confirmSlice,
         popupSlice,
-        errorSlice
+        errorSlice,
+        sortSlice
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(stroykaApi.middleware),
 });

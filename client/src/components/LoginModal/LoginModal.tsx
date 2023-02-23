@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { useLoginMutation } from '../../redux/injected/injectedLogin';
+import { setIsAuth } from '../../redux/slices/authSlice';
 import { setToggleOpenAuth } from '../../redux/slices/popupSlice';
 import { useAppDispatch } from '../../redux/store';
 import style from './LoginModal.module.scss';
@@ -29,10 +31,22 @@ const LoginModal: FC = () => {
         dispatch(setToggleOpenAuth(false))
     }
 
+    const [loginUser] = useLoginMutation();
+
+    const onSubmit = async (data: TLoginInputs) => {
+        const response = await loginUser(data)
+        if ('data' in response) {
+            document.cookie = `token=${response.data.token}`;
+            closeModal()
+        } else {
+            reset()
+        }
+    }
+
     return (
         <div className={style['login']}>
             <h1 className={style['login__title']}>Вход</h1>
-            <form className={style['login-form']}>
+            <form className={style['login-form']} onSubmit={handleSubmit(onSubmit)}>
                 <label className={style['login__item']}>
                     E-mail
                     <input

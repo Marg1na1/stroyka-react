@@ -15,7 +15,7 @@ export type TListItem = {
     token: string;
 }
 
-export const listItem: TListItem[] = [
+export const listItems: TListItem[] = [
     {
         title: 'Оферта «Безопасная сделка»',
         token: '1grWfK7dbSuP0z31C5Jwv0bZufKDoYCVe',

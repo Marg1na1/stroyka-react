@@ -1,24 +1,41 @@
 import { FC, useState, useEffect } from 'react';
 import { useSort } from '../../hooks/useSort';
 import MarkIcon from '../../Icons/MarkIcon';
+import { SortTypeModel } from '../../@types/models';
 import clsx from 'clsx';
 import style from './Sort.module.scss';
 
 const Sort: FC = () => {
 
     const { sortState, onClickSortItem } = useSort();
-    const [selected, setSelected] = useState<boolean[]>([]);
     const [dropdown, setDropdown] = useState(false);
 
     useEffect(() => {
-        const selectedArr = sortState.map((obj) => obj.value)
-        setSelected(selectedArr)
         setDropdown(false)
     }, [sortState])
 
     const toggleDropdown = () => {
         setDropdown(!dropdown)
     }
+
+    const sortItems: SortTypeModel[] = [
+        {
+            label: 'Популярные',
+            title: 'popular'
+        },
+        {
+            label: 'Дешевле',
+            title: 'cheaper'
+        },
+        {
+            label: 'Дороже',
+            title: 'expensive'
+        },
+        {
+            label: 'По алфавиту',
+            title: 'alphabetically'
+        }
+    ]
 
     return (
         <div className={style['select']}>
@@ -27,34 +44,33 @@ const Sort: FC = () => {
                     [style['select-btn--active']]: dropdown
                 })}
                 onClick={toggleDropdown}
-            >{sortState.find((obj) => obj.value === true)?.label} <MarkIcon /></button>
+            >{sortState.label} <MarkIcon /></button>
             <ul className={clsx(style['sort'], {
                 [style['sort--active']]: dropdown
-            })}> 
+            })}>
                 <li className={style['sort__item']}>
                     <button className={clsx(style['sort__btn'], {
-                        [style['sort__btn--active']]: selected[0]
+                        [style['sort__btn--active']]: sortState.label === sortItems[0].label
                     })}
-                        onClick={() => onClickSortItem('Популярные')}>Популярные</button>
+                        onClick={() => onClickSortItem(sortItems[0])}>Популярные</button>
                 </li>
                 <li className={style['sort__item']}>
                     <button className={clsx(style['sort__btn'], {
-                        [style['sort__btn--active']]: selected[1]
+                        [style['sort__btn--active']]: sortState.label === sortItems[1].label
                     })}
-                        onClick={() => onClickSortItem('Дешевле')}>Дешевле</button>
+                        onClick={() => onClickSortItem(sortItems[1])}>Дешевле</button>
                 </li>
                 <li className={style['sort__item']}>
                     <button className={clsx(style['sort__btn'], {
-                        [style['sort__btn--active']]: selected[2]
+                        [style['sort__btn--active']]: sortState.label === sortItems[2].label
                     })}
-                        onClick={() => onClickSortItem('Дороже')}>Дороже</button>
+                        onClick={() => onClickSortItem(sortItems[2])}>Дороже</button>
                 </li>
                 <li className={style['sort__item']}>
-
                     <button className={clsx(style['sort__btn'], {
-                        [style['sort__btn--active']]: selected[3]
+                        [style['sort__btn--active']]: sortState.label === sortItems[3].label
                     })}
-                        onClick={() => onClickSortItem('По алфавиту')}>По алфавиту</button>
+                        onClick={() => onClickSortItem(sortItems[3])}>По алфавиту</button>
                 </li>
             </ul>
         </div>

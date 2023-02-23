@@ -1,19 +1,20 @@
-import { FC, ReactElement, useEffect, useState } from 'react';
+import { FC } from 'react';
 import OrderItem from '../OrderItem/OrderItem';
 import OrderSkeleton from '../Skeletons/OrderSkeleton';
-import { OrderModel } from '../../@types/models';
+import { ResponseOrderModel } from '../../@types/models';
 import { useErrorHandler } from '../../hooks/useErrorHandler';
+import { getCurrentPrice } from '../../utils/getCurrentPrice';
 import { useDeleteOrderMutation } from '../../redux/injected/injectedOrders';
 import style from './OrderCard.module.scss';
 
 type TOrderCard = {
-    obj: OrderModel;
+    obj: ResponseOrderModel;
     isLoading: boolean;
 }
 
 const OrderCard: FC<TOrderCard> = ({ obj, isLoading }) => {
 
-    const [total, setTotal] = useState(0);
+    const totalPrice = obj.items.reduce((acc, current) => acc + (getCurrentPrice(current.product.price, current.product.discountAmount) * +current.count), 0);
 
     const [deleteOrder, deleteStatuses] = useDeleteOrderMutation();
 
@@ -26,23 +27,12 @@ const OrderCard: FC<TOrderCard> = ({ obj, isLoading }) => {
 
     useErrorHandler({ ...deleteErrorHandlerData })
 
-    const cancelOrder = (id: string) => {
-        deleteOrder(id)
+    const cancelOrder = () => {
+        deleteOrder(obj.id)
     }
 
     const renderSkeleton = [...new Array(2)].map((_, index) => <OrderSkeleton key={index} />);
-
-    const orderItemsArr: ReactElement[] = [];
-
-    for (const v in obj) {
-        if (typeof obj[v] === 'object') {
-            orderItemsArr.push(<OrderItem key={obj[v].id} {...obj[v]} />)
-        }
-    }
-
-    useEffect(() => {
-        setTotal(orderItemsArr.reduce((acc, obj) => acc + obj.props.finalPrice * obj.props.count, 0))
-    }, []);
+    const renderOrders = obj.items.map((order) => <OrderItem key={order.product.id} {...order} />);
 
     const orderDate = new Date(obj.createdAt).toLocaleString('ru', {
         year: 'numeric',
@@ -53,7 +43,7 @@ const OrderCard: FC<TOrderCard> = ({ obj, isLoading }) => {
     return (
         <li className={style['order-card']}>
             <ul className={style['order-list']}>
-                {isLoading ? renderSkeleton : orderItemsArr}
+                {isLoading ? renderSkeleton : renderOrders}
             </ul>
             <div className={style['order-info']}>
                 <div className={style['order-info__wrapper']}>
@@ -69,9 +59,9 @@ const OrderCard: FC<TOrderCard> = ({ obj, isLoading }) => {
                     <div className={style['order-info__footer']}>
                         <button
                             className={style['order__btn']}
-                            onClick={() => cancelOrder(obj.id)}>Отменить заказ</button>
+                            onClick={cancelOrder}>Отменить заказ</button>
                         <b className={style['order__total']}>
-                            Итого:&nbsp;{total}&nbsp;₽
+                            Итого:&nbsp;{totalPrice}&nbsp;₽
                         </b>
                     </div>
                 </div>

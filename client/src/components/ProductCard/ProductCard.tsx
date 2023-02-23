@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import TruckIcon from '../../Icons/TruckIcon';
-import { ProductModel, TransmittedData } from '../../@types/models';
+import { ProductModel } from '../../@types/models';
 import { useInputHandler } from '../../hooks/useInputHandler';
 import { useAddProduct } from '../../hooks/useAddProduct';
 import { getCurrentPrice } from '../../utils/getCurrentPrice';
@@ -10,24 +10,13 @@ import style from './ProductCard.module.scss';
 const ProductCard: FC<{ data: ProductModel }> = ({ data }) => {
 
     const currentPrice = getCurrentPrice(data.price, data.discountAmount);
-    const isDiscounted = data.discount === 'true';
 
     const { inputHandler, onClickMinus, onClickPlus, productAmount } = useInputHandler({ min: 1, max: 999, defaultCount: 1 });
 
     const addProduct = useAddProduct();
 
-    const obj = {
-        img: data.img,
-        title: data.title,
-        finalPrice: isDiscounted ? currentPrice : data.price,
-        fixId: data.fixId,
-        provider: data.provider,
-        count: productAmount,
-        id: 0
-    }
-
-    const onClickAddProduct = (obj: TransmittedData) => {
-        addProduct(obj)
+    const onClickAddProduct = (id: string, count: number) => {
+        addProduct(id, count)
     }
 
     return (
@@ -43,14 +32,14 @@ const ProductCard: FC<{ data: ProductModel }> = ({ data }) => {
                     <h1 className={style['title']}>{data.title}</h1>
                     <div className={style['price']}>
                         <p className={style['price__current']}>
-                            {isDiscounted ? currentPrice : data.price} ₽
+                            {data.discount ? currentPrice : data.price} ₽
                         </p>
-                        {isDiscounted && <s className={style['price__past']}>{data.price}₽</s>}
+                        {data.discount && <s className={style['price__past']}>{data.price}₽</s>}
                     </div>
                     <form className={style['form']}>
                         <button className={style['submit']}
                             type='button'
-                            onClick={() => onClickAddProduct(obj)}>В корзину</button>
+                            onClick={() => onClickAddProduct(data.id, productAmount)}>В корзину</button>
                         <div className={style['amount']}>
                             <button
                                 type='button'
@@ -74,7 +63,7 @@ const ProductCard: FC<{ data: ProductModel }> = ({ data }) => {
                         <TruckIcon /> <p>Доставка осуществляется курьерами поставщика или службой курьеров Достависта. Также товар можно забрать самостоятельно от&nbsp;поставщика</p>
                     </div>
                 </div>
-                {isDiscounted && <span className={style['discount']}>-{data.discountAmount}%</span>}
+                {data.discount && <span className={style['discount']}>-{data.discountAmount}%</span>}
             </article>
         </div>
     );

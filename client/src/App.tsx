@@ -16,6 +16,7 @@ import Registration from './pages/Registration/Registration';
 import SearchResult from './pages/SearchResult/SearchResult';
 import { categoryData } from './data/catalog.data';
 import { Route, Routes } from 'react-router-dom';
+import PrivateRoute from './hoc/PrivateRoute';
 
 const errorPageData = {
     title: '404',
@@ -36,9 +37,17 @@ const App: FC = () => {
                 <Route path='/documentation' element={<Documentation />} />
                 <Route path='/contacts' element={<Contacts />} />
                 <Route path='/catalog' element={<Catalog />} />
-                <Route path='/cart' element={<Cart />} />
+                <Route path='/cart' element={
+                    <PrivateRoute>
+                        <Cart />
+                    </PrivateRoute>
+                } />
                 <Route path='/reg' element={<Registration />} />
-                <Route path='/orders' element={<Orders />} />
+                <Route path='/orders' element={
+                    <PrivateRoute>
+                        <Orders />
+                    </PrivateRoute>
+                } />
                 <Route path='/catalog/:category/:type/' element={<Category categoryData={categoryData} />} />
                 <Route path='/catalog/search' element={<SearchResult />} />
                 <Route path='/products/:id' element={<Product />} />

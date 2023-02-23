@@ -1,9 +1,9 @@
-import { OrderModel } from '../../@types/models';
+import { OrderModel, ResponseOrderModel, SentOrderModel } from '../../@types/models';
 import { stroykaApi } from '../stroyka.api';
 
 const injectedOrders = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
-        getOrders: builder.query<OrderModel[], void>({
+        getOrders: builder.query<ResponseOrderModel[], void>({
             query: () => ({
                 url: 'orders',
             }),
@@ -12,8 +12,8 @@ const injectedOrders = stroykaApi.injectEndpoints({
                     ? [...result.map(({ id }) => ({ type: 'Orders' as const, id })), 'Orders']
                     : ['Orders'],
         }),
-        addOrder: builder.mutation({
-            query: ({ id, ...data }) => ({
+        addOrder: builder.mutation<void, SentOrderModel>({
+            query: (data) => ({
                 url: `orders`,
                 method: 'POST',
                 body: data,

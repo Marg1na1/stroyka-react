@@ -1,10 +1,17 @@
-import { TransmittedData } from '../@types/models';
-import { useGetCartQuery, useAddCartItemMutation, useChangeCartItemMutation } from '../redux/injected/injectedCart';
+import { useAddCartItemMutation, useChangeCartItemMutation, useLazyGetCartQuery } from '../redux/injected/injectedCart';
 import { useErrorHandler } from './useErrorHandler';
 
 export const useAddProduct = () => {
 
-    const { data = [] } = useGetCartQuery();
+    const [getCartItems, getStatuses] = useLazyGetCartQuery();
+
+    const getErrorHandlerData = {
+        error: getStatuses.error,
+        isError: getStatuses.isError,
+        isClient: false,
+    }
+
+    useErrorHandler({ ...getErrorHandlerData })
 
     const [addCartItem, addStatues] = useAddCartItemMutation();
 
@@ -28,17 +35,21 @@ export const useAddProduct = () => {
 
     useErrorHandler({ ...changeErrorHandlerData })
 
-    const addProduct = async (item: TransmittedData) => {
+    const addProduct = async (id: string, count: number) => {
 
-        if (data.find((obj) => obj.fixId === item.fixId)) {
-            const existingCount = data.find((obj) => obj.fixId === item.fixId)
-            item.count += existingCount!.count
-            item.id = +existingCount!.id
-            await changeCartItem(item)
-        } else {
-            await addCartItem(item)
+        const response = await getCartItems()
+
+        if (response.data) {
+            if (response.data.some((obj) => obj.product.id === id)) {
+                const existingItem = response.data.find((obj) => obj.product.id === id)
+                if (existingItem) {
+                    await changeCartItem({ id: existingItem.product.id, count: existingItem.count + count })
+                }
+            }
+            else {
+                await addCartItem({ productId: id, count: count })
+            }
         }
     }
-
     return addProduct
 }

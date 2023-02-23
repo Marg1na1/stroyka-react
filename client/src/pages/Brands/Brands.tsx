@@ -1,14 +1,17 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import BrandsRow from '../../components/BrandsRow/BrandsRow';
 import Headline from '../../components/Headline/Headline';
-import { brandsList, headData } from '../../data/brands.data';
+import { headData } from '../../data/brands.data';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 import clsx from 'clsx';
 import style from './Brands.module.scss';
+import { useGetBrandsQuery } from '../../redux/injected/injectedBrands';
 
 const Brands: FC = () => {
 
     useScrollToTop();
+
+    const { data, isSuccess } = useGetBrandsQuery()
 
     return (
         <section className={style['brands']}>
@@ -16,7 +19,7 @@ const Brands: FC = () => {
             <div className='container'>
                 <nav className={clsx(style['brands-nav'], 'mb80')}>
                     {
-                        brandsList.map((obj, i) => (
+                        isSuccess && data.map((obj, i) => (
                             <a href={'#' + obj.title} className={style['brands-nav__item']} key={i}>
                                 {obj.title}
                             </a>
@@ -25,7 +28,7 @@ const Brands: FC = () => {
                 </nav>
                 <ul className={style['brands-list']}>
                     {
-                        brandsList.map((obj, i) => (
+                        isSuccess && data.map((obj, i) => (
                             <BrandsRow {...obj} key={i} />
                         ))
                     }

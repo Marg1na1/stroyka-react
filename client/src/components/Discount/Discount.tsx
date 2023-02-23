@@ -22,7 +22,7 @@ const Discount: FC = memo(() => {
     }, [])
 
     const renderSkeleton = [...new Array(4)].map((_, index) => horizontal ? <HorizontalSkeleton key={index} /> : <Skeleton key={index} />);
-    const renderCards = data.map((item) => <Card {...item} key={item.fixId} horizontal={horizontal} />);
+    const renderCards = data.map((item) => <Card {...item} key={item.id} horizontal={horizontal} />);
 
     const errorObj = {
         errorCode: errorData.status,

@@ -10,12 +10,10 @@ const injectedSearched = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
         getSearched: builder.query<ProductModel[], TSearchedParams>({
             query: ({ count, value }) => ({
-                url: `products/?search=${value}`,
+                url: `products/`,
                 params: {
-                    sortby: 'rating',
-                    order: 'desc',
-                    p: 1,
-                    l: count,
+                    q: value,
+                    count: count,
                 }
             }),
             providesTags: (result) =>

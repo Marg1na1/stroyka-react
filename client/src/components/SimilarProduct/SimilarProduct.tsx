@@ -17,7 +17,7 @@ const SimilarProduct: FC<{ type: string }> = ({ type }) => {
         errorMessage: 'Произошла ошибка при получении похожих товаров попробуйте обновить страницу или зайдите позже'
     }
 
-    const renderCards = data.map((obj) => <Card {...obj} key={obj.fixId} />);
+    const renderCards = data.map((obj) => <Card {...obj} key={obj.id} />);
     const renderSkeleton = [...new Array(4)].map((_, index) => <Skeleton key={index} />);
 
     return (

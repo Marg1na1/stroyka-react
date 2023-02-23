@@ -3,6 +3,7 @@ import { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
 import { useState, useLayoutEffect, useEffect } from 'react';
 import { setError } from '../redux/slices/errorSlice';
 import { useAppDispatch } from '../redux/store';
+import { setToggleOpenAuth } from '../redux/slices/popupSlice';
 
 type ErrorHandlerProps = {
     error: FetchBaseQueryError | SerializedError | undefined;
@@ -23,6 +24,9 @@ export const useErrorHandler = ({ error, isError, isClient = false, errorMessage
         if (error) {
             if ('status' in error) {
                 setErrorData(error)
+                if (error.status === 401) {
+                    dispatch(setToggleOpenAuth(true))
+                }
             }
         }
 
@@ -36,7 +40,7 @@ export const useErrorHandler = ({ error, isError, isClient = false, errorMessage
                 isError: true
             }))
         }
-    }, [error, isError, errorData, isClient, errorMessage, dispatch])
+    }, [error, isError, errorData, isClient, errorMessage])
 
     return errorData;
 }

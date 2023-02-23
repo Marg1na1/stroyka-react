@@ -5,7 +5,7 @@ const injectedReviews = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
         getReviews: builder.query<ReviewModel[], void>({
             query: () => ({
-                url: 'reviews',
+                url: 'reviews/',
             }),
             providesTags: (result) =>
                 result

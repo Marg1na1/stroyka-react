@@ -14,7 +14,7 @@ const initialState: PopupState = {
 }
 
 export const popupSlice = createSlice({
-    name: 'popupState',
+    name: 'popupState', 
     initialState,
     reducers: {
         setToggleChengeLocate: (state, action: PayloadAction<boolean>) => {

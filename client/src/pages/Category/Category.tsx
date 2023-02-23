@@ -9,6 +9,7 @@ import MobileSideWrapper from '../../components/MobileSideWrapper/MobileSideWrap
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 import EmptyPage from '../EmptyPage/EmptyPage';
 import { useErrorHandler } from '../../hooks/useErrorHandler';
+import { useSort } from '../../hooks/useSort';
 import clsx from 'clsx';
 import { useParams } from 'react-router-dom';
 import { useGetCategoryItemsQuery } from '../../redux/injected/injectedCategory';
@@ -27,7 +28,14 @@ const Category: FC<{ categoryData: TCategory[] }> = ({ categoryData }) => {
 
     categoryData.forEach((obj) => obj.list.forEach(obj => obj.path.split('/')[1] === type ? res = obj : null))
 
-    const { data = [], isSuccess, isLoading, isError, error } = useGetCategoryItemsQuery(type);
+    const { sortState } = useSort();
+
+    const queryParams = {
+        type: type,
+        sortParams: sortState.title
+    }
+
+    const { data = [], isSuccess, isLoading, isError, error } = useGetCategoryItemsQuery(queryParams);
 
     const errorData = useErrorHandler({ error, isError });
 
@@ -70,11 +78,11 @@ const Category: FC<{ categoryData: TCategory[] }> = ({ categoryData }) => {
                 </div>
             </section>
         );
-    } else if (isError) { 
+    } else if (isError) {
         return <EmptyPage {...errorObj} />
     } else if (isSuccess && !data.length) {
         return <EmptyPage {...emptyObj} />
-    } else { 
+    } else {
         return (
             <section className={style['category']}>
                 <Headline {...headData} />

@@ -5,7 +5,7 @@ const injectedProducts = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
         getProduct: builder.query<ProductModel, string>({
             query: (id) => ({
-                url: `products/${id}`,
+                url: `products/${id}/`,
             }),
             providesTags: ['Product'],
         }),

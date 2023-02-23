@@ -6,11 +6,10 @@ const injectedDiscount = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
         getDiscountedProducts: builder.query<ProductModel[], void>({
             query: () => ({
-                url: 'products',
+                url: 'products/',
                 params: {
-                    discount: 'true',
-                    p: 1,
-                    l: 4,
+                    count: 4,
+                    discount: true
                 }
             }),
             providesTags: (result) =>

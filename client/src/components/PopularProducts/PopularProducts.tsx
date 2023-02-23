@@ -18,8 +18,8 @@ const PopularProducts: FC = memo(() => {
 
     const errorData = useErrorHandler({ error, isError })
 
-    const skeletonSnip = [...new Array(8)].map((_, index) => <Skeleton key={index} />);
-    const loadedSnip = data.map((obj) => (<Card {...obj} key={obj.fixId} />));
+    const renderSkeleton = [...new Array(8)].map((_, index) => <Skeleton key={index} />);
+    const renderCards = data.map((obj) => (<Card {...obj} key={obj.id} />));
 
     const errorObj = {
         errorCode: errorData.status,
@@ -34,7 +34,7 @@ const PopularProducts: FC = memo(() => {
                 </div>
                 {
                     isError ? <ErrorSection {...errorObj} /> : <ul className={style['grid']}>
-                        {(isFetching || isLoading) ? skeletonSnip : loadedSnip}
+                        {(isFetching || isLoading) ? renderSkeleton : renderCards}
                     </ul>
                 }
             </div>

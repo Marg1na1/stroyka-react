@@ -2,7 +2,6 @@ import { FC } from 'react';
 import Card from '../Card/Card';
 import Pagination from '../Pagination/Pagination';
 import Skeleton from '../Skeletons/Skeleton';
-import { useSort } from '../../hooks/useSort';
 import { ProductModel } from '../../@types/models';
 import { usePagination } from '../../hooks/usePagination';
 import style from './CategoryMain.module.scss';
@@ -15,11 +14,9 @@ type CategoryMainProps = {
 
 const CategoryMain: FC<CategoryMainProps> = ({ data, isLoading }) => {
 
-    // const { sortState} = useSort();
-
     const { pageCount, currentItems, next, prev, setPugPosition } = usePagination(data);
 
-    const renderCards = currentItems.map((obj) => <Card {...obj} key={obj.fixId} />);
+    const renderCards = currentItems.map((obj) => <Card {...obj} key={obj.id} />);
     const renderSkeleton = [...new Array(9)].map((_, index) => <Skeleton key={index} />);
 
     return (
