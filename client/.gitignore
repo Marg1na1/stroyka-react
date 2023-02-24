@@ -1,0 +1,38 @@
+
+# dependencies
+node_modules
+/.pnp
+.pnp.js
+data.json
+generate-react-cli.json
+templates/
+.eslintrc
+.prettierrc
+
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+*.env.ts
+.env.local
+.env.development.local
+.env.test.localn  
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# backend
+test.http
+.env
+venv
+app_old
+data and endpoints
+.idea
+__pycache__

@@ -1,0 +1,16 @@
+{
+    "extends": [
+        "react-app",
+        "react-app/jest",
+        // "prettier",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "rules": {
+        "no-console": "warn",
+        "jsx-quotes": [
+            "warn",
+            "prefer-single"
+        ],
+        "prefer-const": "warn"
+    }
+}
