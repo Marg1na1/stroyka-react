@@ -10,11 +10,11 @@ interface PopupState {
 const initialState: PopupState = {
     isOpenChengeLocate: false,
     isOpenAuth: false,
-    isOpenBurger: false
+    isOpenBurger: false,
 }
 
 export const popupSlice = createSlice({
-    name: 'popupState', 
+    name: 'popupState',
     initialState,
     reducers: {
         setToggleChengeLocate: (state, action: PayloadAction<boolean>) => {
@@ -30,6 +30,6 @@ export const popupSlice = createSlice({
 })
 
 
-export const { setToggleChengeLocate, setToggleOpenAuth, setToggleOpenBurger } = popupSlice.actions;
+export const { setToggleChengeLocate, setToggleOpenAuth, setToggleOpenBurger} = popupSlice.actions;
 
 export default popupSlice.reducer;

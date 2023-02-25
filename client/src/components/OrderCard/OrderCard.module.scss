@@ -122,7 +122,11 @@
         }
 
         &:active {
+            cursor: pointer;
+            background-color: var(--gunmetal-color);
             color: var(--light-gray-color);
+            border-color: var(--gunmetal-color);
+
         }
 
         @media (max-width: 300px) {

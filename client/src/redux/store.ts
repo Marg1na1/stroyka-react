@@ -1,23 +1,23 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import { stroykaApi } from './stroyka.api';
-import isAuthSlice from './slices/authSlice';
 import locateSlice from './slices/locateSlice';
 import confirmSlice from './slices/confirmSlice';
 import popupSlice from './slices/popupSlice';
 import errorSlice from './slices/errorSlice';
 import sortSlice from './slices/sortSlice';
+import confirmPopupSlice from './slices/confirmPopupSlice';
 import { useDispatch } from 'react-redux';
 
 export const store = configureStore({
     reducer: {
         [stroykaApi.reducerPath]: stroykaApi.reducer,
-        isAuth: isAuthSlice,
         locate: locateSlice,
         confirmSlice,
         popupSlice,
         errorSlice,
-        sortSlice
+        sortSlice,
+        confirmPopupSlice
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(stroykaApi.middleware),
 });

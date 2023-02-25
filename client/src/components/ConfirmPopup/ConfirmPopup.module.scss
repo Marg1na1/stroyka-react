@@ -1,0 +1,75 @@
+.popup {
+    padding: 36px;
+    background-color: var(--white-color);
+    max-width: 500px;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 130%;
+    color: var(--gunmetal-color);
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.descr {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 136%;
+    margin-bottom: 24px;
+    color: var(--gunmetal-color);
+    text-align: center;
+}
+
+.btns {
+    display: flex;
+    gap: 16px;
+}
+
+.btn {
+    height: 48px;
+    width: 50%;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 136%;
+    transition: var(--default-trans);
+    outline: none;
+    padding: 0;
+
+    &--cencel {
+        background-color: transparent;
+        border: 1px solid var(--eerie-black-color);
+
+        &:hover {
+            cursor: pointer;
+            background-color: var(--gunmetal-color);
+            color: var(--white-color);
+            border-color: var(--gunmetal-color);
+        }
+
+        &:active {
+            cursor: pointer;
+            background-color: var(--gunmetal-color);
+            color: var(--light-gray-color);
+            border-color: var(--gunmetal-color);
+        }
+    }
+
+    &--close {
+        border: none;
+        background-color: var(--yellow-color);
+
+        &:hover {
+            background-color: var(--gunmetal-color);
+            color: var(--white-color);
+        }
+
+        &:active {
+            cursor: pointer;
+            background-color: var(--gunmetal-color);
+            color: var(--light-gray-color);
+            border-color: var(--gunmetal-color);
+        }
+    }
+}

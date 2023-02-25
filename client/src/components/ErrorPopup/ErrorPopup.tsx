@@ -18,7 +18,7 @@ const ErrorPopup: FC<TErrorObj> = ({ errorCode, errorMessage }) => {
             <p className={style['error-descr']}>{errorMessage}</p>
             <button
                 className={style['error-btn']}
-                onClick={onClickUpdate}>Закрыть</button>
+                onClick={onClickUpdate}>Закрыть</button> 
         </div>
     );
 }

@@ -2,7 +2,6 @@ import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { useLoginMutation } from '../../redux/injected/injectedLogin';
-import { setIsAuth } from '../../redux/slices/authSlice';
 import { setToggleOpenAuth } from '../../redux/slices/popupSlice';
 import { useAppDispatch } from '../../redux/store';
 import style from './LoginModal.module.scss';

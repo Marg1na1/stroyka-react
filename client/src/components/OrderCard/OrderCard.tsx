@@ -2,9 +2,9 @@ import { FC } from 'react';
 import OrderItem from '../OrderItem/OrderItem';
 import OrderSkeleton from '../Skeletons/OrderSkeleton';
 import { ResponseOrderModel } from '../../@types/models';
-import { useErrorHandler } from '../../hooks/useErrorHandler';
 import { getCurrentPrice } from '../../utils/getCurrentPrice';
-import { useDeleteOrderMutation } from '../../redux/injected/injectedOrders';
+import { setDeletedId, setToggleOpenConfirm } from '../../redux/slices/confirmPopupSlice';
+import { useAppDispatch } from '../../redux/store';
 import style from './OrderCard.module.scss';
 
 type TOrderCard = {
@@ -14,21 +14,13 @@ type TOrderCard = {
 
 const OrderCard: FC<TOrderCard> = ({ obj, isLoading }) => {
 
+    const dispatch = useAppDispatch()
+
     const totalPrice = obj.items.reduce((acc, current) => acc + (getCurrentPrice(current.product.price, current.product.discountAmount) * +current.count), 0);
 
-    const [deleteOrder, deleteStatuses] = useDeleteOrderMutation();
-
-    const deleteErrorHandlerData = {
-        error: deleteStatuses.error,
-        isError: deleteStatuses.isError,
-        isClient: true,
-        errorMessage: 'Произошла ошибка при попытке отмены заказа',
-    }
-
-    useErrorHandler({ ...deleteErrorHandlerData })
-
     const cancelOrder = () => {
-        deleteOrder(obj.id)
+        dispatch(setToggleOpenConfirm(true))
+        dispatch(setDeletedId(obj.id))
     }
 
     const renderSkeleton = [...new Array(2)].map((_, index) => <OrderSkeleton key={index} />);
