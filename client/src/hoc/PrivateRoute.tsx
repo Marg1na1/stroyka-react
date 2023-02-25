@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import Loader from '../components/Loader/Loader';
 import { useIsAuth } from '../hooks/useIsAuth';
 import { setToggleOpenAuth } from '../redux/slices/popupSlice';
 import { useAppDispatch } from '../redux/store';
@@ -20,7 +21,7 @@ const PrivateRoute = ({ children }: PrivateRouteProps) => {
         dispatch(setToggleOpenAuth(true));
         goBack();
     } else if (isAuth === undefined) {
-        return null
+        return <Loader />
     } else {
         return children
     }

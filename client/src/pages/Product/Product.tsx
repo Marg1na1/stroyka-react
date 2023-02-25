@@ -5,11 +5,12 @@ import Headline from '../../components/Headline/Headline';
 import { categoryData } from '../../data/catalog.data';
 import { THeadlineBreadcrumbs } from '../../@types/globalTypes';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
+import EmptyPage from '../EmptyPage/EmptyPage';
+import { useErrorHandler } from '../../hooks/useErrorHandler';
+import Loader from '../../components/Loader/Loader';
 import { useParams } from 'react-router-dom';
 import { useGetProductQuery } from '../../redux/injected/injectedProduct';
 import style from './Product.module.scss';
-import EmptyPage from '../EmptyPage/EmptyPage';
-import { useErrorHandler } from '../../hooks/useErrorHandler';
 
 const Product: FC = () => {
 
@@ -29,13 +30,13 @@ const Product: FC = () => {
         path: '/',
     }
 
-    let testObj = {
+    let productType = {
         path: ' ',
         title: ' '
     };
 
     if (isSuccess) {
-        categoryData.forEach((obj) => obj.list.forEach((obj) => obj.path.split('/')[1] === data.type ? testObj = obj : null))
+        categoryData.forEach((obj) => obj.list.forEach((obj) => obj.path.split('/')[1] === data.type ? productType = obj : null))
     }
 
     const breadcrumbsArr: THeadlineBreadcrumbs[] = [
@@ -43,7 +44,7 @@ const Product: FC = () => {
         { title: '→', type: 'seperator' },
         { path: '/catalog', title: 'Каталог', type: 'link' },
         { title: '→', type: 'seperator' },
-        { path: `/catalog/${testObj.path}`, title: testObj.title, type: 'link' },
+        { path: `/catalog/${productType.path}`, title: productType.title, type: 'link' },
         { title: '→', type: 'seperator' },
         { path: '', title: isSuccess ? data.title : 'empty', type: 'link' },
     ]
@@ -51,30 +52,21 @@ const Product: FC = () => {
     const headData = {
         breadcrumbs: breadcrumbsArr,
     }
-
-    if (isError) {
+    if (isLoading) {
+        return <Loader />
+    }
+    else if (isError) {
         return <EmptyPage {...errorObj} />
-    } else if (isSuccess) {
-        return (
-            <section className={style['product-card']}>
-                <div className='container'>
-                    {
-                        isSuccess &&
-                        <>
-                            <Headline {...headData} />
-                            <ProductCard data={data} />
-                            <SimilarProduct type={data.type} />
-                        </>
-                    }
-                </div>
-            </section>
-        );
     } else {
         return (
             <section className={style['product-card']}>
-                <div className='container'>
-                    {/* <Headline {...headData} /> */}
-                </div>
+                {
+                    isSuccess && <div className='container'>
+                        <Headline {...headData} />
+                        <ProductCard data={data} />
+                        <SimilarProduct type={data.type} />
+                    </div>
+                }
             </section>
         );
     }

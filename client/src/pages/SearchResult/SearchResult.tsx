@@ -2,16 +2,15 @@ import { FC } from 'react';
 import SideFilter from '../../components/SideFilter/SideFilter';
 import EmptyPage from '../EmptyPage/EmptyPage';
 import SideSkeleton from '../../components/Skeletons/SideSkeleton';
-import Pagination from '../../components/Pagination/Pagination';
 import { cutString } from '../../utils/cutString';
-import { usePagination } from '../../hooks/usePagination';
 import SearchedMain from '../../components/SearchedMain/SearchedMain';
 import MobileSideWrapper from '../../components/MobileSideWrapper/MobileSideWrapper';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
+import { useErrorHandler } from '../../hooks/useErrorHandler';
+import { useSort } from '../../hooks/useSort';
 import { useLocation } from 'react-router-dom';
 import { useGetSearchedQuery } from '../../redux/injected/injectedSearched';
 import style from './SearchResult.module.scss';
-import { useErrorHandler } from '../../hooks/useErrorHandler';
 
 const SearchResult: FC = () => {
 
@@ -21,7 +20,14 @@ const SearchResult: FC = () => {
 
     const searchQuery = decodeURI(location.search.split('').slice(3, location.search.split('').length + 1).join(''))
 
-    const { data = [], isLoading, isSuccess, isError, error } = useGetSearchedQuery({ value: searchQuery, count: 12 });
+    const { sortState } = useSort();
+
+    const { data = [], isLoading, isSuccess, isError, error } = useGetSearchedQuery(
+        {
+            value: searchQuery,
+            sort: sortState.title
+        }
+    );
 
     const errorData = useErrorHandler({ error, isError });
 
@@ -42,15 +48,17 @@ const SearchResult: FC = () => {
     }
 
     if (isLoading) {
-        return (<section className={style['search-result']}>
-            <div className='container'>
-                <h1 className={style['title']}>Товары по запросу&nbsp; <div className={style['title-query']}>«<p className={style['title-query__item']}>{searchQuery}</p>»</div></h1>
-                <div className={style['wrapper']}>
-                    {<SideSkeleton />}
-                    <SearchedMain data={data} isLoading={isLoading} />
+        return (
+            <section className={style['search-result']}>
+                <div className='container'>
+                    <h1 className={style['title']}>Товары по запросу&nbsp; <div className={style['title-query']}>«<p className={style['title-query__item']}>{searchQuery}</p>»</div></h1>
+                    <div className={style['wrapper']}>
+                        {<SideSkeleton />}
+                        <SearchedMain data={data} isLoading={isLoading} />
+                    </div>
                 </div>
-            </div>
-        </section>)
+            </section>
+        );
     } else if (isError) {
         return <EmptyPage {...errorObj} />
     } else if (isSuccess && !data.length) {
@@ -69,7 +77,5 @@ const SearchResult: FC = () => {
         );
     }
 }
-
-
 
 export default SearchResult;

@@ -5,6 +5,7 @@ import EmptyPage from '../EmptyPage/EmptyPage';
 import { headData, emptyOrdersData } from '../../data/orders.data';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 import { useErrorHandler } from '../../hooks/useErrorHandler';
+import Loader from '../../components/Loader/Loader';
 import { useGetOrdersQuery } from '../../redux/injected/injectedOrders';
 import style from './Orders.module.scss';
 
@@ -22,11 +23,14 @@ const Orders: FC = () => {
         title: errorData.status,
         subtitle: 'Произошла ошибка',
         descr: 'Произошла ошибка при получении заказов попробуйте обновить страницу или зайдите позже',
-        link_txt: 'На главную',
+        link_txt: 'На главную', 
         path: '/',
     }
-
-    if (isError) {
+    
+    if (isLoading) {
+        return <Loader />
+    }
+    else if (isError) {
         return <EmptyPage {...errorObj} />
     }
     else if (isSuccess && !data.length) {

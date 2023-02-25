@@ -13,7 +13,7 @@ const injectedCategory = stroykaApi.injectEndpoints({
                 url: `products/`,
                 params: {
                     type: params.type,
-                    sortBy: params.sortParams
+                    sortBy: params.sortParams 
                 }
             }),
             providesTags: (result) =>

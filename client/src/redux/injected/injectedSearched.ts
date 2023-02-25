@@ -3,17 +3,19 @@ import { ProductModel } from '../../@types/models';
 
 type TSearchedParams = {
     value: string;
-    count: number;
+    count?: number;
+    sort?: string;
 }
 
 const injectedSearched = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
         getSearched: builder.query<ProductModel[], TSearchedParams>({
-            query: ({ count, value }) => ({
+            query: ({ count, value, sort }) => ({
                 url: `products/`,
                 params: {
                     q: value,
                     count: count,
+                    sortBy: sort
                 }
             }),
             providesTags: (result) =>
