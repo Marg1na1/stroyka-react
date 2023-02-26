@@ -1,6 +1,6 @@
 import { SerializedError } from '@reduxjs/toolkit';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
-import { useState, useLayoutEffect, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { setError } from '../redux/slices/errorSlice';
 import { useAppDispatch } from '../redux/store';
 import { setToggleOpenAuth } from '../redux/slices/popupSlice';
@@ -20,7 +20,8 @@ export const useErrorHandler = ({ error, isError, isClient = false, errorMessage
         status: 100,
         data: 'status'
     })
-    useLayoutEffect(() => {
+
+    useEffect(() => {
         if (error) {
             if ('status' in error) {
                 setErrorData(error)

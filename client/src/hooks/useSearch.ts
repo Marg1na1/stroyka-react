@@ -1,7 +1,7 @@
 import { useEffect, RefObject, KeyboardEvent } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-type TUseSearch = {
+type UseSearchParams = {
     isFocused: boolean;
     debounced: string;
     searchValue: string;
@@ -10,7 +10,7 @@ type TUseSearch = {
     formRef: RefObject<HTMLFormElement>;
 }
 
-export const useSearch = ({ isFocused, debounced, searchValue, setSearchValue, setDropdown, formRef }: TUseSearch) => {
+export const useSearch = ({ isFocused, debounced, searchValue, setSearchValue, setDropdown, formRef }: UseSearchParams) => {
 
     const navigate = useNavigate();
 

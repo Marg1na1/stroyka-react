@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import CartCard from '../../components/CartCard/CartCard';
-import CartSide from '../../components/CartSide/CartSide';
-import Headline from '../../components/Headline/Headline';
+import CartCard from './CartCard/CartCard';
+import CartSide from './CartSide/CartSide';
+import Headline from '../../components/ui/Headline/Headline';
 import EmptyPage from '../EmptyPage/EmptyPage';
 import Cartskeleton from '../../components/Skeletons/Cartskeleton';
 import { headData, emptyCartData } from '../../data/cart.data';
@@ -11,6 +11,7 @@ import SideSkeleton from '../../components/Skeletons/SideSkeleton';
 import clsx from 'clsx';
 import { useGetCartQuery } from '../../redux/injected/injectedCart';
 import style from './Cart.module.scss';
+
 
 const Cart: FC = () => {
 

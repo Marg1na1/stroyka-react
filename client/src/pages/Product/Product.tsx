@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import SimilarProduct from '../../components/SimilarProduct/SimilarProduct';
-import ProductCard from '../../components/ProductCard/ProductCard';
-import Headline from '../../components/Headline/Headline';
+import SimilarProduct from '../../components/Sections/SimilarProduct/SimilarProduct';
+import ProductCard from './ProductCard/ProductCard';
+import Headline from '../../components/ui/Headline/Headline';
 import { categoryData } from '../../data/catalog.data';
 import { THeadlineBreadcrumbs } from '../../@types/globalTypes';
 import { useScrollToTop } from '../../hooks/useScrollToTop';

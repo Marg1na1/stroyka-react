@@ -1,11 +1,10 @@
 import { FC } from 'react';
-import Headline from '../../components/Headline/Headline';
-import YMap from '../../components/YMap/YMap';
-import Hero from '../../components/Hero/Hero';
+import Headline from '../../components/ui/Headline/Headline';
+import YMap from '../../components/Sections/YMap/YMap';
+import Hero from '../../components/Sections/Hero/Hero';
 import { contactsContent, headData } from '../../data/contacts.data';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 import style from './Contacts.module.scss';
-
 
 const Contacts: FC = () => {
 

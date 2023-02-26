@@ -3,10 +3,10 @@ import FooterLogotype from '../../Icons/FooterLogotye';
 import MailIcon from '../../Icons/MailIcon';
 import Locate from '../../Icons/Locate';
 import SlimArrowIcon from '../../Icons/SlimArrowIcon';
-import { Link } from 'react-router-dom';
-import style from './Footer.module.scss';
-import clsx from 'clsx';
 import { navItems } from '../../data/footer.data';
+import { Link } from 'react-router-dom';
+import clsx from 'clsx';
+import style from './Footer.module.scss';
 
 const visa = './../assets/images/visa_logo.svg';
 const mastercard = './../assets/images/mastercard_logo.svg';

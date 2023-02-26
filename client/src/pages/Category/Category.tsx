@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import SideFilter from '../../components/SideFilter/SideFilter';
-import Headline from '../../components/Headline/Headline';
-import CategoryMain from '../../components/CategoryMain/CategoryMain';
+import SideFilter from '../../components/ui/SideFilter/SideFilter';
+import Headline from '../../components/ui/Headline/Headline';
+import CategoryMain from './CategoryMain/CategoryMain';
 import SideSkeleton from '../../components/Skeletons/SideSkeleton';
 import { THeadlineBreadcrumbs } from '../../@types/globalTypes';
 import { TCategory } from '../../data/catalog.data';
-import MobileSideWrapper from '../../components/MobileSideWrapper/MobileSideWrapper';
+import MobileSideWrapper from '../../components/ui/SideFilter/MobileSideWrapper/MobileSideWrapper';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 import EmptyPage from '../EmptyPage/EmptyPage';
 import { useErrorHandler } from '../../hooks/useErrorHandler';
@@ -14,6 +14,7 @@ import clsx from 'clsx';
 import { useParams } from 'react-router-dom';
 import { useGetCategoryItemsQuery } from '../../redux/injected/injectedCategory';
 import style from './Category.module.scss';
+
 
 const Category: FC<{ categoryData: TCategory[] }> = ({ categoryData }) => {
 

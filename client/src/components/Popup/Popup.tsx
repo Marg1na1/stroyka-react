@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 import { useControlPopup } from '../../hooks/useControlPopup';
-import Portal from '../Portal/Portal';
+import Portal from './Portal/Portal';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import style from './Popup.module.scss';
 

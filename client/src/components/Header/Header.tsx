@@ -1,9 +1,9 @@
 import { FC, useState } from 'react';
-import HeaderMain from '../HeaderMain/HeaderMain';
+import HeaderMain from './HeaderMain/HeaderMain';
 import Confirm from '../Confirm/Confirm';
 import Locate from '../../Icons/Locate';
-import Burger from '../Burger/Burger';
 import Modals from '../Modals/Modals';
+import Burger from '../ui/Burger/Burger';
 import { useLocate } from '../../hooks/useLocate';
 import { additionalItems, breadCrumbs, } from '../../data/header.data';
 import clsx from 'clsx';

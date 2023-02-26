@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import SideFilter from '../../components/SideFilter/SideFilter';
+import SideFilter from '../../components/ui/SideFilter/SideFilter';
 import EmptyPage from '../EmptyPage/EmptyPage';
 import SideSkeleton from '../../components/Skeletons/SideSkeleton';
 import { cutString } from '../../utils/cutString';
-import SearchedMain from '../../components/SearchedMain/SearchedMain';
-import MobileSideWrapper from '../../components/MobileSideWrapper/MobileSideWrapper';
+import SearchedMain from './SearchedMain/SearchedMain';
+import MobileSideWrapper from '../../components/ui/SideFilter/MobileSideWrapper/MobileSideWrapper';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 import { useErrorHandler } from '../../hooks/useErrorHandler';
 import { useSort } from '../../hooks/useSort';

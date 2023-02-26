@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import Headline from '../../components/Headline/Headline';
-import OrderCard from '../../components/OrderCard/OrderCard';
+import Headline from '../../components/ui/Headline/Headline';
+import OrderCard from './OrderCard/OrderCard';
 import EmptyPage from '../EmptyPage/EmptyPage';
 import { headData, emptyOrdersData } from '../../data/orders.data';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
@@ -23,10 +23,10 @@ const Orders: FC = () => {
         title: errorData.status,
         subtitle: 'Произошла ошибка',
         descr: 'Произошла ошибка при получении заказов попробуйте обновить страницу или зайдите позже',
-        link_txt: 'На главную', 
+        link_txt: 'На главную',
         path: '/',
     }
-    
+
     if (isLoading) {
         return <Loader />
     }

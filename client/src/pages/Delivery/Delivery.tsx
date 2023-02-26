@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
-import FAQItem from '../../components/FAQItem/FAQItem';
-import Headline from '../../components/Headline/Headline';
+import FAQItem from './FAQItem/FAQItem';
+import Headline from '../../components/ui/Headline/Headline';
 import { headData, tutorialArr, FAQData } from '../../data/delivery.data';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 import clsx from 'clsx';

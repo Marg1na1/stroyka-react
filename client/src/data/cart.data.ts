@@ -1,4 +1,5 @@
 import { THeadlineBreadcrumbs } from './../@types/globalTypes';
+
 const breadcrumbsArr: THeadlineBreadcrumbs[] = [
     { path: '/', title: 'Главная', type: 'link' },
     { title: '→', type: 'seperator' },
