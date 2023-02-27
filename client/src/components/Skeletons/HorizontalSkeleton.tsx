@@ -1,7 +1,7 @@
 import { FC } from "react";
 import ContentLoader from "react-content-loader"
 
-const HorizontalSkeleton: FC = () => (
+export const HorizontalSkeleton: FC = () => (
     <ContentLoader 
     speed={2}
     width={572}
@@ -17,5 +17,3 @@ const HorizontalSkeleton: FC = () => (
     <rect x="291" y="160" rx="0" ry="0" width="262" height="48" />
   </ContentLoader>
 )
-
-export default HorizontalSkeleton

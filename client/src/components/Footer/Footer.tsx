@@ -1,8 +1,8 @@
 import { FC, useState } from 'react';
-import FooterLogotype from '../../Icons/FooterLogotye';
-import MailIcon from '../../Icons/MailIcon';
-import Locate from '../../Icons/Locate';
-import SlimArrowIcon from '../../Icons/SlimArrowIcon';
+import { FooterLogotype } from '../../Icons/FooterLogotye';
+import { MailIcon } from '../../Icons/MailIcon';
+import { Locate } from '../../Icons/Locate';
+import { SlimArrowIcon } from '../../Icons/SlimArrowIcon';
 import { navItems } from '../../data/footer.data';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';

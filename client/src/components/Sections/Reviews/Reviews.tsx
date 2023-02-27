@@ -1,8 +1,8 @@
 import { FC, memo, useEffect, useState } from 'react';
 import { useErrorHandler } from '../../../hooks/useErrorHandler';
-import ErrorSection from '../ErrorSection/ErrorSection';
-import ReviewsSlide from '../../ui/ReviewsSlide/ReviewsSlide';
-import ReviewSkeleton from '../../Skeletons/ReviewSkeleton';
+import { ErrorSection } from '../ErrorSection';
+import { ReviewsSlide } from '../../ui/ReviewsSlide';
+import { ReviewSkeleton } from '../../Skeletons/ReviewSkeleton';
 import { useGetReviewsQuery } from '../../../redux/injected/injectedReviews';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import style from './Reviews.module.scss';

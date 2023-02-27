@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import OrderItem from '../OrderItem/OrderItem';
-import OrderSkeleton from '../../../components/Skeletons/OrderSkeleton';
+import { OrderItem } from '../OrderItem';
+import { OrderSkeleton } from '../../../components/Skeletons/OrderSkeleton';
 import { ResponseOrderModel } from '../../../@types/models';
 import { getCurrentPrice } from '../../../utils/getCurrentPrice';
 import { setDeletedId, setToggleOpenConfirm } from '../../../redux/slices/confirmPopupSlice';

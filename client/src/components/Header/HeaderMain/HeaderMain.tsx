@@ -1,9 +1,9 @@
 import { FC, useEffect, useRef } from 'react';
-import HeaderSearch from '../HeaderSearch/HeaderSearch';
-import Logotype from '../../../Icons/Logotype';
-import ProfileIcon from '../../../Icons/ProfileIcon';
-import OrdersIcon from '../../../Icons/OrdersIcon';
-import CartIcon from '../../../Icons/CartIcon';
+import { HeaderSearch } from '../HeaderSearch';
+import { Logotype } from '../../../Icons/Logotype';
+import { ProfileIcon } from '../../../Icons/ProfileIcon';
+import { OrdersIcon } from '../../../Icons/OrdersIcon';
+import { CartIcon } from '../../../Icons/CartIcon';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import style from './HeaderMain.module.scss';

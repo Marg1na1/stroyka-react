@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { additionalItems } from '../../../data/header.data';
-import CartIcon from '../../../Icons/CartIcon';
-import Logotype from '../../../Icons/Logotype';
-import OrdersIcon from '../../../Icons/OrdersIcon';
-import ProfileIcon from '../../../Icons/ProfileIcon';
+import { CartIcon } from '../../../Icons/CartIcon';
+import { Logotype } from '../../../Icons/Logotype';
+import { OrdersIcon } from '../../../Icons/OrdersIcon';
+import { ProfileIcon } from '../../../Icons/ProfileIcon';
 import { Link } from 'react-router-dom';
 import { setToggleOpenBurger } from '../../../redux/slices/popupSlice';
 import { useAppDispatch } from '../../../redux/store';

@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { ProductModel } from '../../../@types/models';
-import Card from '../../../components/Card/Card';
-import Skeleton from '../../../components/Skeletons/Skeleton';
-import Pagination from '../../../components/ui/Pagination/Pagination';
-import Sort from '../../../components/ui/Sort/Sort';
+import { Card } from '../../../components/ui/Card';
+import { Skeleton } from '../../../components/Skeletons/Skeleton';
+import { Pagination } from '../../../components/ui/Pagination';
+import { Sort } from '../../../components/ui/Sort';
 import { usePagination } from '../../../hooks/usePagination';
 import style from './SearchedMain.module.scss';
 

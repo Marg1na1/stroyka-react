@@ -1,13 +1,13 @@
 import { FC } from 'react';
-import SimilarProduct from '../../components/Sections/SimilarProduct/SimilarProduct';
-import ProductCard from './ProductCard/ProductCard';
-import Headline from '../../components/ui/Headline/Headline';
+import { SimilarProduct } from '../../components/Sections/SimilarProduct';
+import { ProductCard } from './ProductCard';
+import { Headline } from '../../components/ui/Headline';
 import { categoryData } from '../../data/catalog.data';
 import { THeadlineBreadcrumbs } from '../../@types/globalTypes';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
-import EmptyPage from '../EmptyPage/EmptyPage';
+import { EmptyPage } from '../EmptyPage';
 import { useErrorHandler } from '../../hooks/useErrorHandler';
-import Loader from '../../components/Loader/Loader';
+import { Loader } from '../../components/Loader';
 import { useParams } from 'react-router-dom';
 import { useGetProductQuery } from '../../redux/injected/injectedProduct';
 import style from './Product.module.scss';

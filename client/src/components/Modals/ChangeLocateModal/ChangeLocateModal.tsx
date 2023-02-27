@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import SearchIcon from '../../../Icons/SearchIcon';
+import { SearchIcon } from '../../../Icons/SearchIcon';
 import { cities } from '../../../data/cities.data';
 import { setLocality } from '../../../redux/slices/locateSlice';
 import { setToggleChengeLocate } from '../../../redux/slices/popupSlice';

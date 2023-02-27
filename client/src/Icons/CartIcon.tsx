@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-const CartIcon: FC = () => {
+export const CartIcon: FC = () => {
     return (
         <svg fill='none' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' width={24} height={24}>
             <path d='m9 22c0.55228 0 1-0.4477 1-1s-0.44772-1-1-1-1 0.4477-1 1 0.44772 1 1 1z' stroke='#5D6066' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' />
@@ -9,5 +9,3 @@ const CartIcon: FC = () => {
         </svg>
     );
 }
-
-export default CartIcon;

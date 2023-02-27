@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { TBrands } from '../../../@types/globalTypes';
-import MarkIcon from '../../../Icons/MarkIcon';
+import { MarkIcon } from '../../../Icons/MarkIcon';
 import clsx from 'clsx';
 import style from './BrandsRow.module.scss';
 

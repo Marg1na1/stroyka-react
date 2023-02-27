@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-const Logotype: FC = () => {
+export const Logotype: FC = () => {
     return (
         <svg width={180} height={46} viewBox='0 0 180 46' xmlns='http://www.w3.org/2000/svg'>
             <rect x='1.7882' y='7.1528' width='35.764' height='35.764' rx='5.9607' fill='#FCEC41' />
@@ -23,5 +23,3 @@ const Logotype: FC = () => {
         </svg>
     );
 }
-
-export default Logotype;

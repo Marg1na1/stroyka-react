@@ -2,8 +2,8 @@ import { FC, useRef, useState } from 'react';
 import { useCloseHandler } from '../../../hooks/useCloseHandler';
 import { useDebounce } from '../../../hooks/useDebounce';
 import { useSearch } from '../../../hooks/useSearch';
-import SearchIcon from '../../../Icons/SearchIcon';
-import Dropdown from '../../ui/Dropdown/Dropdown';
+import { SearchIcon } from '../../../Icons/SearchIcon';
+import { Dropdown } from '../../ui/Dropdown';
 import { useGetSearchedQuery } from '../../../redux/injected/injectedSearched';
 import style from './HeaderSearch.module.scss';
 

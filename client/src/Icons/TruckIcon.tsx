@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-const TruckIcon: FC = () => {
+export const TruckIcon: FC = () => {
     return (
         <svg width={24} height={24} fill='none' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
             <path d='M16 3H1V16H16V3Z' stroke='#5D6066' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' />
@@ -10,5 +10,3 @@ const TruckIcon: FC = () => {
         </svg>
     );
 }
-
-export default TruckIcon;

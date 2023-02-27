@@ -1,7 +1,7 @@
 import { FC } from "react"
 import ContentLoader from "react-content-loader"
 
-const ReviewSkeleton: FC = () => (
+export const ReviewSkeleton: FC = () => (
     <ContentLoader
         speed={2}
         width={339}
@@ -23,5 +23,3 @@ const ReviewSkeleton: FC = () => (
         <rect x="24" y="281" rx="0" ry="0" width="118" height="18" />
     </ContentLoader>
 )
-
-export default ReviewSkeleton

@@ -1,7 +1,7 @@
 import { FC } from "react"
 import ContentLoader from "react-content-loader"
 
-const SearchSkeletonCard: FC = () => (
+export const SearchSkeletonCard: FC = () => (
     <ContentLoader
         speed={2}
         width={400}
@@ -17,5 +17,3 @@ const SearchSkeletonCard: FC = () => (
         <rect x="303" y="74" rx="0" ry="0" width="97" height="28" />
     </ContentLoader>
 )
-
-export default SearchSkeletonCard;

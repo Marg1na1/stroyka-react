@@ -1,9 +1,9 @@
 import { FC, useEffect, useState } from 'react';
 import { CartProductModel } from '../../../@types/models';
 import { useErrorHandler } from '../../../hooks/useErrorHandler';
-import BoxIcon from '../../../Icons/BoxIcon';
-import InfoIcon from '../../../Icons/InfoIcon';
-import TruckIcon from '../../../Icons/TruckIcon';
+import { BoxIcon } from '../../../Icons/BoxIcon';
+import { InfoIcon } from '../../../Icons/InfoIcon';
+import { TruckIcon } from '../../../Icons/TruckIcon';
 import { getCurrentPrice } from '../../../utils/getCurrentPrice';
 import { useAddOrderMutation } from '../../../redux/injected/injectedOrders';
 import style from './CartSide.module.scss';

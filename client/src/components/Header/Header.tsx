@@ -1,11 +1,11 @@
 import { FC, useState } from 'react';
-import HeaderMain from './HeaderMain/HeaderMain';
-import Confirm from '../Confirm/Confirm';
-import Locate from '../../Icons/Locate';
-import Modals from '../Modals/Modals';
-import Burger from '../ui/Burger/Burger';
+import { HeaderMain } from './HeaderMain';
+import { Confirm } from '../Confirm';
+import { Modals } from '../Modals';
+import { Burger } from '../ui/Burger';
 import { useLocate } from '../../hooks/useLocate';
 import { additionalItems, breadCrumbs, } from '../../data/header.data';
+import { Locate } from '../../Icons/Locate';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';

@@ -1,14 +1,14 @@
 import { FC, useState, useEffect } from 'react';
 import { useSort } from '../../../hooks/useSort';
 import { SortTypeModel } from '../../../@types/models';
-import MarkIcon from '../../../Icons/MarkIcon';
+import { MarkIcon } from '../../../Icons/MarkIcon';
 import clsx from 'clsx';
 import style from './Sort.module.scss';
 
 const Sort: FC = () => {
 
     const { sortState, onClickSortItem } = useSort();
-    
+
     const [dropdown, setDropdown] = useState(false);
 
     useEffect(() => {

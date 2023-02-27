@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 import { useControlPopup } from '../../hooks/useControlPopup';
-import Portal from './Portal/Portal';
+import { Portal } from './Portal';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import style from './Popup.module.scss';
 
@@ -16,7 +16,7 @@ const Popup: FC<TPopup> = ({ children, close, isOpen }) => {
 
     if (!isOpen) {
         return null
-    } 
+    }
 
     return (
         <Portal>

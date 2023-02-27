@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import Headline from '../../components/ui/Headline/Headline';
-import YMap from '../../components/Sections/YMap/YMap';
-import Hero from '../../components/Sections/Hero/Hero';
+import { Headline } from '../../components/ui/Headline';
+import { YMap } from '../../components/Sections/YMap';
+import { Hero } from '../../components/Sections/Hero';
 import { contactsContent, headData } from '../../data/contacts.data';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 import style from './Contacts.module.scss';

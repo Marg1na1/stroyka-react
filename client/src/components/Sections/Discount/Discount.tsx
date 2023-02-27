@@ -1,9 +1,9 @@
 import { FC, useState, useEffect, memo } from 'react';
-import Card from '../../Card/Card';
-import HorizontalSkeleton from '../../Skeletons/HorizontalSkeleton';
-import Skeleton from '../../Skeletons/Skeleton';
-import MarkIcon from '../../../Icons/MarkIcon';
-import ErrorSection from '../ErrorSection/ErrorSection';
+import { Card } from '../../ui/Card';
+import { HorizontalSkeleton } from '../../Skeletons/HorizontalSkeleton';
+import { Skeleton } from '../../Skeletons/Skeleton';
+import { MarkIcon } from '../../../Icons/MarkIcon';
+import { ErrorSection } from '../ErrorSection';
 import { useErrorHandler } from '../../../hooks/useErrorHandler';
 import clsx from 'clsx';
 import { useGetDiscountedProductsQuery } from '../../../redux/injected/injectedDiscount';

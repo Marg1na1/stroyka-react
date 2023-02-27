@@ -2,11 +2,11 @@ import { FC, useEffect } from 'react';
 import { useInputHandler } from '../../../hooks/useInputHandler';
 import { CartProductModel } from '../../../@types/models';
 import { useDebounce } from '../../../hooks/useDebounce';
-import { useErrorHandler } from '../../../hooks/useErrorHandler';
+import { useErrorHandler } from '../../../hooks/useErrorHandler'
+import { getCurrentPrice } from '../../../utils/getCurrentPrice';;
 import clsx from 'clsx';
 import { useChangeCartItemMutation, useDeleteCartItemMutation } from '../../../redux/injected/injectedCart';
 import style from './CartCard.module.scss';
-import { getCurrentPrice } from '../../../utils/getCurrentPrice';
 
 const CartCard: FC<CartProductModel> = ({ count, product }) => {
 

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import TruckIcon from '../../../Icons/TruckIcon';
+import { TruckIcon } from '../../../Icons/TruckIcon';
 import { ProductModel } from '../../../@types/models';
 import { useInputHandler } from '../../../hooks/useInputHandler';
 import { useAddProduct } from '../../../hooks/useAddProduct';

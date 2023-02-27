@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import BrandsRow from './BrandsRow/BrandsRow';
-import Headline from '../../components/ui/Headline/Headline';
+import { BrandsRow } from './BrandsRow';
+import { Headline } from '../../components/ui/Headline';
 import { headData } from '../../data/brands.data';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
-import Loader from '../../components/Loader/Loader';
+import { Loader } from '../../components/Loader';
 import { useErrorHandler } from '../../hooks/useErrorHandler';
-import EmptyPage from '../EmptyPage/EmptyPage';
+import {EmptyPage} from '../EmptyPage';
 import { useGetBrandsQuery } from '../../redux/injected/injectedBrands';
 import clsx from 'clsx';
 import style from './Brands.module.scss';

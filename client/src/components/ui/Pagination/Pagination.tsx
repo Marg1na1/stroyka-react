@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import BoldArrowIcon from '../../../Icons/BoldArrowIcon';
+import { BoldArrowIcon } from '../../../Icons/BoldArrowIcon';
 import clsx from 'clsx';
 import style from './Pagination.module.scss';
 

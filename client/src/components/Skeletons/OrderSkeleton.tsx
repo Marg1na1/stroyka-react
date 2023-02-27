@@ -1,7 +1,7 @@
 import {FC} from 'react'
 import ContentLoader from 'react-content-loader'
 
-const OrderSkeleton: FC = () => (
+export const OrderSkeleton: FC = () => (
   <ContentLoader 
     speed={2}
     width={530}
@@ -19,4 +19,3 @@ const OrderSkeleton: FC = () => (
   </ContentLoader>
 )
 
-export default OrderSkeleton;

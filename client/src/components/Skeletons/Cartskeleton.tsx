@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import ContentLoader from 'react-content-loader'
 
-const Cartskeleton: FC = () => (
+export const Cartskeleton: FC = () => (
     <ContentLoader
         speed={2}
         width={570}
@@ -16,5 +16,3 @@ const Cartskeleton: FC = () => (
         <rect x='276' y='99' rx='0' ry='0' width='51' height='27' />
     </ContentLoader>
 )
-
-export default Cartskeleton;

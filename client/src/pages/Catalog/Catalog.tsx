@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import CatalogItem from './CatalogItem/CatalogItem';
-import Headline from '../../components/ui/Headline/Headline';
-import Loader from '../../components/Loader/Loader';
-import EmptyPage from '../EmptyPage/EmptyPage';
+import { CatalogItem } from './CatalogItem';
+import { Headline } from '../../components/ui/Headline';
+import { Loader } from '../../components/Loader';
+import { EmptyPage } from '../EmptyPage';
 import { headData } from '../../data/catalog.data';
 import { useErrorHandler } from '../../hooks/useErrorHandler';
 import { useScrollToTop } from '../../hooks/useScrollToTop';

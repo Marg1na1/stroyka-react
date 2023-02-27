@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import Headline from '../../components/ui/Headline/Headline';
+import { Headline } from '../../components/ui/Headline';
 import { headData, refundList } from '../../data/refund.data';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 import style from './Refund.module.scss';

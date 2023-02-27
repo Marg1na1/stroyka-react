@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import Headline from '../../components/ui/Headline/Headline';
-import OrderCard from './OrderCard/OrderCard';
-import EmptyPage from '../EmptyPage/EmptyPage';
+import { Headline } from '../../components/ui/Headline';
+import {OrderCard} from './OrderCard';
+import { EmptyPage } from '../EmptyPage';
 import { headData, emptyOrdersData } from '../../data/orders.data';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 import { useErrorHandler } from '../../hooks/useErrorHandler';
-import Loader from '../../components/Loader/Loader';
+import { Loader } from '../../components/Loader';
 import { useGetOrdersQuery } from '../../redux/injected/injectedOrders';
 import style from './Orders.module.scss';
 

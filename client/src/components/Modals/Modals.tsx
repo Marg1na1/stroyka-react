@@ -1,10 +1,10 @@
 import { FC, memo, useEffect } from 'react';
-import BurgerDropdown from './BurgerDropdown/BurgerDropdown';
-import ChangeLocateModal from './ChangeLocateModal/ChangeLocateModal';
-import LoginModal from './LoginModal/LoginModal';
-import Popup from '../Popup/Popup';
-import ErrorPopup from './ErrorPopup/ErrorPopup';
-import ConfirmPopup from './ConfirmPopup/ConfirmPopup';
+import { BurgerDropdown } from './BurgerDropdown';
+import { ChangeLocateModal } from './ChangeLocateModal';
+import { LoginModal } from './LoginModal';
+import { ErrorPopup } from './ErrorPopup';
+import { ConfirmPopup } from './ConfirmPopup';
+import { Popup } from '../Popup';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { setToggleChengeLocate, setToggleOpenAuth } from '../../redux/slices/popupSlice';

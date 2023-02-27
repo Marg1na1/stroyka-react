@@ -1,5 +1,5 @@
 import { FC, Fragment } from 'react';
-import MarkIcon from '../../../Icons/MarkIcon';
+import { MarkIcon } from '../../../Icons/MarkIcon';
 import clsx from 'clsx';
 import style from './FAQItem.module.scss';
 

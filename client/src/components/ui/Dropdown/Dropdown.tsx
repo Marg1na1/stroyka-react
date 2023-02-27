@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { ProductModel } from '../../../@types/models';
-import SearchedCard from '../../../pages/SearchResult/SearchedCard/SearchedCard';
-import SearchSkeletonCard from '../../Skeletons/SearchSkeletonCard';
+import {SearchedCard} from '../../../pages/SearchResult/SearchedCard';
+import { SearchSkeletonCard } from '../../Skeletons/SearchSkeletonCard';
 import style from './Dropdown.module.scss';
 
 type DropdownProps = {

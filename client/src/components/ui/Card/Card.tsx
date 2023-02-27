@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
-import { useAddProduct } from '../../hooks/useAddProduct';
-import { getCurrentPrice } from '../../utils/getCurrentPrice';
+import { useAddProduct } from '../../../hooks/useAddProduct';
+import { getCurrentPrice } from '../../../utils/getCurrentPrice';
 import { Link } from 'react-router-dom';
 import style from './Card.module.scss';
 

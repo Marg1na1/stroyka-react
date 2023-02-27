@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import BoldArrowIcon from '../../../Icons/BoldArrowIcon';
+import { BoldArrowIcon } from '../../../Icons/BoldArrowIcon';
 import { sliderData } from '../../../data/slider.data';
 import clsx from 'clsx';
 import { Swiper, SwiperSlide } from 'swiper/react';

@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import Discount from '../../components/Sections/Discount/Discount';
-import HeroSlider from '../../components/Sections/Slider/Slider';
-import PopularProducts from '../../components/Sections/PopularProducts/PopularProducts';
-import Hero from '../../components/Sections/Hero/Hero';
-import Reviews from '../../components/Sections/Reviews/Reviews';
+import { Discount } from '../../components/Sections/Discount';
+import { Slider } from '../../components/Sections/Slider';
+import { PopularProducts } from '../../components/Sections/PopularProducts';
+import { Hero } from '../../components/Sections/Hero';
+import { Reviews } from '../../components/Sections/Reviews';
 import style from './Home.module.scss';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 
@@ -13,7 +13,7 @@ const Home: FC = () => {
 
     return (
         <section className={style['home']}>
-            <HeroSlider />
+            <Slider />
             <Discount />
             <PopularProducts />
             <Reviews />

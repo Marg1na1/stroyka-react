@@ -1,7 +1,7 @@
 import { FC } from "react"
 import ContentLoader from "react-content-loader"
 
-const SideSkeleton: FC = () => (
+export const SideSkeleton: FC = () => (
     <ContentLoader
         speed={2}
         width={278}
@@ -20,5 +20,3 @@ const SideSkeleton: FC = () => (
         <rect x="16" y="342" rx="0" ry="0" width="246" height="48" />
     </ContentLoader>
 )
-
-export default SideSkeleton

@@ -1,8 +1,8 @@
 import { FC, memo, useEffect, useState } from 'react';
-import Card from '../../Card/Card';
-import Skeleton from '../../Skeletons/Skeleton';
+import { Card } from '../../ui/Card';
+import { Skeleton } from '../../Skeletons/Skeleton';
 import { useErrorHandler } from '../../../hooks/useErrorHandler';
-import ErrorSection from '../ErrorSection/ErrorSection';
+import { ErrorSection } from '../ErrorSection';
 import { useGetPopularProductsQuery } from '../../../redux/injected/injectedPopularProducts';
 import style from './PopularProducts.module.scss';
 

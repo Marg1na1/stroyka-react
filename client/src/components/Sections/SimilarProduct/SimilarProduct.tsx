@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import Card from '../../Card/Card';
-import Skeleton from '../../Skeletons/Skeleton';
+import { Card } from '../../ui/Card';
+import { Skeleton } from '../../Skeletons/Skeleton';
 import { useErrorHandler } from '../../../hooks/useErrorHandler';
-import ErrorSection from '../ErrorSection/ErrorSection';
+import { ErrorSection } from '../ErrorSection';
 import { useGetSimilarQuery } from '../../../redux/injected/injectedSimilarProducts';
 import style from './SimilarProduct.module.scss';
 
