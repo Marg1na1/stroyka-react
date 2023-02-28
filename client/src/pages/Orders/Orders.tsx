@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import { Headline } from '../../components/ui/Headline';
-import {OrderCard} from './OrderCard';
-import { EmptyPage } from '../EmptyPage';
-import { headData, emptyOrdersData } from '../../data/orders.data';
-import { useScrollToTop } from '../../hooks/useScrollToTop';
-import { useErrorHandler } from '../../hooks/useErrorHandler';
-import { Loader } from '../../components/Loader';
-import { useGetOrdersQuery } from '../../redux/injected/injectedOrders';
+import { OrderCard } from 'components/OrderCard';
+import { EmptyPage } from 'pages/EmptyPage';
+import { headData, emptyOrdersData } from 'data/orders.data';
+import { useScrollToTop } from 'hooks/useScrollToTop';
+import { useErrorHandler } from 'hooks/useErrorHandler';
+import { Loader } from 'spinners/Loader';
+import { Headline } from 'components/Headline';
+import { useGetOrdersQuery } from 'redux/injected/injectedOrders';
 import style from './Orders.module.scss';
 
 const Orders: FC = () => {

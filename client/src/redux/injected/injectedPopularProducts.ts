@@ -1,5 +1,5 @@
-import { stroykaApi } from '../stroyka.api';
-import { ProductModel } from '../../@types/models';
+import { stroykaApi } from 'redux/stroyka.api';
+import { ProductModel } from '../../types/models';
 
 const injectedPopularProducts = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
@@ -9,8 +9,6 @@ const injectedPopularProducts = stroykaApi.injectEndpoints({
                 params: {
                     count: count,
                     sortBy: 'popular',
-                    // order: 'desc',
-                    // p: 1,
                 }
             }),
             providesTags: (result) =>

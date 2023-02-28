@@ -1,6 +1,6 @@
-import { THeadlineBreadcrumbs } from './../@types/globalTypes';
+import { BreadcrumbsModel } from "types/models";
 
-const breadcrumbsArr: THeadlineBreadcrumbs[] = [
+const breadcrumbsArr: BreadcrumbsModel[] = [
     { path: '/', title: 'Главная', type: 'link' },
     { title: '→', type: 'seperator' },
     { path: ' ', title: 'Заказы', type: 'link' }
@@ -10,7 +10,7 @@ export const headData = {
     breadcrumbs: breadcrumbsArr,
     title: "Заказы",
     layout: './../assets/images/layouts/orders-layout.webp',
-}; 
+};
 
 export const emptyOrdersData = {
     title: 'Упс!',

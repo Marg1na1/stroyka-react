@@ -1,9 +1,6 @@
 import { FC, useState } from 'react';
-import { FooterLogotype } from '../../Icons/FooterLogotye';
-import { MailIcon } from '../../Icons/MailIcon';
-import { Locate } from '../../Icons/Locate';
-import { SlimArrowIcon } from '../../Icons/SlimArrowIcon';
-import { navItems } from '../../data/footer.data';
+import { FooterLogo, Locate, MailIcon, SlimArrowIcon } from 'icons';
+import { navItems } from 'data/footer.data';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import style from './Footer.module.scss';
@@ -35,7 +32,7 @@ const Footer: FC = () => {
                 <div className={style['footer-main']}>
                     <div className={style['footer-contacts']}>
                         <Link to={'/'}>
-                            <FooterLogotype />
+                            <FooterLogo />
                         </Link>
                         <a href='mailto:info@stroykastore.ru' className={style['email']}>
                             <MailIcon />

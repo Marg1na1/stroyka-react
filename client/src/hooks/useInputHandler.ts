@@ -1,12 +1,12 @@
 import { ChangeEvent, useState } from 'react';
 
-type InputHandlerProps = {
+type Props = {
     min: number;
     max: number;
     defaultCount: number;
 }
 
-export const useInputHandler = ({ min, max, defaultCount }: InputHandlerProps) => {
+export const useInputHandler = ({ min, max, defaultCount }: Props) => {
 
     const [productAmount, setProductAmount] = useState(defaultCount);
 

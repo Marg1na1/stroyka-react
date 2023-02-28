@@ -1,4 +1,4 @@
-export const cities:string[] = [
+export const cities: string[] = [
     'Москва',
     'Санкт-Петербург',
     'Новосибирск',

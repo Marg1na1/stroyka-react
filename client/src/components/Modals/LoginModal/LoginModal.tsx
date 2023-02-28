@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { useLoginMutation } from '../../../redux/injected/injectedLogin';
-import { setToggleOpenAuth } from '../../../redux/slices/popupSlice';
-import { useAppDispatch } from '../../../redux/store';
+import { useLoginMutation } from 'redux/injected/injectedLogin';
+import { setToggleOpenAuth } from 'redux/slices/popupSlice';
+import { useAppDispatch } from 'redux/store';
 import style from './LoginModal.module.scss';
 
-type TLoginInputs = {
+type LoginInputsModel = {
     email: string;
     password: string;
 }
@@ -20,7 +20,7 @@ const LoginModal: FC = () => {
         formState: {
             errors
         }
-    } = useForm<TLoginInputs>({
+    } = useForm<LoginInputsModel>({
         mode: 'onChange'
     });
 
@@ -32,7 +32,7 @@ const LoginModal: FC = () => {
 
     const [loginUser] = useLoginMutation();
 
-    const onSubmit = async (data: TLoginInputs) => {
+    const onSubmit = async (data: LoginInputsModel) => {
         const response = await loginUser(data)
         if ('data' in response) {
             document.cookie = `token=${response.data.token}`;

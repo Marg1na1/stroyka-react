@@ -1,5 +1,5 @@
-import { useEffect, useState, useLayoutEffect } from 'react';
-import { useIsAuthQuery } from '../redux/injected/injectedAuth';
+import { useEffect, useState } from 'react';
+import { useIsAuthQuery } from 'redux/injected/injectedAuth';
 
 export const useIsAuth = () => {
 

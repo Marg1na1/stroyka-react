@@ -1,9 +1,9 @@
 import { FC, useState } from 'react';
-import { SearchIcon } from '../../../Icons/SearchIcon';
-import { cities } from '../../../data/cities.data';
-import { setLocality } from '../../../redux/slices/locateSlice';
-import { setToggleChengeLocate } from '../../../redux/slices/popupSlice';
-import { useAppDispatch } from '../../../redux/store';
+import { SearchIcon } from 'icons';
+import { cities } from 'data/cities.data';
+import { setLocality } from 'redux/slices/locateSlice';
+import { setToggleChengeLocate } from 'redux/slices/popupSlice';
+import { useAppDispatch } from 'redux/store';
 import style from './ChangeLocateModal.module.scss';
 
 const ChangeLocateModal: FC = () => {

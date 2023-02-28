@@ -1,14 +1,15 @@
+import { ReactElement } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Loader from '../components/Loader/Loader';
-import { useIsAuth } from '../hooks/useIsAuth';
-import { setToggleOpenAuth } from '../redux/slices/popupSlice';
-import { useAppDispatch } from '../redux/store';
+import Loader from 'spinners/Loader/Loader';
+import { useIsAuth } from 'hooks/useIsAuth';
+import { setToggleOpenAuth } from 'redux/slices/popupSlice';
+import { useAppDispatch } from 'redux/store';
 
-type PrivateRouteProps = {
-    children: any;
+type Props = {
+    children: ReactElement;
 }
 
-const PrivateRoute = ({ children }: PrivateRouteProps) => {
+const PrivateRoute = ({ children }: Props) => {
 
     const isAuth = useIsAuth();
     const dispatch = useAppDispatch();
@@ -18,8 +19,9 @@ const PrivateRoute = ({ children }: PrivateRouteProps) => {
 
 
     if (isAuth === false) {
-        dispatch(setToggleOpenAuth(true));
         goBack();
+        dispatch(setToggleOpenAuth(true));
+        return null
     } else if (isAuth === undefined) {
         return <Loader />
     } else {

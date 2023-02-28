@@ -1,34 +1,29 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-export type TErrorObj = {
+export interface ErrorModel {
     errorCode: number | string;
     errorMessage: string;
     isError: boolean;
 }
 
-export interface IErrorState {
-    data: TErrorObj
-}
-
-const initialState: IErrorState = {
-    data: {
-        errorCode: 100,
-        errorMessage: '',
-        isError: false
-    }
-
+const initialState: ErrorModel = {
+    errorCode: 100,
+    errorMessage: '',
+    isError: false
 }
 
 export const errorSlice = createSlice({
     name: 'errorSlice',
     initialState,
     reducers: {
-        setError: (state, action: PayloadAction<TErrorObj>) => {
-            state.data = action.payload
+        setError: (state, action: PayloadAction<ErrorModel>) => {
+            state.errorCode = action.payload.errorCode
+            state.errorMessage = action.payload.errorMessage
+            state.isError = action.payload.isError
         },
         toggleError: (state, action: PayloadAction<boolean>) => {
-            state.data.isError = action.payload
+            state.isError = action.payload
         },
     },
 })

@@ -1,5 +1,6 @@
-import { THeadlineBreadcrumbs } from './../@types/globalTypes';
-const breadcrumbsArr: THeadlineBreadcrumbs[] = [
+import { BreadcrumbsModel } from "types/models"
+
+const breadcrumbsArr: BreadcrumbsModel[] = [
     { path: '/', title: 'Главная', type: 'link' },
     { title: '→', type: 'seperator' },
     { path: ' ', title: 'Документация', type: 'link' }
@@ -10,12 +11,7 @@ export const headData = {
     title: "Документация",
 }
 
-export type TListItem = {
-    title: string;
-    token: string;
-}
-
-export const listItems: TListItem[] = [
+export const listItems = [
     {
         title: 'Оферта «Безопасная сделка»',
         token: '1grWfK7dbSuP0z31C5Jwv0bZufKDoYCVe',

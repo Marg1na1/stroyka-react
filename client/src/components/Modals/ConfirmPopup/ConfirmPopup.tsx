@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { useErrorHandler } from '../../../hooks/useErrorHandler';
+import { useErrorHandler } from 'hooks/useErrorHandler';
 import { useSelector } from 'react-redux';
-import { useDeleteOrderMutation } from '../../../redux/injected/injectedOrders';
-import { RootState, useAppDispatch } from '../../../redux/store';
-import { setToggleOpenConfirm } from '../../../redux/slices/confirmPopupSlice';
+import { useDeleteOrderMutation } from 'redux/injected/injectedOrders';
+import { RootState, useAppDispatch } from 'redux/store';
+import { setToggleOpenConfirm } from 'redux/slices/confirmPopupSlice';
 import clsx from 'clsx';
 import style from './ConfirmPopup.module.scss';
 

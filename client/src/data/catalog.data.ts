@@ -1,6 +1,6 @@
-import { THeadlineBreadcrumbs } from "../@types/globalTypes";
+import { BreadcrumbsModel } from "types/models";
 
-const breadcrumbsArr: THeadlineBreadcrumbs[] = [
+const breadcrumbsArr: BreadcrumbsModel[] = [
     { path: '/', title: 'Главная', type: 'link' },
     { title: '→', type: 'seperator' },
     { path: ' ', title: 'Каталог', type: 'link' }
@@ -12,16 +12,7 @@ export const headData = {
     layout: './../assets/images/layouts/catalog-layout.webp'
 }
 
-export type TCategory = {
-    title: string;
-    image: string;
-    list: {
-        title: string;
-        path: string
-    }[];
-}
-
-export const categoryData: TCategory[] = [
+export const categoryData = [
     {
         title: "Сантехника",
         image: "https://i.ibb.co/6JTwvWQ/catalog1.webp",
@@ -62,7 +53,7 @@ export const categoryData: TCategory[] = [
     },
     {
         title: "Стройматериалы",
-        image: "https://i.ibb.co/WKwhpBs/catalog2.webp", 
+        image: "https://i.ibb.co/WKwhpBs/catalog2.webp",
         list: [
             {
                 title: "Сухие смеси",

@@ -1,22 +1,20 @@
 import { FC } from 'react';
-import { SideFilter } from '../../components/ui/SideFilter';
-import { Headline } from '../../components/ui/Headline';
-import { CategoryMain } from './CategoryMain';
-import { SideSkeleton } from '../../components/Skeletons/SideSkeleton';
-import { THeadlineBreadcrumbs } from '../../@types/globalTypes';
-import { TCategory } from '../../data/catalog.data';
-import { MobileSideWrapper } from '../../components/ui/SideFilter/MobileSideWrapper';
-import { useScrollToTop } from '../../hooks/useScrollToTop';
-import {EmptyPage} from '../EmptyPage';
-import { useErrorHandler } from '../../hooks/useErrorHandler';
-import { useSort } from '../../hooks/useSort';
+import { CategoryMain } from 'components/CategoryMain';
+import { Headline } from 'components/Headline';
+import { SideSkeleton } from 'skeletons';
+import { BreadcrumbsModel, CategoryItemModel } from 'types/models';
+import { MobileSideWrapper } from 'components/MobileSideWrapper';
+import { SideFilter } from 'components/SideFilter';
+import { useScrollToTop } from 'hooks/useScrollToTop';
+import { EmptyPage } from 'pages/EmptyPage';
+import { useErrorHandler } from 'hooks/useErrorHandler';
+import { useSort } from 'hooks/useSort';
 import clsx from 'clsx';
 import { useParams } from 'react-router-dom';
-import { useGetCategoryItemsQuery } from '../../redux/injected/injectedCategory';
+import { useGetCategoryItemsQuery } from 'redux/injected/injectedCategory';
 import style from './Category.module.scss';
 
-
-const Category: FC<{ categoryData: TCategory[] }> = ({ categoryData }) => {
+const Category: FC<{ categoryData: CategoryItemModel[] }> = ({ categoryData }) => {
 
     useScrollToTop();
 
@@ -56,7 +54,7 @@ const Category: FC<{ categoryData: TCategory[] }> = ({ categoryData }) => {
         path: '/catalog',
     }
 
-    const breadcrumbsArr: THeadlineBreadcrumbs[] = [
+    const breadcrumbsArr: BreadcrumbsModel[] = [
         { path: '/', title: 'Главная', type: 'link' },
         { title: '→', type: 'seperator' },
         { path: '/catalog', title: 'Каталог', type: 'link' },

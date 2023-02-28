@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
-import { SortTypeModel } from '../@types/models';
-import { setSortType } from '../redux/slices/sortSlice';
-import { RootState, useAppDispatch } from '../redux/store';
+import { SortTypeModel } from '../types/models';
+import { setSortType } from 'redux/slices/sortSlice';
+import { RootState, useAppDispatch } from 'redux/store';
 
 export const useSort = () => {
 

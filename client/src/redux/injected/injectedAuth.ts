@@ -1,8 +1,12 @@
 import { stroykaApi } from '../stroyka.api';
 
+type Response = {
+    message: string
+}
+
 const injectedAuth = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
-        isAuth: builder.query<any, void>({
+        isAuth: builder.query<Response, void>({
             query: () => ({
                 url: `/auth/me`,
                 method: 'GET',

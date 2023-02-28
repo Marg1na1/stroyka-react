@@ -1,17 +1,15 @@
 import { FC } from 'react';
-import { CartCard } from './CartCard';
-import { CartSide } from './CartSide';
-import { Headline } from '../../components/ui/Headline';
-import {EmptyPage} from '../EmptyPage';
-import { Cartskeleton } from '../../components/Skeletons/Cartskeleton';
-import { headData, emptyCartData } from '../../data/cart.data';
-import { useScrollToTop } from '../../hooks/useScrollToTop';
-import { useErrorHandler } from '../../hooks/useErrorHandler';
-import { SideSkeleton } from '../../components/Skeletons/SideSkeleton';
+import { CartCard } from 'components/CartCard';
+import { CartSide } from 'components/CartSide';
+import { EmptyPage } from 'pages/EmptyPage';
+import { Headline } from 'components/Headline';
+import { CartSkeleton, SideSkeleton } from 'skeletons';
+import { headData, emptyCartData } from 'data/cart.data';
+import { useScrollToTop } from 'hooks/useScrollToTop';
+import { useErrorHandler } from 'hooks/useErrorHandler';
 import clsx from 'clsx';
-import { useGetCartQuery } from '../../redux/injected/injectedCart';
+import { useGetCartQuery } from 'redux/injected/injectedCart';
 import style from './Cart.module.scss';
-
 
 const Cart: FC = () => {
 
@@ -30,7 +28,7 @@ const Cart: FC = () => {
     }
 
     const renderCartItems = data.map((obj) => <CartCard {...obj} key={obj.id} />);
-    const renderSkeleton = [...new Array(3)].map((_, index) => <Cartskeleton key={index} />);
+    const renderSkeleton = [...new Array(3)].map((_, index) => <CartSkeleton key={index} />);
 
     if (isLoading) {
         return (

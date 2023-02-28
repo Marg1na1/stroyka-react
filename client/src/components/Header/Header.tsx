@@ -1,16 +1,16 @@
 import { FC, useState } from 'react';
-import { HeaderMain } from './HeaderMain';
-import { Confirm } from '../Confirm';
-import { Modals } from '../Modals';
-import { Burger } from '../ui/Burger';
-import { useLocate } from '../../hooks/useLocate';
-import { additionalItems, breadCrumbs, } from '../../data/header.data';
-import { Locate } from '../../Icons/Locate';
+import { useLocate } from 'hooks/useLocate';
+import { Confirm } from 'components/Confirm';
+import { Burger } from 'components/Burger';
+import { Modals } from 'components/Modals';
+import { HeaderMain } from '../HeaderMain';
+import { additionalItems, breadCrumbs, } from 'data/header.data';
+import { Locate } from 'icons';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { RootState, useAppDispatch } from '../../redux/store';
-import { setToggleChengeLocate } from '../../redux/slices/popupSlice';
+import { RootState, useAppDispatch } from 'redux/store';
+import { setToggleChengeLocate } from 'redux/slices/popupSlice';
 import style from './Header.module.scss';
 
 const parametrs = {

@@ -1,4 +1,4 @@
-import { CatalogModel } from '../../@types/models';
+import { CatalogModel } from '../../types/models';
 import { stroykaApi } from '../stroyka.api';
 
 const injectedCatalog = stroykaApi.injectEndpoints({

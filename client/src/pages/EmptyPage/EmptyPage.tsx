@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { useScrollToTop } from '../../hooks/useScrollToTop';
+import { useScrollToTop } from 'hooks/useScrollToTop';
 import style from './EmptyPage.module.scss';
 
-type EmptyPageProps = {
+type Props = {
     title: string | number;
     subtitle: string;
     descr: string;
@@ -11,7 +11,7 @@ type EmptyPageProps = {
     path: string;
 }
 
-const EmptyPage: FC<EmptyPageProps> = ({ title, subtitle, descr, link_txt, path }) => {
+const EmptyPage: FC<Props> = ({ title, subtitle, descr, link_txt, path }) => {
 
     useScrollToTop();
 

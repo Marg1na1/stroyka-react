@@ -1,15 +1,15 @@
 import { FC } from 'react';
-import { SimilarProduct } from '../../components/Sections/SimilarProduct';
-import { ProductCard } from './ProductCard';
-import { Headline } from '../../components/ui/Headline';
-import { categoryData } from '../../data/catalog.data';
-import { THeadlineBreadcrumbs } from '../../@types/globalTypes';
-import { useScrollToTop } from '../../hooks/useScrollToTop';
-import { EmptyPage } from '../EmptyPage';
-import { useErrorHandler } from '../../hooks/useErrorHandler';
-import { Loader } from '../../components/Loader';
+import { categoryData } from 'data/catalog.data';
+import { BreadcrumbsModel } from 'types/models';
+import { useScrollToTop } from 'hooks/useScrollToTop';
+import { EmptyPage } from 'pages/EmptyPage';
+import { useErrorHandler } from 'hooks/useErrorHandler';
+import { Loader } from 'spinners/Loader';
+import { Headline } from 'components/Headline';
+import { ProductCard } from 'components/ProductCard';
+import { SimilarProduct } from 'components/SimilarProduct';
 import { useParams } from 'react-router-dom';
-import { useGetProductQuery } from '../../redux/injected/injectedProduct';
+import { useGetProductQuery } from 'redux/injected/injectedProduct';
 import style from './Product.module.scss';
 
 const Product: FC = () => {
@@ -39,7 +39,7 @@ const Product: FC = () => {
         categoryData.forEach((obj) => obj.list.forEach((obj) => obj.path.split('/')[1] === data.type ? productType = obj : null))
     }
 
-    const breadcrumbsArr: THeadlineBreadcrumbs[] = [
+    const breadcrumbsArr: BreadcrumbsModel[] = [
         { path: '/', title: 'Главная', type: 'link' },
         { title: '→', type: 'seperator' },
         { path: '/catalog', title: 'Каталог', type: 'link' },

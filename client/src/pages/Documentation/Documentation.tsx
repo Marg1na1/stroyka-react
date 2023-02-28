@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { DocItem } from './DocItem';
-import { Headline } from '../../components/ui/Headline';
-import { headData, listItems } from '../../data/documentation.data';
-import { useScrollToTop } from '../../hooks/useScrollToTop';
+import { DocItem } from 'components/DocItem';
+import { Headline } from 'components/Headline';
+import { headData, listItems } from 'data/documentation.data';
+import { useScrollToTop } from 'hooks/useScrollToTop';
 import style from './Documentation.module.scss';
 
 const Documentation: FC = () => {

@@ -1,4 +1,4 @@
-import { THeadlineBreadcrumbs } from "../@types/globalTypes"
+import { BreadcrumbsModel } from "types/models";
 
 export const tutorialArr = [
     { img: './../assets/images/delivery_cart_icon.svg', content: 'Добавьте нужные товарыв  корзину и оплатите заказ' },
@@ -7,7 +7,7 @@ export const tutorialArr = [
     { img: './../assets/images/delivery_locate_icon.svg', content: 'Заберите из пунктов выдачи' },
 ]
 
-const breadcrumbsArr: THeadlineBreadcrumbs[] = [
+const breadcrumbsArr: BreadcrumbsModel[] = [
     { path: '/', title: 'Главная', type: 'link' },
     { title: '→', type: 'seperator' },
     { path: ' ', title: 'Доставка', type: 'link' }

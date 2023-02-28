@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { TErrorObj, toggleError } from '../../../redux/slices/errorSlice';
-import { useAppDispatch } from '../../../redux/store';
+import { ErrorModel, toggleError } from 'redux/slices/errorSlice';
+import { useAppDispatch } from 'redux/store';
 import style from './ErrorPopup.module.scss';
 
-const ErrorPopup: FC<TErrorObj> = ({ errorCode, errorMessage }) => {
+const ErrorPopup: FC<ErrorModel> = ({ errorCode, errorMessage }) => {
 
     const dispatch = useAppDispatch()
 

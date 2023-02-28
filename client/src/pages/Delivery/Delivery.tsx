@@ -1,8 +1,8 @@
 import { FC, useState } from 'react';
-import { FAQItem } from './FAQItem';
-import { Headline } from '../../components/ui/Headline';
-import { headData, tutorialArr, FAQData } from '../../data/delivery.data';
-import { useScrollToTop } from '../../hooks/useScrollToTop';
+import { FAQItem } from 'components/FAQItem';
+import { Headline } from 'components/Headline';
+import { headData, tutorialArr, FAQData } from 'data/delivery.data';
+import { useScrollToTop } from 'hooks/useScrollToTop';
 import clsx from 'clsx';
 import style from './Delivery.module.scss';
 

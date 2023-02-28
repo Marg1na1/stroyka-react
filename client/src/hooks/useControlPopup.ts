@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useAppDispatch } from './../redux/store';
+import { useAppDispatch } from 'redux/store';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 
 export const useControlPopup = (

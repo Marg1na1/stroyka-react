@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import { Discount } from '../../components/Sections/Discount';
-import { Slider } from '../../components/Sections/Slider';
-import { PopularProducts } from '../../components/Sections/PopularProducts';
-import { Hero } from '../../components/Sections/Hero';
-import { Reviews } from '../../components/Sections/Reviews';
+import { Slider } from 'components/Slider';
+import { Discount } from 'components/Discount';
+import { PopularProducts } from 'components/PopularProducts';
+import { Reviews } from 'components/Reviews';
+import { Hero } from 'components/Hero';
+import { useScrollToTop } from 'hooks/useScrollToTop';
 import style from './Home.module.scss';
-import { useScrollToTop } from '../../hooks/useScrollToTop';
 
 const Home: FC = () => {
 

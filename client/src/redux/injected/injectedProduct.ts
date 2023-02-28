@@ -1,4 +1,4 @@
-import { ProductModel } from '../../@types/models';
+import { ProductModel } from '../../types/models';
 import { stroykaApi } from '../stroyka.api';
 
 const injectedProducts = stroykaApi.injectEndpoints({

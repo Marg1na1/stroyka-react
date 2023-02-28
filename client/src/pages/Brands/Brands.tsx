@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import { BrandsRow } from './BrandsRow';
-import { Headline } from '../../components/ui/Headline';
-import { headData } from '../../data/brands.data';
-import { useScrollToTop } from '../../hooks/useScrollToTop';
-import { Loader } from '../../components/Loader';
-import { useErrorHandler } from '../../hooks/useErrorHandler';
-import {EmptyPage} from '../EmptyPage';
-import { useGetBrandsQuery } from '../../redux/injected/injectedBrands';
+import { BrandsRow } from 'components/BrandsRow';
+import { headData } from 'data/brands.data';
+import { useScrollToTop } from 'hooks/useScrollToTop';
+import { Loader } from 'spinners/Loader';
+import { Headline } from 'components/Headline';
+import { useErrorHandler } from 'hooks/useErrorHandler';
+import { EmptyPage } from 'pages/EmptyPage';
+import { useGetBrandsQuery } from 'redux/injected/injectedBrands';
 import clsx from 'clsx';
 import style from './Brands.module.scss';
 

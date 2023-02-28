@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ProductModel } from './../@types/models';
+import { ProductModel } from 'types/models';
 
 export const usePagination = (data: ProductModel[]) => {
 

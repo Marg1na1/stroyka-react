@@ -1,5 +1,5 @@
 import { stroykaApi } from '../stroyka.api';
-import { ProductModel } from '../../@types/models';
+import { ProductModel } from '../../types/models';
 
 type TSearchedParams = {
     value: string;

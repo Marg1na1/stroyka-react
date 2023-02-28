@@ -1,5 +1,5 @@
-import { stroykaApi } from '../stroyka.api';
-import { ProductModel } from '../../@types/models';
+import { stroykaApi } from 'redux/stroyka.api';
+import { ProductModel } from '../../types/models';
 
 const injecteSimilarProducts = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
@@ -7,7 +7,8 @@ const injecteSimilarProducts = stroykaApi.injectEndpoints({
             query: (type) => ({
                 url: `products/`,
                 params: {
-                    count: 4
+                    count: 4,
+                    type
                 }
             }),
             providesTags: (result) =>

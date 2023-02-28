@@ -1,8 +1,8 @@
 import { useCallback, useEffect } from 'react';
-import { RootState, useAppDispatch } from './../redux/store';
+import { RootState, useAppDispatch } from 'redux/store';
 import { useSelector } from 'react-redux';
-import { setCords, setLocality } from './../redux/slices/locateSlice';
-import { setBodyConfirm, setToggleConfirm } from '../redux/slices/confirmSlice';
+import { setCords, setLocality } from 'redux/slices/locateSlice';
+import { setBodyConfirm, setToggleConfirm } from 'redux/slices/confirmSlice';
 
 export const useLocate = () => {
 

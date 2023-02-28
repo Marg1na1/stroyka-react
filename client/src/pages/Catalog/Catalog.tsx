@@ -1,14 +1,13 @@
 import { FC } from 'react';
-import { CatalogItem } from './CatalogItem';
-import { Headline } from '../../components/ui/Headline';
-import { Loader } from '../../components/Loader';
-import { EmptyPage } from '../EmptyPage';
-import { headData } from '../../data/catalog.data';
-import { useErrorHandler } from '../../hooks/useErrorHandler';
-import { useScrollToTop } from '../../hooks/useScrollToTop';
-import { useGetCatalogQuery } from '../../redux/injected/injectedCatalog';
+import { CatalogItem } from 'components/CatalogItem';
+import { Loader } from 'spinners/Loader';
+import { Headline } from 'components/Headline';
+import { EmptyPage } from 'pages/EmptyPage';
+import { headData } from 'data/catalog.data';
+import { useErrorHandler } from 'hooks/useErrorHandler';
+import { useScrollToTop } from 'hooks/useScrollToTop';
+import { useGetCatalogQuery } from 'redux/injected/injectedCatalog';
 import style from './Catalog.module.scss';
-
 
 const Catalog: FC = () => {
 

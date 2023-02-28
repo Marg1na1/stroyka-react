@@ -1,5 +1,5 @@
-import { ReviewModel } from '../../@types/models';
-import { stroykaApi } from '../stroyka.api';
+import { ReviewModel } from '../../types/models';
+import { stroykaApi } from 'redux/stroyka.api';
 
 const injectedReviews = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({

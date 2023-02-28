@@ -1,5 +1,6 @@
-import { useAddCartItemMutation, useChangeCartItemMutation, useLazyGetCartQuery } from '../redux/injected/injectedCart';
-import { useErrorHandler } from './useErrorHandler';
+import { useErrorHandler } from 'hooks/useErrorHandler';
+import { useAddCartItemMutation, useChangeCartItemMutation, useLazyGetCartQuery } from 'redux/injected/injectedCart';
+
 
 export const useAddProduct = () => {
 

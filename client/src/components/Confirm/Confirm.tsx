@@ -1,9 +1,9 @@
 import { FC, memo } from 'react';
-import clsx from 'clsx';
 import { useSelector } from 'react-redux';
-import { setToggleConfirm } from '../../redux/slices/confirmSlice';
-import { setToggleChengeLocate } from '../../redux/slices/popupSlice';
-import { RootState, useAppDispatch } from '../../redux/store';
+import { setToggleConfirm } from 'redux/slices/confirmSlice';
+import { setToggleChengeLocate } from 'redux/slices/popupSlice';
+import { RootState, useAppDispatch } from 'redux/store';
+import clsx from 'clsx';
 import style from './Confirm.module.scss';
 
 const Confirm: FC = memo(() => {

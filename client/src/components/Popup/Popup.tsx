@@ -1,16 +1,16 @@
 import { FC, ReactNode } from 'react';
-import { useControlPopup } from '../../hooks/useControlPopup';
+import { useControlPopup } from 'hooks/useControlPopup';
 import { Portal } from './Portal';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import style from './Popup.module.scss';
 
-type TPopup = {
+type Props = {
     children: ReactNode;
     close: ActionCreatorWithPayload<boolean, string>;
     isOpen: boolean;
 }
 
-const Popup: FC<TPopup> = ({ children, close, isOpen }) => {
+const Popup: FC<Props> = ({ children, close, isOpen }) => {
 
     const { closeModal } = useControlPopup(isOpen, close);
 

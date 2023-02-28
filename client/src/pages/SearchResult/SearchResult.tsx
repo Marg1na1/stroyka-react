@@ -1,15 +1,15 @@
 import { FC } from 'react';
-import { SideFilter } from '../../components/ui/SideFilter';
-import { EmptyPage } from '../EmptyPage';
-import { SideSkeleton } from '../../components/Skeletons/SideSkeleton';
-import { cutString } from '../../utils/cutString';
-import { SearchedMain } from './SearchedMain';
-import { MobileSideWrapper } from '../../components/ui/SideFilter/MobileSideWrapper';
-import { useScrollToTop } from '../../hooks/useScrollToTop';
-import { useErrorHandler } from '../../hooks/useErrorHandler';
-import { useSort } from '../../hooks/useSort';
+import { EmptyPage } from 'pages/EmptyPage';
+import { cutString } from 'utils/cutString';
+import { SearchedMain } from 'components/SearchedMain';
+import { useScrollToTop } from 'hooks/useScrollToTop';
+import { useErrorHandler } from 'hooks/useErrorHandler';
+import { useSort } from 'hooks/useSort';
+import { SideSkeleton } from 'skeletons';
+import { MobileSideWrapper } from 'components/MobileSideWrapper';
+import { SideFilter } from 'components/SideFilter';
 import { useLocation } from 'react-router-dom';
-import { useGetSearchedQuery } from '../../redux/injected/injectedSearched';
+import { useGetSearchedQuery } from 'redux/injected/injectedSearched';
 import style from './SearchResult.module.scss';
 
 const SearchResult: FC = () => {

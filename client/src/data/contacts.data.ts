@@ -1,5 +1,6 @@
-import { THeadlineBreadcrumbs } from './../@types/globalTypes';
-const breadcrumbsArr: THeadlineBreadcrumbs[] = [
+import { BreadcrumbsModel } from "types/models";
+
+const breadcrumbsArr: BreadcrumbsModel[] = [
     { path: '/', title: 'Главная', type: 'link' },
     { title: '→', type: 'seperator' },
     { path: ' ', title: 'Контакты', type: 'link' }

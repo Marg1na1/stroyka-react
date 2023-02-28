@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { SortTypeModel } from '../../@types/models';
+import { SortTypeModel } from '../../types/models';
 
 const initialState: SortTypeModel = {
     label: 'Популярные',

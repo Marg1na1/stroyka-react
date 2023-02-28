@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { Headline } from '../../components/ui/Headline';
-import { headData, refundList } from '../../data/refund.data';
-import { useScrollToTop } from '../../hooks/useScrollToTop';
+import { Headline } from 'components/Headline';
+import { headData, refundList } from 'data/refund.data';
+import { useScrollToTop } from 'hooks/useScrollToTop';
 import style from './Refund.module.scss';
 
 const Refund: FC = () => {

@@ -1,18 +1,18 @@
 import { SerializedError } from '@reduxjs/toolkit';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
 import { useState, useEffect } from 'react';
-import { setError } from '../redux/slices/errorSlice';
-import { useAppDispatch } from '../redux/store';
-import { setToggleOpenAuth } from '../redux/slices/popupSlice';
+import { setError } from 'redux/slices/errorSlice';
+import { useAppDispatch } from 'redux/store';
+import { setToggleOpenAuth } from 'redux/slices/popupSlice';
 
-type ErrorHandlerProps = {
+type Props = {
     error: FetchBaseQueryError | SerializedError | undefined;
     isError: boolean;
     isClient?: boolean;
     errorMessage?: string;
 }
 
-export const useErrorHandler = ({ error, isError, isClient = false, errorMessage }: ErrorHandlerProps) => {
+export const useErrorHandler = ({ error, isError, isClient = false, errorMessage }: Props) => {
 
     const dispatch = useAppDispatch();
 

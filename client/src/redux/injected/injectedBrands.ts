@@ -1,4 +1,4 @@
-import { BrandsModel } from '../../@types/models';
+import { BrandsModel } from '../../types/models';
 import { stroykaApi } from '../stroyka.api';
 
 const injectedBrands = stroykaApi.injectEndpoints({

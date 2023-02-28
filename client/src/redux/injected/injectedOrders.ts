@@ -1,4 +1,4 @@
-import { OrderModel, ResponseOrderModel, SentOrderModel } from '../../@types/models';
+import { OrderModel, ResponseOrderModel, SentOrderModel } from '../../types/models';
 import { stroykaApi } from '../stroyka.api';
 
 const injectedOrders = stroykaApi.injectEndpoints({

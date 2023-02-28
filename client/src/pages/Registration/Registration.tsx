@@ -1,8 +1,8 @@
 import { FC, useCallback } from 'react';
-import { useScrollToTop } from '../../hooks/useScrollToTop';
-import {RegForm} from './RegFrom';
-import { InputsModel } from '../../@types/models';
-import { useRegistrateMutation } from '../../redux/injected/injectedRegistration';
+import { useScrollToTop } from 'hooks/useScrollToTop';
+import { RegForm } from 'components/RegFrom';
+import { InputsModel } from 'types/models';
+import { useRegistrateMutation } from 'redux/injected/injectedRegistration';
 import style from './Registration.module.scss';
 
 const Registration: FC = () => {
