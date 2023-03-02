@@ -4,14 +4,22 @@ import { useScrollToTop } from 'hooks/useScrollToTop';
 import style from './EmptyPage.module.scss';
 
 type Props = {
-    title: string | number;
-    subtitle: string;
-    descr: string;
-    link_txt: string;
-    path: string;
+    title?: string | number;
+    subtitle?: string;
+    descr?: string;
+    link_txt?: string;
+    path?: string;
 }
 
-const EmptyPage: FC<Props> = ({ title, subtitle, descr, link_txt, path }) => {
+const EmptyPage: FC<Props> = (
+    {
+        title = '404',
+        subtitle = 'Страница не найдена',
+        descr = 'Неправильно набран адрес или такая страница больше не существует',
+        link_txt = 'На главную',
+        path =  '/'
+    }
+) => {
 
     useScrollToTop();
 

@@ -9,12 +9,13 @@ import { useScrollToTop } from 'hooks/useScrollToTop';
 import { EmptyPage } from 'pages/EmptyPage';
 import { useErrorHandler } from 'hooks/useErrorHandler';
 import { useSort } from 'hooks/useSort';
+import { categoryData } from 'data/catalog.data';
 import clsx from 'clsx';
 import { useParams } from 'react-router-dom';
 import { useGetCategoryItemsQuery } from 'redux/injected/injectedCategory';
 import style from './Category.module.scss';
 
-const Category: FC<{ categoryData: CategoryItemModel[] }> = ({ categoryData }) => {
+const Category: FC = () => {
 
     useScrollToTop();
 

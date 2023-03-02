@@ -14,17 +14,8 @@ import Product from './pages/Product/Product';
 import Refund from './pages/Refund/Refund';
 import Registration from './pages/Registration/Registration';
 import SearchResult from './pages/SearchResult/SearchResult';
-import { categoryData } from './data/catalog.data';
-import { Route, Routes } from 'react-router-dom';
 import PrivateRoute from './hoc/PrivateRoute';
-
-const errorPageData = {
-    title: '404',
-    subtitle: 'Страница не найдена',
-    descr: 'Неправильно набран адрес или такая страница больше не существует',
-    link_txt: 'На главную',
-    path: '/'
-}
+import { Route, Routes } from 'react-router-dom';
 
 const App: FC = () => {
     return (
@@ -48,10 +39,10 @@ const App: FC = () => {
                         <Orders />
                     </PrivateRoute>
                 } />
-                <Route path='/catalog/:category/:type/' element={<Category categoryData={categoryData} />} />
+                <Route path='/catalog/:category/:type/' element={<Category />} />
                 <Route path='/catalog/search' element={<SearchResult />} />
                 <Route path='/products/:id' element={<Product />} />
-                <Route path='*' element={<EmptyPage {...errorPageData} />} />
+                <Route path='*' element={<EmptyPage />} />
             </Route>
         </Routes>
     );
