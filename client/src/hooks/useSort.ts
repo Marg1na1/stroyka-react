@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { SortTypeModel } from '../types/models';
+import { SortTypeModel } from 'types/models';
 import { setSortType } from 'redux/slices/sortSlice';
 import { RootState, useAppDispatch } from 'redux/store';
 
@@ -7,7 +7,7 @@ export const useSort = () => {
 
     const dispatch = useAppDispatch();
 
-    const sortState = useSelector((state: RootState) => state.sortSlice);
+    const sortState = useSelector((state: RootState) => state.sortSlice.sort);
 
     const onClickSortItem = (obj: SortTypeModel) => {
         dispatch(setSortType(obj))

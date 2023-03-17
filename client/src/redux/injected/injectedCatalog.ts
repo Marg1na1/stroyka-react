@@ -1,5 +1,5 @@
-import { CatalogModel } from '../../types/models';
-import { stroykaApi } from '../stroyka.api';
+import { CatalogModel } from 'types/models';
+import { stroykaApi } from 'redux/stroyka.api';
 
 const injectedCatalog = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
@@ -8,7 +8,6 @@ const injectedCatalog = stroykaApi.injectEndpoints({
                 url: `catalog/`,
             }),
         }),
-
     }),
     overrideExisting: false,
 })

@@ -2,17 +2,18 @@ import { FC } from 'react';
 import { CategoryMain } from 'components/CategoryMain';
 import { Headline } from 'components/Headline';
 import { SideSkeleton } from 'skeletons';
-import { BreadcrumbsModel, CategoryItemModel } from 'types/models';
+import { BreadcrumbsModel } from 'types/models';
 import { MobileSideWrapper } from 'components/MobileSideWrapper';
 import { SideFilter } from 'components/SideFilter';
 import { useScrollToTop } from 'hooks/useScrollToTop';
 import { EmptyPage } from 'pages/EmptyPage';
 import { useErrorHandler } from 'hooks/useErrorHandler';
 import { useSort } from 'hooks/useSort';
-import { categoryData } from 'data/catalog.data';
 import clsx from 'clsx';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { useGetCategoryItemsQuery } from 'redux/injected/injectedCategory';
+import { useSelector } from 'react-redux';
+import { RootState } from 'redux/store';
 import style from './Category.module.scss';
 
 const Category: FC = () => {
@@ -21,18 +22,17 @@ const Category: FC = () => {
 
     const { type = '' } = useParams();
 
-    let res = {
-        title: '',
-        path: '',
-    }
-
-    categoryData.forEach((obj) => obj.list.forEach(obj => obj.path.split('/')[1] === type ? res = obj : null))
+    const locate = useLocation()
 
     const { sortState } = useSort();
 
+    const filterState = useSelector((state: RootState) => state.sortSlice.filter);
+
     const queryParams = {
         type: type,
-        sortParams: sortState.title
+        sortParams: sortState.title,
+        range: filterState.range,
+        provider: filterState.provider
     }
 
     const { data = [], isSuccess, isLoading, isError, error } = useGetCategoryItemsQuery(queryParams);
@@ -42,7 +42,7 @@ const Category: FC = () => {
     const errorObj = {
         title: errorData.status,
         subtitle: 'Произошла ошибка',
-        descr: `Произошла ошибка при получении товаров ${res.title} попробуйте обновить страницу или зайдите позже`,
+        descr: `Произошла ошибка при получении товаров ${locate.state} попробуйте обновить страницу или зайдите позже`,
         link_txt: 'Каталог',
         path: '/catalog',
     }
@@ -50,7 +50,7 @@ const Category: FC = () => {
     const emptyObj = {
         title: 'Упс!',
         subtitle: 'Категория пуста',
-        descr: `К сожалению в категории ${res.title} нет товаров, но мы уже работаем над расширением ассортимента`,
+        descr: `К сожалению в категории ${locate.state} нет товаров, но мы уже работаем над расширением ассортимента`,
         link_txt: 'Каталог',
         path: '/catalog',
     }
@@ -60,12 +60,12 @@ const Category: FC = () => {
         { title: '→', type: 'seperator' },
         { path: '/catalog', title: 'Каталог', type: 'link' },
         { title: '→', type: 'seperator' },
-        { path: ' ', title: res.title, type: 'link' },
+        { path: ' ', title: locate.state, type: 'link' },
     ]
 
     const headData = {
         breadcrumbs: breadcrumbsArr,
-        title: res.title,
+        title: locate.state,
     }
 
     if (isLoading) {

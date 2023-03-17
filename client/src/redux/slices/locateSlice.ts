@@ -2,13 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 export type TCords = {
-    latitude: null | number,
-    longitude: null | number,
+    latitude: null | number;
+    longitude: null | number;
 }
 
 interface locateState {
-    cords: TCords,
-    locality: string
+    cords: TCords;
+    locality: string;
 }
 
 const initialState: locateState = {

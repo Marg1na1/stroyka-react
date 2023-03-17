@@ -5,7 +5,7 @@ type LocateProps = {
         width: number;
         height: number;
     }
-    color: string
+    color: string;
 }
 
 export const Locate: FC<LocateProps> = ({ size, color }) => {

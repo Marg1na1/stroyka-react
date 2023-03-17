@@ -29,7 +29,6 @@ export const popupSlice = createSlice({
     },
 })
 
-
 export const { setToggleChengeLocate, setToggleOpenAuth, setToggleOpenBurger} = popupSlice.actions;
 
 export default popupSlice.reducer;

@@ -6,6 +6,7 @@ const breadcrumbsArr: BreadcrumbsModel[] = [
     { path: ' ', title: 'Каталог', type: 'link' }
 ];
 
+
 export const headData = {
     breadcrumbs: breadcrumbsArr,
     title: "Каталог",

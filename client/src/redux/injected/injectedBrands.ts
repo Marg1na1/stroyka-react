@@ -1,5 +1,5 @@
-import { BrandsModel } from '../../types/models';
-import { stroykaApi } from '../stroyka.api';
+import { BrandsModel } from 'types/models';
+import { stroykaApi } from 'redux/stroyka.api';
 
 const injectedBrands = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
@@ -8,7 +8,6 @@ const injectedBrands = stroykaApi.injectEndpoints({
                 url: `brands/`,
             }),
         }),
-
     }),
     overrideExisting: false,
 })

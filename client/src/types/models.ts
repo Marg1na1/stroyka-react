@@ -26,7 +26,7 @@ export interface CategoryItemModel {
     image: string;
     list: {
         title: string;
-        path: string
+        path: string;
     }[];
 }
 
@@ -61,7 +61,7 @@ export interface ResponseOrderModel {
 
 export interface OrderCardModel {
     count: number;
-    product: ProductModel
+    product: ProductModel;
 };
 
 export interface OrderModel {
@@ -80,7 +80,7 @@ export interface ReviewModel {
 export interface BrandsModel {
     id: string;
     list: string[];
-    title: string
+    title: string;
 };
 
 export interface CatalogModel {
@@ -88,12 +88,12 @@ export interface CatalogModel {
     image: string;
     list: {
         title: string;
-        path: string
-    }[];
+        path: string;
+    }[]
 };
 
 export interface InputsModel {
-    name: string,
+    name: string;
     surname: string;
     tel: number;
     email: string;

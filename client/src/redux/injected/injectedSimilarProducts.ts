@@ -1,5 +1,5 @@
 import { stroykaApi } from 'redux/stroyka.api';
-import { ProductModel } from '../../types/models';
+import { ProductModel } from 'types/models';
 
 const injecteSimilarProducts = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({

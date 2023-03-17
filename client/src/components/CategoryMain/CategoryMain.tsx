@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ProductModel } from '../../types/models';
+import { ProductModel } from 'types/models';
 import { usePagination } from 'hooks/usePagination';
 import { Card } from 'components/Card';
 import { Skeleton } from 'skeletons';
@@ -16,7 +16,7 @@ const CategoryMain: FC<Props> = ({ data, isLoading }) => {
 
     const { pageCount, currentItems, next, prev, setPugPosition } = usePagination(data);
 
-    const renderCards = currentItems.map((obj) => <Card {...obj} key={obj.id} />);
+    const renderCards = currentItems.map(obj => <Card {...obj} key={obj.id} />);
     const renderSkeleton = [...new Array(9)].map((_, index) => <Skeleton key={index} />);
 
     return (

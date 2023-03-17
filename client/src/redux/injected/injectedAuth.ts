@@ -1,4 +1,4 @@
-import { stroykaApi } from '../stroyka.api';
+import { stroykaApi } from 'redux/stroyka.api';
 
 type Response = {
     message: string

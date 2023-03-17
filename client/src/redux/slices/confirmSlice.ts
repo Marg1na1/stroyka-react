@@ -3,12 +3,12 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 
 type ConfirmBody = {
     message: string;
-    type: 'defined' | 'undefined' | 'error' | 'nothing'
+    type: 'defined' | 'undefined' | 'error' | 'nothing';
 }
 
 interface ConfirmState {
     isOpen: boolean;
-    body: ConfirmBody
+    body: ConfirmBody;
 }
 
 const initialState: ConfirmState = {

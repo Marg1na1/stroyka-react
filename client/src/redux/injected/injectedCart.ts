@@ -1,5 +1,5 @@
-import { stroykaApi } from '../stroyka.api';
-import { CartProductModel } from '../../types/models';
+import { stroykaApi } from 'redux/stroyka.api';
+import { CartProductModel } from 'types/models';
 
 const injectedCart = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({

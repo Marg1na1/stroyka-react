@@ -1,5 +1,5 @@
-import { useEffect, RefObject, KeyboardEvent } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect, RefObject, KeyboardEvent } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 type Props = {
     isFocused: boolean;

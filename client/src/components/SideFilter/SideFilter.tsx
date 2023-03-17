@@ -1,12 +1,14 @@
 import { FC, useState, useEffect } from 'react';
-import { ProductModel } from '../../types/models';
+import { ProductModel } from 'types/models';
 import ReactSlider from 'react-slider';
-import Select, { SingleValue } from 'react-select'
+import Select, { SingleValue } from 'react-select';
+import { setFilter } from 'redux/slices/sortSlice';
+import { useAppDispatch } from 'redux/store';
 import style from './SideFilter.module.scss';
 
 type Props = {
-    data: ProductModel[]
-    withSearch: boolean
+    data: ProductModel[];
+    withSearch: boolean;
 }
 
 const options = [
@@ -19,38 +21,40 @@ const options = [
 
 const SideFilter: FC<Props> = ({ data, withSearch }) => {
 
-    const [rangePrice, setRangePrice] = useState({ min: 0, max: 1 });
+    const dispatch = useAppDispatch();
+
     const [provider, setProvider] = useState('');
-    const [rangeValue, setRangeValue] = useState<number[]>([0, 1]);
+    const [rangeValue, setRangeValue] = useState([0, 1]);
+    const [defaultRangeValue, setDefaultRangeValue] = useState([0, 1]);
     const [searchValue, setSearchValue] = useState('');
 
     useEffect(() => {
-        setRangePrice({
-            min: Math.min(...data.map((obj) => obj.price)),
-            max: Math.max(...data.map((obj) => obj.price))
-        })
-        setRangeValue([rangePrice.min, rangePrice.max])
-    }, [data, rangePrice.max, rangePrice.min])
+        setRangeValue([Math.min(...data.map((obj) => obj.price)), Math.max(...data.map((obj) => obj.price))])
+        setDefaultRangeValue([Math.min(...data.map((obj) => obj.price)), Math.max(...data.map((obj) => obj.price))])
+    }, [])
 
     const changeProvider = (newValue: SingleValue<{ value: number; label: string; }>) => {
-        if (newValue !== null) {
-            setProvider(newValue.label)
-        }
+        if (newValue) setProvider(newValue.label)
     }
 
-    const changeInputValue = (str: string) => {
-        setSearchValue(str)
-    }
+    const changeInputValue = (str: string) => setSearchValue(str)
 
     const resetFilter = () => {
-        setRangeValue([rangePrice.min, rangePrice.max]);
+        setRangeValue(defaultRangeValue);
         setSearchValue('');
         setProvider('0');
     }
 
-    return (
+    const changeFilterState = () => {
+        dispatch(setFilter({
+            range: rangeValue,
+            provider,
+            search: ''
+        }))
+    }
 
-        <aside className={style['category-side']} >
+    return (
+        <aside className={style['category-side']}>
             <div className={style['side-main']}>
                 <h2 className={style['title']}>Цена</h2>
                 <div className={style['inputs-container']}>
@@ -59,30 +63,27 @@ const SideFilter: FC<Props> = ({ data, withSearch }) => {
                         value={rangeValue[0]}
                         className={style['range-input']}
                         onChange={(e) => setRangeValue([+e.target.value, rangeValue[1]])}
-                        max={rangeValue[1] - 10}
-                        min={rangePrice.min}
-                    />
+                        max={defaultRangeValue[1] - 10}
+                        min={defaultRangeValue[0]} />
                     <input
                         type='number'
                         value={rangeValue[1]}
                         className={style['range-input']}
                         onChange={(e) => setRangeValue([rangeValue[0], +e.target.value])}
-                        max={rangePrice.max}
-                        min={rangeValue[0] + 10} />
+                        max={defaultRangeValue[1]}
+                        min={defaultRangeValue[0] + 10} />
                 </div>
                 <ReactSlider
                     className='range-slider'
                     thumbClassName='range-slider__thumb'
                     trackClassName='range-slider__track'
-                    defaultValue={[rangePrice.min, rangePrice.max]}
                     renderThumb={(props) => <div {...props}><div className={style['slider-decorate']}></div></div>}
                     onChange={(value) => setRangeValue(value)}
                     pearling
                     value={rangeValue}
                     minDistance={0}
-                    max={rangePrice.max}
-                    min={rangePrice.min}
-                />
+                    max={defaultRangeValue[1]}
+                    min={defaultRangeValue[0]}/>
                 {
                     withSearch &&
                     <>
@@ -106,7 +107,7 @@ const SideFilter: FC<Props> = ({ data, withSearch }) => {
                     value={options[+provider]} />
             </div>
             <div className={style['side-footer']}>
-                <button className={style['submit']}>Применить</button>
+                <button className={style['submit']} onClick={changeFilterState}>Применить</button>
                 <button className={style['cancel']} onClick={resetFilter}>Сбросить</button>
             </div>
         </aside>

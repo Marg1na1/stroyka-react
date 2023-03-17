@@ -1,7 +1,7 @@
-import { stroykaApi } from '../stroyka.api';
-import { ProductModel } from '../../types/models';
+import { stroykaApi } from 'redux/stroyka.api';
+import { ProductModel } from 'types/models';
 
-type TSearchedParams = {
+type SearchedParamsType = {
     value: string;
     count?: number;
     sort?: string;
@@ -9,7 +9,7 @@ type TSearchedParams = {
 
 const injectedSearched = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
-        getSearched: builder.query<ProductModel[], TSearchedParams>({
+        getSearched: builder.query<ProductModel[], SearchedParamsType>({
             query: ({ count, value, sort }) => ({
                 url: `products/`,
                 params: {

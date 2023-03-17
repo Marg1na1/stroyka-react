@@ -1,5 +1,5 @@
-import { OrderModel, ResponseOrderModel, SentOrderModel } from '../../types/models';
-import { stroykaApi } from '../stroyka.api';
+import { ResponseOrderModel, SentOrderModel } from 'types/models';
+import { stroykaApi } from 'redux/stroyka.api';
 
 const injectedOrders = stroykaApi.injectEndpoints({
     endpoints: (builder) => ({
@@ -28,7 +28,6 @@ const injectedOrders = stroykaApi.injectEndpoints({
             invalidatesTags: ['Orders'],
         }),
     }),
-
     overrideExisting: false,
 })
 
