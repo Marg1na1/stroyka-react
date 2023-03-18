@@ -23,7 +23,8 @@ const SearchedCard: FC<Props> = memo((
         price,
         discount,
         discountAmount,
-        id
+        id,
+        type
     }) => {
 
     const currentPrice: number = getCurrentPrice(price, discountAmount);
@@ -37,7 +38,7 @@ const SearchedCard: FC<Props> = memo((
     return (
         <li className={style['card']}>
             <article className={style['card-content']}>
-                <Link to={`/products/${id}`}>
+                <Link to={`/products/${id}`} state={type}>
                     <img
                         className={style['card__img']}
                         src={img}

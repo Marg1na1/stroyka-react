@@ -6,6 +6,7 @@ type QueryParamsType = {
     sortParams: string;
     range: number[];
     provider: string;
+    search?: string;
 }
 
 const injectedCategory = stroykaApi.injectEndpoints({
@@ -16,8 +17,9 @@ const injectedCategory = stroykaApi.injectEndpoints({
                 params: {
                     type: params.type,
                     sortBy: params.sortParams,
-                    range: params.range,
+                    range: params.range, 
                     provider: params.provider,
+                    q: params.search
                 }
             }),
             providesTags: (result) =>

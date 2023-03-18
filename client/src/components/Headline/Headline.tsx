@@ -20,7 +20,7 @@ const Headline: FC<Props> = memo(({ breadcrumbs, title, descr, layout }) => {
                     <div className={style['headline-breadcrumbs']}>
                         {
                             breadcrumbs.map((obj, i) => (
-                                obj.type === 'link' ? <Link to={obj.path!} key={i}>{obj.title}</Link> : <p key={i}>{obj.title}</p>
+                                obj.type === 'link' ? <Link to={obj.path!} key={i} state={obj?.state}>{obj.title}</Link> : <p key={i}>{obj.title}</p>
                             ))
                         }
                     </div>

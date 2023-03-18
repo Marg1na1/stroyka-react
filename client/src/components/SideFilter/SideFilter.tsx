@@ -4,6 +4,7 @@ import ReactSlider from 'react-slider';
 import Select, { SingleValue } from 'react-select';
 import { setFilter } from 'redux/slices/sortSlice';
 import { useAppDispatch } from 'redux/store';
+import { useLocation } from 'react-router-dom';
 import style from './SideFilter.module.scss';
 
 type Props = {
@@ -23,15 +24,33 @@ const SideFilter: FC<Props> = ({ data, withSearch }) => {
 
     const dispatch = useAppDispatch();
 
+    const location = useLocation();
+
     const [provider, setProvider] = useState('');
     const [rangeValue, setRangeValue] = useState([0, 1]);
     const [defaultRangeValue, setDefaultRangeValue] = useState([0, 1]);
     const [searchValue, setSearchValue] = useState('');
+    const [locationKey, setLocationKey] = useState('');
 
     useEffect(() => {
         setRangeValue([Math.min(...data.map((obj) => obj.price)), Math.max(...data.map((obj) => obj.price))])
         setDefaultRangeValue([Math.min(...data.map((obj) => obj.price)), Math.max(...data.map((obj) => obj.price))])
+        return () => {
+            dispatch(setFilter({
+                range: [],
+                provider,
+                search: searchValue
+            }))
+        }
     }, [])
+
+    useEffect(() => {
+        setLocationKey(location.key)
+        if (locationKey !== location.key) {
+            setRangeValue([Math.min(...data.map((obj) => obj.price)), Math.max(...data.map((obj) => obj.price))])
+            setDefaultRangeValue([Math.min(...data.map((obj) => obj.price)), Math.max(...data.map((obj) => obj.price))])
+        }
+    }, [data])
 
     const changeProvider = (newValue: SingleValue<{ value: number; label: string; }>) => {
         if (newValue) setProvider(newValue.label)
@@ -42,14 +61,14 @@ const SideFilter: FC<Props> = ({ data, withSearch }) => {
     const resetFilter = () => {
         setRangeValue(defaultRangeValue);
         setSearchValue('');
-        setProvider('0');
+        setProvider('');
     }
 
     const changeFilterState = () => {
         dispatch(setFilter({
             range: rangeValue,
             provider,
-            search: ''
+            search: searchValue
         }))
     }
 
@@ -83,7 +102,7 @@ const SideFilter: FC<Props> = ({ data, withSearch }) => {
                     value={rangeValue}
                     minDistance={0}
                     max={defaultRangeValue[1]}
-                    min={defaultRangeValue[0]}/>
+                    min={defaultRangeValue[0]} />
                 {
                     withSearch &&
                     <>

@@ -28,11 +28,13 @@ const Category: FC = () => {
 
     const filterState = useSelector((state: RootState) => state.sortSlice.filter);
 
+
     const queryParams = {
         type: type,
         sortParams: sortState.title,
         range: filterState.range,
-        provider: filterState.provider
+        provider: filterState.provider,
+        search: filterState.search
     }
 
     const { data = [], isSuccess, isLoading, isError, error } = useGetCategoryItemsQuery(queryParams);

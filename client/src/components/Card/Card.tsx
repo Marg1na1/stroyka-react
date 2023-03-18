@@ -26,6 +26,7 @@ const Card: FC<Props> = memo((
         horizontal = false,
         discountAmount,
         id,
+        type
     }) => {
 
     const currentPrice: number = getCurrentPrice(price, discountAmount);
@@ -39,7 +40,7 @@ const Card: FC<Props> = memo((
     return (
         <li className={style['grid-item']}>
             <article className={horizontal ? style['grid-item__content--h'] : style['grid-item__content']}>
-                <Link to={`/products/${id}`}>
+                <Link to={`/products/${id}`} state={type}>
                     <img
                         loading='lazy'
                         className={horizontal ? style['grid-item__image--h'] : style['grid-item__image']}
@@ -50,7 +51,7 @@ const Card: FC<Props> = memo((
                     />
                 </Link>
                 <div className={style['grid-item__main']}>
-                    <Link to={`/products/${id}`}>
+                    <Link to={`/products/${id}`} state={type}>
                         <h2 className={style['grid-item__title']}>{title}</h2>
                     </Link>
                     <div className={style['grid-item__price']}>

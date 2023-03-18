@@ -15,10 +15,11 @@ export interface BrandsModel {
     list: string[];
 };
 
-export interface BreadcrumbsModel  {
+export interface BreadcrumbsModel {
     path?: string;
     title: string;
     type: 'link' | 'seperator';
+    state?: string;
 }
 
 export interface CategoryItemModel {

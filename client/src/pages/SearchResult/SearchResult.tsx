@@ -10,6 +10,8 @@ import { MobileSideWrapper } from 'components/MobileSideWrapper';
 import { SideFilter } from 'components/SideFilter';
 import { useLocation } from 'react-router-dom';
 import { useGetSearchedQuery } from 'redux/injected/injectedSearched';
+import { RootState } from 'redux/store';
+import { useSelector } from 'react-redux';
 import style from './SearchResult.module.scss';
 
 const SearchResult: FC = () => {
@@ -22,10 +24,14 @@ const SearchResult: FC = () => {
 
     const { sortState } = useSort();
 
+    const filterParams = useSelector((state: RootState) => state.sortSlice.filter);
+   
     const { data = [], isLoading, isSuccess, isError, error } = useGetSearchedQuery(
         {
             value: searchQuery,
-            sort: sortState.title
+            sort: sortState.title,
+            provider: filterParams.provider,
+            range: filterParams.range
         }
     );
 
@@ -53,7 +59,7 @@ const SearchResult: FC = () => {
                 <div className='container'>
                     <h1 className={style['title']}>Товары по запросу&nbsp; <div className={style['title-query']}>«<p className={style['title-query__item']}>{searchQuery}</p>»</div></h1>
                     <div className={style['wrapper']}>
-                        {<SideSkeleton />}
+                        <SideSkeleton />
                         <SearchedMain data={data} isLoading={isLoading} />
                     </div>
                 </div>

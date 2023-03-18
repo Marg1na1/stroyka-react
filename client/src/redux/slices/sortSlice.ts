@@ -5,7 +5,7 @@ import { SortTypeModel } from 'types/models';
 type FilterType = {
     range: number[];
     provider: string;
-    search: string;
+    search?: string;
 }
 
 type PickingType = {
