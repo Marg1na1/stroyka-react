@@ -28,4 +28,4 @@
 6. Wait till server is started on 80 port.
 
 ## Home page
-![alt](https://i.ibb.co/TPZxf4Y/localhost-3000-2.png)
+![alt] (https://i.ibb.co/TPZxf4Y/localhost-3000-2.png)
