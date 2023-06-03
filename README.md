@@ -3,7 +3,7 @@
 ## Installation and Launch steps (Windows):
 
 ### CRA:
-1. In the clent folder, launch a terminal and type npn i.
+1. In the clent folder, launch a terminal and type npm i.
 2. Next type npm start.
 
 ### env
