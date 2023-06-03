@@ -1,3 +1,16 @@
+# Client side
+
+## Installation and Launch steps (Windows):
+
+### CRA:
+1. In the clent folder, launch a terminal and type npn i.
+2. Next type npm start.
+
+### env
+1. In client folder create .env.local file.
+2. Populate .env.local with .env.example.
+3. Restart app.
+
 # Server side
 
 ## Installation and Launch steps (Windows):
