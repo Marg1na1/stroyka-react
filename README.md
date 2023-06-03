@@ -26,3 +26,6 @@
 4. Create ".env" file and fill it like ".env.example" substituting your values
 5. Type "python run.py"
 6. Wait till server is started on 80 port.
+
+## Home page
+(https://i.ibb.co/TPZxf4Y/localhost-3000-2.png)
