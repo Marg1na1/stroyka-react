@@ -1,0 +1,71 @@
+clickhouse:
+  shards:
+    # Health check settings
+    health-check-interval: PT30S  # 30 seconds
+    connection-timeout: PT10S     # 10 seconds
+    read-timeout: PT30S          # 30 seconds
+    max-retries: 3
+    retry-delay: PT0.5S          # 500ms
+    
+    # Hikari connection pool settings
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      max-lifetime: PT10M        # 10 minutes
+      idle-timeout: PT5M         # 5 minutes
+    
+    # Shard configurations
+    shards:
+      - name: "shard1"
+        url: "jdbc:clickhouse://clickhouse-shard1:8123/default"
+        username: "default"
+        password: "password"
+        weight: 2
+        enabled: true
+        properties:
+          socket_timeout: "30000"
+          connection_timeout: "10000"
+          compress: "true"
+          decompress: "true"
+          
+      - name: "shard2"
+        url: "jdbc:clickhouse://clickhouse-shard2:8123/default"
+        username: "default"
+        password: "password"
+        weight: 2
+        enabled: true
+        properties:
+          socket_timeout: "30000"
+          connection_timeout: "10000"
+          compress: "true"
+          decompress: "true"
+          
+      - name: "shard3"
+        url: "jdbc:clickhouse://clickhouse-shard3:8123/default"
+        username: "default"
+        password: "password"
+        weight: 1
+        enabled: true
+        properties:
+          socket_timeout: "30000"
+          connection_timeout: "10000"
+          compress: "true"
+          decompress: "true"
+
+# Spring Boot Actuator settings
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+
+# Logging configuration
+logging:
+  level:
+    com.example.clickhouse: DEBUG
+    com.zaxxer.hikari: INFO
+    com.clickhouse: INFO
